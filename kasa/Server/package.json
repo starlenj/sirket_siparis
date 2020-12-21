@@ -1,0 +1,35 @@
+{
+  "name": "inndirim",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "nodemon server.js",
+    "server": "nodemon Server.js",
+    "client": "npm run serve --prefix client",
+    "dev": "concurrently \"npm run server\" \" npm run client\""
+  },
+  "author": "nasuh emre atessoy",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^3.6.0",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "cron": "^1.8.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.1.7",
+    "mssql": "^6.2.3",
+    "multer": "^1.4.2",
+    "node-restful": "^0.2.6",
+    "path": "^0.12.7",
+    "util": "^0.11.0"
+  }
+}

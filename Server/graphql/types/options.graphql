@@ -1,0 +1,44 @@
+type Query {
+  Option(id: ID!): Option
+  Options: [Option]
+}
+
+type Option {
+  id: ID!
+  Name: String!
+  IsRequired: Boolean!
+  MaxQuantity: Int
+  MinQuantity: Int
+  SelectType: String
+  OptionValues: [OptionValue]
+  Order: Int
+}
+
+type Mutation {
+  CreateOption(data: CreateOptionInput): Option
+  UpdateOption(data: UpdateOptionInput): Option
+  DeleteOption(data: DeleteOptionInput): Option
+}
+
+input CreateOptionInput {
+  Name: String!
+  IsRequired: Boolean!
+  MaxQuantity: Int
+  MinQuantity: Int
+  SelectType: String
+  Order: Int
+}
+
+input UpdateOptionInput {
+  id: ID!
+  Name: String!
+  IsRequired: Boolean
+  MaxQuantity: Int
+  MinQuantity: Int
+  SelectType: String
+  Order: Int
+}
+
+input DeleteOptionInput {
+  id: ID!
+}

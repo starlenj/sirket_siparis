@@ -1,0 +1,33 @@
+type SelectOrderOptions {
+  id: ID!
+  OrderBodyId: ID!
+  OptionsId: ID!
+  OrderOptions: [OptionValue]
+}
+
+type Mutation {
+  CreateSelectOrderOptions(
+    data: CreateSelectOrderOptionsInput
+  ): SelectOrderOptions
+  UpdateSelectOrderOptions(
+    data: UpdateSelectOrderOptionsInput
+  ): SelectOrderOptions
+  DeleteSelectOrderOptions(
+    data: DeleteSelectOrderOptionsInput
+  ): SelectOrderOptions
+}
+
+input CreateSelectOrderOptionsInput {
+  OrderBodyId: String!
+  OptionsId: String!
+}
+
+input UpdateSelectOrderOptionsInput {
+  id: ID!
+  OrderBodyId: String!
+  OptionsId: String!
+}
+
+input DeleteSelectOrderOptionsInput {
+  id: ID!
+}

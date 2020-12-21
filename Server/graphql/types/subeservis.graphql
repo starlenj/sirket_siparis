@@ -1,0 +1,28 @@
+type Query {
+  SubeServis(SubeId: String!): [SubeServis]
+}
+type SubeServis {
+  id: String!
+  SubeId: String!
+  Sube: [Sube]
+  Name: String!
+}
+type Mutation {
+  CreateSubeServis(data: CreateSubeServisInput): SubeServis
+  UpdateSubeServis(data: UpdateSubeServisInput): SubeServis
+  DeleteSubeServis(data: DeleteSubeServisInput): SubeServis
+}
+
+input CreateSubeServisInput {
+  SubeId: String!
+  Name: String!
+}
+
+input UpdateSubeServisInput {
+  id: String!
+  SubeId: String!
+  Name: String!
+}
+input DeleteSubeServisInput {
+  id: String!
+}

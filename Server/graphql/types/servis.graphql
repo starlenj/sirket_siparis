@@ -1,0 +1,33 @@
+type Query {
+  Servis: [Servis]
+}
+type Servis {
+  id: String!
+  Semt: String
+  ServisBedeli: String!
+  MinimumTutar: String!
+  SubeId: String!
+}
+type Mutation {
+  CreateServis(data: CreateServisInput): Servis
+  UpdateServis(data: UpdateServisInput): Servis
+  DeleteServis(data: DeleteServisInput): Servis
+}
+
+input CreateServisInput {
+  Semt: String!
+  ServisBedeli: String!
+  MinimumTutar: String!
+  SubeId: String!
+}
+
+input UpdateServisInput {
+  id: String!
+  Semt: String!
+  ServisBedeli: String!
+  MinimumTutar: String!
+  SubeId: String!
+}
+input DeleteServisInput {
+  id: String!
+}

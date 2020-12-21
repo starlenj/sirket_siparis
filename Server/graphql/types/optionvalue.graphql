@@ -1,0 +1,33 @@
+type Query {
+  OptionValue(OptionsId: String!): [OptionValue]
+  OptionValues: [OptionValue]
+}
+
+type OptionValue {
+  id: ID
+  Name: String
+  OptionsId: String
+  Price: Float
+}
+
+type Mutation {
+  CreateOptionValue(data: CreateOptionValueInput): OptionValue
+  UpdateOptionValue(data: UpdateOptionValueInput): OptionValue
+  DeleteOptionValue(data: DeleteOptionValueInput): OptionValue
+}
+
+input CreateOptionValueInput {
+  Name: String!
+  Price: Float!
+  OptionsId: String!
+}
+
+input UpdateOptionValueInput {
+  id: String!
+  Name: String!
+  Price: Float!
+}
+
+input DeleteOptionValueInput {
+  id: ID!
+}

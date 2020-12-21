@@ -1,0 +1,101 @@
+# import Query from  './types/user.graphql'
+# import Mutation from  './types/user.graphql'
+
+# import Query from  './types/productprice.graphql'
+# import Mutation from  './types/productprice.graphql'
+
+# import Query from  './types/semt.graphql'
+# import Mutation from  './types/semt.graphql'
+
+# import Query from  './types/servis.graphql'
+# import Mutation from  './types/servis.graphql'
+
+# import Query from  './types/subeservis.graphql'
+# import Mutation from  './types/subeservis.graphql'
+
+# import Query from  './types/sube.graphql'
+# import Mutation from  './types/sube.graphql'
+# import Subscription from  './types/sube.graphql'
+
+
+# import Query from  './types/token.graphql'
+
+
+# import Query from  './types/permission.graphql'
+# import Mutation from  './types/permission.graphql'
+
+# import Query from  './types/address.graphql'
+# import Mutation from  './types/address.graphql'
+
+
+# import Query from  './types/customer.graphql'
+# import Mutation from  './types/customer.graphql'
+
+# import Query from  './types/sepet.graphql'
+# import Mutation from  './types/sepet.graphql'
+
+
+# import Query from  './types/orderBody.graphql'
+# import Mutation from  './types/orderBody.graphql'
+
+
+# import Query from  './types/orderheader.graphql'
+# import Mutation from  './types/orderheader.graphql'
+# import Subscription from  './types/orderheader.graphql'
+
+# import Query from  './types/product.graphql'
+# import Mutation from  './types/product.graphql'
+# import Subscription from  './types/product.graphql'
+
+# import Query from  './types/category.graphql'
+# import Mutation from  './types/category.graphql'
+
+# import Query from  './types/options.graphql'
+# import Mutation from  './types/options.graphql'
+
+
+# import Query from  './types/selectoption.graphql'
+# import Mutation from  './types/selectoption.graphql'
+
+
+# import Query from  './types/calismasaatleri.graphql'
+# import Mutation from  './types/calismasaatleri.graphql'
+
+
+# import Query from  './types/paymenttype.graphql'
+# import Mutation from  './types/paymenttype.graphql'
+
+
+# import Query from  './types/servis.graphql'
+# import Mutation from  './types/servis.graphql'
+
+
+# import Query from  './types/ordertype.graphql'
+# import Mutation from  './types/ordertype.graphql'
+
+# import Query from  './types/selectorderoptions.graphql'
+# import Mutation from  './types/selectorderoptions.graphql'
+
+# import Query from  './types/optionvalue.graphql'
+# import Mutation from  './types/optionvalue.graphql'
+
+# import Query from  './types/covidformheader.graphql'
+# import Mutation from  './types/covidformheader.graphql'
+
+# import Query from  './types/covidates.graphql'
+# import Mutation from  './types/covidates.graphql'
+
+# import Query from  './types/covidhijyen.graphql'
+# import Mutation from  './types/covidhijyen.graphql'
+
+# import Query from  './types/personel.graphql'
+# import Mutation from  './types/personel.graphql'
+
+# import Query from  './types/cashierheader.graphql'
+# import Mutation from  './types/cashierheader.graphql'
+
+
+# import Query from  './types/cashierbody.graphql'
+# import Mutation from  './types/cashierbody.graphql'
+
+

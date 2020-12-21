@@ -1,0 +1,33 @@
+type Query {
+  ProductPrice(SubeId: String!, ProductId: String!): ProductPrice
+}
+type ProductPrice {
+  id: String!
+  Price: Float!
+  Status: Int!
+  SubeId: String!
+  ProductId: String!
+}
+
+type Mutation {
+  CreateProductPrice(data: CreateProductPriceInput): Product
+  UpdateProductPrice(data: UpdateProductPriceInput): Product
+  DeleteProductPrice(data: DeleteProductPriceInput): Product
+}
+
+input CreateProductPriceInput {
+  Price: Float!
+  Status: Int!
+  SubeId: String!
+  ProductId: String!
+}
+input UpdateProductPriceInput {
+  id: String!
+  Price: Float!
+  Status: Int!
+  SubeId: String!
+  ProductId: String!
+}
+input DeleteProductPriceInput {
+  id: ID!
+}

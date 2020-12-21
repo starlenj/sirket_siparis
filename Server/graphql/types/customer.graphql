@@ -1,0 +1,39 @@
+type Query {
+  customers: [Customer!]!
+  customer(id: ID!): Customer
+}
+
+type Customer {
+  id: ID!
+  Name: String!
+  UserAddress: [Address]
+  Phone: String
+  Email: String!
+  Sepet: [Sepet]
+}
+
+type Mutation {
+  CreateCustomer(data: CustomerInput!): Token
+  SingInCustomer(data: SignInInput!): Token
+  UpdateCustomer(data: UpdateInput): Customer
+  DeleteCustomer(data: DeleteInput): Customer
+}
+input CustomerInput {
+  Name: String!
+  Phone: String
+  Email: String!
+  Password: String!
+}
+input SignInInput {
+  Email: String!
+  Password: String!
+}
+input UpdateInput {
+  id: ID!
+  Name: String!
+  Phone: String
+  Email: String!
+}
+input DeleteInput {
+  id: ID!
+}

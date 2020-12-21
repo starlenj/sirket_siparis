@@ -1,0 +1,41 @@
+type Query {
+  User(id: String!): User!
+  Users: [User!]!
+  ActiveUser: User
+}
+
+type User {
+  id: ID!
+  Email: String!
+  Name: String!
+  Sube: String
+  UserPermissions: [Permission!]!
+  SubeInfo: [Sube!]!
+}
+
+type Mutation {
+  CreateUser(data: CreateUserInput!): Token
+  SignIn(data: SignInUserInput!): Token
+  UpdateUser(data: UpdateUserInput!): User
+  DeleteUser(data: DeleteUserInput!): User
+}
+
+input CreateUserInput {
+  Email: String!
+  Password: String!
+  Sube: String!
+  Name: String!
+}
+input SignInUserInput {
+  Email: String!
+  Password: String!
+}
+input UpdateUserInput {
+  Email: String!
+  Name: String!
+  Sube: String!
+  id: String!
+}
+input DeleteUserInput {
+  id: String!
+}

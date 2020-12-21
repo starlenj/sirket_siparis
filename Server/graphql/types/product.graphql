@@ -1,0 +1,54 @@
+type Query {
+  Product(id: String!): Product
+  Products: [Product]
+}
+
+type Product {
+  id: String!
+  Category: [Category]
+  CategoryId: ID!
+  Name: String!
+  Info: String
+  Price: Float!
+  Order: Int
+  SelectOption: [SelectOption]
+  Picture: String
+  Status: Int!
+}
+
+type Mutation {
+  CreateProduct(data: CreateProductInput): Product
+  UpdateProduct(data: UpdateProductInput): Product
+  ProductStatus(data: ProductStatusInput): Product
+  DeleteProduct(data: DeleteProductInput): Product
+}
+
+input ProductStatusInput {
+  Status: Int!
+  id: String!
+}
+input CreateProductInput {
+  CategoryId: String!
+  Name: String!
+  Info: String
+  Price: Float!
+  Picture: String
+  Order: Int
+  Status: Int!
+}
+input UpdateProductInput {
+  id: String!
+  CategoryId: String!
+  Name: String!
+  Info: String
+  Price: Float!
+  Picture: String
+  Status: Int!
+  Order: Int
+}
+input DeleteProductInput {
+  id: ID!
+}
+type Subscription {
+  ProductStatus(id: String!): Product!
+}

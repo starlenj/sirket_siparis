@@ -1,0 +1,35 @@
+type Query {
+  Category(id: ID!): Category
+  Categorys: [Category]
+  ArabaCategory: [Category]
+}
+
+type Category {
+  id: ID!
+  Name: String!
+  Order: Int
+  Products: [Product]
+  CategoryType: String
+  SubeId: String
+}
+
+type Mutation {
+  CreateCategory(data: CreateCategoryInput): Category
+  UpdateCategory(data: UpdateCategoryInput): Category
+  DeleteCategory(data: DeleteCategoryInput): Category
+}
+
+input CreateCategoryInput {
+  Name: String!
+  Order: Int
+  SubeId: String
+}
+input UpdateCategoryInput {
+  id: String!
+  Name: String!
+  SubeId: String
+}
+
+input DeleteCategoryInput {
+  id: String!
+}

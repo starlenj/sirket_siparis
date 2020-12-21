@@ -1,0 +1,1151 @@
+[
+  {
+    "label": "Batıkent Kentkoop",
+    "value": "Batıkent Kentkoop",
+    "MinimumTutar": "20",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Ergazi Mah",
+    "value": "Ergazi Mah",
+    "MinimumTutar": "20",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İlk Yerleşim",
+    "value": "İlk Yerleşim",
+    "MinimumTutar": "20",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İnönü",
+    "value": "İnönü",
+    "MinimumTutar": "20",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Kardelen",
+    "value": "Kardelen",
+    "MinimumTutar": "20",
+    "SubeId": "batikent"
+  },
+
+  {
+    "label": "Uğur Mumcu",
+    "value": "Uğur Mumcu",
+    "MinimumTutar": "30",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "25 Mart",
+    "value": "25 Mart",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Anadolu",
+    "value": "Anadolu",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Aşağı Yahyalar",
+    "value": "Aşağı Yahyalar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Avcılar",
+    "value": "Avcılar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Barış",
+    "value": "Barış",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Barıştepe",
+    "value": "Barıştepe",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Batı Sitesi",
+    "value": "Batı Sitesi",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Turgut Özal",
+    "value": "Turgu Özal",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Çamlıca",
+    "value": "Çamlıca",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Demetevler",
+    "value": "Demetevler",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Demetgül",
+    "value": "Demetgül",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Demetlale",
+    "value": "Demetlale",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Güzelyaka",
+    "value": "Güzelyaka",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Işınlar",
+    "value": "Işınlar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İvedik",
+    "value": "İvedik",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İvedik osb",
+    "value": "İvedik osb",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Kaletepe",
+    "value": "Kaletepe",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Karşıyaka",
+    "value": "Karşıyaka",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Kayalar",
+    "value": "Kayalar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Kuzey Yıldızı",
+    "value": "Kuzey Yıldızı",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Macun Mah",
+    "value": "Macun Mah",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Mehmet Akif Ersoy",
+    "value": "Mehmet Akif Ersoy",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Urankent",
+    "value": "Urankent",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Ostim",
+    "value": "Ostim",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Ostim Osb",
+    "value": "Ostim Osb",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Özevler",
+    "value": "Özevler",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Pamuklar",
+    "value": "Pamuklar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Serhat mah",
+    "value": "Serhat mah",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yeditepe",
+    "value": "Yeditepe",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yeni Batı",
+    "value": "Yeni Batı",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yeşilevler",
+    "value": "Yeşilevler",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yeniçağ",
+    "value": "Yeniçağ",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yukarı Yahyalar",
+    "value": "Yukarı Yahyalar",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yunus Emre",
+    "value": "Yunus Emre",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yuvaköy",
+    "value": "Yuvaköy",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Göksü Mah",
+    "value": "Göksu Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Altay Mah",
+    "value": "Altay Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Güzelkent Mah",
+    "value": "Güzelkent Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Eryaman Mah",
+    "value": "Eryaman Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Şehit Osman Avcı Mah",
+    "value": "Şehit Osman Avcı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Şeker mah",
+    "value": "Şeker mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Şeyh Şamil Mah",
+    "value": "Şeyh Şamil Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Tunahan Mah",
+    "value": "Tunahan Mah",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Bahçelievler",
+    "value": "Bahçelievler",
+    "MinimumTutar": "10",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Beşevler",
+    "value": "Beşevler",
+    "MinimumTutar": "25",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Emek Mah",
+    "value": "Emek Mah",
+    "MinimumTutar": "25",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yukarı Bahçelievler",
+    "value": "Yukarı Bahçelievler",
+    "MinimumTutar": "25",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hamamönü",
+    "value": "Hamamönü",
+    "MinimumTutar": "30",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hacıbayram Mah",
+    "value": "Hacıbayram Mah",
+    "MinimumTutar": "30",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Mebusevler Mah",
+    "value": "Mebusevler Mah",
+    "MinimumTutar": "30",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Anıttepe Mah",
+    "value": "Anıttepe Mah",
+    "MinimumTutar": "40",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Maltepe Mah",
+    "value": "Maltepe Mah",
+    "MinimumTutar": "40",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yücetepe Mah",
+    "value": "Yücetepe Mah",
+    "MinimumTutar": "40",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yenimahalle Mah",
+    "value": "Yenimahalle Mah",
+    "MinimumTutar": "40",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Aydınlıkevler Mah",
+    "value": "Aydınlıkevler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Güneşevler Mah",
+    "value": "Güneşevler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hacettepe Mah",
+    "value": "Hacettepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Önder Mah",
+    "value": "Önder Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "50.yıl Mah",
+    "value": "50.yıl Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Aşağı Dikmen Mah",
+    "value": "Aşağı Dikmen Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ayrancı Mah",
+    "value": "Ayrancı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Balgat Mah",
+    "value": "Balgat Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Birlik Mah",
+    "value": "Birlik Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çamlıtepe Mah",
+    "value": "Çamlıtepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çiğdem Mah",
+    "value": "Çiğdem Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çukurambar-MTA Mah",
+    "value": "Çukurambar-MTA Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Erzurum Mah",
+    "value": "Erzurum Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Fakülteler Mah",
+    "value": "Fakülteler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "G.O.P 100.Yıl Mah",
+    "value": "G.O.O 100.Yıl Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "İleri Mah",
+    "value": "İleri Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "İşçi Blokları Mah",
+    "value": "İşçi Blokları Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kızılay Mah",
+    "value": "Kızılay Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kızılırmak Mah",
+    "value": "Kızılırmak Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Korkutreis Mah",
+    "value": "Korkutreis Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "GMK Bulvarı",
+    "value": "GMK Bulvarı",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Tandoğan",
+    "value": "Tandoğan",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Mustafa Kemal Mah",
+    "value": "Mustafa Kemal Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ön Cebeci Mah",
+    "value": "Ön Cebeci Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Oran Mah",
+    "value": "Oran Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Öveçler Mah",
+    "value": "Öveçler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Söğütözü Mah",
+    "value": "Söğütözü Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Üniversiteler Mah",
+    "value": "Üniversiteler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yukarı Dikmen Mah",
+    "value": "Yukarı Dikmen Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "23 Nisan Mah",
+    "value": "23 Nisan Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Aşağı Eğlence Mah",
+    "value": "Aşağı Eğlence Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ayvalı Mah",
+    "value": "Ayvalı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Bademlik Mah",
+    "value": "Bademlik Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Bağlarbaşı Mah",
+    "value": "Bağlarbaşı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Basınevleri Mah",
+    "value": "Basınevleri Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çaldıran Mah",
+    "value": "Çaldıran Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çiçekli Mah",
+    "value": "Çiçekli Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Emrah Mah",
+    "value": "Emrah Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Esertepe Mah",
+    "value": "Esertepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Etlik Mah",
+    "value": "Etlik Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Güçlükaya Mah",
+    "value": "Güçlükaya Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Gümüşdere Mah",
+    "value": "Gümüşdere Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Güzelyurt Mah",
+    "value": "Güzelyurt Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hisar Mah",
+    "value": "Hisar Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "İncirli Mah",
+    "value": "İncirli Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kalama Mah",
+    "value": "Kalama Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kamil Ocak Mah",
+    "value": "Kamil Ocak Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kanuni Mah",
+    "value": "Kanuni Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Karargahtepe Mah",
+    "value": "Karargahtepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kavacık Subayevleri Mah",
+    "value": "Kavacık Subayevleri Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kavacık Subayevleri Mah",
+    "value": "Kavacık Subayevleri Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Köşk Mah",
+    "value": "Köşk Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kuşcağız Mah",
+    "value": "Kuşcağız Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Osmangazi Mah",
+    "value": "Osmangazi Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Pınarbaşı Mah",
+    "value": "Pınarbaşı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Sancaktepe Mah",
+    "value": "Sancaktepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şefkat Mah",
+    "value": "Şefkat Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şehit Kubilay Mah",
+    "value": "Şehit Kubilay Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şenlik Mah",
+    "value": "Şenlik Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şenyuva Mah",
+    "value": "Şenyuva Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Tepebaşı Mah",
+    "value": "Tepebaşı Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Uyanış Mah",
+    "value": "Uyanış Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yayla Mah",
+    "value": "Yayla Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yeşiltepe Mah",
+    "value": "Yeşiltepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Abidinpaşa Mah",
+    "value": "Abidinpaşa Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Akdere Mah",
+    "value": "Akdere Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Akşemsettin Mah",
+    "value": "Akşemsettin Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Altıağaç Mah",
+    "value": "Altıağaç Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+
+  {
+    "label": "Altınevler Mah",
+    "value": "Altınevler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Araplar Mah",
+    "value": "Araplar Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Aşık Veysel Mah",
+    "value": "Aşık Veysel Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Bahçeleriçi Mah",
+    "value": "Bahçeleriçi Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Bahçelerüstü Mah",
+    "value": "Bahçelerüstü Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Balkiraz Mah",
+    "value": "Balkiraz Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Cengizhan Mah",
+    "value": "Cengizhan Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Çiğitepe Mah",
+    "value": "Çiğitepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Demirlibahçe Mah",
+    "value": "Demirlibahçe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Diriliş Mah",
+    "value": "Diriliş Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Dostlar Mah",
+    "value": "Dostlar Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Durali Alıç Mah",
+    "value": "Durali Alıç Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Dutluk Mah",
+    "value": "Dutluk  Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ege Mah",
+    "value": "Ege Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Erkin Mah",
+    "value": "Erkin Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Fahri Korutürk Mah",
+    "value": "Fahri Korutürk Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+
+  {
+    "label": "Gn,Zeki Doğan Mah",
+    "value": "Gn,Zeki Doğan Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Gülveren Mah",
+    "value": "Gülveren Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Harman Mah",
+    "value": "Harman Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hürel Mah",
+    "value": "Hürel Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Hüseyingazi Mah",
+    "value": "Hüseyingazi Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Karaağaç Mah",
+    "value": "Karaağaç Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şahintepe Mah",
+    "value": "Şahintepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Saimekadın Mah",
+    "value": "Saimekadın Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şh. Cengiz Topel Mah",
+    "value": "Şh. Cengiz Topel Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şirintepe Mah",
+    "value": "Şirintepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Tepecik Mah",
+    "value": "Tepecik Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Türközü Mah",
+    "value": "Türközü Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Tuzluçayır Mah",
+    "value": "Tuzluçayır Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yeni Bayındır Mah",
+    "value": "Yeni Bayındır Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yeşilbayır Mah",
+    "value": "Yeşilbayır Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yukarı İmrahor Mah",
+    "value": "Yukarı İmrahor Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Beştepe Mah",
+    "value": "Beştepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Emniyet Mah",
+    "value": "Emniyet Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Gazi Mah",
+    "value": "Gazi Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kültür Mah",
+    "value": "Kültür Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kocatepe Mah",
+    "value": "Kocatepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Muhsin Ertuğrul Mah",
+    "value": "Muhsin Ertuğrul Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Küçük Esat Mah",
+    "value": "Küçük Esat Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ahmetler Mah",
+    "value": "Ahmetler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Remzi Oğuz Arık Mah",
+    "value": "Remzi Oğuz Arık Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Esatoğlan Mah",
+    "value": "Esatoğlan Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Şili Mah",
+    "value": "Şili Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Barbaros Mah",
+    "value": "Barbaros Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Tınaz Tepe Mah",
+    "value": "Tınaz Tepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Doğuş Mah",
+    "value": "Doğuş Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Kavaklıdere Mah",
+    "value": "Kavaklıdere Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Güneyevler Mah",
+    "value": "Güneyevler Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Cumhuriyet Mah",
+    "value": "Cumhuriyet Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Yüceltepe Mah",
+    "value": "Yüceltepe Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bahcelievler"
+  },
+  {
+    "label": "Ümitköy",
+    "value": "Ümitköy",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Koru Mah",
+    "value": "Koru Mah",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Mutlukent Mah",
+    "value": "Mutlukent Mah",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Çayyolu Mah",
+    "value": "Çayyolu Mah",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Angora Evleri",
+    "value": "Angora Evleri",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Beysukent Mah",
+    "value": "Beysukent Mah",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Ahmet Taner Kışlalı",
+    "value": "Ahmet Taner Kışlalı",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Beytepe",
+    "value": "Beytepe",
+    "MinimumTutar": "60",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Alacaatlı",
+    "value": "Alacaatlı",
+    "MinimumTutar": "60",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "İncek",
+    "value": "İncek",
+    "MinimumTutar": "100",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Bağlıca",
+    "value": "Bağlıca",
+    "MinimumTutar": "100",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Konutkent-1",
+    "value": "Konutkent-1",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  },
+  {
+    "label": "Konutkent-2",
+    "value": "Konutkent-2",
+    "MinimumTutar": "25",
+    "SubeId": "umitkoy"
+  }
+]

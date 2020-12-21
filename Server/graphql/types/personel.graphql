@@ -1,0 +1,29 @@
+type Query {
+  Personels: [Personel]
+  SubePersonel(SubeId: String!): [Personel]
+  Personel(id: String!): Personel
+}
+type Personel {
+  id: String
+  Name: String
+  SubeId: String
+}
+
+type Mutation {
+  CreatePersonel(data: CreatePersonelInput): Personel
+  UpdatePersonel(data: UpdatePersonelInput): Personel
+  DeletePersonel(data: DeletePersonelInput): Personel
+}
+
+input CreatePersonelInput {
+  Name: String!
+  SubeId: String
+}
+input UpdatePersonelInput {
+  id: String!
+  Name: String!
+  SubeId: String
+}
+input DeletePersonelInput {
+  id: String!
+}

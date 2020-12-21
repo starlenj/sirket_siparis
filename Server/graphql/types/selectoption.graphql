@@ -1,0 +1,29 @@
+type Query {
+  ProductSelectOption(ProductId: String!): [SelectOption]
+}
+
+type SelectOption {
+  id: ID
+  ProductId: ID!
+  OptionsId: ID!
+  Options: [Option]
+}
+
+type Mutation {
+  CreateSelectOption(data: CreateSelectOptionInput): SelectOption
+  UpdateSelectOption(data: UpdateSelectOptionInput): SelectOption
+  DeleteSelectOption(data: DeleteSelectOptionInput): SelectOption
+}
+
+input CreateSelectOptionInput {
+  ProductId: String!
+  OptionsId: String!
+}
+input UpdateSelectOptionInput {
+  id: String!
+  ProductId: String!
+  OptionsId: String!
+}
+input DeleteSelectOptionInput {
+  id: String!
+}

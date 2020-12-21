@@ -1,0 +1,30 @@
+type Query {
+  CovidHeaders: [CovidFormHeader!]!
+  CovidHeader(SubeId: String!, CreatedAt: String!): [CovidFormHeader]
+}
+
+type CovidFormHeader {
+  id: String
+  SubeId: String
+  CreatedAt: String
+  CovidAtesList: [CovidAtes]
+  CovidHijyenList: [CovidHijyen]
+}
+type Mutation {
+  CreateCovidFormHeader(data: CreateCovidFormInput): CovidFormHeader
+  UpdateCovidFormHeader(data: UpdateCovidFormInput): CovidFormHeader
+  DeleteCovidFormHeader(data: DeleteCovidFormInput): CovidFormHeader
+}
+input CreateCovidFormInput {
+  SubeId: String
+  CreatedAt: String!
+}
+input UpdateCovidFormInput {
+  SubeId: String
+  CreatedAt: String!
+  id: String!
+}
+
+input DeleteCovidFormInput {
+  id: String!
+}

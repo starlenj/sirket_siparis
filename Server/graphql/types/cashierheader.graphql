@@ -1,0 +1,32 @@
+type Query {
+  CashierHeaders: [CashierHeader!]!
+  CashierHeader(SubeId: String!, CreatedAt: String!): [CashierHeader]
+}
+
+type CashierHeader {
+  id: String
+  SubeId: String
+  CreatedAt: String
+  Status: Int
+  CashierBody: [CashierBody]
+}
+type Mutation {
+  CreateCashierHeader(data: CreateCashierInput): CashierHeader
+  UpdateCashierHeader(data: UpdateCashierInput): CashierHeader
+  DeleteCashierHeader(data: DeleteCashierInput): CashierHeader
+}
+input CreateCashierInput {
+  SubeId: String
+  CreatedAt: String!
+  Status: Int
+}
+input UpdateCashierInput {
+  SubeId: String
+  CreatedAt: String!
+  Status: Int
+  id: String!
+}
+
+input DeleteCashierInput {
+  id: String!
+}

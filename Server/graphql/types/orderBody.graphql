@@ -1,0 +1,35 @@
+type Query {
+  orderBody(OrderHeaderId: ID!): OrderBody
+  orderBodys: [OrderBody!]!
+}
+
+type OrderBody {
+  id: ID!
+  ProductId: String!
+  SelectOrderOption: [SelectOrderOptions]
+  Quantity: Int!
+  Price: Float!
+  Product: [Product]
+  OrderHeaderId: String!
+}
+type Mutation {
+  CreateOrder(data: CreateOrderInput): OrderBody
+  UpdateOrder(data: UpdateOrderInput): OrderBody
+  DeleteOrder(data: DeleteOrderInput): OrderBody
+}
+input CreateOrderInput {
+  ProductId: String!
+  Options: String
+  Quantity: Int!
+  Price: Float!
+  OrderHeaderId: String!
+}
+input UpdateOrderInput {
+  id: ID!
+  Options: String
+  Quantity: Int!
+  Price: Float!
+}
+input DeleteOrderInput {
+  id: ID!
+}

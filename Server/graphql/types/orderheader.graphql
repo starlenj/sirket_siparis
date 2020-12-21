@@ -1,0 +1,76 @@
+scalar Date
+type Query {
+  Order(id: String!): OrderHeader
+  Orders: [OrderHeader!]!
+  OnaysizOrders(SubeId: String!): [OrderHeader]
+  OnayliOrders(SubeId: String!): [OrderHeader]
+}
+type OrderHeader {
+  id: ID!
+  PaymentType: String!
+  OrderType: String!
+  CustomerId: String!
+  SubeId: String!
+  Note: String
+  Discount: Float
+  ServicePrice: Float
+  Order: [OrderBody!]!
+  OrderStatus: Int!
+  OrderChannel: String!
+  OrderPaymentType: [PaymentType]
+  OrderOrderType: [OrderType]
+  OrderCustomer: [Customer!]!
+  OrderSube: [Sube!]!
+  Date: Date!
+  Phone: String
+  CustomerName: String
+  Plaka: String
+  Aciklama: String
+  Adres : String
+}
+type Mutation {
+  CreateOrderHeader(data: CreateOrderHeaderInput): OrderHeader
+  UpdateOrderHeader(data: UpdateOrderHeaderInput): OrderHeader
+  DeleteOrderHeader(data: DeleteOrderHeaderInput): OrderHeader
+  SiparisOnay(data: SiparisOnayInput): OrderHeader
+  SiparisReddet(data: SiparisOnayInput): OrderHeader
+}
+
+input SiparisOnayInput {
+  id: String!
+}
+input CreateOrderHeaderInput {
+  PaymentType: String!
+  OrderType: String!
+  CustomerId: String!
+  SubeId: String!
+  Note: String
+  Discount: Float
+  ServicePrice: Float
+  OrderChannel: String!
+  Phone: String!
+  CustomerName: String!
+  Plaka: String
+  Aciklama: String
+  Adres : String
+}
+
+input UpdateOrderHeaderInput {
+  id: String!
+  PaymentType: String!
+  Note: String
+  Discount: Float
+  ServicePrice: Float
+  Phone: String!
+  CustomerName: String!
+  Plaka: String
+  Aciklama: String
+  Adres :String
+}
+input DeleteOrderHeaderInput {
+  id: String!
+}
+
+type Subscription {
+  OrderAdded(SubeId: String!): OrderHeader!
+}

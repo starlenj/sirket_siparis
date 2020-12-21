@@ -1,0 +1,24 @@
+type PaymentType {
+  id: ID!
+  Name: String!
+  SubeId: ID!
+}
+type Mutation {
+  CreatePaymentType(data: CreatePaymentTypeInput): PaymentType
+  UpdatePaymentType(data: UpdatePaymentTypeInput): PaymentType
+  DeletePaymentType(data: DeletePaymentTypeInput): PaymentType
+}
+
+input CreatePaymentTypeInput {
+  Name: String!
+  SubeId: ID!
+}
+input UpdatePaymentTypeInput {
+  id: ID!
+  Name: String!
+  SubeId: ID!
+}
+
+input DeletePaymentTypeInput {
+  id: ID!
+}
