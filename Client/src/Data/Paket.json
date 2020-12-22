@@ -29,7 +29,6 @@
     "MinimumTutar": "20",
     "SubeId": "batikent"
   },
-
   {
     "label": "Uğur Mumcu",
     "value": "Uğur Mumcu",
@@ -768,7 +767,6 @@
     "MinimumTutar": "50",
     "SubeId": "bahcelievler"
   },
-
   {
     "label": "Altınevler Mah",
     "value": "Altınevler Mah",
@@ -865,7 +863,6 @@
     "MinimumTutar": "50",
     "SubeId": "bahcelievler"
   },
-
   {
     "label": "Gn,Zeki Doğan Mah",
     "value": "Gn,Zeki Doğan Mah",
@@ -1147,5 +1144,77 @@
     "value": "Konutkent-2",
     "MinimumTutar": "25",
     "SubeId": "umitkoy"
+  },
+  {
+    "label": "Bilkent Üniv Doğu Kampüsü",
+    "value": "Bilkent Üniv Doğu Kampüsü",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Bilkent Üniv Merkez Kampüsü",
+    "value": "Bilkent Üniv Merkez Kampüsü",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Çankaya Üniv Bilkent Merkez",
+    "value": "Çankaya Üniv Bilkent Merkez",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Çankaya Üniv Bilkent Doğu",
+    "value": "Çankaya Üniv Bilkent Doğu",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Bilkent 3",
+    "value": "Bilkent 3",
+    "MinimumTutar": "45",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Odtü İsa Faika Demiray Yurdu",
+    "value": "Odtü İsa Faika Demiray Yurdu",
+    "MinimumTutar": "45",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Odtü Teknokent",
+    "value": "Odtü Teknokent",
+    "MinimumTutar": "45",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Yıldırım Beyazıt Üniv",
+    "value": "Yıldırım Beyazıt Üniv",
+    "MinimumTutar": "45",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Barış Sitesi",
+    "value": "Barış Sitesi",
+    "MinimumTutar": "50",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Odtü Teknokent BİM",
+    "value": "Odtü Teknokent BİM",
+    "MinimumTutar": "50",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Mustafa Kemal Mah",
+    "value": "Mustafa Kemal Mah",
+    "MinimumTutar": "50",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Hacettepe Üniv Beytepe",
+    "value": "Hacettepe Üniv Beytepe",
+    "MinimumTutar": "50",
+    "SubeId": "bilkent"
   }
 ]
