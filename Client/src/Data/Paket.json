@@ -495,7 +495,7 @@
     "label": "Mustafa Kemal Mah",
     "value": "Mustafa Kemal Mah",
     "MinimumTutar": "50",
-    "SubeId": "bahcelievler"
+    "SubeId": "bilkent"
   },
   {
     "label": "Ön Cebeci Mah",
@@ -1206,15 +1206,27 @@
     "SubeId": "bilkent"
   },
   {
-    "label": "Mustafa Kemal Mah",
-    "value": "Mustafa Kemal Mah",
+    "label": "Hacettepe Üniv Beytepe",
+    "value": "Hacettepe Üniv Beytepe",
     "MinimumTutar": "50",
     "SubeId": "bilkent"
   },
   {
-    "label": "Hacettepe Üniv Beytepe",
-    "value": "Hacettepe Üniv Beytepe",
-    "MinimumTutar": "50",
+    "label": "Bilkent 1",
+    "value": "Bilkent 1",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Bilkent Hastaneler ve Bakanlıklar",
+    "value": "Bilkent Hastaneler ve Bakanlıklar",
+    "MinimumTutar": "35",
+    "SubeId": "bilkent"
+  },
+  {
+    "label": "Bilkent 2",
+    "value": "Bilkent 2",
+    "MinimumTutar": "35",
     "SubeId": "bilkent"
   }
 ]

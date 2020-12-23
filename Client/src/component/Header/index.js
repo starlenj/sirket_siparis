@@ -37,12 +37,13 @@ export default class Header extends Component {
     }
   }
   HandleBolge = (e) => {
-    console.log(e);
     if (e.value !== "") {
       this.setState({ Bolge: e.value });
       localStorage.setItem("Bolge", e.value);
       localStorage.setItem("BolgeTutar", e.MinimumTutar);
-
+      window.location.href =
+        "?SiparisTuru=Paket&&Sube=" +
+        e.SubeId
       // window.location.reload();
     }
   };

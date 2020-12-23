@@ -107,20 +107,23 @@ export default class Sepet extends Component {
     CreateOrderBody,
     CreateSelectOrderOptions
   ) => {
-    var Topla = this.state.OrderType === "Paket" ? 0 : 0;
+    if (this.state.OrderType === "Paket") {
 
-    this.state.Order.map((order) => {
-      Topla +=
-        (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
-        parseInt(order.Quantity);
-    });
-    if (Topla < localStorage.getItem("BolgeTutar")) {
-      alert(
-        "Sipariş tutarınız yetersizdir.Bölge limiti " +
+      var Topla = this.state.OrderType === "Paket" ? 0 : 0;
+
+      this.state.Order.map((order) => {
+        Topla +=
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
+          parseInt(order.Quantity);
+      });
+      if (Topla < localStorage.getItem("BolgeTutar")) {
+        alert(
+          "Sipariş tutarınız yetersizdir.Bölge limiti " +
           localStorage.getItem("BolgeTutar") +
           " TL'dir"
-      );
-      return;
+        );
+        return;
+      }
     }
     if (this.state.PaymentType === "Online Ödeme") {
       if (localStorage.getItem("SUBE") === null || undefined) {
@@ -406,8 +409,8 @@ export default class Sepet extends Component {
                 TL
               </div>
             ) : (
-              <div>Toplam : {parseFloat(Topla).toFixed(2)} TL</div>
-            )}
+                <div>Toplam : {parseFloat(Topla).toFixed(2)} TL</div>
+              )}
           </span>
         </div>
       );
@@ -561,8 +564,8 @@ export default class Sepet extends Component {
                   ></textarea>
                 </div>
               ) : (
-                <div></div>
-              )}
+                  <div></div>
+                )}
 
               {this.state.OrderType === "Arabaya Servis" ? (
                 <div className="form-group" style={{ marginBottom: 20 }}>
@@ -583,8 +586,8 @@ export default class Sepet extends Component {
                   />
                 </div>
               ) : (
-                <div></div>
-              )}
+                  <div></div>
+                )}
               <button
                 data-toggle="modal"
                 data-target="#SiparisInfo"
@@ -671,12 +674,15 @@ export default class Sepet extends Component {
                             </div>
                           </div>
                           <div class="card col-md-6">
-                            <div class="card-body">
-                              Siparişiniz {this.state.Sube.toUpperCase()}{" "}
+                            {this.state.OrderType === "Paket" && (
+
+                              <div class="card-body">
+                                Siparişiniz {this.state.Sube.toUpperCase()}{" "}
                               şubesinden gönderilecektir.
-                              <br /> İrtibat için 444 82 20 numarasını
+                                <br /> İrtibat için 444 82 20 numarasını
                               arayabilirsiniz.
-                            </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                         <br />
@@ -821,8 +827,8 @@ export default class Sepet extends Component {
                                       {this.state.OrderType === "Paket" ? (
                                         <GenelToplam />
                                       ) : (
-                                        <AraToplam />
-                                      )}
+                                          <AraToplam />
+                                        )}
                                     </td>
                                   </tr>
                                 </tbody>
@@ -870,17 +876,17 @@ export default class Sepet extends Component {
               </div>
             </div>
           ) : (
-            <div>
-              <p class="card-text" style={{ textAlign: "center" }}>
-                <i
-                  class="fa fa-shopping-basket fa-2x"
-                  style={{ color: "#e1e1e1", textAlign: "center" }}
-                ></i>
-                <br />
+              <div>
+                <p class="card-text" style={{ textAlign: "center" }}>
+                  <i
+                    class="fa fa-shopping-basket fa-2x"
+                    style={{ color: "#e1e1e1", textAlign: "center" }}
+                  ></i>
+                  <br />
                 Sepetiniz şu anda boş!
               </p>
-            </div>
-          )}
+              </div>
+            )}
         </div>
       </div>
     );
