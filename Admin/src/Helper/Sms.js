@@ -3,7 +3,7 @@ import axios from 'axios';
 export const ReddetSmsGonder = async (GSM, Neden, Sube) => {
     try {
         var Mesaj = `Paketiniz ${Neden} nedeni ile ${Sube.toUpperCase()} şubemiz tarafından reddedilmiştir. Bilgi için 4448220`
-        let SmsResponse = await axios.post("http://localhost:4000/Api/SmsGonder", { GSM, Mesaj });
+        let SmsResponse = await axios.post("https://webserivs.hmbrgr.com.tr/Api/SmsGonder", { GSM, Mesaj });
         return SmsResponse;
     } catch (error) {
         console.error(error);
@@ -12,8 +12,8 @@ export const ReddetSmsGonder = async (GSM, Neden, Sube) => {
 
 export const KabulSmsGonder = async (GSM, Sube) => {
     try {
-        var Mesaj = `Paketiniz  ${Sube.toUpperCase()} şubemiz tarafından Onaylanmıştır. Bilgi için 4448220`
-        let SmsResponse = await axios.post("http://localhost:4000/Api/SmsGonder", { GSM, Mesaj });
+        var Mesaj = `Paketiniz  ${Sube.toUpperCase()} şubemiz tarafından onaylanmıştır. Bilgi için 4448220`
+        let SmsResponse = await axios.post("https://webserivs.hmbrgr.com.tr/Api/SmsGonder", { GSM, Mesaj });
         return SmsResponse;
     } catch (error) {
         console.error(error);

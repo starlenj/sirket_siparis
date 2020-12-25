@@ -56,7 +56,6 @@ export default class OrderDetail extends Component {
       ///SMS GÖNDERME BURADA OLACAK
       let smsresponse = await ReddetSmsGonder(this.state.Phone, this.state.IptalSebebi, this.props.session.ActiveUser.Sube)
       if (smsresponse.status == "200") {
-
         window.location.href = "/orders";
       }
 
