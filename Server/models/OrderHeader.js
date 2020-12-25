@@ -25,6 +25,9 @@ const OrderSchema = new Schema({
     type: String,
     required: true,
   },
+  OrderCancelInfo: {
+    type: String,
+  },
   Note: {
     type: String,
   },

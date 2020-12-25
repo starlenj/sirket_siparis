@@ -1,5 +1,4 @@
 import React, { Component, useRef } from "react";
-import Moment from "react-moment";
 import SideBar from "../../SideBar/index";
 import Header from "../../Header/index";
 import { Query, Subscription, Mutation } from "react-apollo";
@@ -8,11 +7,16 @@ import {
   SIPARIS_ONAY,
   SIPARIS_REDDET,
 } from "../../../queries";
-import ReactToPrint from "react-to-print";
-import PrintOrder from "./PrintOrder";
+import { ReddetSmsGonder, KabulSmsGonder } from '../../../Helper/Sms';
+
 export default class OrderDetail extends Component {
-  state = { OrderData: [], Options: [], Toplam: "", id: "", OrderType: "" };
+  state = { IptalSebebi: "", OrderData: [], Phone: "", Options: [], Toplam: "", id: "", OrderType: "" };
+  constructor(props) {
+    super(props);
+    this.HandleIptalSebebi = this.HandleIptalSebebi.bind(this);
+  }
   GetOptions(OrderData, data) {
+    console.log(data);
     var arr = [];
     var Topla = data.Order.OrderType === "Paket" ? 0 : 0;
     OrderData.map((order) => {
@@ -26,15 +30,37 @@ export default class OrderDetail extends Component {
       id: OrderData[0].OrderHeaderId,
       OrderType: data.Order.OrderType,
     });
-    this.setState({ Options: arr, Toplam: Topla });
+    this.setState({ Options: arr, Toplam: Topla, Phone: data.Order.Phone });
+  }
+  HandleIptalSebebi(e) {
+    this.setState({ IptalSebebi: e.target.value });
   }
   SiparisOnayla = async (SiparisOnay) => {
     let result = await SiparisOnay();
-    if (result) window.location.href = "/orders";
+    if (result) {
+      let smsresponse = await KabulSmsGonder(this.state.Phone, this.props.session.ActiveUser.Sube);
+      if (smsresponse.status == "200") {
+        window.location.href = "/orders";
+      }
+    }
   };
+
   SiparisReddet = async (SiparisReddet) => {
-    let result = await SiparisReddet();
-    if (result) window.location.href = "/orders";
+    if (this.state.IptalSebebi === "") {
+      alert("İptal Nedeni Zorunludur!!");
+      return;
+    }
+    let result = await SiparisReddet()
+    if (result) {
+
+      ///SMS GÖNDERME BURADA OLACAK
+      let smsresponse = await ReddetSmsGonder(this.state.Phone, this.state.IptalSebebi, this.props.session.ActiveUser.Sube)
+      if (smsresponse.status == "200") {
+
+        window.location.href = "/orders";
+      }
+
+    }
   };
   render() {
     return (
@@ -96,10 +122,10 @@ export default class OrderDetail extends Component {
                                     Onaylanmış
                                   </span>
                                 ) : (
-                                  <span class="badge badge-warning">
-                                    Onaylanmamış
-                                  </span>
-                                )}
+                                    <span class="badge badge-warning">
+                                      Onaylanmamış
+                                    </span>
+                                  )}
                               </td>
                             </tr>
                             <tr>
@@ -175,31 +201,31 @@ export default class OrderDetail extends Component {
                           <tbody>
                             {data.Order.Order !== undefined
                               ? data.Order.Order.map((orders) => {
-                                  return (
-                                    <tr>
-                                      <td>{orders.Product[0].Name}</td>
-                                      <td>
-                                        {orders.SelectOrderOption.map(
-                                          (option) => (
-                                            <div>
-                                              {option.OrderOptions[0].Name}
-                                            </div>
-                                          )
-                                        )}
-                                      </td>
-                                      <td>{orders.Quantity}</td>
-                                      <td>
-                                        {parseFloat(orders.Price).toFixed(2)}
-                                      </td>
-                                      <td>
-                                        {(
-                                          parseFloat(orders.Price) *
-                                          parseInt(orders.Quantity)
-                                        ).toFixed(2)}
-                                      </td>
-                                    </tr>
-                                  );
-                                })
+                                return (
+                                  <tr>
+                                    <td>{orders.Product[0].Name}</td>
+                                    <td>
+                                      {orders.SelectOrderOption.map(
+                                        (option) => (
+                                          <div>
+                                            {option.OrderOptions[0].Name}
+                                          </div>
+                                        )
+                                      )}
+                                    </td>
+                                    <td>{orders.Quantity}</td>
+                                    <td>
+                                      {parseFloat(orders.Price).toFixed(2)}
+                                    </td>
+                                    <td>
+                                      {(
+                                        parseFloat(orders.Price) *
+                                        parseInt(orders.Quantity)
+                                      ).toFixed(2)}
+                                    </td>
+                                  </tr>
+                                );
+                              })
                               : ""}
                           </tbody>
                         );
@@ -247,13 +273,13 @@ export default class OrderDetail extends Component {
                         <span>
                           {parseFloat(
                             this.state.Toplam -
-                              (this.state.Toplam / 100) * 5 +
-                              5
+                            (this.state.Toplam / 100) * 5 +
+                            5
                           ).toFixed(2)}
                         </span>
                       ) : (
-                        <span>{this.state.Toplam}</span>
-                      )}
+                          <span>{this.state.Toplam}</span>
+                        )}
                     </span>
                   </div>
                 </div>
@@ -267,20 +293,15 @@ export default class OrderDetail extends Component {
                 className="col-md-4"
                 style={{ marginLeft: 200, marginTop: 50 }}
               >
-                <Mutation
-                  mutation={SIPARIS_REDDET}
-                  variables={{ id: this.state.id }}
+
+                <button
+                  className="btn btn-danger"
+                  style={{ width: "100%" }}
+                  data-toggle="modal"
+                  data-target="#ReddetModal"
                 >
-                  {(SiparisReddet, { loading, error }) => (
-                    <button
-                      className="btn btn-danger"
-                      style={{ width: "100%" }}
-                      onClick={() => this.SiparisReddet(SiparisReddet)}
-                    >
-                      Reddet
+                  Reddet
                     </button>
-                  )}
-                </Mutation>
                 <br />
                 <br />
 
@@ -301,6 +322,58 @@ export default class OrderDetail extends Component {
               </div>
             </div>
           </section>
+          <div class="modal" tabindex="-1" role="dialog" id="ReddetModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">İptal Nedeni</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Lüften İptal Nedenini Seçiniz..</p>
+                  <select className="form-control" onChange={this.HandleIptalSebebi} name="IptalSebebi">
+                    <option value="">--Lütfen Seçiniz--</option>
+                    <option value="Adres Eksikliği">Adres Eksikliği</option>
+                    <option>Bölge Tutar Altında</option>
+                    <option>Gecikmeden Dolayı Kullanıcı İptali</option>
+                    <option>Gönderim Bölge Dışı</option>
+                    <option>Hava Muhalefeti</option>
+                    <option>Kullanıcı Birden Fazla Sipariş Verdi</option>
+                    <option>Kullanıcı Siparişi İptal Etmek İstedi</option>
+                    <option>Kullanıcı Notu Geçersiz</option>
+                    <option>Motorcu/Motor Problemi</option>
+                    <option>Ödemek Şekli Yok/Pos Cihazı Arızalı</option>
+                    <option>Restorant Kapalı Erken Kapama</option>
+                    <option>Sipariş Kapıda Kullanıcıya Ulaşılamıyor</option>
+                    <option>Sipariş Kapıdan Döndü</option>
+                    <option>Telefon Hatalı/Kullanılmıyor</option>
+                    <option>Ürün Yok</option>
+                    <option>Yoğunluk</option>
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <Mutation
+                    mutation={SIPARIS_REDDET}
+                    variables={{ id: this.state.id, OrderCancelInfo: this.state.IptalSebebi }}
+                  >
+                    {(SiparisReddet, { loading, error }) => (
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => this.SiparisReddet(SiparisReddet)}
+                      >
+                        Tamam
+                      </button>
+                    )}
+                  </Mutation>
+
+
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

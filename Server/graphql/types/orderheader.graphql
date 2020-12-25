@@ -26,18 +26,23 @@ type OrderHeader {
   CustomerName: String
   Plaka: String
   Aciklama: String
-  Adres : String
+  Adres: String
+  OrderCancelInfo:String
 }
 type Mutation {
   CreateOrderHeader(data: CreateOrderHeaderInput): OrderHeader
   UpdateOrderHeader(data: UpdateOrderHeaderInput): OrderHeader
   DeleteOrderHeader(data: DeleteOrderHeaderInput): OrderHeader
   SiparisOnay(data: SiparisOnayInput): OrderHeader
-  SiparisReddet(data: SiparisOnayInput): OrderHeader
+  SiparisReddet(data: SiparisIptalInput): OrderHeader
 }
 
 input SiparisOnayInput {
   id: String!
+}
+input SiparisIptalInput{
+  id: String!
+  OrderCancelInfo:String
 }
 input CreateOrderHeaderInput {
   PaymentType: String!

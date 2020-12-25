@@ -6,6 +6,7 @@ const { importSchema } = require("graphql-import");
 const mongoose = require("mongoose");
 const resolvers = require("./graphql/resolvers/index");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 //models
 const User = require("./models/User");
 const Sube = require("./models/Sube");
@@ -32,7 +33,7 @@ const CovidHijyen = require("./models/CovidHijyen");
 const Semt = require("./models/Semt");
 const SubeServis = require("./models/SubeServis");
 const ProductPrice = require("./models/ProductPrice");
-
+const bodyParser = require("body-parser");
 const PubSubServer = new PubSub();
 //server
 const Server = new ApolloServer({
@@ -74,6 +75,11 @@ mongoose
   .then(() => console.log("MONGO CONNECT"))
   .catch(() => console.error("MONGO DB ERROR"));
 const app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+//SMS API
+app.use(cors());
+app.use("/Api", require("./route/sms"));
 app.use(async (req, res, next) => {
   const token = req.headers["authorization"];
   if (token && token !== "null") {
@@ -91,6 +97,9 @@ Server.applyMiddleware({ app });
 
 const httpServer = http.createServer(app);
 Server.installSubscriptionHandlers(httpServer);
+
+
+
 httpServer.listen({ port: 4000 }, async () => {
   //ADMIN AÇILACAK
 

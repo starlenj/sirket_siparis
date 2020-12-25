@@ -68,9 +68,10 @@ module.exports = {
     return UpdateSiparis.save();
   },
 
-  SiparisReddet: async (parent, { data: { id } }, { OrderHeader }) => {
+  SiparisReddet: async (parent, { data: { id, OrderCancelInfo } }, { OrderHeader }) => {
     const UpdateSiparis = await OrderHeader.findById(id);
     UpdateSiparis.OrderStatus = -1;
+    UpdateSiparis.OrderCancelInfo = OrderCancelInfo;
     return UpdateSiparis.save();
   },
 };

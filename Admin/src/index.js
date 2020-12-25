@@ -32,7 +32,7 @@ const wsLink = new WebSocketLink(
 const httpLink = middlewareLink.concat(
   createHttpLink({
     uri: "https://webserivs.hmbrgr.com.tr/graphql",
-    //    uri: "http://localhost:4000/graphql"
+    //uri: "http://localhost:4000/graphql"
     // uri: "https://webserivs.hmbrgr.com.tr/graphql",
   })
 );
