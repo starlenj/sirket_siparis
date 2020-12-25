@@ -71,34 +71,6 @@ export default class SideBar extends Component {
                   <p> Sipariş Geçmişi</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/Personel" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Personel</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/CovidForm" class="nav-link">
-                  <i class="nav-icon fas fa-user"></i>
-                  <p>Covid Form</p>
-                </a>
-              </li>
-
-              {this.props.session.ActiveUser.Sube === "Merkez" ? (
-                <li class="nav-item">
-                  <a href="/CovidFormList" class="nav-link">
-                    <i class="nav-icon fas fa-user"></i>
-                    <p>Covid Form Geçmişi</p>
-                  </a>
-                </li>
-              ) : (
-                <li class="nav-item">
-                  <a href="/CovidFormSubeList" class="nav-link">
-                    <i class="nav-icon fas fa-user"></i>
-                    <p>Covid Form Geçmişi</p>
-                  </a>
-                </li>
-              )}
             </ul>
           </nav>
         </div>

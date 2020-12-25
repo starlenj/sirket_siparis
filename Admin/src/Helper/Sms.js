@@ -12,7 +12,7 @@ export const ReddetSmsGonder = async (GSM, Neden, Sube) => {
 
 export const KabulSmsGonder = async (GSM, Sube) => {
     try {
-        var Mesaj = `Paketiniz  ${Sube.toUpperCase()} şubemiz tarafından onaylanmıştır. Bilgi için 4448220`
+        var Mesaj = `Paketiniz  ${Sube.toUpperCase()} şubemiz tarafından onaylanmıştır.Servis süresi içinde adresinize teslim edilecektir.Afiyet olsun.Bilgi için 4448220`
         let SmsResponse = await axios.post("https://webserivs.hmbrgr.com.tr/Api/SmsGonder", { GSM, Mesaj });
         return SmsResponse;
     } catch (error) {
