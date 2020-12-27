@@ -75,9 +75,10 @@ export default class Sepet extends Component {
       return;
     } else {
       const SepetList = JSON.parse(Sepet);
+      console.log(SepetList);
+
       this.setState({ Order: SepetList });
     }
-    console.log(this.state.Order);
   };
   MiktarArtir = (order, index) => {
     var Orders = this.state.Order;
@@ -703,47 +704,51 @@ export default class Sepet extends Component {
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  {this.state.Order.length > 0 &&
-                                    this.state.Order.map((Order) => (
-                                      <tr>
-                                        <td>{Order.Quantity}</td>
-                                        <td>{Order.ProductName}</td>
-                                        <td>
-                                          {Order.EkmekOption.length > 0 && (
-                                            <span>
-                                              {Order.EkmekOption[0].Name}
-                                            </span>
-                                          )}
-                                          ,
-                                          {Order.EkLezzetOption.length > 0 &&
-                                            Order.EkLezzetOption.map(
-                                              (EkLezzet) => (
-                                                <span>{EkLezzet.Name},</span>
-                                              )
+                                  {
+                                    this.state.Order.length > 0 &&
+                                    this.state.Order.map((Orders) => {
+
+                                      return (
+                                        <tr>
+                                          <td>{Orders.Quantity}</td>
+                                          <td>{Orders.ProductName}</td>
+                                          <td>
+                                            {(
+                                              <span>
+                                                {Orders.EkmekOption[0] === undefined ? "" : Orders.EkmekOption[0].Name}
+                                              </span>
                                             )}
-                                          {Order.ExtraOptions.length > 0 &&
-                                            Order.ExtraOptions.map(
-                                              (ExtraOptions) => (
-                                                <span>
-                                                  {ExtraOptions.Name},
-                                                </span>
-                                              )
+
+                                            {
+                                              Orders.EkLezzetOption.map(
+                                                (EkLezzet) => (
+                                                  <span>,{EkLezzet.Name},</span>
+                                                )
+                                              )}
+                                            {
+                                              Orders.ExtraOptions.map(
+                                                (ExtraOptions) => (
+                                                  <span>
+                                                    {ExtraOptions.Name},
+                                                  </span>
+                                                )
+                                              )}
+                                            {Orders.IcecekOption && (
+                                              <span>
+                                                {Orders.IcecekOption[0] === undefined ? "" : Orders.IcecekOption[0].Name}
+                                              </span>
                                             )}
-                                          {Order.IcecekOption.length > 0 && (
-                                            <span>
-                                              {Order.IcecekOption[0].Name}
-                                            </span>
-                                          )}
-                                        </td>
-                                        <td>
-                                          {(
-                                            (parseFloat(Order.Price) +
-                                              parseFloat(Order.ExtraPrice)) *
-                                            parseInt(Order.Quantity)
-                                          ).toFixed(2)}
-                                        </td>
-                                      </tr>
-                                    ))}
+                                          </td>
+                                          <td>
+                                            {(
+                                              (parseFloat(Orders.Price) +
+                                                parseFloat(Orders.ExtraPrice)) *
+                                              parseInt(Orders.Quantity)
+                                            ).toFixed(2)}
+                                          </td>
+                                        </tr>
+                                      )
+                                    })}
                                 </tbody>
                               </table>
                               <hr />

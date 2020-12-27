@@ -48,10 +48,11 @@ class Menu extends Component {
   CreateSepet = (order) => {
     var NewOrder = {
       ProductId: order.id,
-      EkmekOption: [],
+      EkmekOption: Array.from([]),
       ExtraPrice: 0,
-      IcecekOption: [],
-      EkLezzetOption: [],
+      IcecekOption: Array.from([]),
+      EkLezzetOption: Array.from([]),
+      ExtraOptions: Array.from([]),
       Price: order.Price,
       ProductName: order.Name,
       Quantity: 1,
@@ -149,19 +150,19 @@ class Menu extends Component {
                                       <i class="fa fa-plus"></i>
                                     </button>
                                   ) : (
-                                    <button
-                                      className="btn btn-success btn-sm"
-                                      style={{
-                                        width: 25,
-                                        height: 25,
-                                        padding: 0,
-                                        marginLeft: 5,
-                                      }}
-                                      onClick={() => this.CreateSepet(product)}
-                                    >
-                                      <i class="fa fa-plus"></i>
-                                    </button>
-                                  )}
+                                      <button
+                                        className="btn btn-success btn-sm"
+                                        style={{
+                                          width: 25,
+                                          height: 25,
+                                          padding: 0,
+                                          marginLeft: 5,
+                                        }}
+                                        onClick={() => this.CreateSepet(product)}
+                                      >
+                                        <i class="fa fa-plus"></i>
+                                      </button>
+                                    )}
                                   <img
                                     src={
                                       product.Picture === ""

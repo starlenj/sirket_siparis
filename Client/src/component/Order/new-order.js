@@ -64,6 +64,7 @@ class NewOrder extends React.Component {
         }
       }
       SepetYeni.push(OrderArray[0]);
+
       localStorage.setItem("Sepet", JSON.stringify(SepetYeni));
       localStorage.removeItem("URUN_ID");
       window.location.reload();

@@ -19,21 +19,20 @@ import EditOptions from "./component/pages/Options/edit-options";
 import OptionsValue from "./component/pages/OptionsValue/index";
 import NewOptionsValue from "./component/pages/OptionsValue/new-optionvalue.js";
 import EditOptionsValue from "./component/pages/OptionsValue/edit-optionvalue.js";
-import CovidForm from "./component/pages/Covid/index.js";
-import CovidFormList from "./component/pages/Covid/list.js";
-import CovidFormSubeList from "./component/pages/Covid/SubeList.js";
-import Personel from "./component/pages/Personel/index.js";
-import NewPersonel from "./component/pages/Personel/new-personel";
-import EditPersonel from "./component/pages/Personel/edit-personel";
 import NewSubeForm from "./component/pages/Sube/NewSube";
 import EditSubeForm from "./component/pages/Sube/EditSube";
 import NewUserForm from "./component/pages/Users/new-user";
 import SubeServisForm from "./component/pages/Servis/";
 import Semts from "./component/pages/Semt/";
+import Print from "./component/pages/Order/PrintOrder";
 const Root = ({ refetch, session }) => (
   <BrowserRouter>
     <Fragment>
       <Switch>
+        <Route
+          path="/PrintOrder"
+          render={() => <Print refetch={refetch} session={session} />}
+        />
         <Route
           path="/Semt"
           render={() => <Semts refetch={refetch} session={session} />}
@@ -50,32 +49,8 @@ const Root = ({ refetch, session }) => (
           path="/EditSube"
           render={() => <EditSubeForm refetch={refetch} session={session} />}
         />
-        <Route
-          path="/CovidFormList"
-          render={() => <CovidFormList refetch={refetch} session={session} />}
-        />
-        <Route
-          path="/CovidFormSubeList"
-          render={() => (
-            <CovidFormSubeList refetch={refetch} session={session} />
-          )}
-        />
-        <Route
-          path="/EditPersonel"
-          render={() => <EditPersonel refetch={refetch} session={session} />}
-        />
-        <Route
-          path="/NewPersonel"
-          render={() => <NewPersonel refetch={refetch} session={session} />}
-        />
-        <Route
-          path="/Personel"
-          render={() => <Personel refetch={refetch} session={session} />}
-        />
-        <Route
-          path="/CovidForm"
-          render={() => <CovidForm refetch={refetch} session={session} />}
-        />
+
+
         <Route
           path="/OrderList"
           render={() => <OrderList refetch={refetch} session={session} />}
