@@ -241,7 +241,7 @@ export default class Header extends Component {
           </Modal.Header>
           <Modal.Body>
             <span>
-              Paket servis hizmet servis saatlerimiz 11:00 ile 20:00 dir.{" "}
+              Paket servis hizmet  saatlerimiz 11:00 ile 20:00 arasındadır.{" "}
             </span>
           </Modal.Body>
         </Modal>

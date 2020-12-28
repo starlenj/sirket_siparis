@@ -6,8 +6,8 @@ import {
 } from "../../../queries";
 import { Query, Subscription, Mutation } from "react-apollo";
 export default class App extends Component {
-  state = { OrderData: [], Options: [], Toplam: "", id: "" };
-  GetOptions(OrderData) {
+  state = { OrderData: [], Options: [], Toplam: "", id: "", OrderType: "" };
+  GetOptions(OrderData, data) {
     var arr = [];
     var Topla = 0;
     OrderData.map((order) => {
@@ -17,8 +17,9 @@ export default class App extends Component {
       });
     });
 
-    this.setState({ id: OrderData[0].OrderHeaderId });
+    this.setState({ id: OrderData[0].OrderHeaderId, OrderType: data.OrderType, });
     this.setState({ Options: arr, Toplam: Topla });
+
     setTimeout(() => window.print(), 2000)
   }
   render() {
@@ -26,13 +27,13 @@ export default class App extends Component {
       <Query
         query={GET_ORDER_DETAILS}
         variables={{ id: localStorage.getItem("OrderId") }}
-        onCompleted={(data) => this.GetOptions(data.Order.Order)}
+        onCompleted={(data) => this.GetOptions(data.Order.Order, data.Order)}
       >
         {({ loading, data, error }) => {
           if (loading) return <div className="loading">Loading...</div>;
           if (error) return <div>Error</div>;
           return (
-            <div style={{ width: "155px", fontSize: 12, maxWidth: "155px" }}>
+            <div style={{ width: "255px", fontSize: "100%", maxWidth: "255px", margin: 0 }}>
               <span
                 style={{ textAlign: "center" }}
               >
@@ -53,54 +54,95 @@ export default class App extends Component {
               <table>
                 <thead>
                   <tr>
-                    <th style={{ width: '10%' }}>Miktar</th>
-                    <th style={{ width: '20%' }}>Ürün Adı</th>
-                    <th style={{ width: "30%" }}>Özellik</th>
+                    <th>Miktar</th>
+                    <th >Ürün Adı</th>
+                    <th >Özellik</th>
                     <th>Fiyat</th>
                     <th>Tutar</th>
                   </tr>
                 </thead>
 
-                <Query
-                  query={GET_ORDER_DETAILS}
-                  variables={{ id: localStorage.getItem("OrderId") }}
-                >
-                  {({ loading, data, error }) => {
-                    if (loading)
-                      return <div className="loading">Loading...</div>;
-                    if (error) return <div>Error</div>;
-                    return (
-                      <tbody>
-                        {data.Order.Order !== undefined
-                          ? data.Order.Order.map((orders) => {
-                            return (
-                              <tr>
-                                <td>{orders.Quantity}</td>
-                                <td>{orders.Product[0].Name}</td>
-                                <td>
-                                  {this.state.Options.map((option) => (
-                                    <div>{option.Name}</div>
-                                  ))}
-                                </td>
 
-                                <td>
-                                  {parseFloat(orders.Price).toFixed(2)}
-                                </td>
-                                <td>
-                                  {(
-                                    parseFloat(orders.Price) *
-                                    parseInt(orders.Quantity)
-                                  ).toFixed(2)}
-                                </td>
-                              </tr>
-                            );
-                          })
-                          : ""}
-                      </tbody>
-                    );
-                  }}
-                </Query>
+                <tbody>
+                  {data.Order.Order !== undefined
+                    ? data.Order.Order.map((orders) => {
+                      return (
+                        <tr>
+                          <td>{orders.Quantity}</td>
+                          <td>{orders.Product[0].Name}</td>
+
+                          <td style={{ width: "100%" }}>
+                            {orders.SelectOrderOption.map((option) => (
+                              <div><span> {option.Name}</span></div>
+                            ))}
+                          </td>
+                          <td>
+                            {parseFloat(orders.Price).toFixed(2)}
+                          </td>
+                          <td>
+                            {(
+                              parseFloat(orders.Price) *
+                              parseInt(orders.Quantity)
+                            ).toFixed(2)}
+                          </td>
+                        </tr>
+                      );
+                    })
+                    : ""}
+
+                </tbody>
+
               </table>
+              <div class="card col-md-4">
+                <div class="card-header bg-dark">
+                  <h3 class="card-title">Sipariş Toplamı</h3>
+                </div>
+                <div class="card-body">
+                  <div className="row">
+                    <span>
+                      {" "}
+                      {this.state.OrderType === "Paket" && (
+                        <span
+                          style={{
+                            fontWeight: "bold",
+                            color: "red",
+                            fontSize: 19,
+                          }}
+                        >
+                          Paket Servis Ücreti : 5.00 TL{" "}
+                        </span>
+                      )}
+                      <br />
+                      {this.state.OrderType === "Paket" && (
+                        <span
+                          style={{
+                            fontWeight: "bold",
+                            color: "red",
+                            fontSize: 19,
+                          }}
+                        >
+                          İndirim Tutarı :{" "}
+                          {parseFloat((this.state.Toplam / 100) * 5).toFixed(2)}{" "}
+                        </span>
+                      )}
+                      <br />
+                      <span>TOPLAM :</span>
+                      {"    "}
+                      {this.state.OrderType === "Paket" ? (
+                        <span>
+                          {parseFloat(
+                            this.state.Toplam -
+                            (this.state.Toplam / 100) * 5 +
+                            5
+                          ).toFixed(2)}
+                        </span>
+                      ) : (
+                          <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
+                        )}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           );
         }

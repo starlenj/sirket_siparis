@@ -301,7 +301,15 @@ export default class OrderDetail extends Component {
                 style={{ marginLeft: 200, marginTop: 50 }}
               >
 
+                <a
+                  href="https://panel.hmbrgr.com.tr/printapp"
+                  target="_blank"
+                  className="btn btn-secondary"
+                  style={{ width: "100%" }}
 
+                >
+                  Yazdır
+                    </a>
                 <br />
                 <br />
                 <button

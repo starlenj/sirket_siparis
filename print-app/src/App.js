@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Print from "./component/pages/Order/PrintOrder";
 import sessionWrapperHOC from "./component/sessionWrapper";
 const Root = ({ refetch, session }) => (
-  <BrowserRouter>
+  <BrowserRouter basename={"/printapp"}>
     <Fragment>
       <Switch>
         <Route

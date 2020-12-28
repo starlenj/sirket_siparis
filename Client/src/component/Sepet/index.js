@@ -524,6 +524,7 @@ export default class Sepet extends Component {
                   onChange={this.onChange}
                 >
                   <option>..Lütfen Seçiniz ..</option>
+                  <option value="Online Ödeme">Online Ödeme</option>
                   <option value="Nakit">Nakit</option>
                   <option value="Kredi Kartı">Kredi Kartı</option>
                   <option value="Sodexo">Sodexo</option>
@@ -532,7 +533,6 @@ export default class Sepet extends Component {
                   <option value="Set Card">Set Card</option>
                   <option value="Cio Card">Cio Card</option>
                   <option value="Metropol Card">Metropol Card</option>
-                  <option value="Online Ödeme">Online Ödeme</option>
                 </select>
               </div>
 
