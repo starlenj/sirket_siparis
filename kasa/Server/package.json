@@ -6,13 +6,13 @@
     "client-install": "npm install --prefix client",
     "start": "nodemon server.js",
     "server": "nodemon Server.js",
-    "client": "npm run serve --prefix client",
+    "client": "npm run serve --prefix Client",
     "dev": "concurrently \"npm run server\" \" npm run client\""
   },
   "author": "nasuh emre atessoy",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^3.6.0",
@@ -29,6 +29,7 @@
     "mssql": "^6.2.3",
     "multer": "^1.4.2",
     "node-restful": "^0.2.6",
+    "nodemailer": "^6.4.17",
     "path": "^0.12.7",
     "util": "^0.11.0"
   }

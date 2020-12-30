@@ -11,15 +11,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in ArcadiumData.data" :key="item._id">
-          <th>{{item._id | formatDate}}</th>
-          <td>{{item.credit.toFixed(2)}}</td>
-          <td>{{ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["KREDI"]}}</td>
-          <td>{{((parseFloat(item.credit))-(ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["KREDI"])).toFixed(2)}}</td>
+        <tr v-for="(item, index) in ArcadiumData.data" :key="item._id">
+          <th>{{ item._id | formatDate }}</th>
+          <td>{{ item.credit.toFixed(2) }}</td>
+          <td>
+            {{
+              ArcadiumData.programData[index] === undefined
+                ? 0
+                : ArcadiumData.programData[index]["KREDI"]
+            }}
+          </td>
+          <td>
+            {{
+              (
+                parseFloat(item.credit) -
+                (ArcadiumData.programData[index] === undefined
+                  ? 0
+                  : ArcadiumData.programData[index]["KREDI"])
+              ).toFixed(2)
+            }}
+          </td>
         </tr>
       </tbody>
     </table>
-    <div style="margin-top : 50px">
+    <div style="margin-top: 50px">
       <h2>Nakit</h2>
       <table class="table">
         <thead>
@@ -31,15 +46,65 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in ArcadiumData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
-            <td>{{item.cash}}</td>
-            <td>{{ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["NAKIT"]}}</td>
-            <td>{{(parseFloat(item.cash)- (ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["NAKIT"])).toFixed(2)}}</td>
+          <tr v-for="(item, index) in ArcadiumData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
+            <td>{{ parseFloat(item.cash).toFixed(2) }}</td>
+            <td>
+              {{
+                ArcadiumData.programData[index] === undefined
+                  ? 0
+                  : ArcadiumData.programData[index]["NAKIT"]
+              }}
+            </td>
+            <td>
+              {{
+                (
+                  parseFloat(item.cash) -
+                  (ArcadiumData.programData[index] === undefined
+                    ? 0
+                    : ArcadiumData.programData[index]["NAKIT"])
+                ).toFixed(2)
+              }}
+            </td>
           </tr>
         </tbody>
       </table>
-
+      <h2>Yemek Sepeti</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Gelen</th>
+            <th>Program</th>
+            <th>Fark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in ArcadiumData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
+            <td>{{ item.yemekSepeti }}</td>
+            <td>
+              {{
+                ArcadiumData.programData[index] === undefined
+                  ? 0
+                  : ArcadiumData.programData[index]["YEMEKSEPETI"]
+              }}
+            </td>
+            <td>
+              {{
+                parseFloat(
+                  item.yemekSepeti -
+                    parseFloat(
+                      ArcadiumData.programData[index] === undefined
+                        ? 0
+                        : ArcadiumData.programData[index]["YEMEKSEPETI"]
+                    )
+                ).toFixed(2)
+              }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
       <h2>Yemek Kartı</h2>
       <table class="table">
         <thead>
@@ -59,19 +124,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in ArcadiumData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
-            <td>{{item.setCardGunSonu}}</td>
-            <td>{{item.multinetGunSonu}}</td>
-            <td>{{item.ceoCardGunSonu}}</td>
-            <td>{{item.metropolGunSonu}}</td>
-            <td>{{item.ticketGunSonu}}</td>
-            <td>{{item.sodexoGunSonu}}</td>
-            <td>{{item.ticketYK}}</td>
-            <td>{{item.sodexoYK }}</td>
-            <td>{{parseFloat(item.yemekCeki).toFixed(2)}}</td>
-            <td>{{ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["YEMEKCEKI"]}}</td>
-            <td>{{(parseFloat(item.yemekCeki)-(ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["YEMEKCEKI"])).toFixed(2)}}</td>
+          <tr v-for="(item, index) in ArcadiumData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
+            <td>{{ item.setCardGunSonu }}</td>
+            <td>{{ item.multinetGunSonu }}</td>
+            <td>{{ item.ceoCardGunSonu }}</td>
+            <td>{{ item.metropolGunSonu }}</td>
+            <td>{{ item.ticketGunSonu }}</td>
+            <td>{{ item.sodexoGunSonu }}</td>
+            <td>{{ item.ticketYK }}</td>
+            <td>{{ item.sodexoYK }}</td>
+            <td>{{ parseFloat(item.yemekCeki).toFixed(2) }}</td>
+            <td>
+              {{
+                ArcadiumData.programData[index] === undefined
+                  ? 0
+                  : ArcadiumData.programData[index]["YEMEKCEKI"]
+              }}
+            </td>
+            <td>
+              {{
+                (
+                  parseFloat(item.yemekCeki) -
+                  (ArcadiumData.programData[index] === undefined
+                    ? 0
+                    : ArcadiumData.programData[index]["YEMEKCEKI"])
+                ).toFixed(2)
+              }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -88,42 +168,67 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in ArcadiumData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
+          <tr v-for="(item, index) in ArcadiumData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
             <th>
               {{
-              (
-              parseFloat(item.iade.tutarBir)+
-              parseFloat(item.iade.tutarIki)+
-              parseFloat(item.iade.tutarUc)+
-              parseFloat(item.iade.tutarDort)+
-              parseFloat(item.iade.tutarBes)+
-              parseFloat(item.iade.tutarAlti)+
-              (parseFloat(item.credit)-(ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["KREDI"]))+
-              (parseFloat(item.cash)- (ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["NAKIT"]))+
-              (parseFloat(item.yemekCeki)-(ArcadiumData.programData[index] === undefined ? 0 : ArcadiumData.programData[index]["YEMEKCEKI"]))
-              ).toFixed(2)
+                (
+                  parseFloat(item.iade.tutarBir) +
+                  parseFloat(item.iade.tutarIki) +
+                  parseFloat(item.iade.tutarUc) +
+                  parseFloat(item.iade.tutarDort) +
+                  parseFloat(item.iade.tutarBes) +
+                  parseFloat(item.iade.tutarAlti) +
+                  (parseFloat(item.credit) -
+                    (ArcadiumData.programData[index] === undefined
+                      ? 0
+                      : ArcadiumData.programData[index]["KREDI"])) +
+                  (parseFloat(item.cash) -
+                    (ArcadiumData.programData[index] === undefined
+                      ? 0
+                      : ArcadiumData.programData[index]["NAKIT"])) +
+                  (parseFloat(item.yemekCeki) -
+                    (ArcadiumData.programData[index] === undefined
+                      ? 0
+                      : ArcadiumData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      ArcadiumData.programData[index] === undefined
+                        ? 0
+                        : ArcadiumData.programData[index]["YEMEKSEPETI"]
+                    ))
+                ).toFixed(2)
               }}
             </th>
             <td>
               {{
-              parseFloat(item.masraf.tutarBir)+
-              parseFloat(item.masraf.tutarIki)+
-              parseFloat(item.masraf.tutarUc)+
-              parseFloat(item.masraf.tutarDort)+
-              parseFloat(item.masraf.tutarBes)+
-              parseFloat(item.masraf.tutarAlti) | currency
+                (parseFloat(item.masraf.tutarBir) +
+                  parseFloat(item.masraf.tutarIki) +
+                  parseFloat(item.masraf.tutarUc) +
+                  parseFloat(item.masraf.tutarDort) +
+                  parseFloat(item.masraf.tutarBes) +
+                  parseFloat(item.masraf.tutarAlti))
+                  | currency
               }}
             </td>
-            <td>{{parseFloat(ArcadiumData.VegaKasa[index] === undefined ? 0 : ArcadiumData.VegaKasa[index].TLGIDER).toFixed(2)}}</td>
             <td>
               {{
-              parseFloat(item.iade.tutarBir)+
-              parseFloat(item.iade.tutarIki)+
-              parseFloat(item.iade.tutarUc)+
-              parseFloat(item.iade.tutarDort)+
-              parseFloat(item.iade.tutarBes)+
-              parseFloat(item.iade.tutarAlti) | currency
+                parseFloat(
+                  ArcadiumData.VegaKasa[index] === undefined
+                    ? 0
+                    : ArcadiumData.VegaKasa[index].TLGIDER
+                ).toFixed(2)
+              }}
+            </td>
+            <td>
+              {{
+                (parseFloat(item.iade.tutarBir) +
+                  parseFloat(item.iade.tutarIki) +
+                  parseFloat(item.iade.tutarUc) +
+                  parseFloat(item.iade.tutarDort) +
+                  parseFloat(item.iade.tutarBes) +
+                  parseFloat(item.iade.tutarAlti))
+                  | currency
               }}
             </td>
           </tr>
@@ -145,7 +250,7 @@ export default {
   methods: {
     async GetKasa() {
       // eslint-disable-next-line no-console
-      console.log("Arcadium kasa çalıştı", this.ArcadiumData);
+      console.log("BAHÇELİ PROGRAM DATA", this.ArcadiumData);
     },
   },
 };

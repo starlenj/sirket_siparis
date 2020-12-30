@@ -215,7 +215,9 @@ module.exports = {
       if (masraf.tutarAlti === null || masraf.tutarAlti === "") {
         masraf.tutarAlti = 0;
       }
-
+      if (yemekSepeti === null || yemekSepeti === "") {
+        yemekSepeti = 0;
+      }
       //önce bak varsa güncelle
       const getData = await model.find({ created_at, subeId });
 

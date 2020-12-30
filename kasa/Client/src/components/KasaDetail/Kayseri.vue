@@ -11,15 +11,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item,index) in KayseriData.data" :key="item._id">
-          <th>{{item._id | formatDate}}</th>
-          <td>{{item.credit.toFixed(2)}}</td>
-          <td>{{KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["KREDI"]}}</td>
-          <td>{{((parseFloat(item.credit))-(KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["KREDI"])).toFixed(2)}}</td>
+        <tr v-for="(item, index) in KayseriData.data" :key="item._id">
+          <th>{{ item._id | formatDate }}</th>
+          <td>{{ item.credit.toFixed(2) }}</td>
+          <td>
+            {{
+              KayseriData.programData[index] === undefined
+                ? 0
+                : KayseriData.programData[index]["KREDI"]
+            }}
+          </td>
+          <td>
+            {{
+              (
+                parseFloat(item.credit) -
+                (KayseriData.programData[index] === undefined
+                  ? 0
+                  : KayseriData.programData[index]["KREDI"])
+              ).toFixed(2)
+            }}
+          </td>
         </tr>
       </tbody>
     </table>
-    <div style="margin-top : 50px">
+    <div style="margin-top: 50px">
       <h2>Nakit</h2>
       <table class="table">
         <thead>
@@ -31,11 +46,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in KayseriData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
-            <td>{{item.cash}}</td>
-            <td>{{KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["NAKIT"]}}</td>
-            <td>{{(parseFloat(item.cash)- (KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["NAKIT"])).toFixed(2)}}</td>
+          <tr v-for="(item, index) in KayseriData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
+            <td>{{ item.cash }}</td>
+            <td>
+              {{
+                KayseriData.programData[index] === undefined
+                  ? 0
+                  : KayseriData.programData[index]["NAKIT"]
+              }}
+            </td>
+            <td>
+              {{
+                (
+                  parseFloat(item.cash) -
+                  (KayseriData.programData[index] === undefined
+                    ? 0
+                    : KayseriData.programData[index]["NAKIT"])
+                ).toFixed(2)
+              }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -59,19 +89,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in KayseriData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
-            <td>{{item.setCardGunSonu}}</td>
-            <td>{{item.multinetGunSonu}}</td>
-            <td>{{item.ceoCardGunSonu}}</td>
-            <td>{{item.metropolGunSonu}}</td>
-            <td>{{item.ticketGunSonu}}</td>
-            <td>{{item.sodexoGunSonu}}</td>
-            <td>{{item.ticketYK}}</td>
-            <td>{{item.sodexoYK }}</td>
-            <td>{{parseFloat(item.yemekCeki).toFixed(2)}}</td>
-            <td>{{KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["YEMEKCEKI"]}}</td>
-            <td>{{(parseFloat(item.yemekCeki)-(KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["YEMEKCEKI"])).toFixed(2)}}</td>
+          <tr v-for="(item, index) in KayseriData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
+            <td>{{ item.setCardGunSonu }}</td>
+            <td>{{ item.multinetGunSonu }}</td>
+            <td>{{ item.ceoCardGunSonu }}</td>
+            <td>{{ item.metropolGunSonu }}</td>
+            <td>{{ item.ticketGunSonu }}</td>
+            <td>{{ item.sodexoGunSonu }}</td>
+            <td>{{ item.ticketYK }}</td>
+            <td>{{ item.sodexoYK }}</td>
+            <td>{{ parseFloat(item.yemekCeki).toFixed(2) }}</td>
+            <td>
+              {{
+                KayseriData.programData[index] === undefined
+                  ? 0
+                  : KayseriData.programData[index]["YEMEKCEKI"]
+              }}
+            </td>
+            <td>
+              {{
+                (
+                  parseFloat(item.yemekCeki) -
+                  (KayseriData.programData[index] === undefined
+                    ? 0
+                    : KayseriData.programData[index]["YEMEKCEKI"])
+                ).toFixed(2)
+              }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -88,42 +133,61 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item,index) in KayseriData.data" :key="item._id">
-            <th>{{item._id | formatDate}}</th>
+          <tr v-for="(item, index) in KayseriData.data" :key="item._id">
+            <th>{{ item._id | formatDate }}</th>
             <th>
               {{
-              (
-              parseFloat(item.iade.tutarBir)+
-              parseFloat(item.iade.tutarIki)+
-              parseFloat(item.iade.tutarUc)+
-              parseFloat(item.iade.tutarDort)+
-              parseFloat(item.iade.tutarBes)+
-              parseFloat(item.iade.tutarAlti)+
-              (parseFloat(item.credit)-(KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["KREDI"]))+
-              (parseFloat(item.cash)- (KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["NAKIT"]))+
-              (parseFloat(item.yemekCeki)-(KayseriData.programData[index] === undefined ? 0 : KayseriData.programData[index]["YEMEKCEKI"]))
-              ).toFixed(2)
+                (
+                  parseFloat(item.iade.tutarBir) +
+                  parseFloat(item.iade.tutarIki) +
+                  parseFloat(item.iade.tutarUc) +
+                  parseFloat(item.iade.tutarDort) +
+                  parseFloat(item.iade.tutarBes) +
+                  parseFloat(item.iade.tutarAlti) +
+                  (parseFloat(item.credit) -
+                    (KayseriData.programData[index] === undefined
+                      ? 0
+                      : KayseriData.programData[index]["KREDI"])) +
+                  (parseFloat(item.cash) -
+                    (KayseriData.programData[index] === undefined
+                      ? 0
+                      : KayseriData.programData[index]["NAKIT"])) +
+                  (parseFloat(item.yemekCeki) -
+                    (KayseriData.programData[index] === undefined
+                      ? 0
+                      : KayseriData.programData[index]["YEMEKCEKI"]))
+                ).toFixed(2)
               }}
             </th>
             <td>
               {{
-              parseFloat(item.masraf.tutarBir)+
-              parseFloat(item.masraf.tutarIki)+
-              parseFloat(item.masraf.tutarUc)+
-              parseFloat(item.masraf.tutarDort)+
-              parseFloat(item.masraf.tutarBes)+
-              parseFloat(item.masraf.tutarAlti) | currency
+                (parseFloat(item.masraf.tutarBir) +
+                  parseFloat(item.masraf.tutarIki) +
+                  parseFloat(item.masraf.tutarUc) +
+                  parseFloat(item.masraf.tutarDort) +
+                  parseFloat(item.masraf.tutarBes) +
+                  parseFloat(item.masraf.tutarAlti))
+                  | currency
               }}
             </td>
-            <td>{{parseFloat(KayseriData.VegaKasa[index].TLGIDER).toFixed(2)}}</td>
             <td>
               {{
-              parseFloat(item.iade.tutarBir)+
-              parseFloat(item.iade.tutarIki)+
-              parseFloat(item.iade.tutarUc)+
-              parseFloat(item.iade.tutarDort)+
-              parseFloat(item.iade.tutarBes)+
-              parseFloat(item.iade.tutarAlti) | currency
+                parseFloat(
+                  KayseriData.VegaKasa[index] === undefined
+                    ? 0
+                    : KayseriData.VegaKasa[index].TLGIDER
+                ).toFixed(2)
+              }}
+            </td>
+            <td>
+              {{
+                (parseFloat(item.iade.tutarBir) +
+                  parseFloat(item.iade.tutarIki) +
+                  parseFloat(item.iade.tutarUc) +
+                  parseFloat(item.iade.tutarDort) +
+                  parseFloat(item.iade.tutarBes) +
+                  parseFloat(item.iade.tutarAlti))
+                  | currency
               }}
             </td>
           </tr>

@@ -69,28 +69,7 @@ export const GetKasaReport = async (SubeId, startDate, endDate) => {
     ).toFixed(2);
 
     var YemekCeki =
-      parseFloat(Kasa.ticket.yuz) * 100 +
-      parseFloat(Kasa.ticket.ikiyuz) * 200 +
-      parseFloat(Kasa.ticket.elli) * 50 +
-      parseFloat(Kasa.ticket.yirmi) * 20 +
-      parseFloat(Kasa.ticket.ontl) * 10 +
-      parseFloat(Kasa.ticket.bes) * 5 +
-      parseFloat(Kasa.ticket.bir) +
-      parseFloat(Kasa.ticket.sifirbes) * 0.5 +
-      parseFloat(Kasa.ticket.sifiryirmibes) * 0.25 +
-      parseFloat(Kasa.ticket.sifirbir) * 0.1 +
-      parseFloat(Kasa.ticket.sifirsifirbes) * 0.05 +
-      parseFloat(Kasa.sodexo.yuz) * 100 +
-      parseFloat(Kasa.sodexo.ikiyuz) * 200 +
-      parseFloat(Kasa.sodexo.elli) * 50 +
-      parseFloat(Kasa.sodexo.yirmi) * 20 +
-      parseFloat(Kasa.sodexo.ontl) * 10 +
-      parseFloat(Kasa.sodexo.bes) * 5 +
-      parseFloat(Kasa.sodexo.bir) +
-      parseFloat(Kasa.sodexo.sifirbes) * 0.5 +
-      parseFloat(Kasa.sodexo.sifiryirmibes) * 0.25 +
-      parseFloat(Kasa.sodexo.sifirbir) * 0.1 +
-      parseFloat(Kasa.sodexo.sifirsifirbes) * 0.05 +
+
       parseFloat(Kasa.setCardGunSonu) +
       parseFloat(Kasa.multinetGunSonu) +
       parseFloat(Kasa.ceoCardGunSonu) +
