@@ -75,7 +75,6 @@ export default class Sepet extends Component {
       return;
     } else {
       const SepetList = JSON.parse(Sepet);
-      console.log(SepetList);
 
       this.setState({ Order: SepetList });
     }

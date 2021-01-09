@@ -30,8 +30,10 @@ export default class Header extends Component {
       this.setState({ PaketModal: true });
     } else {
       if (SiparisTuru === null) {
+        localStorage.setItem("SUBE", Sube);
         this.setState({ PaketModal: true, Sube });
       } else {
+        localStorage.setItem("SUBE", Sube);
         this.setState({ Sube });
       }
     }
@@ -230,6 +232,7 @@ export default class Header extends Component {
           </Modal.Body>
         </Modal>
 
+
         <Modal
           show={this.state.SiparisZamani}
           onHide={this.handleClose}
@@ -241,10 +244,12 @@ export default class Header extends Component {
           </Modal.Header>
           <Modal.Body>
             <span>
-              Paket servis hizmet  saatlerimiz 11:00 ile 20:00 arasındadır.{" "}
+              Paket servis hizmet saatlerimiz 11:00 ile 20:00 arasındadır.
             </span>
           </Modal.Body>
         </Modal>
+
+
         <nav class="navbar navbar-light bg-dark">
           <div className="container">
             <a class="navbar-brand" href="#">

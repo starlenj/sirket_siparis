@@ -193,6 +193,7 @@ export const GET_ORDER_DETAILS = gql`
       CustomerName
       Plaka
       Aciklama
+      Date
       OrderType
       OrderChannel
       Note

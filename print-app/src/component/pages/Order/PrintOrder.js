@@ -4,10 +4,12 @@ import {
   SIPARIS_ONAY,
   SIPARIS_REDDET,
 } from "../../../queries";
+import moment from 'moment';
 import { Query, Subscription, Mutation } from "react-apollo";
 export default class App extends Component {
   state = { OrderData: [], Options: [], Toplam: "", id: "", OrderType: "" };
   GetOptions(OrderData, data) {
+
     var arr = [];
     var Topla = 0;
     OrderData.map((order) => {
@@ -19,6 +21,7 @@ export default class App extends Component {
 
     this.setState({ id: OrderData[0].OrderHeaderId, OrderType: data.OrderType, });
     this.setState({ Options: arr, Toplam: Topla });
+
 
     setTimeout(() => window.print(), 2000)
   }
@@ -32,30 +35,37 @@ export default class App extends Component {
         {({ loading, data, error }) => {
           if (loading) return <div className="loading">Loading...</div>;
           if (error) return <div>Error</div>;
+          console.log(data)
           return (
-            <div style={{ width: "255px", fontSize: "100%", maxWidth: "255px", margin: 0 }}>
+            <div style={{ width: "255px", fontSize: 20, maxWidth: "255px", margin: 0 }}>
               <span
                 style={{ textAlign: "center" }}
               >
                 <b>
                   HMBRGR {"  "}
-                </b>
+                </b> <br />
               </span>
               <br />
-              <span><b>Müşteri Adı :</b> {data.Order.CustomerName} </span>
+              <span><b>Sipariş Zamanı :</b> {moment(data.Order.Date).format("DD.MM.YYYY HH:mm")}<br /> </span>
               <br />
-              <span><b>Müşteri Adresi :</b> {data.Order.Aciklama} </span>
+              <span><b>Müşteri Adı :</b> {data.Order.CustomerName} <br /></span>
               <br />
-              <span><b>Müşteri Notu :</b> {data.Order.Note} </span>
+              <span><b>Müşteri Adresi :</b> {data.Order.Aciklama}<br /> </span>
               <br />
-              <span><b>Telefon :</b> {data.Order.Phone} </span>
+              <span><b>Müşteri Notu :</b> {data.Order.Note}<br /> </span>
+              <br />
+              <span><b>Ödeme Türü :</b> <b>{data.Order.PaymentType}</b><br /> </span>
+              <br />
+              <span><b>Telefon :</b> {data.Order.Phone}<br /> </span>
+              <br />
               <br />
 
               <table>
                 <thead>
                   <tr>
-                    <th>Miktar</th>
-                    <th >Ürün Adı</th>
+
+
+                    <th style={{ width: "45%" }}>Ürün Adı</th>
                     <th >Özellik</th>
                     <th>Fiyat</th>
                     <th>Tutar</th>
@@ -66,14 +76,14 @@ export default class App extends Component {
                 <tbody>
                   {data.Order.Order !== undefined
                     ? data.Order.Order.map((orders) => {
+
                       return (
                         <tr>
-                          <td>{orders.Quantity}</td>
-                          <td>{orders.Product[0].Name}</td>
+                          <td>{orders.Quantity}x{orders.Product[0].Name}</td>
 
                           <td style={{ width: "100%" }}>
                             {orders.SelectOrderOption.map((option) => (
-                              <div><span> {option.Name}</span></div>
+                              <div><span> {option.OrderOptions[0].Name}</span></div>
                             ))}
                           </td>
                           <td>
@@ -104,8 +114,6 @@ export default class App extends Component {
                       {this.state.OrderType === "Paket" && (
                         <span
                           style={{
-                            fontWeight: "bold",
-                            color: "red",
                             fontSize: 19,
                           }}
                         >
@@ -113,11 +121,10 @@ export default class App extends Component {
                         </span>
                       )}
                       <br />
+                      <br />
                       {this.state.OrderType === "Paket" && (
                         <span
                           style={{
-                            fontWeight: "bold",
-                            color: "red",
                             fontSize: 19,
                           }}
                         >
@@ -125,6 +132,7 @@ export default class App extends Component {
                           {parseFloat((this.state.Toplam / 100) * 5).toFixed(2)}{" "}
                         </span>
                       )}
+                      <br />
                       <br />
                       <span>TOPLAM :</span>
                       {"    "}

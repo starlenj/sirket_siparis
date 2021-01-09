@@ -1128,6 +1128,12 @@
     "SubeId": "umitkoy"
   },
   {
+    "label": "Yaşamkent",
+    "value": "Yaşamkent",
+    "MinimumTutar": "60",
+    "SubeId": "umitkoy"
+  },
+  {
     "label": "Bağlıca",
     "value": "Bağlıca",
     "MinimumTutar": "100",
