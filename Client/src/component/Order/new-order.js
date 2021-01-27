@@ -36,9 +36,6 @@ class NewOrder extends React.Component {
       if (options.Options[0].Name === "Ekmek Seçimi") {
         if (this.props.Order.EkmekOption.length === 0) {
           alert("Ekmek Seçimi Zorunludur..");
-          this.setState({ EkmekTamammi: false });
-        } else {
-          this.setState({ EkmekTamammi: true });
         }
       }
     });
@@ -47,22 +44,18 @@ class NewOrder extends React.Component {
       if (options.Options[0].Name === "İçecek Seçimi") {
         if (this.props.Order.IcecekOption.length === 0) {
           alert("İçecek Seçimi Zorunludur");
-          this.setState({ IcecekTamammi: false });
-        } else {
-          this.setState({ IcecekTamammi: true });
         }
       }
     });
-    if (this.state.EkmekTamammi === true && this.state.IcecekTamammi === true) {
-      var SepetYeni = [];
-      let Sepet = JSON.parse(localStorage.getItem("Sepet"));
-      if (Sepet !== null) {
-        if (Sepet.length > 0) {
-          for (var i = 0; i < Sepet.length; i++) {
-            SepetYeni.push(Sepet[i]);
-          }
+    var SepetYeni = [];
+    let Sepet = JSON.parse(localStorage.getItem("Sepet"));
+    if (Sepet !== null) {
+      if (Sepet.length > 0) {
+        for (var i = 0; i < Sepet.length; i++) {
+          SepetYeni.push(Sepet[i]);
         }
       }
+
       SepetYeni.push(OrderArray[0]);
 
       localStorage.setItem("Sepet", JSON.stringify(SepetYeni));

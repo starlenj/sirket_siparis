@@ -8,11 +8,9 @@ import {
 } from "../../../queries/index";
 export default class OdemeBasarili extends Component {
   state = { ShowAlert: false, Order: [], SiparisBasladi: false };
-  componentDidUpdate() {
-    return true;
-  }
+
   componentDidMount() {
-    localStorage.setItem("SiparisTuru", "GelAl");
+    //localStorage.setItem("SiparisTuru", "GelAl");
     this.SetSepet();
   }
   SetSepet = () => {
@@ -22,7 +20,7 @@ export default class OdemeBasarili extends Component {
       return;
     } else {
       const SepetList = JSON.parse(Sepet);
-      this.setState({ Order: SepetList, ShowAlert: true });
+      this.setState({ ShowAlert: true, Order: SepetList });
     }
   };
 
@@ -38,7 +36,7 @@ export default class OdemeBasarili extends Component {
         OrderType: localStorage.getItem("OrderType"),
         CustomerId: "Web Sipariş Kullanıcısı",
         SubeId: localStorage.getItem("SUBE"),
-        Note: "",
+        Note: localStorage.getItem("Note"),
         Discount: 0,
         ServicePrice: 0,
         OrderChannel: "WebSipariş",
@@ -50,6 +48,7 @@ export default class OdemeBasarili extends Component {
     }).then(({ data }) => {
       if (data.CreateOrderHeader.id) {
         this.state.Order.map(async (Order) => {
+          console.log(Order);
           let CreateOrderBodyResult = await CreateOrderBody({
             variables: {
               ProductId: Order.ProductId,
@@ -108,11 +107,35 @@ export default class OdemeBasarili extends Component {
               }
             }
 
-            localStorage.removeItem("Sepet");
-            this.setState({ ShowAlert: false });
-            window.location.href = "/";
+
+
           }
+
         });
+        localStorage.removeItem("Sepet");
+
+        if (this.state.OrderType === "Arabaya Servis") {
+          localStorage.removeItem("SiparisTuru");
+          localStorage.removeItem("Sube");
+
+        } else if (this.state.OrderType === "Paket") {
+          localStorage.removeItem("SiparisTuru");
+          localStorage.removeItem("Sube");
+
+        } else {
+          localStorage.removeItem("SiparisTuru");
+          localStorage.removeItem("Sube");
+
+        }
+        localStorage.removeItem("Adres", this.state.Adres);
+        localStorage.removeItem("Note", this.state.Note);
+        localStorage.removeItem("SUBE", this.state.Sube);
+
+        setTimeout(() => {
+          this.setState({ ShowAlert: false });
+          window.location.href = "/"
+        }, 2000);
+        //window.location.href = "/";
       }
     });
   };
@@ -134,10 +157,10 @@ export default class OdemeBasarili extends Component {
                         onConfirm={() =>
                           this.state.SiparisBasladi === false
                             ? this.SiparisVer(
-                                CreateOrderHeader,
-                                CreateOrderBody,
-                                CreateSelectOrderOptions
-                              )
+                              CreateOrderHeader,
+                              CreateOrderBody,
+                              CreateSelectOrderOptions
+                            )
                             : () => console.log("SİPARİŞ VAR")
                         }
                       />

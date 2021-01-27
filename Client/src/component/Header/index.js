@@ -19,11 +19,16 @@ export default class Header extends Component {
   componentDidMount() {
     const now = new Date().getHours();
     if (now >= 20 || now < 11) {
-      this.setState({ SiparisZamani: true });
+      this.setState({ SiparisZamani: false });
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);
     const SiparisTuru = urlParams.get("SiparisTuru");
+    var Sepet = localStorage.getItem("Sepet");
+
+    if (Sepet === null) {
+      localStorage.setItem("Sepet", "[]");
+    }
     localStorage.setItem("siparis_turu", SiparisTuru);
     const Sube = urlParams.get("Sube");
     if (Sube === null) {

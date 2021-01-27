@@ -46,6 +46,8 @@ export default class App extends Component {
                 </b> <br />
               </span>
               <br />
+              <span><b>Sipariş Türü :</b> {data.Order.OrderType}<br /> </span>
+              <br />
               <span><b>Sipariş Zamanı :</b> {moment(data.Order.Date).format("DD.MM.YYYY HH:mm")}<br /> </span>
               <br />
               <span><b>Müşteri Adı :</b> {data.Order.CustomerName} <br /></span>

@@ -1,251 +1,5 @@
 [
   {
-    "label": "Batıkent Kentkoop",
-    "value": "Batıkent Kentkoop",
-    "MinimumTutar": "20",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Ergazi Mah",
-    "value": "Ergazi Mah",
-    "MinimumTutar": "20",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "İlk Yerleşim",
-    "value": "İlk Yerleşim",
-    "MinimumTutar": "20",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "İnönü",
-    "value": "İnönü",
-    "MinimumTutar": "20",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Kardelen",
-    "value": "Kardelen",
-    "MinimumTutar": "20",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Uğur Mumcu",
-    "value": "Uğur Mumcu",
-    "MinimumTutar": "30",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "25 Mart",
-    "value": "25 Mart",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Anadolu",
-    "value": "Anadolu",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Aşağı Yahyalar",
-    "value": "Aşağı Yahyalar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Avcılar",
-    "value": "Avcılar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Barış",
-    "value": "Barış",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Barıştepe",
-    "value": "Barıştepe",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Batı Sitesi",
-    "value": "Batı Sitesi",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Turgut Özal",
-    "value": "Turgu Özal",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Çamlıca",
-    "value": "Çamlıca",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Demetevler",
-    "value": "Demetevler",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Demetgül",
-    "value": "Demetgül",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Demetlale",
-    "value": "Demetlale",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Güzelyaka",
-    "value": "Güzelyaka",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Işınlar",
-    "value": "Işınlar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "İvedik",
-    "value": "İvedik",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "İvedik osb",
-    "value": "İvedik osb",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Kaletepe",
-    "value": "Kaletepe",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Karşıyaka",
-    "value": "Karşıyaka",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Kayalar",
-    "value": "Kayalar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Kuzey Yıldızı",
-    "value": "Kuzey Yıldızı",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Macun Mah",
-    "value": "Macun Mah",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Mehmet Akif Ersoy",
-    "value": "Mehmet Akif Ersoy",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Urankent",
-    "value": "Urankent",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Ostim",
-    "value": "Ostim",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Ostim Osb",
-    "value": "Ostim Osb",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Özevler",
-    "value": "Özevler",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Pamuklar",
-    "value": "Pamuklar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Serhat mah",
-    "value": "Serhat mah",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yeditepe",
-    "value": "Yeditepe",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yeni Batı",
-    "value": "Yeni Batı",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yeşilevler",
-    "value": "Yeşilevler",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yeniçağ",
-    "value": "Yeniçağ",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yukarı Yahyalar",
-    "value": "Yukarı Yahyalar",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yunus Emre",
-    "value": "Yunus Emre",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
-    "label": "Yuvaköy",
-    "value": "Yuvaköy",
-    "MinimumTutar": "50",
-    "SubeId": "batikent"
-  },
-  {
     "label": "Göksü Mah",
     "value": "Göksu Mah",
     "MinimumTutar": "50",
@@ -1234,5 +988,65 @@
     "value": "Bilkent 2",
     "MinimumTutar": "35",
     "SubeId": "bilkent"
+  },
+  {
+    "label": "Kent Koop. Mah",
+    "value": "Kent Koop. Mah",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Kardelen Mah",
+    "value": "Kardelen Mah",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İlk Yerleşim Mah.",
+    "value": "İlk Yerleşim Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Yeni Batı Mah.",
+    "value": "Yeni Batı Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Uğur Mumcu Mah.",
+    "value": "Uğur Mumcu Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Mehmet Akif Ersoy Mah.",
+    "value": "Mehmet Akif Ersoy Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Ostim Mah.",
+    "value": "Ostim Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Ergazi Mah.",
+    "value": "Ergazi Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "İnönü Mah.",
+    "value": "İnönü Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
+  },
+  {
+    "label": "Turgut Özal Mah.",
+    "value": "Turgut Özal Mah.",
+    "MinimumTutar": "50",
+    "SubeId": "batikent"
   }
 ]

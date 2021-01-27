@@ -140,7 +140,7 @@ export default class Sepet extends Component {
         return;
       }
       if (this.state.OrderType === "Paket") {
-        if (this.state.Note === "" || undefined) {
+        if (this.state.Aciklama === "" || undefined) {
           alert("Lütfen Adres Bilgisini Giriniz..");
           return;
         }
@@ -170,6 +170,8 @@ export default class Sepet extends Component {
       localStorage.setItem("Aciklama", this.state.Aciklama);
       localStorage.setItem("OrderType", this.state.OrderType);
       localStorage.setItem("Adres", this.state.Adres);
+      localStorage.setItem("Note", this.state.Note);
+      localStorage.setItem("SUBE", this.state.Sube);
 
       window.location.href = `https://sanalpos.hmbrgr.com.tr?Tutar=${this.state.Total}`;
       return;
@@ -546,7 +548,7 @@ export default class Sepet extends Component {
                 <div className="form-group" style={{ marginBottom: 20 }}>
                   <label style={{ fontWeight: "bold" }}>Telefon : </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     name="Phone"
                     onChange={this.onChange}
