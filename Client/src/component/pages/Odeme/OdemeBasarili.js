@@ -135,7 +135,6 @@ export default class OdemeBasarili extends Component {
           this.setState({ ShowAlert: false });
           window.location.href = "/"
         }, 2000);
-        //window.location.href = "/";
       }
     });
   };
