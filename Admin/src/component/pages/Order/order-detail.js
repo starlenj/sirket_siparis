@@ -249,39 +249,15 @@ export default class OrderDetail extends Component {
                   <div className="row">
                     <span style={{ marginLeft: 20 }}>
                       {" "}
-                      {this.state.OrderType === "Paket" && (
-                        <span
-                          style={{
-                            fontWeight: "bold",
-                            color: "red",
-                            fontSize: 19,
-                          }}
-                        >
-                          Paket Servis Ücreti : 5.00 TL{" "}
-                        </span>
-                      )}
-                      <br />
-                      {this.state.OrderType === "Paket" && (
-                        <span
-                          style={{
-                            fontWeight: "bold",
-                            color: "red",
-                            fontSize: 19,
-                          }}
-                        >
-                          İndirim Tutarı :{" "}
-                          {parseFloat((this.state.Toplam / 100) * 5).toFixed(2)}{" "}
-                        </span>
-                      )}
+
+
                       <br />
                       <span>TOPLAM :</span>
                       {"    "}
                       {this.state.OrderType === "Paket" ? (
                         <span>
                           {parseFloat(
-                            this.state.Toplam -
-                            (this.state.Toplam / 100) * 5 +
-                            5
+                            this.state.Toplam
                           ).toFixed(2)}
                         </span>
                       ) : (

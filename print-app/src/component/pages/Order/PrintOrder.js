@@ -112,43 +112,15 @@ export default class App extends Component {
                 <div class="card-body">
                   <div className="row">
                     <span>
-                      {" "}
-                      {this.state.OrderType === "Paket" && (
-                        <span
-                          style={{
-                            fontSize: 19,
-                          }}
-                        >
-                          Paket Servis Ücreti : 5.00 TL{" "}
-                        </span>
-                      )}
-                      <br />
-                      <br />
-                      {this.state.OrderType === "Paket" && (
-                        <span
-                          style={{
-                            fontSize: 19,
-                          }}
-                        >
-                          İndirim Tutarı :{" "}
-                          {parseFloat((this.state.Toplam / 100) * 5).toFixed(2)}{" "}
-                        </span>
-                      )}
+
+
                       <br />
                       <br />
                       <span>TOPLAM :</span>
                       {"    "}
-                      {this.state.OrderType === "Paket" ? (
-                        <span>
-                          {parseFloat(
-                            this.state.Toplam -
-                            (this.state.Toplam / 100) * 5 +
-                            5
-                          ).toFixed(2)}
-                        </span>
-                      ) : (
-                          <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
-                        )}
+
+                      <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
+
                     </span>
                   </div>
                 </div>

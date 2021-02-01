@@ -77,7 +77,12 @@ export const GetKasaReport = async (SubeId, startDate, endDate) => {
       parseFloat(Kasa.ticketGunSonu) +
       parseFloat(Kasa.sodexoGunSonu) +
       parseFloat(sodexoYK) +
-      parseFloat(ticketYK);
+      parseFloat(ticketYK) +
+      parseFloat(Kasa.avmKuponu) +
+      parseFloat(Kasa.sinemaBileti);
+    var YKDiger =
+      parseFloat(Kasa.avmKuponu) +
+      parseFloat(Kasa.sinemaBileti);
     KasaData.push({
       avmKuponu: Kasa.avmKuponu,
       ceoCardGunSonu: Kasa.ceoCardGunSonu,
@@ -96,6 +101,7 @@ export const GetKasaReport = async (SubeId, startDate, endDate) => {
       sodexoYK: sodexoYK,
       masraf: Kasa.masraf,
       iade: Kasa.iade,
+      ykDiger: YKDiger
     });
   });
   return KasaData;

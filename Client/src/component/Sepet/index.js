@@ -376,7 +376,7 @@ export default class Sepet extends Component {
           (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
           parseInt(order.Quantity);
       });
-      return parseFloat(Toplam - (Toplam / 100) * 5 + 5).toFixed(2);
+      return parseFloat(Toplam).toFixed(2);
     };
     const Toplam = () => {
       var Topla = this.state.OrderType === "Paket" ? 0 : 0;
@@ -394,19 +394,11 @@ export default class Sepet extends Component {
             {" "}
             {this.state.OrderType === "Paket" ? (
               <div>
-                <span style={{ color: "red" }}>
-                  Indirim Tutarı : {parseFloat((Topla / 100) * 5).toFixed(2)} TL
-                </span>
-                <br />
-                <br />
-                <span style={{ color: "red" }}>
-                  {" "}
-                  Paket Servis Ücreti : {parseFloat(5).toFixed(2)} TL <br />
-                </span>
-                <br />
+
+
                 Toplam :{" "}
                 {parseFloat(
-                  parseFloat(Topla - (Topla / 100) * 5 + 5).toFixed(2)
+                  parseFloat(Topla).toFixed(2)
                 ).toFixed(2)}{" "}
                 TL
               </div>
@@ -770,53 +762,8 @@ export default class Sepet extends Component {
                                       </td>
                                     </tr>
                                   )}
-                                  <tr>
-                                    {this.state.OrderType === "Paket" && (
-                                      <td
-                                        style={{
-                                          fontWeight: "bold",
-                                          color: "red",
-                                        }}
-                                      >
-                                        İndirim Tutarı :
-                                      </td>
-                                    )}
-                                    {this.state.OrderType === "Paket" && (
-                                      <td
-                                        style={{
-                                          fontWeight: "bold",
-                                          color: "red",
-                                        }}
-                                      >
-                                        <IndirimToplami />
-                                      </td>
-                                    )}
-                                  </tr>
-                                  <tr>
-                                    {this.state.OrderType === "Paket" && (
-                                      <td
-                                        style={{
-                                          fontWeight: "bold",
-                                          color: "red",
-                                        }}
-                                      >
-                                        Paket Servis Ücreti :
-                                      </td>
-                                    )}
-                                    {this.state.OrderType === "Paket" && (
-                                      <td>
-                                        <span
-                                          style={{
-                                            fontWeight: "bold",
-                                            color: "red",
-                                          }}
-                                        >
-                                          {" "}
-                                          5.00 TL
-                                        </span>{" "}
-                                      </td>
-                                    )}
-                                  </tr>
+
+
                                   <tr>
                                     <td>
                                       <span

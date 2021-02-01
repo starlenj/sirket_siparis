@@ -74,7 +74,11 @@ class Menu extends Component {
   Fiyat = (Category, Price) => {
     var siparis_turu = localStorage.getItem("siparis_turu");
     if (siparis_turu === "Paket") {
-      return parseFloat(Price + 2).toFixed(2);
+      if (!Category.Name.includes("İçecekler") && !Category.Name.includes("Atıştırmalıklar") && !Category.Name.includes("Tatlılar")) {
+        return parseFloat(Price + 7).toFixed(2);
+      } else {
+        return Price;
+      }
     } else {
       return Price;
     }

@@ -118,6 +118,7 @@
             <th>Sodexo</th>
             <th>Y.K Ticket</th>
             <th>Y.K Sodexo</th>
+            <th>Y.K Diğer</th>
             <th>Toplam Gelen</th>
             <th>Program</th>
             <th>Fark</th>
@@ -134,6 +135,7 @@
             <td>{{ item.sodexoGunSonu }}</td>
             <td>{{ item.ticketYK }}</td>
             <td>{{ item.sodexoYK }}</td>
+            <td>{{ parseFloat(item.ykDiger).toFixed(2) }}</td>
             <td>{{ parseFloat(item.yemekCeki).toFixed(2) }}</td>
             <td>
               {{
