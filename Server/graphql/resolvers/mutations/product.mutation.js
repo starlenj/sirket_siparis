@@ -1,7 +1,7 @@
 module.exports = {
   CreateProduct: async (
     parent,
-    { data: { CategoryId, Name, Info, Price, Picture, Order, Status } },
+    { data: { CategoryId, Name, Info, Price, Picture, Order, Status, YemekSepetiPrice } },
     { Product }
   ) => {
     return await new Product({
@@ -9,6 +9,7 @@ module.exports = {
       Name,
       Info,
       Price,
+      YemekSepetiPrice,
       Picture,
       Order,
       Status,
@@ -16,7 +17,7 @@ module.exports = {
   },
   UpdateProduct: async (
     parent,
-    { data: { CategoryId, Name, Info, Price, Picture, id, Order, Status } },
+    { data: { YemekSepetiPrice, CategoryId, Name, Info, Price, Picture, id, Order, Status } },
     { Product }
   ) => {
     const UpdateProduct = await Product.findById(id);
@@ -26,6 +27,7 @@ module.exports = {
     UpdateProduct.Info = Info;
     UpdateProduct.Order = Order;
     UpdateProduct.Price = Price;
+    UpdateProduct.YemekSepetiPrice = YemekSepetiPrice;
     return UpdateProduct.save();
   },
   DeleteProduct: async (parent, { data: { id } }, { Product }) => {

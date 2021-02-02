@@ -1,7 +1,8 @@
 const OptionCategory = {
-  Options: async (parent, args, { Option }) => {
-    return await Option.find({ OptionCategoryId: parent.id, status: 1 });
-  },
+  OptionsHeader: async (parent, args, { Option }) => {
+    console.log(parent.OptionsId)
+    return await Option.find({ _id: parent.OptionsId });
+  }
 };
 
 module.exports = OptionCategory;

@@ -17,6 +17,7 @@ export default class NewProduct extends Component {
     Name: "",
     Info: "",
     Price: 0,
+    YemekSepetiPrice: 0,
     Order: 0,
     Picture: "",
     Status: 0,
@@ -106,6 +107,7 @@ export default class NewProduct extends Component {
                 Order: parseInt(this.state.Order),
                 Status: 1,
                 Picture: this.state.Picture,
+                YemekSepetiPrice: this.state.YemekSepetiPrice,
                 CategoryId: this.CategoryId,
                 Info: this.state.Info,
               }}
@@ -196,6 +198,16 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Sırlama"
                       name="Order"
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>YemekSepeti Fiyatı</label>
+                    <input
+                      type="Number"
+                      className="form-control"
+                      placeholder="Fiyat"
+                      name="YemekSepetiPrice"
                       onChange={this.onChange}
                     />
                   </div>

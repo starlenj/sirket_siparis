@@ -39,7 +39,6 @@ const PubSubServer = new PubSub();
 const Server = new ApolloServer({
   typeDefs: importSchema("./graphql/schema.graphql"),
   resolvers,
-  introspection: false,
   context: ({ req }) => ({
     User,
     Sube,

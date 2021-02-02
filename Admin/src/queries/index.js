@@ -418,6 +418,7 @@ export const CREATE_PRODUCT = gql`
     $Name: String!
     $Info: String!
     $Price: Float!
+    $YemekSepetiPrice: Float!
     $Picture: String
     $Status: Int!
   ) {
@@ -427,6 +428,7 @@ export const CREATE_PRODUCT = gql`
         Name: $Name
         Info: $Info
         Price: $Price
+        YemekSepetiPrice: $YemekSepetiPrice
         Picture: $Picture
         Status: $Status
       }
@@ -441,6 +443,7 @@ export const UPDATE_PRODUCT = gql`
     $Name: String!
     $Info: String!
     $Price: Float!
+    $YemekSepetiPrice: Float!
     $Picture: String!
     $Status: Int!
     $id: String!
@@ -452,6 +455,7 @@ export const UPDATE_PRODUCT = gql`
         Name: $Name
         Info: $Info
         Price: $Price
+        YemekSepetiPrice: $YemekSepetiPrice
         Order: $Order
         Picture: $Picture
         Status: $Status

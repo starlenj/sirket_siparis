@@ -8,6 +8,7 @@ type OptionValue {
   Name: String
   OptionsId: String
   Price: Float
+  OptionsHeader:[Option]
 }
 
 type Mutation {

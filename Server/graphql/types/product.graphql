@@ -10,6 +10,7 @@ type Product {
   Name: String!
   Info: String
   Price: Float!
+  YemekSepetiPrice: Float!
   Order: Int
   SelectOption: [SelectOption]
   Picture: String
@@ -32,6 +33,7 @@ input CreateProductInput {
   Name: String!
   Info: String
   Price: Float!
+  YemekSepetiPrice: Float!
   Picture: String
   Order: Int
   Status: Int!
@@ -42,6 +44,7 @@ input UpdateProductInput {
   Name: String!
   Info: String
   Price: Float!
+  YemekSepetiPrice: Float!
   Picture: String
   Status: Int!
   Order: Int

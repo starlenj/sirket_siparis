@@ -17,6 +17,7 @@ const CovidAtes = require("./queries/CovidAtesQuery");
 const CashierHeader = require("./queries/CashierHeaderQuery");
 const Servis = require("./queries/ServisQuery");
 const SubeServis = require("./queries/SubeServisQuery");
+const OptionValue = require("./queries/OptionsValueQuery");
 module.exports = {
   Query,
   User,
@@ -37,4 +38,5 @@ module.exports = {
   CashierHeader,
   Servis,
   SubeServis,
+  OptionValue
 };

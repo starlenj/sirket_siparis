@@ -5,6 +5,7 @@ const ProductSchema = new Schema({
   Name: String,
   Info: String,
   Price: Number,
+  YemekSepetiPrice: Number,
   Picture: String,
   Order: { type: Number, default: 0 },
   Status: { type: Number, default: 1 },
