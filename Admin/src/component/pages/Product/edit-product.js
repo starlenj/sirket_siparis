@@ -22,6 +22,7 @@ class EditProduct extends Component {
     Name: "",
     Info: "",
     Price: 0,
+    YemekSepetiPrice: 0,
     Order: 0,
     Picture: "",
     Status: 0,
@@ -50,6 +51,7 @@ class EditProduct extends Component {
       Name: Product.Name,
       Info: Product.Info,
       Price: Product.Price,
+      YemekSepetiPrice : Product.YemekSepetiPrice,
       CategoryId: Product.Category[0].id,
       Options: Product.SelectOption,
       Picture: Product.Picture,
@@ -147,6 +149,7 @@ class EditProduct extends Component {
               variables={{
                 Name: this.state.Name,
                 Price: parseFloat(this.state.Price),
+                YemekSepetiPrice: parseFloat(this.state.YemekSepetiPrice),
                 Order: parseInt(this.state.Order),
                 Status: parseInt(this.state.Status),
                 Picture: this.state.Picture,
@@ -227,6 +230,17 @@ class EditProduct extends Component {
                       placeholder="Sırlama"
                       value={this.state.Order}
                       name="Order"
+                      onChange={this.onChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>YemekSepeti Fiyatı</label>
+                    <input
+                      type="Number"
+                      className="form-control"
+                      placeholder="Fiyat"
+                  value={this.state.YemekSepetiPrice}
+                      name="YemekSepetiPrice"
                       onChange={this.onChange}
                     />
                   </div>

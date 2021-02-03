@@ -19,9 +19,11 @@
     "graphql": "^14.6.0",
     "graphql-import": "^1.0.1",
     "jsonwebtoken": "^8.5.1",
+    "migrate-mongo": "^8.1.4",
     "mongoose": "^5.9.6",
     "mongoose-currency": "^0.2.0",
     "mongoose-float": "^1.0.4",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "sequelize": "^6.5.0"
   }
 }

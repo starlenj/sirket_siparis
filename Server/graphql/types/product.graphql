@@ -10,7 +10,7 @@ type Product {
   Name: String!
   Info: String
   Price: Float!
-  YemekSepetiPrice: Float!
+  YemekSepetiPrice: Float
   Order: Int
   SelectOption: [SelectOption]
   Picture: String

@@ -63,6 +63,7 @@ export const GET_CATEGORYS = gql`
         Name
         Info
         Price
+       YemekSepetiPrice 
         id
         Order
         Picture

@@ -127,6 +127,7 @@ class Menu extends Component {
                               </td>
                               <td style={{ width: "45%" }}></td>
                               <td style={{ width: "20%" }}></td>
+                              <td style={{ width: "20%" }}></td>
                             </tr>
                           </thead>
 
@@ -192,6 +193,17 @@ class Menu extends Component {
                                   </div>
                                 </td>
 
+                                <td
+                                  style={{
+                                    color: "#E77F3F",
+                                    fontWeight: "bold",
+                                  }}
+                                >
+                                  <p>
+                                    {this.Fiyat(Category, product.YemekSepetiPrice)}
+                                    <b>TL</b>
+                                  </p>
+                                </td>
                                 <td
                                   style={{
                                     color: "#E77F3F",

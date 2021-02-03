@@ -392,6 +392,7 @@ export const GET_PRODUCTS = gql`
       Name
       Info
       Price
+     YemekSepetiPrice 
       Picture
       Order
       SelectOption {

@@ -17,7 +17,6 @@ export default class OrderDetail extends Component {
     this.HandleIptalSebebi = this.HandleIptalSebebi.bind(this);
   }
   GetOptions(OrderData, data) {
-    console.log(data);
     var arr = [];
     var Topla = data.Order.OrderType === "Paket" ? 0 : 0;
     OrderData.map((order) => {
