@@ -4,12 +4,12 @@ type Query {
 }
 
 type OptionValue {
-  id: ID
+  id: String!
   Name: String
   OptionsId: String
   Price: Float
   OptionsHeader:[Option]
-  Status:Boolean!
+  Status:Int!
 }
 
 type Mutation {
@@ -32,5 +32,5 @@ input UpdateOptionValueInput {
 
 input DeleteOptionValueInput {
   id: String!
-  Status:Boolean!
+  Status:Int!
 }
