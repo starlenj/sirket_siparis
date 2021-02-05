@@ -15,6 +15,19 @@ module.exports = {
       Status,
     }).save();
   },
+
+  UpdateProductPrice: async (
+    parent,
+    { data: { YemekSepetiPrice, Price, id, OldPrice } },
+    { Product }
+  ) => {
+    const UpdateProduct = await Product.findById(id);
+    UpdateProduct.Price = Price;
+    UpdateProduct.OldPrice = OldPrice;
+    UpdateProduct.YemekSepetiPrice = YemekSepetiPrice;
+    return UpdateProduct.save();
+  },
+
   UpdateProduct: async (
     parent,
     { data: { YemekSepetiPrice, CategoryId, Name, Info, Price, Picture, id, Order, Status } },

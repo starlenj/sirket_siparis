@@ -68,6 +68,13 @@ class Home extends Component {
                       >
                         Yeni
                       </Link>
+                      <Link
+                        className="btn btn-primary"
+                        style={{ float: "right" }}
+                        to="/ProductPriceUpdate"
+                      >
+                        Toplu Fiyat Değiştir
+                      </Link>
                       <table
                         id="example2"
                         class="table table-bordered table-hover"
@@ -77,16 +84,16 @@ class Home extends Component {
                           <tr>
                             <td>Kategori</td>
                             <td>Ürün Adı</td>
-                            <td>Kısa Açılama</td>
+                            <td>Kısa Açıklama</td>
                             <td>Fiyat</td>
-
                             <td>Düzenle</td>
+                            <td>Koplaya</td>
                           </tr>
                         </thead>
                         <tbody>
                           {data.Products.map((products) => (
                             <tr key={Math.random(0, 200)}>
-                              <td>{products.Category[0].Name}</td>
+                              <td>{products.Category[0].Name}({products.Category[0].CategoryType})</td>
                               <td>{products.Name}</td>
                               <td>{products.Info}</td>
                               <td>{products.Price}</td>
@@ -100,6 +107,16 @@ class Home extends Component {
                                   }
                                 >
                                   Düzenle
+                                </Link>
+                              </td><td>
+                                <Link
+                                  class="btn btn-success"
+                                  to="/NewProduct"
+                                  onClick={() =>
+                                    this.props.SetProduct(products)
+                                  }
+                                >
+                                  Kopyala
                                 </Link>
                               </td>
                             </tr>

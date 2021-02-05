@@ -88,6 +88,7 @@ export default class Home extends Component {
                         <thead>
                           <tr>
                             <td>Kategori Adı</td>
+                            <td>Kategori Türü</td>
                             <td>Düzenle/Sil</td>
                           </tr>
                         </thead>
@@ -95,6 +96,7 @@ export default class Home extends Component {
                           {data.Categorys.map((category) => (
                             <tr key={Math.random(0, 200)}>
                               <td>{category.Name}</td>
+                              <td>{category.CategoryType}</td>
 
                               <td>
                                 <button

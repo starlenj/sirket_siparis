@@ -830,12 +830,16 @@ export default class Sepet extends Component {
             </div>
           ) : (
               <div>
+                <a className="btn btn-primary" href="https://magazasiparis.hmbrgr.com.tr/" >Sipariş Türü Şube Seçim Ekranı</a>
+                <br />
+                <br />
                 <p class="card-text" style={{ textAlign: "center" }}>
                   <i
                     class="fa fa-shopping-basket fa-2x"
                     style={{ color: "#e1e1e1", textAlign: "center" }}
                   ></i>
                   <br />
+
                 Sepetiniz şu anda boş!
               </p>
               </div>

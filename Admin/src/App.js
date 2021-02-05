@@ -11,6 +11,7 @@ import Options from "./component/pages/Options/index";
 import NewOptions from "./component/pages/Options/new-options";
 import Users from "./component/pages/Users/index";
 import Product from "./component/pages/Product/index";
+import ProductPriceUpdate from "./component/pages/Product/product-price-update";
 import EditProduct from "./component/pages/Product/edit-product";
 import NewProduct from "./component/pages/Product/new-product";
 import CalismaSaatleri from "./component/pages/CalismaSaatleri/index";
@@ -137,6 +138,10 @@ const Root = ({ refetch, session }) => (
         <Route
           path="/Users/NewUser"
           render={() => <NewUserForm refetch={refetch} session={session} />}
+        />
+        <Route
+          path="/ProductPriceUpdate"
+          render={() => <ProductPriceUpdate refetch={refetch} session={session} />}
         />
         <Redirect to="/" />
       </Switch>

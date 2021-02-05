@@ -10,6 +10,7 @@ type Product {
   Name: String!
   Info: String
   Price: Float!
+  OldPrice: Float!
   YemekSepetiPrice: Float
   Order: Int
   SelectOption: [SelectOption]
@@ -22,6 +23,7 @@ type Mutation {
   UpdateProduct(data: UpdateProductInput): Product
   ProductStatus(data: ProductStatusInput): Product
   DeleteProduct(data: DeleteProductInput): Product
+  UpdateProductPrice(data: UpdateProductPriceInput): Product
 }
 
 input ProductStatusInput {
@@ -51,6 +53,12 @@ input UpdateProductInput {
 }
 input DeleteProductInput {
   id: ID!
+}
+input UpdateProductPriceInput {
+  id: String!
+  Price:Float!
+  YemekSepetiPrice:Float!
+  OldPrice:Float!
 }
 type Subscription {
   ProductStatus(id: String!): Product!

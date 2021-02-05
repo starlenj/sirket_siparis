@@ -2,6 +2,7 @@ type Query {
   Category(id: ID!): Category
   Categorys: [Category]
   ArabaCategory: [Category]
+  GetMenu(CategoryType:String!) :[Category] 
 }
 
 type Category {
@@ -23,11 +24,14 @@ input CreateCategoryInput {
   Name: String!
   Order: Int
   SubeId: String
+  CategoryType: String!
 }
 input UpdateCategoryInput {
   id: String!
   Name: String!
+  CategoryType: String!
   SubeId: String
+  Order: Int
 }
 
 input DeleteCategoryInput {

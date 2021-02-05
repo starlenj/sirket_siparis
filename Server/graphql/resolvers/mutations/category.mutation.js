@@ -13,13 +13,14 @@ module.exports = {
   },
   UpdateCategory: async (
     parent,
-    { data: { Name, id, Order, SubeId } },
+    { data: { Name, id, Order, SubeId, CategoryType } },
     { Category }
   ) => {
     const UpdateCategory = await Category.findById(id);
     UpdateCategory.Name = Name;
     UpdateCategory.Order = Order;
     UpdateCategory.SubeId = SubeId;
+    UpdateCategory.CategoryType = CategoryType;
     return UpdateCategory.save();
   },
   DeleteCategory: async (parent, { data: { id } }, { Category }) => {

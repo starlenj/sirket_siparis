@@ -87,6 +87,40 @@ export const GET_CATEGORYS = gql`
   }
 `;
 
+export const GET_MENU = gql`
+  query($CategoryType:String!) {
+    GetMenu(CategoryType:$CategoryType) {
+      Name
+      id
+      Order
+      Products {
+        Name
+        Info
+        Price
+       YemekSepetiPrice 
+        id
+        Order
+        Picture
+        SelectOption {
+          Options {
+            Name
+            MaxQuantity
+            MinQuantity
+            Order
+            SelectType
+            id
+            OptionValues {
+              Name
+              id
+              Price
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const CREATE_ORDER_HEADER = gql`
   mutation(
     $PaymentType: String!

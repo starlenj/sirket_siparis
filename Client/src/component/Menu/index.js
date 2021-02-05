@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react";
 import { Query } from "react-apollo";
-import { GET_PRODUCTS, GET_CATEGORYS, GET_PRODUCT } from "../../queries";
+import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
 import { SetProduct } from "../../Actions/Product";
@@ -22,7 +22,7 @@ class Menu extends Component {
     this.NewOrder = createRef();
   }
   componentDidMount() {
-    this.setState({ SelectSube: localStorage.getItem("SUBE") });
+    this.setState({ SelectSube: localStorage.getItem("SUBE"), OrderType: localStorage.getItem("siparis_turu") });
     var SelectInfo = localStorage.getItem("URUN_ID");
   }
   SetOrder = (Product, Category) => {
@@ -56,6 +56,7 @@ class Menu extends Component {
       Price: order.Price,
       ProductName: order.Name,
       Quantity: 1,
+      OrderType: "",
     };
     var SepetYeni = [];
     let Sepet = JSON.parse(localStorage.getItem("Sepet"));
@@ -72,16 +73,7 @@ class Menu extends Component {
     window.location.reload();
   };
   Fiyat = (Category, Price) => {
-    var siparis_turu = localStorage.getItem("siparis_turu");
-    if (siparis_turu === "Paket") {
-      if (!Category.Name.includes("İçecekler") && !Category.Name.includes("Atıştırmalıklar") && !Category.Name.includes("Tatlılar")) {
-        return parseFloat(Price + 10).toFixed(2);
-      } else {
-        return Price;
-      }
-    } else {
-      return Price;
-    }
+    return Price;
   };
   render() {
     return (
@@ -109,52 +101,36 @@ class Menu extends Component {
             aria-labelledby="menu-tab"
           >
             <div className="table-responsive">
-              <Query query={GET_CATEGORYS}>
-                {({ loading, data, error }) => {
-                  if (loading) return <div className="loading">Loading...</div>;
-                  return (
-                    <div>
-                      {data.Categorys.sort((a, b) =>
-                        a.Order > b.Order ? 1 : -1
-                      ).map((Category) => (
-                        <table className="table table-hover table-sm">
-                          <thead>
-                            <tr>
-                              <td style={{ width: "25%" }}>
-                                <span style={{ fontSize: 15 }}>
-                                  <b>{Category.Name}</b>
-                                </span>
-                              </td>
-                              <td style={{ width: "45%" }}></td>
-                              <td style={{ width: "20%" }}></td>
-                              <td style={{ width: "20%" }}></td>
-                            </tr>
-                          </thead>
-
-                          <tbody>
-                            {Category.Products.sort((a, b) =>
-                              a.Order > b.Order ? 1 : -1
-                            ).map((product) => (
+              {this.state.OrderType !== "" && (
+                <Query query={GET_MENU} variables={{ CategoryType: localStorage.getItem("siparis_turu") }}>
+                  {({ loading, data, error }) => {
+                    if (loading) return <div className="loading">Loading...</div>;
+                    return (
+                      <div>
+                        {data.GetMenu && data.GetMenu.sort((a, b) =>
+                          a.Order > b.Order ? 1 : -1
+                        ).map((Category) => (
+                          <table className="table table-hover table-sm">
+                            <thead>
                               <tr>
-                                <td>
-                                  {product.SelectOption.length > 0 ? (
-                                    <button
-                                      className="btn btn-success btn-sm"
-                                      style={{
-                                        width: 25,
-                                        height: 25,
-                                        padding: 0,
-                                        marginLeft: 5,
-                                      }}
-                                      onClick={() =>
-                                        this.SetOrder(product, Category)
-                                      }
-                                      data-toggle="modal"
-                                      data-target="#setOrderModal"
-                                    >
-                                      <i class="fa fa-plus"></i>
-                                    </button>
-                                  ) : (
+                                <td style={{ width: "25%" }}>
+                                  <span style={{ fontSize: 15 }}>
+                                    <b>{Category.Name}</b>
+                                  </span>
+                                </td>
+                                <td style={{ width: "45%" }}></td>
+                                <td style={{ width: "20%" }}></td>
+                                <td style={{ width: "20%" }}></td>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              {Category.Products.sort((a, b) =>
+                                a.Order > b.Order ? 1 : -1
+                              ).map((product) => (
+                                <tr>
+                                  <td>
+                                    {product.SelectOption.length > 0 ? (
                                       <button
                                         className="btn btn-success btn-sm"
                                         style={{
@@ -163,67 +139,87 @@ class Menu extends Component {
                                           padding: 0,
                                           marginLeft: 5,
                                         }}
-                                        onClick={() => this.CreateSepet(product)}
+                                        onClick={() =>
+                                          this.SetOrder(product, Category)
+                                        }
+                                        data-toggle="modal"
+                                        data-target="#setOrderModal"
                                       >
                                         <i class="fa fa-plus"></i>
                                       </button>
-                                    )}
-                                  <img
-                                    src={
-                                      product.Picture === ""
-                                        ? "https://siparis.hmbrgr.com.tr/Templates/newyork/assets/img/nophoto-img.jpg"
-                                        : product.Picture
-                                    }
-                                    style={{
-                                      width: 50,
-                                      height: 50,
-                                      marginLeft: 20,
-                                      marginRight: 10,
-                                    }}
-                                  />
-                                </td>
-                                <td>
-                                  <div className="row" style={{ fontSize: 11 }}>
-                                    <p>
-                                      <b>{product.Name}</b>{" "}
-                                    </p>
-                                  </div>
-                                  <div className="row" style={{ fontSize: 11 }}>
-                                    <p>{product.Info}</p>
-                                  </div>
-                                </td>
+                                    ) : (
+                                        <button
+                                          className="btn btn-success btn-sm"
+                                          style={{
+                                            width: 25,
+                                            height: 25,
+                                            padding: 0,
+                                            marginLeft: 5,
+                                          }}
+                                          onClick={() => this.CreateSepet(product)}
+                                        >
+                                          <i class="fa fa-plus"></i>
+                                        </button>
+                                      )}
+                                    <img
+                                      src={
+                                        product.Picture === ""
+                                          ? "https://siparis.hmbrgr.com.tr/Templates/newyork/assets/img/nophoto-img.jpg"
+                                          : product.Picture
+                                      }
+                                      style={{
+                                        width: 50,
+                                        height: 50,
+                                        marginLeft: 20,
+                                        marginRight: 10,
+                                      }}
+                                    />
+                                  </td>
+                                  <td>
+                                    <div className="row" style={{ fontSize: 11 }}>
+                                      <p>
+                                        <b>{product.Name}</b>{" "}
+                                      </p>
+                                    </div>
+                                    <div className="row" style={{ fontSize: 11 }}>
+                                      <p>{product.Info}</p>
+                                    </div>
+                                  </td>
 
-                                <td
-                                  style={{
-                                    color: "#E77F3F",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  <p>
-                                    {this.Fiyat(Category, product.YemekSepetiPrice)}
-                                    <b>TL</b>
-                                  </p>
-                                </td>
-                                <td
-                                  style={{
-                                    color: "#E77F3F",
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  <p>
-                                    {this.Fiyat(Category, product.Price)}
-                                    <b>TL</b>
-                                  </p>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      ))}
-                    </div>
-                  );
-                }}
-              </Query>
+                                  <td
+                                    style={{
+                                      color: "red",
+                                      fontWeight: "bold",
+                                      fontSize: 15
+                                    }}
+                                  >
+                                    <p>
+                                      <del> {this.Fiyat(Category, product.YemekSepetiPrice)}  <b>TL</b></del>
+
+                                    </p>
+                                  </td>
+                                  <td
+                                    style={{
+                                      color: "#E77F3F",
+                                      fontWeight: "bold",
+                                    }}
+                                  >
+                                    <p>
+                                      {this.Fiyat(Category, product.Price)}
+                                      <b>TL</b>
+                                    </p>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        ))}
+                      </div>
+                    );
+                  }}
+                </Query>
+              )}
+
             </div>
           </div>
 

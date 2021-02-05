@@ -123,7 +123,6 @@ const Query = {
   Categorys: async (parent, args, { Category }) => {
     return await Category.find({
       Status: 1,
-      CategoryType: "Menü",
     }).sort({
       Order: "desc",
     });
@@ -198,6 +197,11 @@ const Query = {
   },
   CashierHeaders: async (paret, args, { CashierHeader }) => {
     return await CashierHeader.find({ Status: 1 });
+  },
+  GetMenu: async (parent, args, { Category }) => {
+    return await Category.find({ Status: 1, CategoryType: args.CategoryType }).sort({
+      Order: "desc",
+    });
   },
 };
 

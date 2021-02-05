@@ -223,21 +223,25 @@ export const GET_CATEGORYS = gql`
     Categorys {
       id
       Name
+      Order
+      CategoryType
     }
   }
 `;
 
 export const CREATE_CATEGORY = gql`
-  mutation($Name: String!) {
-    CreateCategory(data: { Name: $Name }) {
+  mutation($Name: String!,$Order:Int!,$CategoryType:String!) {
+    CreateCategory(data: { Name: $Name,CategoryType:$CategoryType,Order:$Order }) {
       id
       Name
+      Order
+      CategoryType
     }
   }
 `;
 export const UPDATE_CATEGORY = gql`
-  mutation($Name: String!, $id: String!) {
-    UpdateCategory(data: { id: $id, Name: $Name }) {
+  mutation($Name: String!, $id: String!,$CategoryType:String!,$Order:Int!) {
+    UpdateCategory(data: { id: $id, Name: $Name,CategoryType:$CategoryType,Order:$Order }) {
       id
       Name
     }
@@ -388,6 +392,7 @@ export const GET_PRODUCTS = gql`
       Category {
         Name
         id
+        CategoryType
       }
       Name
       Info
@@ -693,3 +698,12 @@ export const NEW_SERVIS = gql`
     }
   }
 `;
+export const UPDATE_PRODUCT_PRICE = gql`
+
+mutation($id:String!,$Price:Float!,$YemekSepetiPrice:Float!,$OldPrice:Float!) {
+  UpdateProductPrice(data: { id:$id, Price: $Price, YemekSepetiPrice: $YemekSepetiPrice,OldPrice:$OldPrice }) {
+    id
+  }
+}
+
+`

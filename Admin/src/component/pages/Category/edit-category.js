@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Mutation } from "react-apollo";
 import { GET_CATEGORYS, UPDATE_CATEGORY } from "../../../queries/index";
 export default class NewCategory extends Component {
-  state = { Name: [], id: "" };
+  state = { Name: [], id: "", CategoryType: "", Order: 0 };
   constructor(props) {
     super(props);
   }
@@ -12,7 +12,7 @@ export default class NewCategory extends Component {
     });
   };
   SetCategory(category) {
-    this.setState({ Name: category.Name, id: category.id });
+    this.setState({ Name: category.Name, id: category.id, CategoryType: category.CategoryType, Order: category.Order });
   }
 
   onSubmit = (e, UpdateCategory) => {
@@ -32,11 +32,33 @@ export default class NewCategory extends Component {
         <div className="row col-md-12">
           <Mutation
             mutation={UPDATE_CATEGORY}
-            variables={{ ...this.state }}
+            variables={{
+              Name: this.state.Name,
+              Order: parseInt(this.state.Order),
+              CategoryType: this.state.CategoryType,
+              id: this.state.id
+            }}
             refetchQueries={[{ query: GET_CATEGORYS }]}
           >
             {(UpdateCategory, { loading, error }) => (
               <form>
+
+                <div className="form-group">
+                  <select className="form-control" onChange={this.onChange} name="CategoryType">
+                    <option selected={this.state.CategoryType === "Paket"}>Paket</option>
+                    <option selected={this.state.CategoryType === "Gel-Al"}>Gel-Al</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="number"
+                    className="form-control"
+                    placeholder="Kategori Sıra"
+                    name="Order"
+                    value={this.state.Order}
+                    onChange={this.onChange}
+                  />
+                </div>
                 <div className="form-group">
                   <input
                     type="text"

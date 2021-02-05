@@ -2,13 +2,16 @@ import React, { Component } from "react";
 import { Query, Mutation } from "react-apollo";
 import SideBar from "../../SideBar/index";
 import Header from "../../Header/index";
+import { withRouter, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { SetProduct } from "../../../actions/Product";
 import {
   CREATE_PRODUCT,
   GET_CATEGORYS,
   GET_OPTIONS,
   CREATE_SELECTOPTION,
 } from "../../../queries/index";
-export default class NewProduct extends Component {
+class NewProduct extends Component {
   constructor(props) {
     super(props);
     this.CategoryId = "";
@@ -24,6 +27,21 @@ export default class NewProduct extends Component {
     CategoryId: "",
     Options: [],
   };
+  componentDidMount() {
+
+    if (this.props.Product.Product.Category) {
+      var Product = this.props.Product.Product;
+      this.setState({
+        Name: Product.Name,
+        Info: Product.Info,
+        Price: Product.Price,
+        Picture: Product.Picture,
+        YemekSepetiPrice: Product.YemekSepetiPrice,
+        Order: Product.Order,
+        CategoryId: Product.Category[0].id
+      })
+    }
+  }
   onChange = (e) => {
     if (e.target.name === "Options") {
       this.state.Options = [];
@@ -107,7 +125,7 @@ export default class NewProduct extends Component {
                 Order: parseInt(this.state.Order),
                 Status: 1,
                 Picture: this.state.Picture,
-                YemekSepetiPrice: this.state.YemekSepetiPrice,
+                YemekSepetiPrice: parseFloat(this.state.YemekSepetiPrice),
                 CategoryId: this.CategoryId,
                 Info: this.state.Info,
               }}
@@ -129,8 +147,8 @@ export default class NewProduct extends Component {
                           >
                             <option>Kategori Seçiniz...</option>
                             {data.Categorys.map((category) => (
-                              <option value={category.id}>
-                                {category.Name}
+                              <option value={category.id} selected={this.state.CategoryId === category.id}>
+                                {category.Name}({category.CategoryType})
                               </option>
                             ))}
                           </select>
@@ -168,6 +186,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Ürün Adı"
                       name="Name"
+                      value={this.state.Name}
                       onChange={this.onChange}
                     />
                   </div>
@@ -178,6 +197,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Kısa Açıklama"
                       name="Info"
+                      value={this.state.Info}
                       onChange={this.onChange}
                     />
                   </div>
@@ -188,6 +208,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Picture"
                       name="Order"
+                      value={this.state.Picture}
                       onChange={this.onChange}
                     />
                   </div>
@@ -198,6 +219,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Sırlama"
                       name="Order"
+                      value={this.state.Order}
                       onChange={this.onChange}
                     />
                   </div>
@@ -208,6 +230,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Fiyat"
                       name="YemekSepetiPrice"
+                      value={this.state.YemekSepetiPrice}
                       onChange={this.onChange}
                     />
                   </div>
@@ -218,6 +241,7 @@ export default class NewProduct extends Component {
                       className="form-control"
                       placeholder="Fiyat"
                       name="Price"
+                      value={this.state.Price}
                       onChange={this.onChange}
                     />
                   </div>
@@ -259,3 +283,12 @@ export default class NewProduct extends Component {
     );
   }
 }
+const mapStateToProps = ({ Product }) => {
+  return {
+    Product,
+  };
+};
+const mapDispatchToProps = {
+  SetProduct,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NewProduct));
