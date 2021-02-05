@@ -58,7 +58,7 @@ class NewProduct extends Component {
     }
   };
   CategoryChange = (e) => {
-    this.CategoryId = e.target.value;
+    this.setState({ CategoryId: e.target.value })
   };
   onSubmit = (e, CreateProduct, CreateSelectOption) => {
     CreateProduct().then(({ data }) => {
@@ -126,7 +126,7 @@ class NewProduct extends Component {
                 Status: 1,
                 Picture: this.state.Picture,
                 YemekSepetiPrice: parseFloat(this.state.YemekSepetiPrice),
-                CategoryId: this.CategoryId,
+                CategoryId: this.state.CategoryId,
                 Info: this.state.Info,
               }}
             >
