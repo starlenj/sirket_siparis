@@ -20,8 +20,8 @@ module.exports = {
     UpdateOption.Price = Price;
     return UpdateOption.save();
   },
-  DeleteOptionValue: async (parent, { data: { id } }, { Option }) => {
-    const DeleteOptions = await Option.findById(id);
+  DeleteOptionValue: async (parent, { data: { id } }, { OptionValue }) => {
+    const DeleteOptions = await OptionValue.findById(id);
     DeleteOptions.Status = 0;
     return DeleteOptions.save();
   },
