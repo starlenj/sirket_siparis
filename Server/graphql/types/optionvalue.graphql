@@ -9,6 +9,7 @@ type OptionValue {
   OptionsId: String
   Price: Float
   OptionsHeader:[Option]
+  Status:Boolean!
 }
 
 type Mutation {
@@ -30,5 +31,6 @@ input UpdateOptionValueInput {
 }
 
 input DeleteOptionValueInput {
-  id: ID!
+  id: String!
+  Status:Boolean!
 }

@@ -39,14 +39,17 @@ class NewOrder extends React.Component {
         }
       }
     });
-
-    this.props.Product.Product.SelectOption.map((options) => {
-      if (options.Options[0].Name === "İçecek Seçimi") {
-        if (this.props.Order.IcecekOption.length === 0) {
-          alert("İçecek Seçimi Zorunludur");
+    if (localStorage.getItem("siparis_turu") !== "Paket") {
+      this.props.Product.Product.SelectOption.map((options) => {
+        if (options.Options[0].Name === "İçecek Seçimi") {
+          if (this.props.Order.IcecekOption.length === 0) {
+            alert("İçecek Seçimi Zorunludur");
+            return false;
+          }
         }
-      }
-    });
+      });
+    }
+
     var SepetYeni = [];
     let Sepet = JSON.parse(localStorage.getItem("Sepet"));
     if (Sepet !== null) {
