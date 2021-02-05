@@ -1,12 +1,12 @@
 type Query {
-  Category(id: ID!): Category
+  Category(id: String!): Category
   Categorys: [Category]
   ArabaCategory: [Category]
   GetMenu(CategoryType:String!) :[Category] 
 }
 
 type Category {
-  id: ID!
+  id: String!
   Name: String!
   Order: Int
   Products: [Product]
