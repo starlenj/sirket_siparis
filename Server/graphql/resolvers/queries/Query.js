@@ -98,12 +98,12 @@ const Query = {
     });
   },
   Products: async (parent, args, { Product }) => {
-    return await Product.find({}).sort({
+    return await Product.find({ Status: 1 }).sort({
       Order: "desc",
     });
   },
   Product: async (parent, { id }, { Product }) => {
-    let data = await Product.find({ _id: id }).sort({
+    let data = await Product.find({ _id: id, Status: 1 }).sort({
       Order: "desc",
     });
     return data[0];
