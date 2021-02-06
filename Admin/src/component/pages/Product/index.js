@@ -86,6 +86,7 @@ class Home extends Component {
                             <td>Ürün Adı</td>
                             <td>Kısa Açıklama</td>
                             <td>Fiyat</td>
+                            <td>YemekSepetiFiyatı</td>
                             <td>Düzenle</td>
                             <td>Koplaya</td>
                           </tr>
@@ -97,6 +98,7 @@ class Home extends Component {
                               <td>{products.Name}</td>
                               <td>{products.Info}</td>
                               <td>{products.Price}</td>
+                              <td>{products.YemekSepetiPrice}</td>
 
                               <td>
                                 <Link

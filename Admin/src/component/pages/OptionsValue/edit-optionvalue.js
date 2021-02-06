@@ -10,6 +10,7 @@ class EditOptions extends Component {
   state = {
     Name: "",
     Price: 0,
+    Order: 0,
     id: "",
   };
   constructor(props) {
@@ -17,10 +18,10 @@ class EditOptions extends Component {
   }
   componentDidMount() {
     const { OptionValue } = this.props.OptionValue;
-    console.log(OptionValue);
     this.setState({
       Name: OptionValue.Name,
       Price: OptionValue.Price,
+      Order: OptionValue.Order,
       id: OptionValue.id,
     });
   }
@@ -93,6 +94,7 @@ class EditOptions extends Component {
                   variables={{
                     Name: this.state.Name,
                     Price: parseFloat(this.state.Price),
+                    Order: parseInt(this.state.Order),
                     id: this.state.id,
                   }}
                   onCompleted={() => {
@@ -118,6 +120,17 @@ class EditOptions extends Component {
                           onChange={this.onChange}
                         />
                       </div>
+                      <div className="form-group">
+                        <label>Sıralam :</label>
+                        <input
+                          type="Number"
+                          className="form-control"
+                          name="Order"
+                          value={this.state.Order}
+                          onChange={this.onChange}
+                        />
+                      </div>
+
                       <div className="form-group">
                         <label>Fiyat :</label>
                         <input

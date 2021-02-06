@@ -399,7 +399,7 @@ export const GET_PRODUCTS = gql`
       Price
      YemekSepetiPrice 
       Picture
-      Order
+      Or
       SelectOption {
         Options {
           id
@@ -519,9 +519,9 @@ export const GET_OPTIONSVALUE = gql`
 `;
 
 export const CREATE_OPTIONSVALUE = gql`
-  mutation($Name: String!, $Price: Float!, $OptionsId: String!) {
+  mutation($Name: String!, $Price: Float!, $OptionsId: String!,$Order:Int!) {
     CreateOptionValue(
-      data: { Name: $Name, Price: $Price, OptionsId: $OptionsId }
+      data: { Order:$Order,Name: $Name, Price: $Price, OptionsId: $OptionsId }
     ) {
       id
     }
@@ -529,8 +529,8 @@ export const CREATE_OPTIONSVALUE = gql`
 `;
 
 export const UPDATE_OPTIONSVALUE = gql`
-  mutation($Name: String!, $Price: Float!, $id: String!) {
-    UpdateOptionValue(data: { Name: $Name, Price: $Price, id: $id }) {
+  mutation($Name: String!, $Price: Float!, $id: String!,$Order:Int!) {
+    UpdateOptionValue(data: { Name: $Name, Price: $Price, id: $id,Order:$Order }) {
       id
     }
   }

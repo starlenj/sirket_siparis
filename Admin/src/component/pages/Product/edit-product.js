@@ -51,7 +51,7 @@ class EditProduct extends Component {
       Name: Product.Name,
       Info: Product.Info,
       Price: Product.Price,
-      YemekSepetiPrice : Product.YemekSepetiPrice,
+      YemekSepetiPrice: Product.YemekSepetiPrice,
       CategoryId: Product.Category[0].id,
       Options: Product.SelectOption,
       Picture: Product.Picture,
@@ -181,7 +181,7 @@ class EditProduct extends Component {
                                 value={category.id}
                                 selected={category.id === this.state.CategoryId}
                               >
-                                {category.Name}
+                                {category.Name} ({category.CategoryType})
                               </option>
                             ))}
                           </select>
@@ -239,7 +239,7 @@ class EditProduct extends Component {
                       type="Number"
                       className="form-control"
                       placeholder="Fiyat"
-                  value={this.state.YemekSepetiPrice}
+                      value={this.state.YemekSepetiPrice}
                       name="YemekSepetiPrice"
                       onChange={this.onChange}
                     />

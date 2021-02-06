@@ -40,6 +40,27 @@ class OptionList extends Component {
       }
       this.props.SetEk(arr);
     }
+    if (e.target.name === "Ekmek Seçimi") {
+      var target = e.target.options;
+      var arr = [];
+      for (var i = 0; i < target.length; i++) {
+        if (target[i].selected) {
+          var value = JSON.parse(target[i].value);
+          arr.push({
+            Name: value.Name,
+            id: value.id,
+            Price: value.Price
+          });
+        }
+      }
+
+      var Price = 0;
+      for (var i = 0; i < arr.length; i++) {
+        Price += arr[i].Price;
+      }
+
+      this.props.SetEkmek(arr);
+    }
 
     if (e.target.name === "İçecek Seçimi") {
       var target = e.target.options;
@@ -54,6 +75,7 @@ class OptionList extends Component {
           });
         }
       }
+
       var Price = 0;
       for (var i = 0; i < arr.length; i++) {
         Price += arr[i].Price;
@@ -62,7 +84,10 @@ class OptionList extends Component {
       this.props.SetIcecek(arr);
     }
 
-    if (e.target.name === "Ekmek Seçimi") {
+
+
+
+    if (e.target.name === "Promosyonlu İçecek") {
       var target = e.target.options;
       var arr = [];
       for (var i = 0; i < target.length; i++) {
@@ -71,10 +96,18 @@ class OptionList extends Component {
           arr.push({
             Name: value.Name,
             id: value.id,
+            Price: value.Price
           });
         }
       }
-      this.props.SetEkmek(arr);
+
+      var Price = 0;
+      for (var i = 0; i < arr.length; i++) {
+        Price += arr[i].Price;
+      }
+
+      this.props.SetExtra({ Price })
+      this.props.SetIcecek(arr);
     }
   };
   render() {

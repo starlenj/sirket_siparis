@@ -113,6 +113,7 @@ export const GET_MENU = gql`
               Name
               id
               Price
+              Order
             }
           }
         }
@@ -211,6 +212,7 @@ query($id :String!) {
           Name
           id
           Price
+          Order
         }
       }
     }

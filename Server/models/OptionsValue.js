@@ -10,7 +10,8 @@ const OptionsValueSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  Order: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model("OptionsValue", OptionsValueSchema);

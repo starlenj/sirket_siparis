@@ -9,6 +9,7 @@ class NewOptionsValue extends Component {
   state = {
     Name: "",
     Price: 0,
+    Order: 0,
     OptionsId: "",
   };
   componentDidMount() {
@@ -105,7 +106,16 @@ class NewOptionsValue extends Component {
                           onChange={this.onChange}
                         />
                       </div>
-
+                      <div className="form-group">
+                        <label>Sıralama</label>
+                        <input
+                          type="Number"
+                          className="form-control"
+                          placeholder="Fiyatı"
+                          name="Order"
+                          onChange={this.onChange}
+                        />
+                      </div>
                       <div className="form-group">
                         <label>Fiyatı</label>
                         <input

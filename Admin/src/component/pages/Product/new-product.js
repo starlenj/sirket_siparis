@@ -31,6 +31,7 @@ class NewProduct extends Component {
 
     if (this.props.Product.Product.Category) {
       var Product = this.props.Product.Product;
+      console.log(Product);
       this.setState({
         Name: Product.Name,
         Info: Product.Info,
