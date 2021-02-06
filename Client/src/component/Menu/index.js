@@ -89,7 +89,7 @@ class Menu extends Component {
               aria-controls="home"
               aria-selected="true"
             >
-              <b> Menü</b>
+              <b> </b>
             </a>
           </li>
         </ul>
@@ -118,9 +118,9 @@ class Menu extends Component {
                                     <b>{Category.Name}</b>
                                   </span>
                                 </td>
-                                <td style={{ width: "45%" }}></td>
-                                <td style={{ width: "20%" }}></td>
-                                <td style={{ width: "20%" }}></td>
+                                <td style={{ width: "40%" }}></td>
+                                <td style={{ width: "22%" }}><b>Sepet Fiyatı</b></td>
+                                <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
                             </thead>
 
@@ -187,14 +187,16 @@ class Menu extends Component {
                                   </td>
 
                                   <td
-                                    style={{
-                                      color: "red",
-                                      fontWeight: "bold",
-                                      fontSize: 15
-                                    }}
+
                                   >
                                     <p>
-                                      <del> {this.Fiyat(Category, product.YemekSepetiPrice)}  <b>TL</b></del>
+                                      <del style={{
+                                        color: "red",
+                                        fontWeight: "bold",
+                                        fontSize: 15
+                                      }}> {this.Fiyat(Category, product.YemekSepetiPrice)}  </del><span style={{
+                                        color: "red"
+                                      }}>TL</span>
 
                                     </p>
                                   </td>

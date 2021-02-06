@@ -20,6 +20,7 @@ export default class OrderDetail extends Component {
     var arr = [];
     var Topla = data.Order.OrderType === "Paket" ? 0 : 0;
     OrderData.map((order) => {
+      console.log(data);
       Topla += parseFloat(order.Price) * parseInt(order.Quantity);
       order.SelectOrderOption.map((options) => {
         arr.push({ Name: options.OrderOptions[0].Name });

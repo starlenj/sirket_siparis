@@ -106,7 +106,7 @@ class OptionList extends Component {
         Price += arr[i].Price;
       }
 
-      this.props.SetExtra({ Price })
+      this.props.SetIcecekExtra({ Price })
       this.props.SetIcecek(arr);
     }
   };
@@ -142,7 +142,7 @@ class OptionList extends Component {
                   >
                     ...Lütfen Seçiniz...
                   </option>
-                  {Options.Options[0].OptionValues.map((Values) => (
+                  {Options.Options[0].OptionValues.sort((a, b) => a.Order > b.Order ? 1 : -1).map((Values) => (
                     <option value={JSON.stringify(Values)}>
                       {Values.Name} {Values.Price > 0 ? " + " : ""}
                       {Values.Price > 0
@@ -175,6 +175,7 @@ const mapDispatchToProps = (dispatch) => {
     SetEk: (Extra) => dispatch({ type: "SET_EK_OPTIONS", payload: Extra }),
     SetEkmek: (Options) => dispatch({ type: "SET_EKMEK", payload: Options }),
     SetIcecek: (Options) => dispatch({ type: "SET_ICECEK", payload: Options }),
+    SetIcecekExtra: (Options) => dispatch({ type: "SET_ICECEK_EXTRA", payload: Options }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(OptionList);

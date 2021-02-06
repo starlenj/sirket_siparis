@@ -511,6 +511,7 @@ export const GET_OPTIONSVALUE = gql`
   query($OptionsId: String!) {
     OptionValue(OptionsId: $OptionsId) {
       Name
+      Order
       OptionsId
       Price
       id

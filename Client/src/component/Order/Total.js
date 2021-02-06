@@ -8,6 +8,7 @@ class Total extends Component {
       <p>
         {(
           (parseFloat(this.props.Price) +
+            parseFloat(this.props.IcecekExtra) +
             parseFloat(this.props.Order.ExtraPrice)) *
           this.props.Order.Quantity
         ).toFixed(2)}

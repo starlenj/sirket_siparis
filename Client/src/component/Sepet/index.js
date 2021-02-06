@@ -247,7 +247,7 @@ export default class Sepet extends Component {
               Quantity: Order.Quantity,
               Price: parseFloat(
                 (
-                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice)
+                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)
                 ).toFixed(2)
               ),
               OrderHeaderId: data.CreateOrderHeader.id,
@@ -355,7 +355,7 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((Order) => {
         Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice)) *
+          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
           parseInt(Order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -364,7 +364,7 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((Order) => {
         Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice)) *
+          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
           parseInt(Order.Quantity);
       });
       return parseFloat((Toplam / 100) * 5).toFixed(2);
@@ -373,7 +373,7 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((order) => {
         Toplam +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
           parseInt(order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -383,7 +383,7 @@ export default class Sepet extends Component {
 
       this.state.Order.map((order) => {
         Topla +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
           parseInt(order.Quantity);
       });
       this.state.Total = parseFloat(Topla).toFixed(2);
@@ -499,6 +499,7 @@ export default class Sepet extends Component {
                     >
                       {(
                         (parseFloat(order.Price) +
+                          parseFloat(order.ExtraIcecek) +
                           parseFloat(order.ExtraPrice)) *
                         parseInt(order.Quantity)
                       ).toFixed(2)}
@@ -735,6 +736,7 @@ export default class Sepet extends Component {
                                           <td>
                                             {(
                                               (parseFloat(Orders.Price) +
+                                                parseFloat(Orders.ExtraIcecek) +
                                                 parseFloat(Orders.ExtraPrice)) *
                                               parseInt(Orders.Quantity)
                                             ).toFixed(2)}

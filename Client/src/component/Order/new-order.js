@@ -31,6 +31,7 @@ class NewOrder extends React.Component {
       ProductName: this.props.Product.Product.Name,
       Quantity: this.props.Order.Quantity,
       ExtraOptions: this.props.Order.ExtraOptions,
+      ExtraIcecek: this.props.Order.ExtraIcecek,
     });
     this.props.Product.Product.SelectOption.map((options) => {
       if (options.Options[0].Name === "Ekmek Seçimi") {
@@ -87,6 +88,7 @@ class NewOrder extends React.Component {
                 <Total
                   ref={this.TotalComponent}
                   Price={parseFloat(this.props.Product.Product.Price)}
+                  IcecekExtra={parseFloat(this.props.Order.ExtraIcecek)}
                 />
               </div>
               <div className="row">{this.props.Product.Product.Info}</div>

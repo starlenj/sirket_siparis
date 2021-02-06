@@ -7,7 +7,8 @@ const initializeState = {
   ExtraOptions: [],
   EkOptions: [],
   ServicePrice: 0,
-  ExtraPrice: 0
+  ExtraPrice: 0,
+  ExtraIcecek: 0
 };
 export default function (state = initializeState, action) {
   switch (action.type) {
@@ -36,6 +37,11 @@ export default function (state = initializeState, action) {
       return {
         ...state,
         ExtraPrice: parseFloat(action.payload.Price)
+      };
+    case "SET_ICECEK_EXTRA":
+      return {
+        ...state,
+        ExtraIcecek: parseFloat(action.payload.Price)
       };
     case "SET_OPTIONS":
       return {
