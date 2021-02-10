@@ -15,11 +15,13 @@ class Menu extends Component {
     UrunModal: false,
     Bolge: "",
     BolgeModal: false,
+    OrderModal: false
   };
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.NewOrder = createRef();
+    this.handleCloseOrderModal = this.handleCloseOrderModal.bind(this);
   }
   componentDidMount() {
     this.setState({ SelectSube: localStorage.getItem("SUBE"), OrderType: localStorage.getItem("siparis_turu") });
@@ -30,6 +32,7 @@ class Menu extends Component {
     this.props.SetDefault();
     Product.Price = this.Fiyat(Category, Product.Price);
     this.props.SetProduct(Product);
+    this.setState({ OrderModal: true })
   };
   handleChange = (e) => {
     this.setState({
@@ -45,6 +48,11 @@ class Menu extends Component {
       [e.target.name]: e.target.value,
     });
   };
+  handleCloseOrderModal() {
+    this.setState({ OrderModal: false })
+    this.props.SetProduct([]);
+
+  }
   CreateSepet = (order) => {
     var NewOrder = {
       ProductId: order.id,
@@ -144,6 +152,7 @@ class Menu extends Component {
                                         }
                                         data-toggle="modal"
                                         data-target="#setOrderModal"
+
                                       >
                                         <i class="fa fa-plus"></i>
                                       </button>
@@ -234,26 +243,22 @@ class Menu extends Component {
             ...
           </div>
         </div>
-        <div class="modal fade" id="setOrderModal">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <NewOrderModal />
-              </div>
-            </div>
-          </div>
-        </div>
 
+
+        <Modal
+          show={this.state.OrderModal}
+          onHide={this.handleCloseOrderModal}
+          size={"lg"}
+
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Sipariş Türü ve Şube Seçimi </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <NewOrderModal />
+
+          </Modal.Body>
+        </Modal>
         <Query
           query={GET_PRODUCT}
           variables={{ id: localStorage.getItem("URUN_ID") }}
