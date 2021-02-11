@@ -71,16 +71,9 @@ class OptionList extends Component {
           arr.push({
             Name: value.Name,
             id: value.id,
-            Price: value.Price
           });
         }
       }
-
-      var Price = 0;
-      for (var i = 0; i < arr.length; i++) {
-        Price += arr[i].Price;
-      }
-      this.props.SetExtra({ Price })
       this.props.SetIcecek(arr);
     }
 

@@ -32,6 +32,7 @@ class NewOrder extends React.Component {
       Quantity: this.props.Order.Quantity,
       ExtraOptions: this.props.Order.ExtraOptions,
       ExtraIcecek: this.props.Order.ExtraIcecek,
+      IndirimFiyati: this.props.Product.Product.YemekSepetiPrice !== this.props.Product.Product.Price ? parseFloat(this.props.Product.Product.YemekSepetiPrice - this.props.Product.Product.Price).toFixed(2) * this.props.Order.Quantity : 0
     });
     this.props.Product.Product.SelectOption.map((options) => {
       if (options.Options[0].Name === "Ekmek Seçimi") {

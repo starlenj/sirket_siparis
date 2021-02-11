@@ -8,6 +8,8 @@ import {
 import SweetAlert from "sweetalert2-react";
 import SiparisTuru from "../pages/SiparisTuru";
 import { Modal, Button } from "react-bootstrap";
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css';
 export default class Sepet extends Component {
   state = {
     showArabayaServis: false,
@@ -113,7 +115,7 @@ export default class Sepet extends Component {
 
       this.state.Order.map((order) => {
         Topla +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice)) *
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek || 0)) *
           parseInt(order.Quantity);
       });
       if (Topla < localStorage.getItem("BolgeTutar")) {
@@ -247,7 +249,7 @@ export default class Sepet extends Component {
               Quantity: Order.Quantity,
               Price: parseFloat(
                 (
-                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)
+                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek || 0)
                 ).toFixed(2)
               ),
               OrderHeaderId: data.CreateOrderHeader.id,
@@ -355,7 +357,7 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((Order) => {
         Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
+          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek || 0)) *
           parseInt(Order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -363,17 +365,28 @@ export default class Sepet extends Component {
     const IndirimToplami = () => {
       var Toplam = 0;
       this.state.Order.map((Order) => {
-        Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
-          parseInt(Order.Quantity);
+        Toplam += Order.IndirimFiyati || 0
+
       });
-      return parseFloat((Toplam / 100) * 5).toFixed(2);
+      return parseFloat(Toplam).toFixed(2);
     };
+    const SepetToplami = () => {
+      var Toplam = 0;
+      var Total = 0;
+      this.state.Order.map((Order) => {
+        Toplam += Order.IndirimFiyati || 0
+        Total += (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek || 0)) *
+          parseInt(Order.Quantity);
+
+      });
+      return parseFloat(Toplam + Total).toFixed(2)
+
+    }
     const GenelToplam = () => {
       var Toplam = 0;
       this.state.Order.map((order) => {
         Toplam +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek || 0)) *
           parseInt(order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -383,7 +396,7 @@ export default class Sepet extends Component {
 
       this.state.Order.map((order) => {
         Topla +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
+          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek || 0)) *
           parseInt(order.Quantity);
       });
       this.state.Total = parseFloat(Topla).toFixed(2);
@@ -393,9 +406,10 @@ export default class Sepet extends Component {
           <span style={{ marginTop: 15, fontSize: 14, fontWeight: "bold" }}>
             {" "}
             {this.state.OrderType === "Paket" ? (
+
               <div>
-
-
+                <div style={{ color: "red" }}>Sepet Toplami  : <del>{<SepetToplami />}</del>TL</div><br />
+                <div >İndirim Toplami  : {<IndirimToplami />} TL</div><br />
                 Toplam :{" "}
                 {parseFloat(
                   parseFloat(Topla).toFixed(2)
@@ -403,7 +417,15 @@ export default class Sepet extends Component {
                 TL
               </div>
             ) : (
-                <div>Toplam : {parseFloat(Topla).toFixed(2)} TL</div>
+                <div>
+                  <div style={{ color: "red" }}>Sepet Toplami  : <del>{<SepetToplami />}</del>TL</div><br />
+                  <div >İndirim Toplami  : {<IndirimToplami />} TL</div><br />
+                Toplam :{" "}
+                  {parseFloat(
+                    parseFloat(Topla).toFixed(2)
+                  ).toFixed(2)}{" "}
+                TL
+                </div>
               )}
           </span>
         </div>
@@ -499,7 +521,7 @@ export default class Sepet extends Component {
                     >
                       {(
                         (parseFloat(order.Price) +
-                          parseFloat(order.ExtraIcecek) +
+                          parseFloat(order.ExtraIcecek || 0) +
                           parseFloat(order.ExtraPrice)) *
                         parseInt(order.Quantity)
                       ).toFixed(2)}
@@ -539,13 +561,15 @@ export default class Sepet extends Component {
                   onChange={this.onChange}
                 />
                 <div className="form-group" style={{ marginBottom: 20 }}>
+
                   <label style={{ fontWeight: "bold" }}>Telefon : </label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="Phone"
-                    onChange={this.onChange}
-                  />
+                  <PhoneInput
+                    defaultCountry={"TR"}
+                    countries={["TR"]}
+                    international={false}
+                    placeholder="555-555-55-55"
+                    onChange={(e) => this.setState({ Phone: e })} />
+
                 </div>
               </div>
               {this.state.OrderType === "Paket" ? (
@@ -736,7 +760,7 @@ export default class Sepet extends Component {
                                           <td>
                                             {(
                                               (parseFloat(Orders.Price) +
-                                                parseFloat(Orders.ExtraIcecek) +
+                                                parseFloat(Orders.ExtraIcecek || 0) +
                                                 parseFloat(Orders.ExtraPrice)) *
                                               parseInt(Orders.Quantity)
                                             ).toFixed(2)}
@@ -754,36 +778,52 @@ export default class Sepet extends Component {
                                   <th></th>
                                 </thead>
                                 <tbody>
-                                  {this.state.OrderType === "Paket" && (
-                                    <tr>
-                                      <td style={{ fontWeight: "bold" }}>
-                                        Ara Toplam :
-                                      </td>
-                                      <td style={{ fontWeight: "bold" }}>
-                                        <AraToplam />
-                                      </td>
-                                    </tr>
-                                  )}
 
 
+
+                                  <tr>
+
+                                    <td>
+                                      <span
+                                        style={{
+                                          fontWeight: "bold",
+                                          fontSize: 14,
+                                          color: "red"
+                                        }}
+                                      >
+                                        {" "}
+                                       Sepet Toplami  :<del >{<SepetToplami />}</del> TL
+                                      </span>{" "}
+                                    </td>
+                                  </tr>
+                                  <tr><td></td></tr>
                                   <tr>
                                     <td>
                                       <span
                                         style={{
                                           fontWeight: "bold",
                                           fontSize: 14,
+
                                         }}
                                       >
                                         {" "}
-                                        Genel Toplam :{""}
+                                       İndirim Toplami  :{<IndirimToplami />} TL
                                       </span>{" "}
                                     </td>
+                                  </tr>
+                                  <tr><td></td></tr>
+                                  <tr>
                                     <td>
-                                      {this.state.OrderType === "Paket" ? (
-                                        <GenelToplam />
-                                      ) : (
-                                          <AraToplam />
-                                        )}
+                                      <span
+                                        style={{
+                                          fontWeight: "bold",
+                                          fontSize: 14,
+
+                                        }}
+                                      >
+                                        {" "}
+                                       Toplam  :{<GenelToplam />} TL
+                                      </span>{" "}
                                     </td>
                                   </tr>
                                 </tbody>

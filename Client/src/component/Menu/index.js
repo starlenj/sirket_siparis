@@ -26,10 +26,10 @@ class Menu extends Component {
     var SelectInfo = localStorage.getItem("URUN_ID");
   }
   SetOrder = (Product, Category) => {
-    console.log(Product, Category);
     this.props.SetDefault();
     Product.Price = this.Fiyat(Category, Product.Price);
     this.props.SetProduct(Product);
+    this.setState({ UrunModal: true })
   };
   handleChange = (e) => {
     this.setState({
@@ -234,25 +234,7 @@ class Menu extends Component {
             ...
           </div>
         </div>
-        <div class="modal fade" id="setOrderModal">
-          <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <NewOrderModal />
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         <Query
           query={GET_PRODUCT}
@@ -270,7 +252,7 @@ class Menu extends Component {
               <Modal
                 show={this.state.UrunModal}
                 onHide={this.handleClose}
-                size="lg"
+                size="xl"
               >
                 <Modal.Header closeButton>
                   <Modal.Title>Ürün Seçim Ekranı</Modal.Title>
