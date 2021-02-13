@@ -62,6 +62,34 @@ class OptionList extends Component {
       this.props.SetEkmek(arr);
     }
 
+    if (e.target.name === "Sos Seçimi") {
+      var target = e.target.options;
+      var arr = [];
+      for (var i = 0; i < target.length; i++) {
+        if (target[i].selected) {
+          var value = JSON.parse(target[i].value);
+          arr.push({
+            Name: value.Name,
+            id: value.id,
+          });
+        }
+      }
+      this.props.SetSos(arr);
+    }
+    if (e.target.name === "Ürün Notları") {
+      var target = e.target.options;
+      var arr = [];
+      for (var i = 0; i < target.length; i++) {
+        if (target[i].selected) {
+          var value = JSON.parse(target[i].value);
+          arr.push({
+            Name: value.Name,
+            id: value.id,
+          });
+        }
+      }
+      this.props.SetNot(arr);
+    }
     if (e.target.name === "İçecek Seçimi") {
       var target = e.target.options;
       var arr = [];
@@ -76,10 +104,6 @@ class OptionList extends Component {
       }
       this.props.SetIcecek(arr);
     }
-
-
-
-
     if (e.target.name === "Promosyonlu İçecek") {
       var target = e.target.options;
       var arr = [];
@@ -169,6 +193,8 @@ const mapDispatchToProps = (dispatch) => {
     SetEkmek: (Options) => dispatch({ type: "SET_EKMEK", payload: Options }),
     SetIcecek: (Options) => dispatch({ type: "SET_ICECEK", payload: Options }),
     SetIcecekExtra: (Options) => dispatch({ type: "SET_ICECEK_EXTRA", payload: Options }),
+    SetSos: (Options) => dispatch({ type: "SET_SOS", payload: Options }),
+    SetNot: (Options) => dispatch({ type: "SET_NOT", payload: Options }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(OptionList);

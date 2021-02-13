@@ -299,7 +299,28 @@ export default class Sepet extends Component {
                   });
                 });
               }
-
+            if (Order.SosOptions !== undefined)
+              if (Order.SosOptions.length !== 0) {
+                Order.SosOptions.map(async (ExtraOptions) => {
+                  await CreateSelectOrderOptions({
+                    variables: {
+                      OrderBodyId: CreateOrderBodyResult.data.CreateOrder.id,
+                      OptionsId: ExtraOptions.id,
+                    },
+                  });
+                });
+              }
+            if (Order.NotOptions !== undefined)
+              if (Order.NotOptions.length !== 0) {
+                Order.NotOptions.map(async (ExtraOptions) => {
+                  await CreateSelectOrderOptions({
+                    variables: {
+                      OrderBodyId: CreateOrderBodyResult.data.CreateOrder.id,
+                      OptionsId: ExtraOptions.id,
+                    },
+                  });
+                });
+              }
             localStorage.removeItem("Sepet");
             if (this.state.OrderType === "Arabaya Servis") {
               localStorage.removeItem("SiparisTuru");

@@ -19,7 +19,7 @@ export default class Header extends Component {
   componentDidMount() {
     const now = new Date().getHours();
     if (now >= 20 || now < 11) {
-      this.setState({ SiparisZamani: true });
+      this.setState({ SiparisZamani: false });
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);

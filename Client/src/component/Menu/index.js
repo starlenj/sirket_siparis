@@ -53,6 +53,8 @@ class Menu extends Component {
       IcecekOption: Array.from([]),
       EkLezzetOption: Array.from([]),
       ExtraOptions: Array.from([]),
+      NotOptions: Array.from([]),
+      SosOptions: Array.from([]),
       Price: order.Price,
       ProductName: order.Name,
       Quantity: 1,
