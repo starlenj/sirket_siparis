@@ -5,8 +5,6 @@ const initializeState = {
   EkmekOption: [],
   IcecekOption: [],
   ExtraOptions: [],
-  SosOptions: [],
-  NotOptions: [],
   EkOptions: [],
   ServicePrice: 0,
   ExtraPrice: 0,
@@ -59,16 +57,6 @@ export default function (state = initializeState, action) {
       return {
         ...state,
         IcecekOption: action.payload
-      };
-    case "SET_SOS":
-      return {
-        ...state,
-        SosOptions: action.payload
-      };
-    case "SET_NOT":
-      return {
-        ...state,
-        NotOptions: action.payload
       };
     case "SET_DEFAULT":
       return (state = initializeState);

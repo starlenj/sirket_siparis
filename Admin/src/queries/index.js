@@ -399,7 +399,7 @@ export const GET_PRODUCTS = gql`
       Price
      YemekSepetiPrice 
       Picture
-      Order
+      Or
       SelectOption {
         Options {
           id

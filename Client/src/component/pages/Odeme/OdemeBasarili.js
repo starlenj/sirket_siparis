@@ -55,7 +55,7 @@ export default class OdemeBasarili extends Component {
               Quantity: Order.Quantity,
               Price: parseFloat(
                 (
-                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek || 0)
+                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraPrice)
                 ).toFixed(2)
               ),
               OrderHeaderId: data.CreateOrderHeader.id,
