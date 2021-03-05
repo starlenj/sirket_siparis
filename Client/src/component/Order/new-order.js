@@ -4,6 +4,7 @@ import CurrencyFormat from "react-currency-format";
 import Total from "./Total";
 import { SetQuantity } from "../../Actions/Order";
 import OptionList from "./Options";
+import { CheckEkmek } from '../../Helper/CheckRequire'
 class NewOrder extends React.Component {
   constructor(props) {
     super(props);
@@ -36,13 +37,8 @@ class NewOrder extends React.Component {
       NotOptions: this.props.Order.NotOptions,
       IndirimFiyati: this.props.Product.Product.YemekSepetiPrice !== this.props.Product.Product.Price ? parseFloat(this.props.Product.Product.YemekSepetiPrice - this.props.Product.Product.Price).toFixed(2) * this.props.Order.Quantity : 0
     });
-    this.props.Product.Product.SelectOption.map((options) => {
-      if (options.Options[0].Name === "Ekmek Seçimi") {
-        if (this.props.Order.EkmekOption.length === 0) {
-          alert("Ekmek Seçimi Zorunludur..");
-        }
-      }
-    });
+    console.log(this.props.Order.EkmekOption);
+    return;
     if (localStorage.getItem("siparis_turu") !== "Paket") {
       this.props.Product.Product.SelectOption.map((options) => {
         if (options.Options[0].Name === "İçecek Seçimi") {

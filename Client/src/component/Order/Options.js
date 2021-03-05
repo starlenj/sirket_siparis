@@ -49,7 +49,8 @@ class OptionList extends Component {
           arr.push({
             Name: value.Name,
             id: value.id,
-            Price: value.Price
+            Price: value.Price,
+            require: true
           });
         }
       }
@@ -71,6 +72,8 @@ class OptionList extends Component {
           arr.push({
             Name: value.Name,
             id: value.id,
+            Price: value.Price,
+            require: true
           });
         }
       }
