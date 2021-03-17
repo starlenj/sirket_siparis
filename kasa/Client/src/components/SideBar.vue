@@ -208,6 +208,28 @@
               </li>
             </ul>
           </li>
+
+                 <div v-show="isAdmin">
+            <li class="nav-item-header">
+              <div class="text-uppercase font-size-xs line-height-xs">
+                Raporlar
+              </div>
+              <i class="icon-menu" title="Tanımlar"></i>
+            </li>
+            <li class="nav-item nav-item-submenu">
+              <a href="#" class="nav-link">
+                   <i class="icon-stack"></i>
+                <span>Raporlar</span>
+              </a>
+
+              <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
+                <li class="nav-item">
+                  <a href="/User" class="nav-link">Urun bazli satis</a>
+                </li>
+              </ul>
+            </li>  
+          </div>
+
           <div v-show="isAdmin">
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">

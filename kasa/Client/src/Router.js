@@ -49,13 +49,22 @@ import OnayList from "./Pages/Onay/OnayList.vue";
 import OnayListNew from "./Pages/Onay/OnayList.add.vue";
 import OnayAddUser from "./Pages/Onay/Onay.adduser.vue";
 import OnayBekleyen from "./Pages/Onay/Onay.bekleyen.vue";
+//raporlar
+import UrunBazliSatis from "./Pages/Rapor/UrunBazliSatis.vue";
 Vue.use(Router);
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
 
   routes: [
-
+    {
+      path: "/Rapor/UrunBazliSatis",
+      name: "UrunBazliSatis",
+      component: UrunBazliSatis,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: "/CheckList/Onay/:id/:onayId",
       name: "CheckListOnay",

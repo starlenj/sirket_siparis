@@ -72,3 +72,13 @@ export const TotalKasa = {
   YanToplam: 0,
   AltToplam: 0,
 };
+
+
+export const UrunBazliSatisModel={
+   Toplam:0,
+   Miktar:0,
+   ProductName:'',
+   ProductGroup:'',
+   SubeId: "",
+
+}

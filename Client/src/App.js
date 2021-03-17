@@ -22,18 +22,19 @@ const Root = ({ refetch, session }) => (
           <Route
             path="/OdemeBasarili"
             exact
-            render={() => <OdemeBasarili refetch={refetch} session={session} />}
+            render={() => <OdemeBasarili refetch={refetch} session={session} url="/OdemeBasarili" />}
           />
           <Route
             path="/OdemeBasarisiz"
             exact
             render={() => (
-              <OdemeBasarisiz refetch={refetch} session={session} />
+              <OdemeBasarisiz refetch={refetch} session={session} url="/OdemeBasarisiz" />
             )}
           />
           <Route
             path="/:SubeAdi"
             exact
+            url="/:SubeAdi"
             component={(props) => {
               var SubeAdi = props.match.params.SubeAdi;
 
@@ -43,6 +44,7 @@ const Root = ({ refetch, session }) => (
           <Route
             path="/"
             exact
+            url="/"
             render={() => <Home refetch={refetch} session={session} />}
           />
           <Route path="/login" render={() => <Home refetch={refetch} />} />

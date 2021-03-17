@@ -33,20 +33,24 @@ class NewOrder extends React.Component {
       Quantity: this.props.Order.Quantity,
       ExtraOptions: this.props.Order.ExtraOptions,
       ExtraIcecek: this.props.Order.ExtraIcecek,
+      SosOptions: this.props.Order.SosOptions,
+      NotOptions: this.props.Order.NotOptions,
     });
-    console.log(this.props.Order.EkmekOption);
-    return;
     if (localStorage.getItem("siparis_turu") !== "Paket") {
-      this.props.Product.Product.SelectOption.map((options) => {
-        if (options.Options[0].Name === "İçecek Seçimi") {
-          if (this.props.Order.IcecekOption.length === 0) {
-            alert("İçecek Seçimi Zorunludur");
-            return false;
-          }
-        }
-      });
+      if (this.props.Order.IcecekOption.length === 0 || this.props.Order.IcecekOption === []) {
+        alert("İçecek Seçimi Zorunludur");
+        return;
+      }
+      console.log(this.props.Order.EkmekOption)
+      if (this.props.Order.EkmekOption.length === 0 || this.props.Order.EkmekOption === []) {
+        alert("Ekmek Seçimi Zorunludur");
+        return;
+      }
     }
-
+    if (this.props.Order.EkmekOption.length === 0 || this.props.Order.EkmekOption === []) {
+      alert("Ekmek Seçimi Zorunludur");
+      return;
+    }
     var SepetYeni = [];
     let Sepet = JSON.parse(localStorage.getItem("Sepet"));
     if (Sepet !== null) {
@@ -55,9 +59,7 @@ class NewOrder extends React.Component {
           SepetYeni.push(Sepet[i]);
         }
       }
-
       SepetYeni.push(OrderArray[0]);
-
       localStorage.setItem("Sepet", JSON.stringify(SepetYeni));
       localStorage.removeItem("URUN_ID");
       window.location.reload();
@@ -90,14 +92,14 @@ class NewOrder extends React.Component {
               <div className="row">{this.props.Product.Product.Info}</div>
             </div>
           ) : (
-              <div></div>
-            )}
+            <div></div>
+          )}
 
           {this.props.Product.Product > [] ? (
             <OptionList />
           ) : (
-              <div>Sonuç Yok Hatalı !!!</div>
-            )}
+            <div>Sonuç Yok Hatalı !!!</div>
+          )}
         </div>
         <div className="row">
           <button className="btn btn-primary" onClick={this.props.SetQuantity}>

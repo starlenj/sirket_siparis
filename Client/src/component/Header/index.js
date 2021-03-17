@@ -19,7 +19,7 @@ export default class Header extends Component {
   componentDidMount() {
     const now = new Date().getHours();
     if (now >= 20 || now < 11) {
-      this.setState({ SiparisZamani: false });
+      this.setState({ SiparisZamani: true });
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);
@@ -45,6 +45,10 @@ export default class Header extends Component {
   }
   HandleBolge = (e) => {
     if (e.value !== "") {
+      /*if( e.SubeId==="bahcelievler"){
+        alert("Tadilat nedeniyle bahçelievler subemiz kapalidir..");
+        return;
+      }*/
       this.setState({ Bolge: e.value });
       localStorage.setItem("Bolge", e.value);
       localStorage.setItem("BolgeTutar", e.MinimumTutar);
@@ -82,6 +86,10 @@ export default class Header extends Component {
     for (var i = 0; i < target.length; i++) {
       if (target[i].selected) {
         if (target[i].value !== "") {
+          /*if(target[i].value==="bahcelievler"){
+            alert("Tadilat nedeniyle bu subemiz kapalidir..");
+            return;
+          }*/
           localStorage.setItem("SUBE", target[i].value);
           this.setState({ Sube: target[i].value });
           window.location.href =
@@ -150,11 +158,25 @@ export default class Header extends Component {
                   <option selected={Sube === "armada"} value="armada">
                     Armada
                   </option>
+                  <option selected={Sube === "atakule"} value="atakule">
+                    Atakule
+                  </option>
+
+                  <option selected={Sube === "arcadium"} value="arcadium">
+                    Arcadium
+                  </option>
+                  <option selected={Sube === "mersin"} value="mersin">
+                    Mersin
+                  </option>
+                  <option selected={Sube === "adana"} value="adana">
+                    Adana
+                  </option>
                   <option
                     selected={Sube === "bahcelievler"}
                     value="bahcelievler"
+                    disabled={true}
                   >
-                    Bahçelievler
+                    Bahçelievler (Tadilat nedeniyle kapaliyiz)
                   </option>
                   <option selected={Sube === "bilkent"} value="bilkent">
                     Bilkent
@@ -198,11 +220,24 @@ export default class Header extends Component {
                   <option selected={Sube === "armada"} value="armada">
                     Armada
                   </option>
+                  <option selected={Sube === "atakule"} value="atakule">
+                    Atakule
+                  </option>
+                  <option selected={Sube === "arcadium"} value="arcadium">
+                    Arcadium
+                  </option>
+                  <option selected={Sube === "mersin"} value="mersin">
+                    Mersin
+                  </option>
+                  <option selected={Sube === "adana"} value="adana">
+                    Adana
+                  </option>
                   <option
                     selected={Sube === "bahcelievler"}
                     value="bahcelievler"
+                    disabled={true}
                   >
-                    Bahçelievler
+                    Bahçelievler (Tadilat nedeniyle kapaliyiz)
                   </option>
                   <option selected={Sube === "bilkent"} value="bilkent">
                     Bilkent
