@@ -3,7 +3,11 @@ import { Query } from "react-apollo";
 import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
+
+import Error from "../pages/Error"
+
   import Error from "../pages/Error"
+
 import { Modal, Button } from "react-bootstrap";
 class Menu extends Component {
   state = {
@@ -112,7 +116,7 @@ class Menu extends Component {
                 <Query query={GET_MENU} variables={{ CategoryType: localStorage.getItem("siparis_turu") }}>
                   {({ loading, data, error }) => {
                     if (loading) return <div className="loading">Loading...</div>;
-                 
+
                     return (
                       <div>
                         {data.GetMenu && data.GetMenu.sort((a, b) =>
@@ -127,9 +131,15 @@ class Menu extends Component {
                                   </span>
                                 </td>
                                 <td style={{ width: "40%" }}></td>
+
+                                {(Category.Name !== "Tatlılar") && (Category.Name !== "İçecekler") && (Category.Name !== "Atıştırmalıklar") ? (
+                                  <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
+                                ) : (<td style={{ width: "22%" }}></td>)}
+
                                 { Category.Name !=="İçecekler" &&(
                                    <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
                                 )} 
+
                                 <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
                             </thead>
@@ -159,19 +169,19 @@ class Menu extends Component {
                                         <i class="fa fa-plus"></i>
                                       </button>
                                     ) : (
-                                        <button
-                                          className="btn btn-success btn-sm"
-                                          style={{
-                                            width: 25,
-                                            height: 25,
-                                            padding: 0,
-                                            marginLeft: 5,
-                                          }}
-                                          onClick={() => this.CreateSepet(product)}
-                                        >
-                                          <i class="fa fa-plus"></i>
-                                        </button>
-                                      )}
+                                      <button
+                                        className="btn btn-success btn-sm"
+                                        style={{
+                                          width: 25,
+                                          height: 25,
+                                          padding: 0,
+                                          marginLeft: 5,
+                                        }}
+                                        onClick={() => this.CreateSepet(product)}
+                                      >
+                                        <i class="fa fa-plus"></i>
+                                      </button>
+                                    )}
                                     <img
                                       src={
                                         product.Picture === ""
@@ -196,6 +206,22 @@ class Menu extends Component {
                                       <p>{product.Info}</p>
                                     </div>
                                   </td>
+
+                                  { product.YemekSepetiPrice > 0 ? (
+                                    <td
+
+                                    >
+                                      <p>
+                                        <del style={{
+                                          color: "red",
+                                          fontWeight: "bold",
+                                          fontSize: 15
+                                        }}> {this.Fiyat(Category, product.YemekSepetiPrice)}  </del><span style={{
+                                          color: "red"
+                                        }}>TL</span>
+
+                                      </p>
+                                    </td>) : (<td></td>)}
                                   { product.YemekSepetiPrice>0 &&(
                                   <td
 
@@ -211,6 +237,7 @@ class Menu extends Component {
 
                                     </p>
                                   </td>)}
+
                                   <td
                                     style={{
                                       color: "#E77F3F",

@@ -41,10 +41,16 @@ class OptionList extends Component {
       this.props.SetEk(arr);
     }
     if (e.target.name === "Ekmek Seçimi") {
+  
       var target = e.target.options;
       var arr = [];
       for (var i = 0; i < target.length; i++) {
         if (target[i].selected) {
+          if(target[i].value ==='...Lütfen Seçiniz...'){
+            alert('Lutfen gecerli bir secim yapiniz');
+            this.props.SetEkmek([]);
+            return;
+          }
           var value = JSON.parse(target[i].value);
           arr.push({
             Name: value.Name,
@@ -68,6 +74,11 @@ class OptionList extends Component {
       var arr = [];
       for (var i = 0; i < target.length; i++) {
         if (target[i].selected) {
+          if(target[i].value ==='...Lütfen Seçiniz...'){
+            alert('Lutfen gecerli bir secim yapiniz');
+            this.props.SetIcecek([]);
+            return;
+          }
           var value = JSON.parse(target[i].value);
           arr.push({
             Name: value.Name,
@@ -110,6 +121,38 @@ class OptionList extends Component {
 
       this.props.SetIcecekExtra({ Price })
       this.props.SetIcecek(arr);
+    }
+
+    if (e.target.name === "Sos Seçimi") {
+      var target = e.target.options;
+      for (var i = 0; i < target.length; i++) {
+        if (target[i].selected) {
+          var value = JSON.parse(target[i].value);
+          arr.push({
+            Name: value.Name,
+            Price: value.Price,
+            id: value.id,
+            Category: "Sos Seçimi",
+          });
+        }
+      }
+      this.props.SetSosSecimi(arr);
+    }
+
+    if (e.target.name === "Ürün Notları") {
+      var target = e.target.options;
+      for (var i = 0; i < target.length; i++) {
+        if (target[i].selected) {
+          var value = JSON.parse(target[i].value);
+          arr.push({
+            Name: value.Name,
+            Price: value.Price,
+            id: value.id,
+            Category: "Ürün Notları",
+          });
+        }
+      }
+      this.props.SetNotSecimi(arr);
     }
   };
   render() {
@@ -178,6 +221,8 @@ const mapDispatchToProps = (dispatch) => {
     SetEkmek: (Options) => dispatch({ type: "SET_EKMEK", payload: Options }),
     SetIcecek: (Options) => dispatch({ type: "SET_ICECEK", payload: Options }),
     SetIcecekExtra: (Options) => dispatch({ type: "SET_ICECEK_EXTRA", payload: Options }),
+    SetSosSecimi: (Options) => dispatch({ type: "SET_SOS", payload: Options }),
+    SetNotSecimi: (Options) => dispatch({ type: "SET_NOT", payload: Options }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(OptionList);

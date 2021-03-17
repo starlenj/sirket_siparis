@@ -8,6 +8,10 @@ import {
 import SweetAlert from "sweetalert2-react";
 import SiparisTuru from "../pages/SiparisTuru";
 import { Modal, Button } from "react-bootstrap";
+import PhoneInput from 'react-phone-number-input'
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
+
+import 'react-phone-number-input/style.css';
 export default class Sepet extends Component {
   state = {
     showArabayaServis: false,
@@ -27,10 +31,9 @@ export default class Sepet extends Component {
     PaketModal: false,
     showPaketServis: false,
     Note: "",
+    OrderOnayModal: false
   };
-  handleClose = () => {
-    this.setState({ SiparisOnayi: false });
-  };
+
   componentDidMount() {
     const urlParams = new URLSearchParams(window.location.search);
     const SiparisTuru = urlParams.get("SiparisTuru");
@@ -93,7 +96,7 @@ export default class Sepet extends Component {
     localStorage.setItem("Sepet", JSON.stringify(Orders));
   };
   handleClose = () => {
-    this.setState({ PaketModal: false });
+    this.setState({ PaketModal: false, OrderOnayModal: false });
   };
   RemoveItem = (index) => {
     let ArrayIndex = index + 1;
@@ -102,6 +105,46 @@ export default class Sepet extends Component {
     this.setState({ Order: Orders });
     localStorage.setItem("Sepet", JSON.stringify(Orders));
   };
+  validOrder = () => {
+    if (this.state.Sube === null || undefined) {
+      alert("Lütfen Şube Seçimini Yapınız");
+      return;
+    }
+    if (this.state.Phone.trim() === "") {
+      alert("Lütfen Telefonunuzu Giriniz..");
+      return;
+    } else {
+      var IsPhone = isPossiblePhoneNumber(this.state.Phone) === true
+      if (!IsPhone) {
+        alert("Lütfen Telefonunuzu Giriniz..");
+        return;
+      }
+    }
+    if (this.state.PaymentType === "" || undefined) {
+      alert("Lütfen Ödeme türünüzü Seçiniz");
+      return;
+    }
+    if (this.state.CustomerName === "" || undefined) {
+      alert("Lütfen Ad Soyad Bilgisini Giriniz..");
+      return;
+    }
+    if (this.state.OrderType === "Paket") {
+      if (this.state.Aciklama === "" || undefined) {
+        alert("Lütfen Adres Bilgisini Giriniz..");
+        return;
+      }
+    }
+
+
+    if (this.state.OrderType === "Arabaya Servis") {
+      if (this.state.Plaka === "") {
+        alert("Plaka ve Açıklama Zorunludur.");
+        return;
+      }
+
+    }
+    this.setState({ OrderOnayModal: true });
+  }
   SiparisVer = (
     CreateOrderHeader,
     CreateOrderBody,
@@ -177,12 +220,14 @@ export default class Sepet extends Component {
       return;
     }
     var siparis = localStorage.getItem("Sepet");
-    var SiparisList = JSON.parse(siparis);
     if (this.state.Sube === null || undefined) {
       alert("Lütfen Şube Seçimini Yapınız");
       return;
     }
-
+    if (this.state.Phone === "") {
+      alert("Lütfen Telefonunuzu Giriniz..");
+      return;
+    }
     if (this.state.PaymentType === "" || undefined) {
       alert("Lütfen Ödeme türünüzü Seçiniz");
       return;
@@ -198,27 +243,13 @@ export default class Sepet extends Component {
       }
     }
 
-    if (this.state.OrderType === "Gel-Al") {
-      if (this.state.Phone === "" || undefined) {
-        alert("Lütfen Telefonunuzu Giriniz..");
-        return;
-      }
-    }
-    if (this.state.OrderType === "Mağaza Sipariş") {
-      if (this.state.Phone === "" || undefined) {
-        alert("Lütfen Telefonunuzu Giriniz..");
-        return;
-      }
-    }
+
     if (this.state.OrderType === "Arabaya Servis") {
       if (this.state.Plaka === "") {
         alert("Plaka ve Açıklama Zorunludur.");
         return;
       }
-      if (this.state.Phone === "") {
-        alert("Lütfen Telefonunuzu Giriniz..");
-        return;
-      }
+
     }
     CreateOrderHeader({
       variables: {
@@ -298,53 +329,42 @@ export default class Sepet extends Component {
                 });
               }
 
-            localStorage.removeItem("Sepet");
+            if (Order.SosOptions !== undefined)
+              if (Order.SosOptions.length !== 0) {
+                Order.SosOptions.map(async (SosOptions) => {
+                  await CreateSelectOrderOptions({
+                    variables: {
+                      OrderBodyId: CreateOrderBodyResult.data.CreateOrder.id,
+                      OptionsId: SosOptions.id,
+                    },
+                  });
+                });
+              }
+
+            if (Order.NotOptions !== undefined)
+              if (Order.NotOptions.length !== 0) {
+                Order.NotOptions.map(async (NotOptions) => {
+                  await CreateSelectOrderOptions({
+                    variables: {
+                      OrderBodyId: CreateOrderBodyResult.data.CreateOrder.id,
+                      OptionsId: NotOptions.id,
+                    },
+                  });
+                });
+              }
+            localStorage.clear();
             if (this.state.OrderType === "Arabaya Servis") {
-              localStorage.removeItem("SiparisTuru");
-              localStorage.removeItem("Sube");
+
               this.setState({ showArabayaServis: true });
             } else if (this.state.OrderType === "Paket") {
-              localStorage.removeItem("SiparisTuru");
-              localStorage.removeItem("Sube");
+
               this.setState({ showPaketServis: true });
             } else {
-              localStorage.removeItem("SiparisTuru");
-              localStorage.removeItem("Sube");
+
               this.setState({ show: true });
             }
-          }
-          /*.then(({ data }) => {
-            this.state.Order.map(Order => {
-              if (Order.EkLezzetOption.length === 0) return;
-              Order.EkLezzetOption.map(EkLezzet => {
-                CreateSelectOrderOptions({
-                  variables: {
-                    OrderBodyId: data.CreateOrder.id,
-                    OptionsId: EkLezzet.id
-                  }
-                });
-              });
-              if (Order.EkmekOption.length === 0) return;
-              Order.EkmekOption.map(EkmekOption => {
-                CreateSelectOrderOptions({
-                  variables: {
-                    OrderBodyId: data.CreateOrder.id,
-                    OptionsId: EkmekOption.id
-                  }
-                });
-              });
 
-              if (Order.IcecekOption.length === 0) return;
-              Order.IcecekOption.map(IcecekOption => {
-                CreateSelectOrderOptions({
-                  variables: {
-                    OrderBodyId: data.CreateOrder.id,
-                    OptionsId: IcecekOption.id
-                  }
-                });
-              });
-            });
-          });*/
+          }
         });
       }
     });
@@ -403,8 +423,8 @@ export default class Sepet extends Component {
                 TL
               </div>
             ) : (
-                <div>Toplam : {parseFloat(Topla).toFixed(2)} TL</div>
-              )}
+              <div>Toplam : {parseFloat(Topla).toFixed(2)} TL</div>
+            )}
           </span>
         </div>
       );
@@ -539,13 +559,15 @@ export default class Sepet extends Component {
                   onChange={this.onChange}
                 />
                 <div className="form-group" style={{ marginBottom: 20 }}>
+
                   <label style={{ fontWeight: "bold" }}>Telefon : </label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="Phone"
-                    onChange={this.onChange}
-                  />
+                  <PhoneInput
+                    defaultCountry={"TR"}
+                    countries={["TR"]}
+                    international={false}
+                    placeholder="555-555-55-55"
+                    onChange={(e) => this.setState({ Phone: e })} />
+
                 </div>
               </div>
               {this.state.OrderType === "Paket" ? (
@@ -559,8 +581,8 @@ export default class Sepet extends Component {
                   ></textarea>
                 </div>
               ) : (
-                  <div></div>
-                )}
+                <div></div>
+              )}
 
               {this.state.OrderType === "Arabaya Servis" ? (
                 <div className="form-group" style={{ marginBottom: 20 }}>
@@ -581,271 +603,275 @@ export default class Sepet extends Component {
                   />
                 </div>
               ) : (
-                  <div></div>
-                )}
+                <div></div>
+              )}
               <button
                 data-toggle="modal"
                 data-target="#SiparisInfo"
+                onClick={() => this.validOrder()}
                 className="btn btn-primary"
               >
                 Siparişi Onayla
               </button>
 
-              <div
-                class="modal fade bd-example-modal-xl"
-                tabindex="-1"
-                role="dialog"
-                id="SiparisInfo"
+              <Modal
+                show={this.state.OrderOnayModal}
+                onHide={this.handleClose}
+                size="xl"
               >
-                <div class="modal-dialog modal-xl" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Sipariş </h5>
-                      <button
-                        type="button"
-                        class="close"
-                        data-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div>
-                        <div className="row col-md-12">
-                          <div class="card col-md-6">
-                            <div class="card-header ">
-                              <h3 class="card-title">Sipariş Bilgileri</h3>
-                            </div>
-                            <div class="card-body">
-                              <table>
-                                <thead>
-                                  <tr></tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Adınız :</td>
-                                    <td>
-                                      <b>{this.state.CustomerName}</b>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Ödeme Şekliniz :</td>
-                                    <td>
-                                      <b>{this.state.PaymentType}</b>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Telefonuz : </td>
-                                    <td>
-                                      <b>{this.state.Phone}</b>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>Adresiniz /Açıklamanız: </td>
-                                    <td>
-                                      <b>{this.state.Aciklama}</b>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      Siparişiniz ile ilgili bize iletmek
+                <Modal.Header closeButton closeLabel>
+                  <Modal.Title>Sipariş Türü ve Şube Seçimi </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div>
+                    <div className="row col-md-12">
+                      <div class="card col-md-6">
+                        <div class="card-header ">
+                          <h3 class="card-title">Sipariş Bilgileri</h3>
+                        </div>
+                        <div class="card-body">
+                          <table>
+                            <thead>
+                              <tr></tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Adınız :</td>
+                                <td>
+                                  <b>{this.state.CustomerName}</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Ödeme Şekliniz :</td>
+                                <td>
+                                  <b>{this.state.PaymentType}</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Telefonuz : </td>
+                                <td>
+                                  <b>{this.state.Phone}</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>Adresiniz /Açıklamanız: </td>
+                                <td>
+                                  <b>{this.state.Aciklama}</b>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  Siparişiniz ile ilgili bize iletmek
                                       <br />
                                       istediklerinizi lütfen yazın :{" "}
-                                    </td>
-                                    <td></td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                      <textarea
-                                        name="Note"
-                                        className="form-control"
-                                        onChange={this.onChange}
-                                      ></textarea>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                          <div class="card col-md-6">
-                            {this.state.OrderType === "Paket" && (
-
-                              <div class="card-body">
-                                Siparişiniz {this.state.Sube.toUpperCase()}{" "}
-                              şubesinden gönderilecektir.
-                                <br /> İrtibat için 444 82 20 numarasını
-                              arayabilirsiniz.
-                              </div>
-                            )}
-                          </div>
+                                </td>
+                                <td></td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <textarea
+                                    name="Note"
+                                    className="form-control"
+                                    onChange={this.onChange}
+                                  ></textarea>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div>
-                        <br />
-                        <br />
-                        <div className="row col-md-12">
-                          <div class="card col-md-12">
-                            <div class="card-header ">
-                              <h3 class="card-title">Ürün Detayı</h3>
-                            </div>
-                            <div class="card-body">
-                              <table className="table">
-                                <thead>
-                                  <tr>
-                                    <th>Miktar</th>
-                                    <th>Ürün Adı</th>
-                                    <th>Seçenekler</th>
-                                    <th>Tutar</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  {
-                                    this.state.Order.length > 0 &&
-                                    this.state.Order.map((Orders) => {
+                      </div>
+                      <div class="card col-md-6">
+                        {this.state.OrderType === "Paket" && (
 
-                                      return (
-                                        <tr>
-                                          <td>{Orders.Quantity}</td>
-                                          <td>{Orders.ProductName}</td>
-                                          <td>
-                                            {(
-                                              <span>
-                                                {Orders.EkmekOption[0] === undefined ? "" : Orders.EkmekOption[0].Name}
-                                              </span>
-                                            )}
+                          <div class="card-body">
+                            Siparişiniz {this.state.Sube.toUpperCase()}{" "}
+                              şubesinden gönderilecektir.
+                            <br /> İrtibat için 444 82 20 numarasını
+                              arayabilirsiniz.
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div className="row col-md-12">
+                      <div class="card col-md-12">
+                        <div class="card-header ">
+                          <h3 class="card-title">Ürün Detayı</h3>
+                        </div>
+                        <div class="card-body">
+                          <table className="table">
+                            <thead>
+                              <tr>
+                                <th>Miktar</th>
+                                <th>Ürün Adı</th>
+                                <th>Seçenekler</th>
+                                <th>Tutar</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {
+                                this.state.Order.length > 0 &&
+                                this.state.Order.map((Orders) => {
 
-                                            {
-                                              Orders.EkLezzetOption.map(
-                                                (EkLezzet) => (
-                                                  <span>,{EkLezzet.Name},</span>
-                                                )
-                                              )}
-                                            {
-                                              Orders.ExtraOptions.map(
-                                                (ExtraOptions) => (
-                                                  <span>
-                                                    {ExtraOptions.Name},
-                                                  </span>
-                                                )
-                                              )}
-                                            {Orders.IcecekOption && (
-                                              <span>
-                                                {Orders.IcecekOption[0] === undefined ? "" : Orders.IcecekOption[0].Name}
-                                              </span>
-                                            )}
-                                          </td>
-                                          <td>
-                                            {(
-                                              (parseFloat(Orders.Price) +
-                                                parseFloat(Orders.ExtraIcecek) +
-                                                parseFloat(Orders.ExtraPrice)) *
-                                              parseInt(Orders.Quantity)
-                                            ).toFixed(2)}
-                                          </td>
-                                        </tr>
-                                      )
-                                    })}
-                                </tbody>
-                              </table>
-                              <hr />
-                              <table>
-                                <thead>
-                                  <th></th>
-                                  <th></th>
-                                  <th></th>
-                                </thead>
-                                <tbody>
-                                  {this.state.OrderType === "Paket" && (
+                                  return (
                                     <tr>
-                                      <td style={{ fontWeight: "bold" }}>
-                                        Ara Toplam :
+                                      <td>{Orders.Quantity}</td>
+                                      <td>{Orders.ProductName}</td>
+                                      <td>
+                                        {(
+                                          <span>
+                                            {Orders.EkmekOption[0] === undefined ? "" : Orders.EkmekOption[0].Name}
+                                          </span>
+                                        )}
+
+                                        {
+                                          Orders.EkLezzetOption.map(
+                                            (EkLezzet) => (
+                                              <span>,{EkLezzet.Name},</span>
+                                            )
+                                          )}
+                                        {
+                                          Orders.ExtraOptions.map(
+                                            (ExtraOptions) => (
+                                              <span>
+                                                {ExtraOptions.Name},
+                                              </span>
+                                            )
+                                          )}
+                                        {Orders.IcecekOption && (
+                                          <span>
+                                            {Orders.IcecekOption[0] === undefined ? "" : Orders.IcecekOption[0].Name}
+                                          </span>
+                                        )}
+                                        {
+                                          Orders.NotOptions.map(
+                                            (NotOptions) => (
+                                              <span>
+                                                {NotOptions.Name},
+                                              </span>
+                                            )
+                                          )}
+                                        {
+                                          Orders.SosOptions.map(
+                                            (SosOptions) => (
+                                              <span>
+                                                {SosOptions.Name},
+                                              </span>
+                                            )
+                                          )}
                                       </td>
-                                      <td style={{ fontWeight: "bold" }}>
-                                        <AraToplam />
+                                      <td>
+                                        {(
+                                          (parseFloat(Orders.Price) +
+                                            parseFloat(Orders.ExtraIcecek) +
+                                            parseFloat(Orders.ExtraPrice)) *
+                                          parseInt(Orders.Quantity)
+                                        ).toFixed(2)}
                                       </td>
                                     </tr>
-                                  )}
+                                  )
+                                })}
+                            </tbody>
+                          </table>
+                          <hr />
+                          <table>
+                            <thead>
+                              <th></th>
+                              <th></th>
+                              <th></th>
+                            </thead>
+                            <tbody>
+                              {this.state.OrderType === "Paket" && (
+                                <tr>
+                                  <td style={{ fontWeight: "bold" }}>
+                                    Ara Toplam :
+                                      </td>
+                                  <td style={{ fontWeight: "bold" }}>
+                                    <AraToplam />
+                                  </td>
+                                </tr>
+                              )}
 
 
-                                  <tr>
-                                    <td>
-                                      <span
-                                        style={{
-                                          fontWeight: "bold",
-                                          fontSize: 14,
-                                        }}
-                                      >
-                                        {" "}
+                              <tr>
+                                <td>
+                                  <span
+                                    style={{
+                                      fontWeight: "bold",
+                                      fontSize: 14,
+                                    }}
+                                  >
+                                    {" "}
                                         Genel Toplam :{""}
-                                      </span>{" "}
-                                    </td>
-                                    <td>
-                                      {this.state.OrderType === "Paket" ? (
-                                        <GenelToplam />
-                                      ) : (
-                                          <AraToplam />
-                                        )}
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                        <br />
-                        <br />
-                        <Mutation mutation={CREATE_ORDER_HEADER}>
-                          {(CreateOrderHeader, { loading, error }) => (
-                            <Mutation mutation={CREATE_ORDER_BODY}>
-                              {(CreateOrderBody, { loading, error }) => (
-                                <Mutation
-                                  mutation={CREATE_SELECT_ORDER_OPTIONS}
-                                >
-                                  {(
-                                    CreateSelectOrderOptions,
-                                    { loading, error }
-                                  ) => (
-                                    <div className="form-group">
-                                      <button
-                                        className="btn btn-primary"
-                                        onClick={() =>
-                                          this.SiparisVer(
-                                            CreateOrderHeader,
-                                            CreateOrderBody,
-                                            CreateSelectOrderOptions
-                                          )
-                                        }
-                                      >
-                                        Siparişi Tamamla
-                                      </button>
-                                    </div>
+                                  </span>{" "}
+                                </td>
+                                <td>
+                                  {this.state.OrderType === "Paket" ? (
+                                    <GenelToplam />
+                                  ) : (
+                                    <AraToplam />
                                   )}
-                                </Mutation>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <Mutation mutation={CREATE_ORDER_HEADER}>
+                      {(CreateOrderHeader, { loading, error }) => (
+                        <Mutation mutation={CREATE_ORDER_BODY}>
+                          {(CreateOrderBody, { loading, error }) => (
+                            <Mutation
+                              mutation={CREATE_SELECT_ORDER_OPTIONS}
+                            >
+                              {(
+                                CreateSelectOrderOptions,
+                                { loading, error }
+                              ) => (
+                                <div className="form-group">
+                                  <button
+                                    className="btn btn-primary"
+                                    onClick={() =>
+                                      this.SiparisVer(
+                                        CreateOrderHeader,
+                                        CreateOrderBody,
+                                        CreateSelectOrderOptions
+                                      )
+                                    }
+                                  >
+                                    Siparişi Tamamla
+                                      </button>
+                                </div>
                               )}
                             </Mutation>
                           )}
                         </Mutation>
-                      </div>
-                    </div>
+                      )}
+                    </Mutation>
                   </div>
-                </div>
-              </div>
+                </Modal.Body>
+              </Modal>
             </div>
           ) : (
-              <div>
-                <a className="btn btn-primary" href="https://magazasiparis.hmbrgr.com.tr/" >Sipariş Türü Şube Seçim Ekranı</a>
+            <div>
+              <a className="btn btn-primary" href="https://magazasiparis.hmbrgr.com.tr/" >Sipariş Türü Şube Seçim Ekranı</a>
+              <br />
+              <br />
+              <p class="card-text" style={{ textAlign: "center" }}>
+                <i
+                  class="fa fa-shopping-basket fa-2x"
+                  style={{ color: "#e1e1e1", textAlign: "center" }}
+                ></i>
                 <br />
-                <br />
-                <p class="card-text" style={{ textAlign: "center" }}>
-                  <i
-                    class="fa fa-shopping-basket fa-2x"
-                    style={{ color: "#e1e1e1", textAlign: "center" }}
-                  ></i>
-                  <br />
 
                 Sepetiniz şu anda boş!
               </p>
-              </div>
-            )}
+            </div>
+          )}
         </div>
       </div>
     );
