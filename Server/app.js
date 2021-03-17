@@ -35,6 +35,7 @@ const SubeServis = require("./models/SubeServis");
 const ProductPrice = require("./models/ProductPrice");
 const bodyParser = require("body-parser");
 const PubSubServer = new PubSub();
+const waitingOrder = require("./helpers/waitingOrders.js").main();
 //server
 const Server = new ApolloServer({
   typeDefs: importSchema("./graphql/schema.graphql"),
