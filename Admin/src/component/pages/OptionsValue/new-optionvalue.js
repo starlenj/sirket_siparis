@@ -82,7 +82,6 @@ class NewOptionsValue extends Component {
                     Name: this.state.Name,
                     Price: parseFloat(this.state.Price),
                     OptionsId: this.state.OptionsId,
-                    Order: parseInt(this.state.Order)
                   }}
                   onCompleted={() => {
                     window.toastr.success(

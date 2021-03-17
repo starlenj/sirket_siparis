@@ -1048,5 +1048,215 @@
     "value": "Turgut Özal Mah.",
     "MinimumTutar": "50",
     "SubeId": "batikent"
+  },
+  {
+    "label": "Çankaya (Çankaya Mah.)",
+    "value": "Çankaya (Çankaya Mah.)",
+    "MinimumTutar": "30",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Ayrancı Mah.)",
+    "value": "Çankaya (Ayrancı Mah.)",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Gaziosmanpaşa Mah.)",
+    "value": "Çankaya (Gaziosmanpaşa Mah.)",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Güvenevler Mah.)",
+    "value": "Çankaya (Güvenevler Mah.)",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Güzeltepe Mah.)",
+    "value": "Çankaya (Güzeltepe Mah.)",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Kazım Özalp Mah.)",
+    "value": "Çankaya (Kazım Özalp Mah.)",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Yıldırım Beyazıt Üniversitesi - Cinnah Kampüsü",
+    "value": "Yıldırım Beyazıt Üniversitesi - Cinnah Kampüsü",
+    "MinimumTutar": "40",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Aşağı İmrahor Mah.)",
+    "value": "Çankaya (Aşağı İmrahor Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Barbaros Mah.)",
+    "value": "Çankaya (Barbaros Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  }, 
+  {
+    "label": "Çankaya (Bayraktar Mah.)",
+    "value": "Çankaya (Bayraktar Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Birlik Mah.)",
+    "value": "Çankaya (Birlik Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Boztepe Mah.)",
+    "value": "Çankaya (Boztepe Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Büyükesat Mah.)",
+    "value": "Çankaya (Büyükesat Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Devlet Mah.)",
+    "value": "Çankaya (Devlet Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Dikmen İlkadım Mah.)",
+    "value": "Çankaya (Dikmen İlkadım Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Esatoğlu Mah.)",
+    "value": "Çankaya (Esatoğlu Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (G.O.P 100. Yıl Mah.)",
+    "value": "Çankaya (G.O.P 100. Yıl Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Kavaklıdere Mah. - Tunalı)",
+    "value": "Çankaya (Kavaklıdere Mah. - Tunalı)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Kavaklıdere Mah.)",
+    "value": "Çankaya (Kavaklıdere Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Kırkkonaklar Mah.)",
+    "value": "Çankaya (Kırkkonaklar Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Küçükesat Mah.)",
+    "value": "Çankaya (Küçükesat Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Murat Mah.)",
+    "value": "Çankaya (Murat Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Oran Mah.)",
+    "value": "Çankaya (Oran Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Remzi Oğuz Arık Mah.)",
+    "value": "Çankaya (Remzi Oğuz Arık Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Seyranbağları Mah.)",
+    "value": "Çankaya (Seyranbağları Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Umut Mah.)",
+    "value": "Çankaya (Umut Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Yeşilkent Mah.)",
+    "value": "Çankaya (Yeşilkent Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Yıldız Hilal Mah.)",
+    "value": "Çankaya (Yıldız Hilal Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Yıldız Sancak Mah.)",
+    "value": "Çankaya (Yıldız Sancak Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Yıldızevler Mah. - Turan Güneş Bulv.)",
+    "value": "Çankaya (Yıldızevler Mah. - Turan Güneş Bulv.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Yukarı Dikmen Mah.)",
+    "value": "Çankaya (Yukarı Dikmen Mah.)",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Gazi Üniversitesi - Güzel Sanatlar Fakültesi",
+    "value": "Gazi Üniversitesi - Güzel Sanatlar Fakültesi",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "İpek Üniversitesi - Merkez Kampüs",
+    "value": "İpek Üniversitesi - Merkez Kampüs",
+    "MinimumTutar": "50",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Dikmen İlker Mah.)",
+    "value": "Çankaya (Dikmen İlker Mah.)",
+    "MinimumTutar": "100",
+    "SubeId": "atakule"
+  },
+  {
+    "label": "Çankaya (Keklikpınarı Mah.)",
+    "value": "Çankaya (Keklikpınarı Mah.)",
+    "MinimumTutar": "100",
+    "SubeId": "atakule"
   }
 ]

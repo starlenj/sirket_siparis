@@ -3,8 +3,7 @@ import { Query } from "react-apollo";
 import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
-import { SetProduct } from "../../Actions/Product";
-import { SetQuantity } from "../../Actions/Order";
+  import Error from "../pages/Error"
 import { Modal, Button } from "react-bootstrap";
 class Menu extends Component {
   state = {
@@ -15,21 +14,24 @@ class Menu extends Component {
     UrunModal: false,
     Bolge: "",
     BolgeModal: false,
+    OrderModal: false
   };
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.NewOrder = createRef();
+    this.handleCloseOrderModal = this.handleCloseOrderModal.bind(this);
   }
   componentDidMount() {
     this.setState({ SelectSube: localStorage.getItem("SUBE"), OrderType: localStorage.getItem("siparis_turu") });
     var SelectInfo = localStorage.getItem("URUN_ID");
   }
   SetOrder = (Product, Category) => {
+    console.log(Product, Category);
     this.props.SetDefault();
     Product.Price = this.Fiyat(Category, Product.Price);
     this.props.SetProduct(Product);
-    this.setState({ UrunModal: true })
+    this.setState({ OrderModal: true })
   };
   handleChange = (e) => {
     this.setState({
@@ -45,6 +47,11 @@ class Menu extends Component {
       [e.target.name]: e.target.value,
     });
   };
+  handleCloseOrderModal() {
+    this.setState({ OrderModal: false })
+    this.props.SetProduct([]);
+
+  }
   CreateSepet = (order) => {
     var NewOrder = {
       ProductId: order.id,
@@ -53,8 +60,6 @@ class Menu extends Component {
       IcecekOption: Array.from([]),
       EkLezzetOption: Array.from([]),
       ExtraOptions: Array.from([]),
-      NotOptions: Array.from([]),
-      SosOptions: Array.from([]),
       Price: order.Price,
       ProductName: order.Name,
       Quantity: 1,
@@ -107,6 +112,7 @@ class Menu extends Component {
                 <Query query={GET_MENU} variables={{ CategoryType: localStorage.getItem("siparis_turu") }}>
                   {({ loading, data, error }) => {
                     if (loading) return <div className="loading">Loading...</div>;
+                 
                     return (
                       <div>
                         {data.GetMenu && data.GetMenu.sort((a, b) =>
@@ -121,7 +127,9 @@ class Menu extends Component {
                                   </span>
                                 </td>
                                 <td style={{ width: "40%" }}></td>
-                                <td style={{ width: "22%" }}><b>Sepet Fiyatı</b></td>
+                                { Category.Name !=="İçecekler" &&(
+                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
+                                )} 
                                 <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
                             </thead>
@@ -146,6 +154,7 @@ class Menu extends Component {
                                         }
                                         data-toggle="modal"
                                         data-target="#setOrderModal"
+
                                       >
                                         <i class="fa fa-plus"></i>
                                       </button>
@@ -187,7 +196,7 @@ class Menu extends Component {
                                       <p>{product.Info}</p>
                                     </div>
                                   </td>
-
+                                  { product.YemekSepetiPrice>0 &&(
                                   <td
 
                                   >
@@ -201,7 +210,7 @@ class Menu extends Component {
                                       }}>TL</span>
 
                                     </p>
-                                  </td>
+                                  </td>)}
                                   <td
                                     style={{
                                       color: "#E77F3F",
@@ -238,6 +247,20 @@ class Menu extends Component {
         </div>
 
 
+        <Modal
+          show={this.state.OrderModal}
+          onHide={this.handleCloseOrderModal}
+          size={"lg"}
+
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Sipariş Türü ve Şube Seçimi </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <NewOrderModal />
+
+          </Modal.Body>
+        </Modal>
         <Query
           query={GET_PRODUCT}
           variables={{ id: localStorage.getItem("URUN_ID") }}
@@ -254,7 +277,7 @@ class Menu extends Component {
               <Modal
                 show={this.state.UrunModal}
                 onHide={this.handleClose}
-                size="xl"
+                size="lg"
               >
                 <Modal.Header closeButton>
                   <Modal.Title>Ürün Seçim Ekranı</Modal.Title>
