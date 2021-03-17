@@ -34,8 +34,6 @@ class NewOrder extends React.Component {
       ExtraOptions: this.props.Order.ExtraOptions,
       ExtraIcecek: this.props.Order.ExtraIcecek,
     });
-    console.log(this.props.Order.EkmekOption);
-    return;
     if (localStorage.getItem("siparis_turu") !== "Paket") {
       this.props.Product.Product.SelectOption.map((options) => {
         if (options.Options[0].Name === "İçecek Seçimi") {

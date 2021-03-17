@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container" style="margin-top: 30px">
+  <div class="row">
+    <div class="flex-xl-left col-md-3">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="flex-xl-left col-md-8">
+      <div class="mb-2 menu-wrap" style="font-size: 13px">
+        <div class="table-responsive">
+          <div *ngFor="let ProductItem of ProductList |sortOrderData:'Order' ">
+            <app-menu-item [MenuList]="ProductItem"></app-menu-item>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

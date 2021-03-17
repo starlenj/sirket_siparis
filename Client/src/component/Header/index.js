@@ -150,6 +150,9 @@ export default class Header extends Component {
                   <option selected={Sube === "armada"} value="armada">
                     Armada
                   </option>
+                  <option selected={Sube === "atakule"} value="atakule">
+                    Atakule
+                  </option>
                   <option
                     selected={Sube === "bahcelievler"}
                     value="bahcelievler"
@@ -197,6 +200,9 @@ export default class Header extends Component {
                   </option>
                   <option selected={Sube === "armada"} value="armada">
                     Armada
+                  </option>
+                  <option selected={Sube === "atakule"} value="atakule">
+                    Atakule
                   </option>
                   <option
                     selected={Sube === "bahcelievler"}

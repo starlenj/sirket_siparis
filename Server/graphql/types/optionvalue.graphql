@@ -23,7 +23,7 @@ input CreateOptionValueInput {
   Name: String!
   Price: Float!
   OptionsId: String!
-  Orde: Int!
+  Order: Int!
 }
 
 input UpdateOptionValueInput {

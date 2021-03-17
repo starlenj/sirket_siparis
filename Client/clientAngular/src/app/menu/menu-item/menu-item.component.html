@@ -1,0 +1,82 @@
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <td style="width: 25%">
+        <span style="font-size: 15px"
+          ><b>{{ MenuList.Name }}</b></span
+        >
+      </td>
+      <td style="width: 40%"></td>
+      <td style="width: 22%"><b>Sepet Fiyatı</b></td>
+      <td style="width: 22%"><b>Size Özel Fiyat</b></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of MenuList.Products | sortOrderData: 'Order'">
+      <td>
+        <button
+          class="btn btn-success btn-sm"
+          data-toggle="modal"
+          data-target="#setOrderModal"
+          (click)="SetProduct(product, content)"
+          style="width: 25px; height: 25px; padding: 0px; margin-left: 5px"
+        >
+          <i class="fa fa-plus"></i></button
+        ><img
+          [src]="
+            product.Picture === ''
+              ? 'https://siparis.hmbrgr.com.tr/Templates/newyork/assets/img/nophoto-img.jpg'
+              : product.Picture
+          "
+          style="
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+            margin-right: 10px;
+          "
+        />
+      </td>
+      <td>
+        <div class="row" style="font-size: 11px">
+          <p>
+            <b>{{ product.Name }} </b>
+          </p>
+        </div>
+        <div class="row" style="font-size: 11px">
+          <p>
+            {{ product.Info }}
+          </p>
+        </div>
+      </td>
+      <td>
+        <p>
+          <del style="color: red; font-weight: bold; font-size: 15px">
+            {{ product.YemekSepetiPrice }} </del
+          ><span style="color: red">TL</span>
+        </p>
+      </td>
+      <td style="color: rgb(231, 127, 63); font-weight: bold">
+        <p>{{ product.Price }}<b>TL</b></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ürün Seçim Ekranı</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-new-order-modal
+      [newOrderSelect]="selectProduct"
+    ></app-new-order-modal>
+  </div>
+</ng-template>

@@ -3,8 +3,7 @@ import { Query } from "react-apollo";
 import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
-import { SetProduct } from "../../Actions/Product";
-import { SetQuantity } from "../../Actions/Order";
+  import Error from "../pages/Error"
 import { Modal, Button } from "react-bootstrap";
 class Menu extends Component {
   state = {
@@ -113,6 +112,7 @@ class Menu extends Component {
                 <Query query={GET_MENU} variables={{ CategoryType: localStorage.getItem("siparis_turu") }}>
                   {({ loading, data, error }) => {
                     if (loading) return <div className="loading">Loading...</div>;
+                 
                     return (
                       <div>
                         {data.GetMenu && data.GetMenu.sort((a, b) =>
@@ -127,7 +127,9 @@ class Menu extends Component {
                                   </span>
                                 </td>
                                 <td style={{ width: "40%" }}></td>
-                                <td style={{ width: "22%" }}><b>Sepet Fiyatı</b></td>
+                                { Category.Name !=="İçecekler" &&(
+                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
+                                )} 
                                 <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
                             </thead>
@@ -194,7 +196,7 @@ class Menu extends Component {
                                       <p>{product.Info}</p>
                                     </div>
                                   </td>
-
+                                  { product.YemekSepetiPrice>0 &&(
                                   <td
 
                                   >
@@ -208,7 +210,7 @@ class Menu extends Component {
                                       }}>TL</span>
 
                                     </p>
-                                  </td>
+                                  </td>)}
                                   <td
                                     style={{
                                       color: "#E77F3F",
