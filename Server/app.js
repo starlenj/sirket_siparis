@@ -73,7 +73,7 @@ const Server = new ApolloServer({
 mongoose
   .connect(process.env.DB_HOST)
   .then(() => console.log("MONGO CONNECT"))
-  .catch(() => console.error("MONGO DB ERROR"));
+  .catch((error) => console.error("MONGO DB ERROR",error));
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

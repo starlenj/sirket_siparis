@@ -3,7 +3,11 @@ import { Query } from "react-apollo";
 import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
+
 import Error from "../pages/Error"
+
+  import Error from "../pages/Error"
+
 import { Modal, Button } from "react-bootstrap";
 class Menu extends Component {
   state = {
@@ -127,9 +131,15 @@ class Menu extends Component {
                                   </span>
                                 </td>
                                 <td style={{ width: "40%" }}></td>
+
                                 {(Category.Name !== "Tatlılar") && (Category.Name !== "İçecekler") && (Category.Name !== "Atıştırmalıklar") ? (
                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
                                 ) : (<td style={{ width: "22%" }}></td>)}
+
+                                { Category.Name !=="İçecekler" &&(
+                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
+                                )} 
+
                                 <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
                             </thead>
@@ -196,6 +206,7 @@ class Menu extends Component {
                                       <p>{product.Info}</p>
                                     </div>
                                   </td>
+
                                   { product.YemekSepetiPrice > 0 ? (
                                     <td
 
@@ -211,6 +222,22 @@ class Menu extends Component {
 
                                       </p>
                                     </td>) : (<td></td>)}
+                                  { product.YemekSepetiPrice>0 &&(
+                                  <td
+
+                                  >
+                                    <p>
+                                      <del style={{
+                                        color: "red",
+                                        fontWeight: "bold",
+                                        fontSize: 15
+                                      }}> {this.Fiyat(Category, product.YemekSepetiPrice)}  </del><span style={{
+                                        color: "red"
+                                      }}>TL</span>
+
+                                    </p>
+                                  </td>)}
+
                                   <td
                                     style={{
                                       color: "#E77F3F",
