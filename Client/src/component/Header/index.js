@@ -83,9 +83,16 @@ export default class Header extends Component {
   };
   handleSube = (e) => {
     var target = e.target.options;
+    const now = new Date().getHours();
     for (var i = 0; i < target.length; i++) {
       if (target[i].selected) {
         if (target[i].value !== "") {
+          if (now >= 19) {
+            if (target[i].value !== "umitkoy" && target[i].value !== "bahcelievler" && target[i].value !== "batikent") {
+              alert("Avm subelerimiz 19:00 dan sonra servise kapalidir..");
+              return;
+            }
+          }
           /*if(target[i].value==="bahcelievler"){
             alert("Tadilat nedeniyle bu subemiz kapalidir..");
             return;

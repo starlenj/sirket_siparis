@@ -3,11 +3,7 @@ import { Query } from "react-apollo";
 import { GET_PRODUCT, GET_MENU } from "../../queries/index";
 import NewOrderModal from "../Order/new-order";
 import { connect } from "react-redux";
-
 import Error from "../pages/Error"
-
-  import Error from "../pages/Error"
-
 import { Modal, Button } from "react-bootstrap";
 class Menu extends Component {
   state = {
@@ -34,6 +30,26 @@ class Menu extends Component {
     console.log(Product, Category);
     this.props.SetDefault();
     Product.Price = this.Fiyat(Category, Product.Price);
+    Product.Category = Category.Name;
+    if (Product.Name.trim(' ') === "Kids Club Burger (Küçük) Menü" || Product.Name.trim(' ') === "Marul Sarma Burger (Küçük) Menü" ||
+      Product.Name.trim(' ') === "Marul Sarma Burger Menü(Orta)" || Product.Name.trim(' ') === "Marul Sarma Burger Menü(Büyük)" ||
+      Product.Name.trim(' ') === "Marul Sarma Burger (Küçük)" || Product.Name.trim(' ') === "Marul Sarma Burger (Orta)" ||
+      Product.Name.trim(' ') === "Marul Sarma Burger (Büyük)" ||  Product.Name.trim(' ') === "Kids Club Burger (Küçük)"
+      
+      ) {
+      Product.EkmekIsRequired = false;
+      Product.IcecekRequired = true;
+    } else {
+      if (Category.Name === "İçecekler") {
+        Product.EkmekIsRequired = false;
+        Product.IcecekRequired = false;
+      } else {
+        Product.EkmekIsRequired = true;
+        Product.IcecekRequired = true;
+      }
+
+    }
+
     this.props.SetProduct(Product);
     this.setState({ OrderModal: true })
   };
@@ -61,9 +77,12 @@ class Menu extends Component {
       ProductId: order.id,
       EkmekOption: Array.from([]),
       ExtraPrice: 0,
+      ExtraIcecek: 0,
       IcecekOption: Array.from([]),
       EkLezzetOption: Array.from([]),
       ExtraOptions: Array.from([]),
+      NotOptions: Array.from([]),
+      SosOptions: Array.from([]),
       Price: order.Price,
       ProductName: order.Name,
       Quantity: 1,
@@ -116,7 +135,7 @@ class Menu extends Component {
                 <Query query={GET_MENU} variables={{ CategoryType: localStorage.getItem("siparis_turu") }}>
                   {({ loading, data, error }) => {
                     if (loading) return <div className="loading">Loading...</div>;
-
+                    if (error) return <Error error={error} {...this.props} />
                     return (
                       <div>
                         {data.GetMenu && data.GetMenu.sort((a, b) =>
@@ -136,9 +155,7 @@ class Menu extends Component {
                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
                                 ) : (<td style={{ width: "22%" }}></td>)}
 
-                                { Category.Name !=="İçecekler" &&(
-                                   <td style={{ width: "22%" }}><b>Sepet Fiyati</b></td>
-                                )} 
+
 
                                 <td style={{ width: "22%" }}><b>Size Özel Fiyat</b></td>
                               </tr>
@@ -222,21 +239,6 @@ class Menu extends Component {
 
                                       </p>
                                     </td>) : (<td></td>)}
-                                  { product.YemekSepetiPrice>0 &&(
-                                  <td
-
-                                  >
-                                    <p>
-                                      <del style={{
-                                        color: "red",
-                                        fontWeight: "bold",
-                                        fontSize: 15
-                                      }}> {this.Fiyat(Category, product.YemekSepetiPrice)}  </del><span style={{
-                                        color: "red"
-                                      }}>TL</span>
-
-                                    </p>
-                                  </td>)}
 
                                   <td
                                     style={{
