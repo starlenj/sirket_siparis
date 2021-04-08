@@ -7,6 +7,7 @@ import { GET_ADDED_ORDERS, GET_ONAYLI_ORDERS } from "../../../queries";
 import ReactNotifications from "react-browser-notifications";
 import Moment from "react-moment";
 import SweetAlert from "sweetalert2-react";
+import OrderDetail from "./order-detail";
 export default class Home extends Component {
   state = { OrderData: [], SelectOrder: [], show: false };
   constructor(props) {
@@ -60,7 +61,7 @@ export default class Home extends Component {
   }
   SelectOrder = async (order) => {
     localStorage.setItem("OrderId", order.id);
-    window.location.href = "/OrderDetail";
+    window.location.href = "/OrderDetail/" + order.id;
   };
   render() {
     return (
@@ -135,7 +136,7 @@ export default class Home extends Component {
                           <tr>
                             <td>Müşteri</td>
                             <td>Telefon</td>
-                            <td>Plaka</td>
+                            <td>Odeme Turu</td>
                             <td>Tarih</td>
                             <td>Durum</td>
                             <td>Detay</td>
@@ -146,7 +147,7 @@ export default class Home extends Component {
                             <tr key={Math.random(0, 200)}>
                               <td>{order.CustomerName}</td>
                               <td>{order.Phone}</td>
-                              <td>{order.Plaka}</td>
+                              <td>{order.PaymentType}</td>
 
                               <td>
                                 <Moment format="DD.MM.YYYY HH:mm">
@@ -166,19 +167,20 @@ export default class Home extends Component {
                               </td>
 
                               <td>
-                                <button
+                                <a
+                                  href={"/OrderDetail/" + order.id}
                                   class="btn btn-primary"
-                                  data-toggle="modal"
-                                  data-target="#SiparisModal"
-                                  onClick={() => this.SelectOrder(order)}
                                 >
                                   Detay
-                                </button>
+                                </a>
                               </td>
+
                             </tr>
+
                           ))}
                         </tbody>
                       </table>
+
                     </div>
                   </div>
                 </section>

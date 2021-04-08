@@ -109,7 +109,7 @@ export default class OrderDetail extends Component {
                     </thead>
                     <Query
                       query={GET_ORDER_DETAILS}
-                      variables={{ id: localStorage.getItem("OrderId") }}
+                      variables={{ id: window.location.pathname.split("/").pop() }}
                       onCompleted={(data) =>
                         this.GetOptions(data.Order.Order, data)
                       }
