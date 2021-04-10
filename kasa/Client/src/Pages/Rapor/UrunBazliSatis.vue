@@ -6,17 +6,16 @@
           <div class="page-title d-flex">
             <h4>
               <i class="icon-arrow-left52 mr-2"></i>
-              <span class="font-weight-semibold">Rapor</span> - Urun bazli satis Raporu
+              <span class="font-weight-semibold">Rapor</span> - Urun bazli satis
+              Raporu
             </h4>
             <a href="#" class="header-elements-toggle text-default d-md-none">
               <i class="icon-more"></i>
             </a>
           </div>
         </div>
-
-
       </div>
- 
+
       <div class="content">
         <div class="form-group">
           <label>Başlangıç Tarhi</label>
@@ -27,29 +26,25 @@
           <input type="date" class="form-control" v-model="endDate" />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" type="button" @click="GetReport">Getir</button>
+          <button class="btn btn-primary" type="button" @click="GetReport">
+            Getir
+          </button>
         </div>
-       
-         
-            <div
-              class="tab-pane fade show active"
-              id="arcadium"
-              role="tabpanel"
-              aria-labelledby="arcadium-tab"
-            >
-              <div class="content">
-                <div class="card">
-                  <div class="card-body b-b">
-                  
-                   
-                  </div>
-                </div>
-              </div>
+
+        <div
+          class="tab-pane fade show active"
+          id="arcadium"
+          role="tabpanel"
+          aria-labelledby="arcadium-tab"
+        >
+          <div class="content">
+            <div class="card">
+              <div class="card-body b-b"></div>
             </div>
-          
-       
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
@@ -57,20 +52,15 @@
 import Service from "../../Service";
 
 import { UrunBazliSatisModel } from "../../Helpers/KasaSubeModel";
-import {
-
-  GetUrunBazliSatis,
-} from "../../Helpers/ReportTools";
+import { GetUrunBazliSatis } from "../../Helpers/ReportTools";
 export default {
-  components: {
-
-  },
+  components: {},
   data() {
     return {
-      ReportData:[],
+      ReportData: [],
       startDate: "",
       endDate: "",
-        Armada: {
+      Armada: {
         ...UrunBazliSatisModel,
       },
       Umitkoy: {
@@ -116,9 +106,9 @@ export default {
   },
   methods: {
     async GetReport() {
-         let subeList = await Service.list("sube");
+      let subeList = await Service.list("sube");
 
-          subeList.data.forEach((item) => {
+      subeList.data.forEach((item) => {
         if (item.name === "ARMADA") {
           this.Armada.SubeId = item;
         } else if (item.name === "ANKAMALL") {
@@ -147,14 +137,23 @@ export default {
           this.Batikent.SubeId = item;
         }
       });
-        //BAHÇELİ KASA REPORT
+      //BAHÇELİ KASA REPORT
       let BahceliUrunBazliSatis = await GetUrunBazliSatis(
         this.Bahceli.SubeId,
         this.startDate,
         this.endDate
       );
+      BahceliUrunBazliSatis = BahceliUrunBazliSatis.sort((a, b) => {
+        if (a.ProductName < b.ProductName) {
+          return -1;
+        }
+        if (a.ProductName > b.ProductName) {
+          return 1;
+        }
+        return 0;
+      });
       console.log(BahceliUrunBazliSatis);
-    }
+    },
   },
 };
 </script>

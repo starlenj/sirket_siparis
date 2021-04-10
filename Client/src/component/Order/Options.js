@@ -41,12 +41,12 @@ class OptionList extends Component {
       this.props.SetEk(arr);
     }
     if (e.target.name === "Ekmek Seçimi") {
-  
+
       var target = e.target.options;
       var arr = [];
       for (var i = 0; i < target.length; i++) {
         if (target[i].selected) {
-          if(target[i].value ==='...Lütfen Seçiniz...'){
+          if (target[i].value === '...Lütfen Seçiniz...') {
             alert('Lutfen gecerli bir secim yapiniz');
             this.props.SetEkmek([]);
             return;
@@ -74,7 +74,7 @@ class OptionList extends Component {
       var arr = [];
       for (var i = 0; i < target.length; i++) {
         if (target[i].selected) {
-          if(target[i].value ==='...Lütfen Seçiniz...'){
+          if (target[i].value === '...Lütfen Seçiniz...') {
             alert('Lutfen gecerli bir secim yapiniz');
             this.props.SetIcecek([]);
             return;
@@ -88,12 +88,6 @@ class OptionList extends Component {
           });
         }
       }
-
-      var Price = 0;
-      for (var i = 0; i < arr.length; i++) {
-        Price += arr[i].Price;
-      }
-      this.props.SetExtra({ Price })
       this.props.SetIcecek(arr);
     }
 
@@ -105,6 +99,11 @@ class OptionList extends Component {
       var arr = [];
       for (var i = 0; i < target.length; i++) {
         if (target[i].selected) {
+          if (target[i].value === '...Lütfen Seçiniz...') {
+            alert('Lutfen gecerli bir secim yapiniz');
+            this.props.SetIcecek([]);
+            return;
+          }
           var value = JSON.parse(target[i].value);
           arr.push({
             Name: value.Name,

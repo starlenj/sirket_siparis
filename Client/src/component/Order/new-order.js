@@ -36,21 +36,38 @@ class NewOrder extends React.Component {
       SosOptions: this.props.Order.SosOptions,
       NotOptions: this.props.Order.NotOptions,
     });
+
     if (localStorage.getItem("siparis_turu") !== "Paket") {
+
       if (this.props.Order.IcecekOption.length === 0 || this.props.Order.IcecekOption === []) {
-        alert("İçecek Seçimi Zorunludur");
-        return;
+        if (this.props.Product.Product.IcecekRequired) {
+          alert("İçecek Seçimi Zorunludur");
+          return;
+        }
       }
-      console.log(this.props.Order.EkmekOption)
       if (this.props.Order.EkmekOption.length === 0 || this.props.Order.EkmekOption === []) {
-        alert("Ekmek Seçimi Zorunludur");
-        return;
+        if (this.props.Product.Product.EkmekIsRequired) {
+          alert("Ekmek Seçimi Zorunludur");
+          return;
+        }
+
       }
     }
     if (this.props.Order.EkmekOption.length === 0 || this.props.Order.EkmekOption === []) {
-      alert("Ekmek Seçimi Zorunludur");
-      return;
+      if (this.props.Product.Product.EkmekIsRequired) {
+        alert("Ekmek Seçimi Zorunludur");
+        return;
+      }
+
     }
+
+    if (this.props.Order.IcecekOption.length === 0 || this.props.Order.IcecekOption === []) {
+      if (this.props.Product.Product.IcecekRequired) {
+        alert("İçecek Seçimi Zorunludur");
+        return;
+      }
+    }
+
     var SepetYeni = [];
     let Sepet = JSON.parse(localStorage.getItem("Sepet"));
     if (Sepet !== null) {

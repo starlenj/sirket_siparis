@@ -713,53 +713,57 @@ export default class Sepet extends Component {
                               {
                                 this.state.Order.length > 0 &&
                                 this.state.Order.map((Orders) => {
-
                                   return (
                                     <tr>
                                       <td>{Orders.Quantity}</td>
                                       <td>{Orders.ProductName}</td>
                                       <td>
-                                        {(
-                                          <span>
-                                            {Orders.EkmekOption[0] === undefined ? "" : Orders.EkmekOption[0].Name}
-                                          </span>
-                                        )}
-
                                         {
-                                          Orders.EkLezzetOption.map(
+                                          Orders.EkmekOption !== undefined &&
+                                          (Orders.EkmekOption.map(
                                             (EkLezzet) => (
                                               <span>,{EkLezzet.Name},</span>
                                             )
-                                          )}
+                                          ))}
                                         {
-                                          Orders.ExtraOptions.map(
-                                            (ExtraOptions) => (
-                                              <span>
-                                                {ExtraOptions.Name},
-                                              </span>
+                                          Orders.EkLezzetOption !== undefined &&
+                                          (Orders.EkLezzetOption.map(
+                                            EkLezzet => (
+                                              <span>,{EkLezzet.Name},</span>
                                             )
-                                          )}
-                                        {Orders.IcecekOption && (
-                                          <span>
-                                            {Orders.IcecekOption[0] === undefined ? "" : Orders.IcecekOption[0].Name}
-                                          </span>
-                                        )}
+                                          ))}
                                         {
-                                          Orders.NotOptions.map(
+                                          Orders.ExtraOptions !== undefined &&
+                                          (
+                                            Orders.ExtraOptions.map((ExtraOptions) => (
+                                              <span>{ExtraOptions.Name}</span>
+                                            ))
+                                          )
+                                        }
+                                        {Orders.IcecekOption !== undefined && (
+                                          Orders.IcecekOption.map((IcecekOptions) => (
+                                            <span>
+                                              {IcecekOptions === undefined ? "" : IcecekOptions.Name}
+                                            </span>
+                                          )))}
+                                        {
+                                          Orders.NotOptions !== undefined &&
+                                          (Orders.NotOptions.map(
                                             (NotOptions) => (
                                               <span>
                                                 {NotOptions.Name},
                                               </span>
                                             )
-                                          )}
+                                          ))}
                                         {
-                                          Orders.SosOptions.map(
+                                          Orders.SosOptions !== undefined &&
+                                          (Orders.SosOptions.map(
                                             (SosOptions) => (
                                               <span>
                                                 {SosOptions.Name},
                                               </span>
                                             )
-                                          )}
+                                          ))}
                                       </td>
                                       <td>
                                         {(
