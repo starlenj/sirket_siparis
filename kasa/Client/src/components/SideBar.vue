@@ -262,6 +262,18 @@
               </ul>
             </li>
 
+            <li class="nav-item nav-item-submenu">
+              <a href="#" class="nav-link">
+                <i class="icon-stack"></i>
+                <span>Rapor Tanımları</span>
+              </a>
+              <ul class="nav nav-group-sub" data-submenu-title="Rapor Tanımları">
+                <li class="nav-item">
+                  <a href="/Rapor/UrunTanimi" class="nav-link">Rapor Urun Listesi</a>
+                </li>
+              </ul>
+            </li>
+
             <!-- <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">Raporlar</div>
               <i class="icon-menu" title="Raporlar"></i>

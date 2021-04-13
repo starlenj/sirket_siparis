@@ -51,12 +51,21 @@ import OnayAddUser from "./Pages/Onay/Onay.adduser.vue";
 import OnayBekleyen from "./Pages/Onay/Onay.bekleyen.vue";
 //raporlar
 import UrunBazliSatis from "./Pages/Rapor/UrunBazliSatis.vue";
+import UrunTanimi from "./Pages/Rapor/UrunTanimlari.vue";
 Vue.use(Router);
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
 
   routes: [
+    {
+      path: "/Rapor/UrunTanimi",
+      name: "UrunTanimi",
+      component: UrunTanimi,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: "/Rapor/UrunBazliSatis",
       name: "UrunBazliSatis",
