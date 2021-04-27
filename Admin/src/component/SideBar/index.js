@@ -71,6 +71,12 @@ export default class SideBar extends Component {
                   <p> Sipariş Geçmişi</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="/Bolgeler" class="nav-link">
+                  <i class="nav-icon fas fa-shopping-basket"></i>
+                  <p> Paket Bolgeleri</p>
+                </a>
+              </li>
             </ul>
           </nav>
         </div>

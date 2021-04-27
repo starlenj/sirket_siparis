@@ -1,0 +1,40 @@
+type Query {
+  Bolges:[Bolge]!
+  Bolge(id: ID!):Bolge 
+  SubeBolge(SubeId: String!):[Bolge] 
+  SehirBolge(Sehir: String!):[Bolge] 
+}
+
+type  Bolge {
+  id: String!
+  BolgeAdi: String!
+  Sehir: String!
+  Tutar: String!
+  SubeId: String!
+	Status : Int!
+}
+type Mutation {
+  CreateBolge(data: CreateBolgeInput): Bolge 
+  UpdateBolge(data: UpdateBolgeInput): Bolge 
+  DeleteBolge(data: DeleteBolgeInput): Bolge
+  BolgeStatus(data: UpdateStatusInput): Bolge
+}
+input CreateBolgeInput {
+  BolgeAdi: String!
+  Sehir: String!
+  Tutar: String!
+  SubeId: String!
+}
+input UpdateBolgeInput {
+  id: String!
+  BolgeAdi: String!
+	Tutar	: String!
+  Sehir: String!
+}
+input DeleteBolgeInput {
+  id: String!
+}
+input UpdateStatusInput {
+  id: String!
+	Status : Int!
+}

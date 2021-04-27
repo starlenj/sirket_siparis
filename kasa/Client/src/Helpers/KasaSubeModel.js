@@ -72,3 +72,7 @@ export const TotalKasa = {
   YanToplam: 0,
   AltToplam: 0,
 };
+
+export const UrunBazliSatisModel = {
+  data: [],
+};

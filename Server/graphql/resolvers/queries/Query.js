@@ -1,18 +1,9 @@
 const Query = {
-  ProductPrice: async (parent, { SubeId, ProductId }, { ProductPrice }) => {
-    return await ProductPrice.find({ SubeId, Status: true, ProductId });
+  Sube: async (paret, { id }, { Sube }) => {
+    return await Sube.findById(id);
   },
-  SubeServis: async (parent, { SubeId }, { SubeServis }) => {
-    return await SubeServis.find({ SubeId, Status: true });
-  },
-  Servis: async (paret, { id }, { Servis }) => {
-    return await Servis.find({});
-  },
-  Semt: async (paret, { id }, { Semt }) => {
-    return await Semt.findById(id);
-  },
-  Semts: async (parent, args, { Semt }) => {
-    return await Semt.find({ Status: true }).sort({ createdAt: "desc" });
+  Subes: async (parent, args, { Sube }) => {
+    return await Sube.find({}).sort({ createdAt: "desc" });
   },
   User: async (paret, { id }, { User }) => {
     return await User.findById(id);
@@ -31,42 +22,6 @@ const Query = {
       return user;
     }
   },
-  Permission: async (paret, { id }, { Permission }) => {
-    return await Permission.findById(id);
-  },
-  Permissions: async (parent, args, { Permission }) => {
-    return await Permission.find({ Status: 1 }).sort({ createdAt: "desc" });
-  },
-  Sube: async (paret, { id }, { Sube }) => {
-    return await Sube.findById({ _id: id, Status: true });
-  },
-  Subes: async (parent, args, { Sube }) => {
-    return await Sube.find({ Status: 1 }).sort({ createdAt: "desc" });
-  },
-  customer: async (paret, { id }, { Customer }) => {
-    return await Customer.find({ id: id, status: 1 });
-  },
-  customers: async (parent, args, { Customer }) => {
-    return await Customer.find({ status: 1 }).sort({ createdAt: "desc" });
-  },
-  address: async (paret, { id }, { CustomerAddress }) => {
-    return await CustomerAddress.find({ id: id, status: 1 });
-  },
-  addresss: async (parent, args, { CustomerAddress }) => {
-    return await CustomerAddress.find({ status: 1 }).sort({
-      createdAt: "desc",
-    });
-  },
-  Sepet: async (parent, { OrderHeaderId }, { Sepet }) => {
-    return await Sepet.find({ OrderHeaderId }).sort({
-      createdAt: "desc",
-    });
-  },
-  SepetCustomer: async (parent, { CustomerId }, { Sepet }) => {
-    return await Sepet.find({ CustomerId }).sort({
-      createdAt: "desc",
-    });
-  },
   orderBody: async (parent, { OrderHeaderId }, { OrderBody }) => {
     return await OrderBody.find({ OrderHeaderId }).sort({
       createdAt: "desc",
@@ -79,6 +34,11 @@ const Query = {
   },
   Orders: async (parent, args, { OrderHeader }) => {
     return await OrderHeader.find({}).sort({
+      createdAt: "desc",
+    });
+  },
+  OdemeOrders: async (parent, { PaymentType }, { OrderHeader }) => {
+    return await OrderHeader.find({ PaymentType }).sort({
       createdAt: "desc",
     });
   },
@@ -148,58 +108,28 @@ const Query = {
       createdAt: "desc",
     });
   },
-  OptionValue: async (parent, { OptionsId }, { OptionValue }) => {
-    return await OptionValue.find({ OptionsId }).sort({
-      createdAt: "desc",
-    });
-  },
-
-  CovidHeaders: async (parent, args, { CovidFormHeader }) => {
-    return await CovidFormHeader.find();
-  },
-
-  CovidHeader: async (parent, { SubeId, CreatedAt }, { CovidFormHeader }) => {
-    return await CovidFormHeader.find({ SubeId: SubeId, CreatedAt: CreatedAt });
-  },
-
-  CovidAtes: async (parent, args, { CovidAtes }) => {
-    return await CovidAtes.find();
-  },
-
-  CovidAtess: async (parent, { id }, { CovidAtes }) => {
-    return await CovidAtes.findById(id);
-  },
-  CovidHijyen: async (parent, args, { CovidHijyen }) => {
-    return await CovidHijyen.find();
-  },
-
-  CovidHijyens: async (parent, { id }, { CovidHijyen }) => {
-    return await CovidHijyen.findById(id);
-  },
-
-  Personel: async (parent, { id }, { Personel }) => {
-    return await Personel.findById(id);
-  },
-
-  Personels: async (parent, args, { Personel }) => {
-    return await Personel.find();
-  },
-  SubePersonel: async (parent, { SubeId }, { Personel }) => {
-    return await Personel.find({ SubeId: SubeId });
-  },
   ArabaCategory: async (parent, args, { Category }) => {
     return await Category.find({ Status: 1, CategoryType: "ArabaSatis" }).sort({
       Order: "desc",
     });
   },
-  CashierHeader: async (parent, { SubeId, CreatedAt }, { CashierHeader }) => {
-    return await CashierHeader.find({ SubeId, CreatedAt, Status: 0 });
+  Bolge: async (parent, { SubeId }, { Bolge }) => {
+    return await Bolge.find({ SubeId, Status: 1 });
   },
-  CashierHeaders: async (paret, args, { CashierHeader }) => {
-    return await CashierHeader.find({ Status: 1 });
+  Bolges: async (paret, args, { Bolge }) => {
+    return await Bolge.find({ Status: 1 });
+  },
+  SubeBolge: async (paret, { SubeId }, { Bolge }) => {
+    return await Bolge.find({ SubeId });
+  },
+  SehirBolge: async (paret, { Sehir }, { Bolge }) => {
+    return await Bolge.find({ Sehir });
   },
   GetMenu: async (parent, args, { Category }) => {
-    return await Category.find({ Status: 1, CategoryType: args.CategoryType }).sort({
+    return await Category.find({
+      Status: 1,
+      CategoryType: args.CategoryType,
+    }).sort({
       Order: "desc",
     });
   },

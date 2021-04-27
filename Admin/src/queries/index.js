@@ -17,57 +17,6 @@ export const GET_SUBE_SERVIS = gql`
     }
   }
 `;
-export const NEW_SUBE_SERVIS = gql`
-  mutation($SubeId: String!, $Name: String!) {
-    CreateSubeServis(data: { SubeId: $SubeId, Name: $Name }) {
-      id
-      Sube {
-        Name
-      }
-    }
-  }
-`;
-export const DELETE_SERVIS = gql`
-  mutation($id: String!) {
-    DeleteServis(data: { id: $id }) {
-      Semt
-      ServisBedeli
-      MinimumTutar
-      SubeId
-    }
-  }
-`;
-export const DELETE_SEMT = gql`
-  mutation($id: String!) {
-    DeleteSemt(data: { id: $id }) {
-      Name
-    }
-  }
-`;
-export const UPDATE_SEMT = gql`
-  mutation($id: String!, $Name: String!) {
-    UpdateSemt(data: { id: $id, Name: $Name }) {
-      id
-      Name
-    }
-  }
-`;
-export const GET_SEMTS = gql`
-  query {
-    Semts {
-      id
-      Name
-    }
-  }
-`;
-export const CREATE_SEMT = gql`
-  mutation($Name: String!) {
-    CreateSemt(data: { Name: $Name }) {
-      id
-      Name
-    }
-  }
-`;
 export const CREATE_USER = gql`
   mutation(
     $Email: String!
@@ -97,10 +46,6 @@ export const GET_ACTIVE_USER = gql`
       Email
       id
       Sube
-      UserPermissions {
-        Name
-        id
-      }
     }
   }
 `;
@@ -230,8 +175,10 @@ export const GET_CATEGORYS = gql`
 `;
 
 export const CREATE_CATEGORY = gql`
-  mutation($Name: String!,$Order:Int!,$CategoryType:String!) {
-    CreateCategory(data: { Name: $Name,CategoryType:$CategoryType,Order:$Order }) {
+  mutation($Name: String!, $Order: Int!, $CategoryType: String!) {
+    CreateCategory(
+      data: { Name: $Name, CategoryType: $CategoryType, Order: $Order }
+    ) {
       id
       Name
       Order
@@ -240,8 +187,10 @@ export const CREATE_CATEGORY = gql`
   }
 `;
 export const UPDATE_CATEGORY = gql`
-  mutation($Name: String!, $id: String!,$CategoryType:String!,$Order:Int!) {
-    UpdateCategory(data: { id: $id, Name: $Name,CategoryType:$CategoryType,Order:$Order }) {
+  mutation($Name: String!, $id: String!, $CategoryType: String!, $Order: Int!) {
+    UpdateCategory(
+      data: { id: $id, Name: $Name, CategoryType: $CategoryType, Order: $Order }
+    ) {
       id
       Name
     }
@@ -369,21 +318,6 @@ export const GET_USER = gql`
     }
   }
 `;
-export const CREATE_PERMISSION = gql`
-  mutation($Name: String!, $UserId: String!) {
-    CreatePermission(data: { Name: $Name, UserId: $UserId }) {
-      id
-    }
-  }
-`;
-
-export const DELETE_PERMISSION = gql`
-  mutation($id: String!) {
-    DeletePermission(data: { id: $id }) {
-      id
-    }
-  }
-`;
 
 export const GET_PRODUCTS = gql`
   query {
@@ -397,7 +331,7 @@ export const GET_PRODUCTS = gql`
       Name
       Info
       Price
-     YemekSepetiPrice 
+      YemekSepetiPrice
       Picture
       Order
       SelectOption {
@@ -520,9 +454,9 @@ export const GET_OPTIONSVALUE = gql`
 `;
 
 export const CREATE_OPTIONSVALUE = gql`
-  mutation($Name: String!, $Price: Float!, $OptionsId: String!,$Order:Int!) {
+  mutation($Name: String!, $Price: Float!, $OptionsId: String!, $Order: Int!) {
     CreateOptionValue(
-      data: { Order:$Order,Name: $Name, Price: $Price, OptionsId: $OptionsId }
+      data: { Order: $Order, Name: $Name, Price: $Price, OptionsId: $OptionsId }
     ) {
       id
     }
@@ -530,8 +464,10 @@ export const CREATE_OPTIONSVALUE = gql`
 `;
 
 export const UPDATE_OPTIONSVALUE = gql`
-  mutation($Name: String!, $Price: Float!, $id: String!,$Order:Int!) {
-    UpdateOptionValue(data: { Name: $Name, Price: $Price, id: $id,Order:$Order }) {
+  mutation($Name: String!, $Price: Float!, $id: String!, $Order: Int!) {
+    UpdateOptionValue(
+      data: { Name: $Name, Price: $Price, id: $id, Order: $Order }
+    ) {
       id
     }
   }
@@ -545,166 +481,27 @@ export const SIPARIS_ONAY = gql`
   }
 `;
 export const SIPARIS_REDDET = gql`
-  mutation($id: String!,$OrderCancelInfo:String!) {
-    SiparisReddet(data: { id: $id,OrderCancelInfo : $OrderCancelInfo }) {
+  mutation($id: String!, $OrderCancelInfo: String!) {
+    SiparisReddet(data: { id: $id, OrderCancelInfo: $OrderCancelInfo }) {
       id
     }
   }
 `;
-export const CREATE_PERSONEL = gql`
-  mutation($Name: String!, $SubeId: String!) {
-    CreatePersonel(data: { Name: $Name, SubeId: $SubeId }) {
-      id
-    }
-  }
-`;
-export const GET_PERSONELS = gql`
-  query {
-    Personels {
-      id
-      Name
-      SubeId
-    }
-  }
-`;
-
-export const GET_SUBE_PERSONELS = gql`
-  query($SubeId: String!) {
-    SubePersonel(SubeId: $SubeId) {
-      Name
+export const GET_ODEME_ORDER = gql`
+  query($PaymentType: String!) {
+    OdemeOrders(PaymentType: $PaymentType) {
+      Note
       id
       SubeId
+      Date
+      OrderStatus
+      PaymentType
+      Phone
+      CustomerName
+      Plaka
+      OrderType
+      OrderChannel
+      Aciklama
     }
   }
 `;
-export const UPDATE_PERSONEL = gql`
-  mutation($id: String!, $Name: String!, $SubeId: String) {
-    UpdatePersonel(data: { id: $id, Name: $Name, SubeId: $SubeId }) {
-      id
-    }
-  }
-`;
-
-export const CREATE_COVID_HEADER = gql`
-  mutation($SubeId: String!, $CreatedAt: String!) {
-    CreateCovidFormHeader(data: { CreatedAt: $CreatedAt, SubeId: $SubeId }) {
-      id
-    }
-  }
-`;
-export const CREATE_COVID_ATES = gql`
-  mutation(
-    $HeaderId: String!
-    $PersonelId: String!
-    $Ates: Float!
-    $Saat: Int!
-  ) {
-    CreateCovidAtes(
-      data: {
-        HeaderId: $HeaderId
-        PersonelId: $PersonelId
-        Ates: $Ates
-        Saat: $Saat
-      }
-    ) {
-      id
-    }
-  }
-`;
-export const GET_COVID_HEADER = gql`
-  query($SubeId: String!, $CreatedAt: String!) {
-    CovidHeader(SubeId: $SubeId, CreatedAt: $CreatedAt) {
-      SubeId
-      CreatedAt
-      id
-      CovidAtesList {
-        PersonelId
-        PersonelList {
-          Name
-        }
-        Ates
-        Saat
-      }
-      CovidHijyenList {
-        IslemAdi
-        IslemDegeri
-        Saat
-        HeaderId
-      }
-    }
-  }
-`;
-export const CREATE_COVID_HIJYEN = gql`
-  mutation(
-    $HeaderId: String!
-    $IslemAdi: String!
-    $Saat: Int!
-    $IslemDegeri: Boolean!
-  ) {
-    CreateCovidHijyen(
-      data: {
-        HeaderId: $HeaderId
-        IslemAdi: $IslemAdi
-        IslemDegeri: $IslemDegeri
-        Saat: $Saat
-      }
-    ) {
-      id
-    }
-  }
-`;
-export const GET_SUBES = gql`
-  query {
-    Subes {
-      Name
-      id
-    }
-  }
-`;
-
-export const GET_SUBE = gql`
-  query($id: String) {
-    Sube(id: $id) {
-      Name
-      id
-    }
-  }
-`;
-export const CREATE_SUBE = gql`
-  mutation($Name: String!) {
-    CreateSube(data: { Name: $Name }) {
-      id
-    }
-  }
-`;
-export const UPDATE_SUBE = gql`
-  mutation($Name: String!, $id: String!) {
-    UpdateSube(data: { Name: $Name, id: $id }) {
-      id
-    }
-  }
-`;
-export const DELETE_SUBE = gql`
-  mutation($id: String!) {
-    DeleteSube(data: { id: $id }) {
-      id
-    }
-  }
-`;
-
-export const NEW_SERVIS = gql`
-  mutation($Name: String!, $SubeId: String!) {
-    CreateServis(data: { Name: $ServisBedeli, SubeId: $SubeId }) {
-      SubeId
-    }
-  }
-`;
-export const UPDATE_PRODUCT_PRICE = gql`
-
-mutation($id:String!,$Price:Float!,$YemekSepetiPrice:Float!,$OldPrice:Float!) {
-  UpdateProductPrice(data: { id:$id, Price: $Price, YemekSepetiPrice: $YemekSepetiPrice,OldPrice:$OldPrice }) {
-    id
-  }
-}
-
-`

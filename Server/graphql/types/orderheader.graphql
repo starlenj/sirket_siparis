@@ -2,6 +2,7 @@ scalar Date
 type Query {
   Order(id: String!): OrderHeader
   Orders: [OrderHeader!]!
+  OdemeOrders(PaymentType: String!): [OrderHeader!]!
   OnaysizOrders(SubeId: String!): [OrderHeader]
   OnayliOrders(SubeId: String!): [OrderHeader]
 }
@@ -17,10 +18,10 @@ type OrderHeader {
   Order: [OrderBody!]!
   OrderStatus: Int!
   OrderChannel: String!
-  OrderPaymentType: [PaymentType]
-  OrderOrderType: [OrderType]
-  OrderCustomer: [Customer!]!
-  OrderSube: [Sube!]!
+  OrderPaymentType:String 
+  OrderOrderType: String
+  OrderCustomer: String
+  OrderSube:String! 
   Date: Date!
   Phone: String
   CustomerName: String

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Query, Mutation } from "react-apollo";
-import { CREATE_USER, GET_USERS, GET_SUBES } from "../../../queries/index";
+import { CREATE_USER, GET_USERS } from "../../../queries/index";
 import Error from "../Error";
 import SideBar from "../../SideBar/index";
 import Header from "../../Header/index";
@@ -91,26 +91,6 @@ export default class NewCategory extends Component {
                             onChange={this.onChange}
                           />
                         </div>
-                        <Query query={GET_SUBES}>
-                          {({ loading, data, error }) => {
-                            if (loading)
-                              return <div className="loading">Loading...</div>;
-                            if (error) return <div>Error</div>;
-                            return (
-                              <select
-                                className="form-control"
-                                style={{ width: "100%" }}
-                                name="Sube"
-                                onChange={this.onChange}
-                              >
-                                <option>...Şube Seçiniz...</option>
-                                {data.Subes.map((sube) => (
-                                  <option value={sube.id}>{sube.Name}</option>
-                                ))}
-                              </select>
-                            );
-                          }}
-                        </Query>
                         <div className="form-group">
                           <input
                             type="text"

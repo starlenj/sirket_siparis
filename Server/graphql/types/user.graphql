@@ -9,8 +9,6 @@ type User {
   Email: String!
   Name: String!
   Sube: String
-  UserPermissions: [Permission!]!
-  SubeInfo: [Sube!]!
 }
 
 type Mutation {

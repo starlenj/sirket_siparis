@@ -134,9 +134,8 @@ export default class Home extends Component {
                           <tr>
                             <td>Müşteri</td>
                             <td>Telefon</td>
-                            <td>Plaka</td>
-
                             <td>Sipariş Türü</td>
+                            <td>Odeme Türü</td>
                             <td>Tarih</td>
                             <td>Detay</td>
                           </tr>
@@ -146,7 +145,7 @@ export default class Home extends Component {
                             <tr key={Math.random(0, 200)}>
                               <td>{order.CustomerName}</td>
                               <td>{order.Phone}</td>
-                              <td>{order.Plaka}</td>
+                              <td>{order.PaymentType}</td>
 
                               <td>{order.OrderType}</td>
 
