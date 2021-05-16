@@ -3,10 +3,10 @@ const Router = Express.Router();
 
 
 
-const ListHeader = require('../../models/listHeadear');
+const ListHeader = require('../../models/RaporProduct');
 
 
 ListHeader.methods(['get', 'post', 'put', 'delete']);
-ListHeader.register(Router, '/ListHeader');
+ListHeader.register(Router, '/RaporProduct');
 
 module.exports = Router

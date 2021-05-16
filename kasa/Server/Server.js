@@ -49,6 +49,7 @@ app.use("/api/v1.0.1/sube", require("./routes/api/Sube.js"));
 app.use("/api/v1.0.1/shopReport", require("./routes/api/ShopReport.js"));
 //app start
 app.use("/api/v1.0.1/Sefim", require("./routes/api/Sefim.js"));
+app.use("/api/v1.0.1/", require("./routes/api/RaporProduct.js"));
 app.use("/api/v1.0.1/Image", require("./routes/api/Image.js"));
 app.use("/api/v1.0.1/SubeIhtiyac", require("./routes/api/SubeIhtiyac.js"));
 app.use("/api/v1.0.1/SubeKalan", require("./routes/api/SubeKalan"));
@@ -66,7 +67,9 @@ app.use("/api/v1.0.1/", require("./routes/api/OnayHeader"));
 app.use("/api/v1.0.1/", require("./routes/api/OnayList"));
 app.use("/api/v1.0.1/", require("./routes/api/Onaybody"));
 app.use("/api/v1.0.1/", require("./routes/api/Mail"));
-
+app.use('/api/v1.0.1/Vega', require('./routes/api/Vega.js'))
+app.use('/api/v1.0.1/', require('./routes/api/Code.js'))
+app.use('/api/v1.0.1/', require('./routes/api/CodeHareket.js'))
 // DEFAULT ADMIN USER
 /* bcrypt.hash("emre0209",10, async(err,hash)=>{
 const newData = new User({
