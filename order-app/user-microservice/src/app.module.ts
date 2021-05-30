@@ -10,12 +10,8 @@ import  * as winston from "winston";
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-    type: "mysql",
-    host : 'localhost',
-    port : 3306,
-    username :'nasuh',
-    password :'emre0209',
-    database : 'user-database',
+    type: "postgres",
+		url: process.env.DATABASE_URL,
     autoLoadEntities :true,
     synchronize:true
   }),

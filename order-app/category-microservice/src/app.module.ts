@@ -7,16 +7,13 @@ import { LoggingInterceptor } from './interceptor/logging.interceptor';
 import { TransformInterceptor } from './interceptor/transform.interceptor';
 import  * as winston from "winston";
 @Module({
-  imports: [CategoryModule,
+  imports: [CategoryModule ,
     TypeOrmModule.forRoot({
-    type: "mysql",
-    host : 'localhost',
-    port : 3306,
-    username :'nasuh',
-    password :'emre0209',
-    database : 'category',
+    type: "postgres",
+		url: process.env.DATABASE_URL,
     autoLoadEntities :true,
-    synchronize:true
+    synchronize: true,
+    logging: true 
   }),
   WinstonModule.forRoot({
       transports: [

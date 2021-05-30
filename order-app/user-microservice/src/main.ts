@@ -4,7 +4,6 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   app.setGlobalPrefix("api/v1");
   app.enableCors({origin :"http://localhost:8080"});
   await app.listen(4001);

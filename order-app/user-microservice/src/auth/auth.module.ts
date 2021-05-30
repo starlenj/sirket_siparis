@@ -11,7 +11,7 @@ import { User } from 'src/user/user.entity';
     imports :[ConfigModule],
     inject :[ConfigService],
     useFactory :async (configService :ConfigService) =>({
-      secret : configService.get("JWT_SECRET"),
+      secret : process.env.JWT_SECRET,
       signOptions : {expiresIn :'1m'}
     })
   }),TypeOrmModule.forFeature([User])], 

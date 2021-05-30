@@ -199,11 +199,14 @@ export default class OrderDetail extends Component {
                     <Query
                       query={GET_ORDER_DETAILS}
                       variables={{ id: localStorage.getItem("OrderId") }}
+                      onCompleted={(data) =>
+                        this.GetOptions(data.Order.Order, data)
+                      }
                     >
                       {({ loading, data, error }) => {
                         if (loading)
                           return <div className="loading">Loading...</div>;
-                        if (error) return <div>Error</div>;
+                        if (error) return <div>{error}</div>;
                         return (
                           <tbody>
                             {data.Order.Order !== undefined

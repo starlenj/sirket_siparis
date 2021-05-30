@@ -1,74 +1,94 @@
 import React, { Component, Fragment } from "react";
 import SideBar from "../../SideBar/index";
 import Header from "../../Header/index";
-import Notification from "../../Notification";
 import { Query, Subscription } from "react-apollo";
-import {
-  GET_ADDED_ORDERS,
-  GET_ONAYLI_ORDERS,
-  GET_ODEME_ORDER,
-} from "../../../queries";
-import ReactNotifications from "react-browser-notifications";
+import { GET_ODEME_ORDER } from "../../../queries";
 import Moment from "react-moment";
-import SweetAlert from "sweetalert2-react";
+import moment from "moment";
 export default class Home extends Component {
-  state = { OrderData: [], SelectOrder: [], show: false, Date: "" };
+  state = {
+    OrderData: [],
+    SelectOrder: [],
+    show: false,
+    Date: "",
+    Umitkoy: 0,
+    Bahceli: 0,
+    Batikent: 0,
+    Atakule: 0,
+    Bilkent: 0,
+  };
   constructor(props) {
     super(props);
     this.gridRef = React.createRef();
-    this.showNotifications = this.showNotifications.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-  showNotifications() {
-    // If the Notifications API is supported by the browser
-    // then show the notification
-
-    if (this.n.supported()) this.n.show();
-  }
-
-  handleClick(event) {
-    // Do something here such as
-    // console.log("Notification Clicked") OR
-    // window.focus() OR
-    // window.open("http://www.google.com")
-
-    // Lastly, Close the notification
-    window.location.href = "/OrderDetail";
-    this.n.close(event.target.tag);
-  }
-  DateChange(date) {
-    this.setState({ Date: date.target.value });
   }
   GetData(orders) {
+    console.log(orders);
+    var Topla = 0;
+    var Bahceli = 0;
+    var Ankamall = 0;
+    var Umitkoy = 0;
+    var Batikent = 0;
+    var Kasmir = 0;
+    var Atakule = 0;
+    var Bilkent = 0;
+
+    orders.OdemeOrders.map((data) => {
+      console.log(moment(data.Date).endOf("year").format("YYYY"));
+      if (
+        moment(data.Date).endOf("month").format("M") === "4" &&
+        moment(data.Date).endOf("year").format("YYYY") === "2021"
+      ) {
+        if (data.SubeId === "umitkoy") {
+          data.Order.map((order) => {
+            Umitkoy += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+        if (data.SubeId === "bahcelievler") {
+          data.Order.map((order) => {
+            Bahceli += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+        if (data.SubeId === "atakule") {
+          data.Order.map((order) => {
+            Atakule += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+        if (data.SubeId === "bilkent") {
+          data.Order.map((order) => {
+            Bilkent += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+        if (data.SubeId === "batikent") {
+          data.Order.map((order) => {
+            Batikent += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+        if (data.SubeId === "atakule") {
+          data.Order.map((order) => {
+            Batikent += parseFloat(order.Price) * parseInt(order.Quantity);
+          });
+        }
+      }
+    });
+    this.setState({ Umitkoy, Bahceli, Batikent, Bilkent, Atakule });
     window.jQuery(this.gridRef.current).DataTable({
       responsive: true,
       autoWidth: false,
     });
-  }
-  GetSound() {
-    const URL =
-      "https://actions.google.com/sounds/v1/alarms/spaceship_alarm.ogg";
-    const context = new AudioContext();
-    let yodelBuffer;
-
-    window
-      .fetch(URL)
-      .then((response) => response.arrayBuffer())
-      .then((arrayBuffer) => context.decodeAudioData(arrayBuffer))
-      .then((audioBuffer) => {
-        yodelBuffer = audioBuffer;
-        const source = context.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(context.destination);
-        source.start(1);
-        source.stop(22);
-      });
   }
   SelectOrder = async (order) => {
     localStorage.setItem("OrderId", order.id);
     window.location.href = "/OrderDetail";
   };
   render() {
+    const Toplam = (data) => {
+      var Topla = 0;
+      data.map((order) => {
+        console.log(data);
+        Topla += parseFloat(order.Price) * parseInt(order.Quantity);
+      });
+      return <span>{Topla}</span>;
+    };
     return (
       <Query
         query={GET_ODEME_ORDER}
@@ -83,16 +103,6 @@ export default class Home extends Component {
             <div>
               <Header session={this.props.session} />
               <SideBar session={this.props.session} />
-
-              <SweetAlert
-                show={this.state.show}
-                title="Yeni Sipariş"
-                text="Yeni Sipariş var"
-                onConfirm={() => {
-                  this.setState({ show: false });
-                  window.location.href = "/OrderDetail";
-                }}
-              />
               <div class="content-wrapper">
                 <section class="content-header">
                   <div class="container-fluid">
@@ -129,50 +139,33 @@ export default class Home extends Component {
                       >
                         <thead>
                           <tr>
-                            <td>Müşteri</td>
-                            <td>Odeme Turu</td>
-                            <td>Tarih</td>
-                            <td>Durum</td>
-                            <td>Tutar</td>
-                            <td>Detay</td>
+                            <td>Sube</td>
+                            <td>Toplam</td>
                           </tr>
                         </thead>
                         <tbody>
-                          {data.OdemeOrders.map((order) => (
-                            <tr key={Math.random(0, 200)}>
-                              <td>{order.CustomerName}</td>
-                              <td>{order.Phone}</td>
-                              <td>{order.Plaka}</td>
-
-                              <td>
-                                <Moment format="DD.MM.YYYY HH:mm">
-                                  {order.Date}
-                                </Moment>
-                              </td>
-                              <td>
-                                {order.OrderStatus === 1 ? (
-                                  <span class="badge badge-success">
-                                    Onaylanmış
-                                  </span>
-                                ) : (
-                                  <span class="badge badge-warning">
-                                    Onaylanmamış
-                                  </span>
-                                )}
-                              </td>
-
-                              <td>
-                                <button
-                                  class="btn btn-primary"
-                                  data-toggle="modal"
-                                  data-target="#SiparisModal"
-                                  onClick={() => this.SelectOrder(order)}
-                                >
-                                  Detay
-                                </button>
-                              </td>
-                            </tr>
-                          ))}
+                          <tr key={Math.random(0, 200)}>
+                            <td>Umitkoy</td>
+                            <td>{parseFloat(this.state.Umitkoy).toFixed(2)}</td>
+                          </tr>
+                          <tr key={Math.random(0, 200)}>
+                            <td>Bahceli</td>
+                            <td>{parseFloat(this.state.Bahceli).toFixed(2)}</td>
+                          </tr>
+                          <tr key={Math.random(0, 200)}>
+                            <td>Batikent</td>
+                            <td>
+                              {parseFloat(this.state.Batikent).toFixed(2)}
+                            </td>
+                          </tr>
+                          <tr key={Math.random(0, 200)}>
+                            <td>Atakule</td>
+                            <td>{parseFloat(this.state.Atakule).toFixed(2)}</td>
+                          </tr>
+                          <tr key={Math.random(0, 200)}>
+                            <td>Bilkent</td>
+                            <td>{parseFloat(this.state.Bilkent).toFixed(2)}</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

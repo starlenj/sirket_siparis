@@ -494,14 +494,26 @@ export const GET_ODEME_ORDER = gql`
       id
       SubeId
       Date
-      OrderStatus
-      PaymentType
-      Phone
       CustomerName
-      Plaka
-      OrderType
-      OrderChannel
-      Aciklama
+      PaymentType
+      OrderStatus
+      Order {
+        id
+        Product {
+          Name
+          Info
+          Price
+        }
+        SelectOrderOption {
+          OptionsId
+          OrderOptions {
+            Name
+            Price
+          }
+        }
+        Price
+        Quantity
+      }
     }
   }
 `;
