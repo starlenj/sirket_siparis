@@ -5,7 +5,10 @@ const mongoose = restful.mongoose;
 //
 const ListHeaderSchema= new mongoose.Schema({
 
-    name :{ type:String,required:true },    status : { type : Boolean,default : true }
+    name :{ type:String,required:true },   
+    type :{ type:String,required:true },   
+    grupPuani :{ type:Number,required:true,default: 0 },   
+	  status : { type : Boolean,default : true }
 });
 
 module.exports  =restful.model('ListHeader',ListHeaderSchema);

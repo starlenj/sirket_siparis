@@ -24,7 +24,7 @@ const middlewareLink = new ApolloLink((operation, forward) => {
 });
 
 const wsLink = new WebSocketLink(
-  new SubscriptionClient("ws://localhost:4000/graphql", {
+  new SubscriptionClient("wss://webserivs.hmbrgr.com.tr/graphql", {
     reconnect: true,
   })
 );

@@ -8,10 +8,10 @@ import {
 import SweetAlert from "sweetalert2-react";
 import SiparisTuru from "../pages/SiparisTuru";
 import { Modal, Button } from "react-bootstrap";
-import PhoneInput from 'react-phone-number-input'
-import { isPossiblePhoneNumber } from 'react-phone-number-input'
+import PhoneInput from "react-phone-number-input";
+import { isPossiblePhoneNumber } from "react-phone-number-input";
 
-import 'react-phone-number-input/style.css';
+import "react-phone-number-input/style.css";
 export default class Sepet extends Component {
   state = {
     showArabayaServis: false,
@@ -31,7 +31,9 @@ export default class Sepet extends Component {
     PaketModal: false,
     showPaketServis: false,
     Note: "",
-    OrderOnayModal: false
+    OrderOnayModal: false,
+    SozlesmeOnay: false,
+    SozlesmeOnayModal: false,
   };
 
   componentDidMount() {
@@ -96,7 +98,11 @@ export default class Sepet extends Component {
     localStorage.setItem("Sepet", JSON.stringify(Orders));
   };
   handleClose = () => {
-    this.setState({ PaketModal: false, OrderOnayModal: false });
+    this.setState({
+      PaketModal: false,
+      OrderOnayModal: false,
+      SozlesmeOnayModal: false,
+    });
   };
   RemoveItem = (index) => {
     let ArrayIndex = index + 1;
@@ -114,7 +120,7 @@ export default class Sepet extends Component {
       alert("Lütfen Telefonunuzu Giriniz..");
       return;
     } else {
-      var IsPhone = isPossiblePhoneNumber(this.state.Phone) === true
+      var IsPhone = isPossiblePhoneNumber(this.state.Phone) === true;
       if (!IsPhone) {
         alert("Lütfen Telefonunuzu Giriniz..");
         return;
@@ -135,23 +141,24 @@ export default class Sepet extends Component {
       }
     }
 
-
     if (this.state.OrderType === "Arabaya Servis") {
       if (this.state.Plaka === "") {
         alert("Plaka ve Açıklama Zorunludur.");
         return;
       }
-
+    }
+    if (!this.state.SozlesmeOnay) {
+      alert(" Lutfen Sozlesmeyi Okuyup Onaylayiniz ...");
+      return;
     }
     this.setState({ OrderOnayModal: true });
-  }
+  };
   SiparisVer = (
     CreateOrderHeader,
     CreateOrderBody,
     CreateSelectOrderOptions
   ) => {
     if (this.state.OrderType === "Paket") {
-
       var Topla = this.state.OrderType === "Paket" ? 0 : 0;
 
       this.state.Order.map((order) => {
@@ -162,8 +169,8 @@ export default class Sepet extends Component {
       if (Topla < localStorage.getItem("BolgeTutar")) {
         alert(
           "Sipariş tutarınız yetersizdir.Bölge limiti " +
-          localStorage.getItem("BolgeTutar") +
-          " TL'dir"
+            localStorage.getItem("BolgeTutar") +
+            " TL'dir"
         );
         return;
       }
@@ -243,13 +250,11 @@ export default class Sepet extends Component {
       }
     }
 
-
     if (this.state.OrderType === "Arabaya Servis") {
       if (this.state.Plaka === "") {
         alert("Plaka ve Açıklama Zorunludur.");
         return;
       }
-
     }
     CreateOrderHeader({
       variables: {
@@ -278,7 +283,9 @@ export default class Sepet extends Component {
               Quantity: Order.Quantity,
               Price: parseFloat(
                 (
-                  parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)
+                  parseFloat(Order.Price) +
+                  parseFloat(Order.ExtraPrice) +
+                  parseFloat(Order.ExtraIcecek)
                 ).toFixed(2)
               ),
               OrderHeaderId: data.CreateOrderHeader.id,
@@ -354,16 +361,12 @@ export default class Sepet extends Component {
               }
             localStorage.clear();
             if (this.state.OrderType === "Arabaya Servis") {
-
               this.setState({ showArabayaServis: true });
             } else if (this.state.OrderType === "Paket") {
-
               this.setState({ showPaketServis: true });
             } else {
-
               this.setState({ show: true });
             }
-
           }
         });
       }
@@ -375,7 +378,9 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((Order) => {
         Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
+          (parseFloat(Order.Price) +
+            parseFloat(Order.ExtraPrice) +
+            parseFloat(Order.ExtraIcecek)) *
           parseInt(Order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -384,7 +389,9 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((Order) => {
         Toplam +=
-          (parseFloat(Order.Price) + parseFloat(Order.ExtraPrice) + parseFloat(Order.ExtraIcecek)) *
+          (parseFloat(Order.Price) +
+            parseFloat(Order.ExtraPrice) +
+            parseFloat(Order.ExtraIcecek)) *
           parseInt(Order.Quantity);
       });
       return parseFloat((Toplam / 100) * 5).toFixed(2);
@@ -393,7 +400,9 @@ export default class Sepet extends Component {
       var Toplam = 0;
       this.state.Order.map((order) => {
         Toplam +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
+          (parseFloat(order.Price) +
+            parseFloat(order.ExtraPrice) +
+            parseFloat(order.ExtraIcecek)) *
           parseInt(order.Quantity);
       });
       return parseFloat(Toplam).toFixed(2);
@@ -403,7 +412,9 @@ export default class Sepet extends Component {
 
       this.state.Order.map((order) => {
         Topla +=
-          (parseFloat(order.Price) + parseFloat(order.ExtraPrice) + parseFloat(order.ExtraIcecek)) *
+          (parseFloat(order.Price) +
+            parseFloat(order.ExtraPrice) +
+            parseFloat(order.ExtraIcecek)) *
           parseInt(order.Quantity);
       });
       this.state.Total = parseFloat(Topla).toFixed(2);
@@ -414,12 +425,7 @@ export default class Sepet extends Component {
             {" "}
             {this.state.OrderType === "Paket" ? (
               <div>
-
-
-                Toplam :{" "}
-                {parseFloat(
-                  parseFloat(Topla).toFixed(2)
-                ).toFixed(2)}{" "}
+                Toplam : {parseFloat(parseFloat(Topla).toFixed(2)).toFixed(2)}{" "}
                 TL
               </div>
             ) : (
@@ -559,15 +565,14 @@ export default class Sepet extends Component {
                   onChange={this.onChange}
                 />
                 <div className="form-group" style={{ marginBottom: 20 }}>
-
                   <label style={{ fontWeight: "bold" }}>Telefon : </label>
                   <PhoneInput
                     defaultCountry={"TR"}
                     countries={["TR"]}
                     international={false}
                     placeholder="555-555-55-55"
-                    onChange={(e) => this.setState({ Phone: e })} />
-
+                    onChange={(e) => this.setState({ Phone: e })}
+                  />
                 </div>
               </div>
               {this.state.OrderType === "Paket" ? (
@@ -605,6 +610,38 @@ export default class Sepet extends Component {
               ) : (
                 <div></div>
               )}
+              <div className="form-group" style={{ marginBottom: 20 }}>
+                <input
+                  type="checkbox"
+                  onChange={(e) => {
+                    if (this.state.SozlesmeOnay) {
+                      this.setState({ SozlesmeOnay: false });
+                    } else {
+                      this.setState({ SozlesmeOnay: true });
+                    }
+                  }}
+                />{" "}
+                Tarafıma Ticari Elektronik İleti Gönderilmesini {"  "}
+                <a
+                  href="#"
+                  onClick={() => this.setState({ SozlesmeOnayModal: true })}
+                >
+                  Onaylıyorum
+                </a>
+                <br />
+                <br />
+                <br />
+                Kişisel Verilerin Korunması Kanunu kapsamında veri güvenliğine
+                önem vermekteyiz. Kişisel verilerinizin hangi amaçla işlendiğine
+                dair{" "}
+                <a
+                  href="https://www.hmbrgr.co/cerezler-aydinlat-metni/"
+                  target="_blank"
+                >
+                  Aydınlatma{" "}
+                </a>{" "}
+                Metnini okuyunuz
+              </div>
               <button
                 data-toggle="modal"
                 data-target="#SiparisInfo"
@@ -614,6 +651,35 @@ export default class Sepet extends Component {
                 Siparişi Onayla
               </button>
 
+              <Modal
+                show={this.state.SozlesmeOnayModal}
+                onHide={this.handleClose}
+                size="xl"
+              >
+                <Modal.Header closeButton closeLabel></Modal.Header>
+                <Modal.Body>
+                  6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanun
+                  kapsamında, Saver İç ve Dış Ticaret Ltd. Şti. (HMBRGR)
+                  tarafından satışı yapılan ürün veya hizmete ilişkin tarafıma;
+                  tanıtım, duyuru, bülten, haber, kişiye özel teklifler, indirim
+                  ve hediye gibi promosyonlar, içerikler, kutlamalar, anketler,
+                  kampanyalarla ilgili reklam, pazarlama, bilgi amaçlı sesli
+                  aramalar, elektronik posta, kısa mesaj ve her türlü ticari
+                  elektronik ileti gönderilmesine ve tarafımla iletişime
+                  geçilmesine; paylaşmış olduğum kişisel verilerimin yukarıda
+                  sayılan amaçlarla kullanılmasına; paylaştığım iletişim
+                  verilerimin hizmet sağlayıcının bilgi sisteminde tutulmasına
+                  ve işlenmesine, ticari elektronik ileti içeriğinin ve diğer
+                  kayıtların T.C. Gümrük ve Ticaret Bakanlığına sunmak üzere
+                  kayıt altına alınarak saklanmasına ve yine 6563 sayılı
+                  Elektronik Ticaretin Düzenlenmesi Hakkında Kanun kapsamında,
+                  istediğim her zaman ve hiçbir gerekçe göstermeksizin HMBRGR
+                  tarafından her iletide sunulacak çıkış/red seçeneğini
+                  kullanarak ticari elektronik ileti gönderimine son
+                  verebileceği hususunda bilgilendirilmiş olarak, açıkça izin
+                  verdiğimi beyan ederim.
+                </Modal.Body>
+              </Modal>
               <Modal
                 show={this.state.OrderOnayModal}
                 onHide={this.handleClose}
@@ -662,8 +728,8 @@ export default class Sepet extends Component {
                               <tr>
                                 <td>
                                   Siparişiniz ile ilgili bize iletmek
-                                      <br />
-                                      istediklerinizi lütfen yazın :{" "}
+                                  <br />
+                                  istediklerinizi lütfen yazın :{" "}
                                 </td>
                                 <td></td>
                               </tr>
@@ -682,12 +748,11 @@ export default class Sepet extends Component {
                       </div>
                       <div class="card col-md-6">
                         {this.state.OrderType === "Paket" && (
-
                           <div class="card-body">
                             Siparişiniz {this.state.Sube.toUpperCase()}{" "}
-                              şubesinden gönderilecektir.
+                            şubesinden gönderilecektir.
                             <br /> İrtibat için 444 82 20 numarasını
-                              arayabilirsiniz.
+                            arayabilirsiniz.
                           </div>
                         )}
                       </div>
@@ -710,60 +775,51 @@ export default class Sepet extends Component {
                               </tr>
                             </thead>
                             <tbody>
-                              {
-                                this.state.Order.length > 0 &&
+                              {this.state.Order.length > 0 &&
                                 this.state.Order.map((Orders) => {
                                   return (
                                     <tr>
                                       <td>{Orders.Quantity}</td>
                                       <td>{Orders.ProductName}</td>
                                       <td>
-                                        {
-                                          Orders.EkmekOption !== undefined &&
-                                          (Orders.EkmekOption.map(
+                                        {Orders.EkmekOption !== undefined &&
+                                          Orders.EkmekOption.map((EkLezzet) => (
+                                            <span>,{EkLezzet.Name},</span>
+                                          ))}
+                                        {Orders.EkLezzetOption !== undefined &&
+                                          Orders.EkLezzetOption.map(
                                             (EkLezzet) => (
                                               <span>,{EkLezzet.Name},</span>
                                             )
-                                          ))}
-                                        {
-                                          Orders.EkLezzetOption !== undefined &&
-                                          (Orders.EkLezzetOption.map(
-                                            EkLezzet => (
-                                              <span>,{EkLezzet.Name},</span>
-                                            )
-                                          ))}
-                                        {
-                                          Orders.ExtraOptions !== undefined &&
-                                          (
-                                            Orders.ExtraOptions.map((ExtraOptions) => (
+                                          )}
+                                        {Orders.ExtraOptions !== undefined &&
+                                          Orders.ExtraOptions.map(
+                                            (ExtraOptions) => (
                                               <span>{ExtraOptions.Name}</span>
-                                            ))
-                                          )
-                                        }
-                                        {Orders.IcecekOption !== undefined && (
-                                          Orders.IcecekOption.map((IcecekOptions) => (
-                                            <span>
-                                              {IcecekOptions === undefined ? "" : IcecekOptions.Name}
-                                            </span>
-                                          )))}
-                                        {
-                                          Orders.NotOptions !== undefined &&
-                                          (Orders.NotOptions.map(
+                                            )
+                                          )}
+                                        {Orders.IcecekOption !== undefined &&
+                                          Orders.IcecekOption.map(
+                                            (IcecekOptions) => (
+                                              <span>
+                                                {IcecekOptions === undefined
+                                                  ? ""
+                                                  : IcecekOptions.Name}
+                                              </span>
+                                            )
+                                          )}
+                                        {Orders.NotOptions !== undefined &&
+                                          Orders.NotOptions.map(
                                             (NotOptions) => (
-                                              <span>
-                                                {NotOptions.Name},
-                                              </span>
+                                              <span>{NotOptions.Name},</span>
                                             )
-                                          ))}
-                                        {
-                                          Orders.SosOptions !== undefined &&
-                                          (Orders.SosOptions.map(
+                                          )}
+                                        {Orders.SosOptions !== undefined &&
+                                          Orders.SosOptions.map(
                                             (SosOptions) => (
-                                              <span>
-                                                {SosOptions.Name},
-                                              </span>
+                                              <span>{SosOptions.Name},</span>
                                             )
-                                          ))}
+                                          )}
                                       </td>
                                       <td>
                                         {(
@@ -774,7 +830,7 @@ export default class Sepet extends Component {
                                         ).toFixed(2)}
                                       </td>
                                     </tr>
-                                  )
+                                  );
                                 })}
                             </tbody>
                           </table>
@@ -790,13 +846,12 @@ export default class Sepet extends Component {
                                 <tr>
                                   <td style={{ fontWeight: "bold" }}>
                                     Ara Toplam :
-                                      </td>
+                                  </td>
                                   <td style={{ fontWeight: "bold" }}>
                                     <AraToplam />
                                   </td>
                                 </tr>
                               )}
-
 
                               <tr>
                                 <td>
@@ -807,7 +862,7 @@ export default class Sepet extends Component {
                                     }}
                                   >
                                     {" "}
-                                        Genel Toplam :{""}
+                                    Genel Toplam :{""}
                                   </span>{" "}
                                 </td>
                                 <td>
@@ -829,9 +884,7 @@ export default class Sepet extends Component {
                       {(CreateOrderHeader, { loading, error }) => (
                         <Mutation mutation={CREATE_ORDER_BODY}>
                           {(CreateOrderBody, { loading, error }) => (
-                            <Mutation
-                              mutation={CREATE_SELECT_ORDER_OPTIONS}
-                            >
+                            <Mutation mutation={CREATE_SELECT_ORDER_OPTIONS}>
                               {(
                                 CreateSelectOrderOptions,
                                 { loading, error }
@@ -848,7 +901,7 @@ export default class Sepet extends Component {
                                     }
                                   >
                                     Siparişi Tamamla
-                                      </button>
+                                  </button>
                                 </div>
                               )}
                             </Mutation>
@@ -862,7 +915,12 @@ export default class Sepet extends Component {
             </div>
           ) : (
             <div>
-              <a className="btn btn-primary" href="https://magazasiparis.hmbrgr.com.tr/" >Sipariş Türü Şube Seçim Ekranı</a>
+              <a
+                className="btn btn-primary"
+                href="https://magazasiparis.hmbrgr.com.tr/"
+              >
+                Sipariş Türü Şube Seçim Ekranı
+              </a>
               <br />
               <br />
               <p class="card-text" style={{ textAlign: "center" }}>
@@ -871,7 +929,6 @@ export default class Sepet extends Component {
                   style={{ color: "#e1e1e1", textAlign: "center" }}
                 ></i>
                 <br />
-
                 Sepetiniz şu anda boş!
               </p>
             </div>

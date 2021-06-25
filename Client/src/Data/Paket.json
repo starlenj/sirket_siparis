@@ -6,45 +6,105 @@
     "SubeId": "kasmir"
   },
   {
+    "label": "1. Etap",
+    "value": "1. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "2. Etap",
+    "value": "2. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "3. Etap",
+    "value": "3. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "4. Etap",
+    "value": "4. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "6. Etap",
+    "value": "6. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "8. Etap",
+    "value": "8. Etap",
+    "MinimumTutar": "50",
+    "SubeId": "kasmir"
+  },
+  {
     "label": "Altay Mah",
     "value": "Altay Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "70",
     "SubeId": "kasmir"
   },
   {
     "label": "Güzelkent Mah",
     "value": "Güzelkent Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "100",
     "SubeId": "kasmir"
   },
   {
     "label": "Eryaman Mah",
     "value": "Eryaman Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "100",
     "SubeId": "kasmir"
   },
   {
     "label": "Şehit Osman Avcı Mah",
     "value": "Şehit Osman Avcı Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "70",
     "SubeId": "kasmir"
   },
   {
     "label": "Şeker mah",
     "value": "Şeker mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "70",
     "SubeId": "kasmir"
   },
   {
     "label": "Şeyh Şamil Mah",
     "value": "Şeyh Şamil Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "70",
     "SubeId": "kasmir"
   },
   {
     "label": "Tunahan Mah",
     "value": "Tunahan Mah",
-    "MinimumTutar": "50",
+    "MinimumTutar": "80",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Ata Mah",
+    "value": "Ata Mah",
+    "MinimumTutar": "100",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Yavuz  Selim Mah",
+    "value": "Yavuz  Selim Mah",
+    "MinimumTutar": "100",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Guzelkent Mah",
+    "value": "Guzelkent Mah",
+    "MinimumTutar": "100",
+    "SubeId": "kasmir"
+  },
+  {
+    "label": "Devlet Mah",
+    "value": "Devlet Mah",
+    "MinimumTutar": "100",
     "SubeId": "kasmir"
   },
   {
@@ -1102,7 +1162,7 @@
     "value": "Çankaya (Barbaros Mah.)",
     "MinimumTutar": "50",
     "SubeId": "atakule"
-  }, 
+  },
   {
     "label": "Çankaya (Bayraktar Mah.)",
     "value": "Çankaya (Bayraktar Mah.)",

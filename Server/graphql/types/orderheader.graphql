@@ -28,6 +28,7 @@ type OrderHeader {
   Aciklama: String
   Adres: String
   OrderCancelInfo:String
+  SozlesmeOnay:Boolean!
 }
 type Mutation {
   CreateOrderHeader(data: CreateOrderHeaderInput): OrderHeader

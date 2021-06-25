@@ -19,7 +19,7 @@ export default class Header extends Component {
   componentDidMount() {
     const now = new Date().getHours();
     if (now >= 20 || now < 11) {
-      this.setState({ SiparisZamani: true });
+      this.setState({ SiparisZamani: false });
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);
@@ -52,9 +52,7 @@ export default class Header extends Component {
       this.setState({ Bolge: e.value });
       localStorage.setItem("Bolge", e.value);
       localStorage.setItem("BolgeTutar", e.MinimumTutar);
-      window.location.href =
-        "?SiparisTuru=Paket&&Sube=" +
-        e.SubeId
+      window.location.href = "?SiparisTuru=Paket&&Sube=" + e.SubeId;
       // window.location.reload();
     }
   };
@@ -65,13 +63,10 @@ export default class Header extends Component {
         if (target[i].value !== "") {
           localStorage.setItem("siparis_turu", target[i].value);
           this.setState({ SiparisTuru: target[i].value });
-          if (target[i].value !== 'Paket') {
+          if (target[i].value !== "Paket") {
             if (this.state.Sube != "") {
               window.location.href =
-                "?SiparisTuru=" +
-                target[i].value +
-                "&&Sube=" +
-                this.state.Sube;
+                "?SiparisTuru=" + target[i].value + "&&Sube=" + this.state.Sube;
             }
           }
 
@@ -88,7 +83,11 @@ export default class Header extends Component {
       if (target[i].selected) {
         if (target[i].value !== "") {
           if (now >= 19) {
-            if (target[i].value !== "umitkoy" && target[i].value !== "bahcelievler" && target[i].value !== "batikent") {
+            if (
+              target[i].value !== "umitkoy" &&
+              target[i].value !== "bahcelievler" &&
+              target[i].value !== "batikent"
+            ) {
               alert("Avm subelerimiz 19:00 dan sonra servise kapalidir..");
               return;
             }
@@ -145,72 +144,7 @@ export default class Header extends Component {
               <option>--Lütfen Seçiniz--</option>
               <option value="Paket">Paket Servis</option>
               <option value="Gel-Al">Gel-Al</option>
-              <option value="Arabaya Servis">Arabaya Servis</option>
             </select>
-            {this.state.SiparisTuru === "Arabaya Servis" && (
-              <div className="form-group">
-                <label>Lütfen Şubenizi Seçiniz </label>
-                <select
-                  className="form-control"
-                  style={{ width: "100%" }}
-                  name="SubeSelect"
-                  onChange={this.handleSube}
-                >
-                  <option selected={Sube === ""} value="">
-                    ---Şube Seçiniz---
-                  </option>
-                  <option selected={Sube === "ankamall"} value="ankamall">
-                    Ankamall
-                  </option>
-                  <option selected={Sube === "armada"} value="armada">
-                    Armada
-                  </option>
-                  <option selected={Sube === "atakule"} value="atakule">
-                    Atakule
-                  </option>
-
-
-                  <option selected={Sube === "arcadium"} value="arcadium">
-                    Arcadium
-                  </option>
-                  <option selected={Sube === "mersin"} value="mersin">
-                    Mersin
-                  </option>
-                  <option selected={Sube === "adana"} value="adana">
-                    Adana
-                  </option>
-
-                  <option
-                    selected={Sube === "bahcelievler"}
-                    value="bahcelievler"
-                    disabled={true}
-                  >
-                    Bahçelievler (Tadilat nedeniyle kapaliyiz)
-                  </option>
-                  <option selected={Sube === "bilkent"} value="bilkent">
-                    Bilkent
-                  </option>
-                  <option selected={Sube === "cepa"} value="cepa">
-                    Cepa
-                  </option>
-                  <option selected={Sube === "gordion"} value="gordion">
-                    Gordion
-                  </option>
-                  <option selected={Sube === "kasmir"} value="kasmir">
-                    Kaşmir
-                  </option>
-                  <option selected={Sube === "umitkoy"} value="umitkoy">
-                    Ümitköy
-                  </option>
-                  <option selected={Sube === "batikent"} value="batikent">
-                    Batıkent
-                  </option>
-                  <option selected={Sube === "eskisehir"} value="eskisehir">
-                    Eskişehir
-                  </option>
-                </select>
-              </div>
-            )}
             {this.state.SiparisTuru === "Gel-Al" && (
               <div className="form-group">
                 <label>Lütfen Şubenizi Seçiniz </label>
@@ -223,40 +157,62 @@ export default class Header extends Component {
                   <option selected={Sube === ""} value="">
                     ---Şube Seçiniz---
                   </option>
-                  <option selected={Sube === "ankamall"} value="ankamall">
+                  <option
+                    selected={Sube === "ankamall"}
+                    value="ankamall"
+                  >
                     Ankamall
                   </option>
-                  <option selected={Sube === "armada"} value="armada">
+                  <option
+                    selected={Sube === "armada"}
+                    value="armada"
+                  >
                     Armada
                   </option>
                   <option selected={Sube === "atakule"} value="atakule">
                     Atakule
                   </option>
 
-                  <option selected={Sube === "arcadium"} value="arcadium">
+                  <option
+                    selected={Sube === "arcadium"}
+                    value="arcadium"
+                  >
                     Arcadium
                   </option>
-                  <option selected={Sube === "mersin"} value="mersin">
+                  <option
+                    selected={Sube === "mersin"}
+                    disabled={true}
+                    value="mersin"
+                  >
                     Mersin
                   </option>
-                  <option selected={Sube === "adana"} value="adana">
+                  <option
+                    selected={Sube === "adana"}
+                    value="adana"
+                    disabled={true}
+                  >
                     Adana
                   </option>
 
                   <option
                     selected={Sube === "bahcelievler"}
                     value="bahcelievler"
-                    disabled={true}
                   >
-                    Bahçelievler (Tadilat nedeniyle kapaliyiz)
+                    Bahçelievler
                   </option>
                   <option selected={Sube === "bilkent"} value="bilkent">
                     Bilkent
                   </option>
-                  <option selected={Sube === "cepa"} value="cepa">
+                  <option
+                    selected={Sube === "cepa"}
+                    value="cepa"
+                  >
                     Cepa
                   </option>
-                  <option selected={Sube === "gordion"} value="gordion">
+                  <option
+                    selected={Sube === "gordion"}
+                    value="gordion"
+                  >
                     Gordion
                   </option>
                   <option selected={Sube === "kasmir"} value="kasmir">
@@ -283,7 +239,6 @@ export default class Header extends Component {
           </Modal.Body>
         </Modal>
 
-
         <Modal
           show={this.state.SiparisZamani}
           onHide={this.handleClose}
@@ -299,7 +254,6 @@ export default class Header extends Component {
             </span>
           </Modal.Body>
         </Modal>
-
 
         <nav class="navbar navbar-light bg-dark">
           <div className="container">

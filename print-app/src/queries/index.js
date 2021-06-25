@@ -535,8 +535,8 @@ export const SIPARIS_ONAY = gql`
   }
 `;
 export const SIPARIS_REDDET = gql`
-  mutation($id: String!,$OrderCancelInfo:String!) {
-    SiparisReddet(data: { id: $id,OrderCancelInfo : $OrderCancelInfo }) {
+  mutation($id: String!, $OrderCancelInfo: String!) {
+    SiparisReddet(data: { id: $id, OrderCancelInfo: $OrderCancelInfo }) {
       id
     }
   }

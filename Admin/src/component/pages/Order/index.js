@@ -65,7 +65,7 @@ export default class Home extends Component {
   }
   SelectOrder = async (order) => {
     localStorage.setItem("OrderId", order.id);
-    window.location.href = "/OrderDetail";
+    window.location.href = "/OrderDetail/"+order.id;
   };
   render() {
     return (

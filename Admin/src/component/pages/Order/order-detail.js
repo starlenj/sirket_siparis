@@ -1,24 +1,32 @@
 import React, { Component, useRef } from "react";
 import SideBar from "../../SideBar/index";
 import Header from "../../Header/index";
-import ReactToPrint, { PrintContextConsumer } from 'react-to-print';
+import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { Query, Subscription, Mutation } from "react-apollo";
 import {
   GET_ORDER_DETAILS,
   SIPARIS_ONAY,
   SIPARIS_REDDET,
 } from "../../../queries";
-import { ReddetSmsGonder, KabulSmsGonder } from '../../../Helper/Sms';
-import PrintOrder from './PrintOrder';
+import { ReddetSmsGonder, KabulSmsGonder } from "../../../Helper/Sms";
+import PrintOrder from "./PrintOrder";
 export default class OrderDetail extends Component {
-  state = { IptalSebebi: "", OrderData: [], Phone: "", Options: [], Toplam: "", id: "", OrderType: "" };
+  state = {
+    IptalSebebi: "",
+    OrderData: [],
+    Phone: "",
+    Options: [],
+    Toplam: "",
+    id: "",
+    OrderType: "",
+  };
   constructor(props) {
     super(props);
     this.HandleIptalSebebi = this.HandleIptalSebebi.bind(this);
   }
   GetOptions(OrderData, data) {
     var arr = [];
-    var Topla = data.Order.OrderType === "Paket" ? 0 : 0;
+    var Topla = 0;
     OrderData.map((order) => {
       console.log(data);
       Topla += parseFloat(order.Price) * parseInt(order.Quantity);
@@ -41,7 +49,10 @@ export default class OrderDetail extends Component {
       let result = await SiparisOnay();
       if (result) {
         console.log(result);
-        let smsresponse = await KabulSmsGonder(this.state.Phone, this.props.session.ActiveUser.Sube);
+        let smsresponse = await KabulSmsGonder(
+          this.state.Phone,
+          this.props.session.ActiveUser.Sube
+        );
         console.log(smsresponse);
         if (smsresponse.status == "200") {
           window.location.href = "/orders";
@@ -49,8 +60,7 @@ export default class OrderDetail extends Component {
       }
     }
     let result = await SiparisOnay();
-    if (result)
-      window.location.href = "/orders";
+    if (result) window.location.href = "/orders";
   };
 
   SiparisReddet = async (SiparisReddet) => {
@@ -58,15 +68,17 @@ export default class OrderDetail extends Component {
       alert("İptal Nedeni Zorunludur!!");
       return;
     }
-    let result = await SiparisReddet()
+    let result = await SiparisReddet();
     if (result) {
-
       ///SMS GÖNDERME BURADA OLACAK
-      let smsresponse = await ReddetSmsGonder(this.state.Phone, this.state.IptalSebebi, this.props.session.ActiveUser.Sube)
+      let smsresponse = await ReddetSmsGonder(
+        this.state.Phone,
+        this.state.IptalSebebi,
+        this.props.session.ActiveUser.Sube
+      );
       if (smsresponse.status == "200") {
         window.location.href = "/orders";
       }
-
     }
   };
   render() {
@@ -109,7 +121,9 @@ export default class OrderDetail extends Component {
                     </thead>
                     <Query
                       query={GET_ORDER_DETAILS}
-                      variables={{ id: window.location.pathname.split("/").pop() }}
+                      variables={{
+                        id: window.location.pathname.split("/").pop(),
+                      }}
                       onCompleted={(data) =>
                         this.GetOptions(data.Order.Order, data)
                       }
@@ -129,10 +143,10 @@ export default class OrderDetail extends Component {
                                     Onaylanmış
                                   </span>
                                 ) : (
-                                    <span class="badge badge-warning">
-                                      Onaylanmamış
-                                    </span>
-                                  )}
+                                  <span class="badge badge-warning">
+                                    Onaylanmamış
+                                  </span>
+                                )}
                               </td>
                             </tr>
                             <tr>
@@ -197,8 +211,10 @@ export default class OrderDetail extends Component {
                       </tr>
                     </thead>
                     <Query
-                      query={GET_ORDER_DETAILS}
-                      variables={{ id: localStorage.getItem("OrderId") }}
+                    query={GET_ORDER_DETAILS}
+                      variables={{ 
+                        id: window.location.pathname.split("/").pop(),
+												 }}
                     >
                       {({ loading, data, error }) => {
                         if (loading)
@@ -208,31 +224,31 @@ export default class OrderDetail extends Component {
                           <tbody>
                             {data.Order.Order !== undefined
                               ? data.Order.Order.map((orders) => {
-                                return (
-                                  <tr>
-                                    <td>{orders.Product[0].Name}</td>
-                                    <td>
-                                      {orders.SelectOrderOption.map(
-                                        (option) => (
-                                          <div>
-                                            {option.OrderOptions[0].Name}
-                                          </div>
-                                        )
-                                      )}
-                                    </td>
-                                    <td>{orders.Quantity}</td>
-                                    <td>
-                                      {parseFloat(orders.Price).toFixed(2)}
-                                    </td>
-                                    <td>
-                                      {(
-                                        parseFloat(orders.Price) *
-                                        parseInt(orders.Quantity)
-                                      ).toFixed(2)}
-                                    </td>
-                                  </tr>
-                                );
-                              })
+                                  return (
+                                    <tr>
+                                      <td>{orders.Product[0].Name}</td>
+                                      <td>
+                                        {orders.SelectOrderOption.map(
+                                          (option) => (
+                                            <div>
+                                              {option.OrderOptions[0].Name}
+                                            </div>
+                                          )
+                                        )}
+                                      </td>
+                                      <td>{orders.Quantity}</td>
+                                      <td>
+                                        {parseFloat(orders.Price).toFixed(2)}
+                                      </td>
+                                      <td>
+                                        {(
+                                          parseFloat(orders.Price) *
+                                          parseInt(orders.Quantity)
+                                        ).toFixed(2)}
+                                      </td>
+                                    </tr>
+                                  );
+                                })
                               : ""}
                           </tbody>
                         );
@@ -249,20 +265,14 @@ export default class OrderDetail extends Component {
                   <div className="row">
                     <span style={{ marginLeft: 20 }}>
                       {" "}
-
-
                       <br />
                       <span>TOPLAM :</span>
                       {"    "}
                       {this.state.OrderType === "Paket" ? (
-                        <span>
-                          {parseFloat(
-                            this.state.Toplam
-                          ).toFixed(2)}
-                        </span>
+                        <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
                       ) : (
-                          <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
-                        )}
+                        <span>{parseFloat(this.state.Toplam).toFixed(2)}</span>
+                      )}
                     </span>
                   </div>
                 </div>
@@ -276,16 +286,17 @@ export default class OrderDetail extends Component {
                 className="col-md-4"
                 style={{ marginLeft: 200, marginTop: 50 }}
               >
-
                 <a
-                  href="https://panel.hmbrgr.com.tr/printapp"
+                  href={"https://panel.hmbrgr.com.tr/printapp/"} 
                   target="_blank"
                   className="btn btn-secondary"
                   style={{ width: "100%" }}
-
+									onClick={()=>{
+										window.localStorage.setItem("OrderId",window.location.pathname.split('/').pop())
+									}}
                 >
                   Yazdır
-                    </a>
+                </a>
                 <br />
                 <br />
                 <button
@@ -295,7 +306,7 @@ export default class OrderDetail extends Component {
                   data-target="#ReddetModal"
                 >
                   Reddet
-                    </button>
+                </button>
                 <br />
                 <br />
 
@@ -321,13 +332,22 @@ export default class OrderDetail extends Component {
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title">İptal Nedeni</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <p>Lüften İptal Nedenini Seçiniz..</p>
-                  <select className="form-control" onChange={this.HandleIptalSebebi} name="IptalSebebi">
+                  <select
+                    className="form-control"
+                    onChange={this.HandleIptalSebebi}
+                    name="IptalSebebi"
+                  >
                     <option value="">--Lütfen Seçiniz--</option>
                     <option value="Adres Eksikliği">Adres Eksikliği</option>
                     <option>Bölge Tutar Altında</option>
@@ -350,7 +370,10 @@ export default class OrderDetail extends Component {
                 <div class="modal-footer">
                   <Mutation
                     mutation={SIPARIS_REDDET}
-                    variables={{ id: this.state.id, OrderCancelInfo: this.state.IptalSebebi }}
+                    variables={{
+                      id: this.state.id,
+                      OrderCancelInfo: this.state.IptalSebebi,
+                    }}
                   >
                     {(SiparisReddet, { loading, error }) => (
                       <button
@@ -362,8 +385,13 @@ export default class OrderDetail extends Component {
                     )}
                   </Mutation>
 
-
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    İptal
+                  </button>
                 </div>
               </div>
             </div>

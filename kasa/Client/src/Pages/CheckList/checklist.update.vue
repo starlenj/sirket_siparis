@@ -44,6 +44,18 @@
             <label>Adı</label>
             <input type="text" v-model="Name" class="form-control" />
           </div>
+          <div class="form-group">
+            <label>Grup Puani</label>
+            <input type="number" v-model="grupPuani" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Denetleme Turu</label>
+            <select v-model="Type" class="form-control">
+              <option value="mudur" :selected="Type ==='mudur'">Mudur</option>
+              <option value="sube" :selected="Type === 'sube'">Sube</option>
+            </select>
+          </div>
+ 
           <button class="btn btn-primary" v-on:click="UpdateListHeader">
             Kaydet
           </button>
@@ -84,18 +96,24 @@ export default {
   data() {
     return {
       Name: "",
+      grupPuani:0, 
+      Type: "",
       id: "",
     };
   },
   async mounted() {
     let response = await Service.get("ListHeader", this.$route.params.id);
     this.Name = response.data.name;
+    this.grupPuani = response.data.grupPuani;
+    this.Type = response.data.type;
     this.id = response.data._id;
   },
   methods: {
     async UpdateListHeader() {
       var response = await Service.update("ListHeader", {
         name: this.Name,
+        grupPuani: this.grupPuani,
+        type: this.Type,
         _id: this.id,
       });
       if (response) {

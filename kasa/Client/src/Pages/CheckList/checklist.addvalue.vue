@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page-header page-header-light">
+   <div class="page-header page-header-light">
       <div class="page-header-content header-elements-md-inline">
         <div class="page-title d-flex">
           <h4>
@@ -48,6 +48,14 @@
             <input type="text" v-model="Name" class="form-control" />
           </div>
           <div class="form-group">
+            <label>Dogru Cevap Puani</label>
+            <input type="number" v-model="dogruPuan" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Yalnis Cevap Puani</label>
+            <input type="number" v-model="yalnisPuan" class="form-control" />
+          </div>
+          <div class="form-group">
             <label>Türü</label>
             <select v-model="Type" class="form-control">
               <option value="checkbox">Doğru/Yalnış</option>
@@ -62,6 +70,8 @@
               <tr>
                 <th>Adı</th>
                 <th>Türü</th>
+                <th>Dogru Puan</th>
+                <th>Yalnis Puan</th>
                 <th>Düzenle/Sil</th>
               </tr>
             </thead>
@@ -71,6 +81,8 @@
                 <td>
                   {{ ListBody.type === "checkbox" ? "Doğru/Yalnış" : "Metin" }}
                 </td>
+                <td>{{ ListBody.dogruPuani }}</td>
+                <td>{{ ListBody.yalnisPuani }}</td>
                 <td>
                   <button
                     type="button"
@@ -121,6 +133,8 @@ export default {
   data() {
     return {
       Name: "",
+      dogruPuan: 0,
+      yalnisPuan: 0,
       ListBody: [],
     };
   },
@@ -135,6 +149,8 @@ export default {
       var response = await Service.save("ListBody", {
         headerId: this.$route.params.id,
         name: this.Name,
+        dogruPuani: this.dogruPuan,
+        yalnisPuani: this.yalnisPuan,
         type: this.Type,
         value : this.value
       });

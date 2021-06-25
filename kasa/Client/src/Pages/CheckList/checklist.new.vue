@@ -44,6 +44,17 @@
             <label>Adı</label>
             <input type="text" v-model="Name" class="form-control" />
             </div>
+            <div class="form-group">
+            <label>Grup Puani</label>
+            <input type="number" v-model="grupPuani" class="form-control" />
+            </div>
+          <div class="form-group">
+            <label>Denetleme Turu</label>
+            <select v-model="Type" class="form-control">
+              <option value="mudur">Mudur</option>
+              <option value="sube">Sube</option>
+            </select>
+          </div>
             <button class="btn btn-primary" v-on:click="NewListHeader"> Kaydet</button>
           <div id="deleteSubeForm" class="modal fade">
             <div class="modal-dialog">
@@ -75,12 +86,13 @@ export default {
     data() {
 
         return{
-            Name: ""
+            Name: "",
+            Type: ""
         }
     },
 methods:{
             async    NewListHeader(){
-                var response = await Service.save('ListHeader',{name : this.Name});
+                var response = await Service.save('ListHeader',{type:this.Type,name : this.Name});
                 window.location.href="/CheckList/Index"
 
             }
