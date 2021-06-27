@@ -8,5 +8,6 @@ const Sefim = require('../../Controller/Sefim')
 
 route.post('/GetCiro', Sefim.GetCiro)
 route.post('/GetToplamCiro', Sefim.GetToplamCiro)
+route.post('/GetUrunBazliSatis', Sefim.UrunBazliSatis)
 
 module.exports = route
