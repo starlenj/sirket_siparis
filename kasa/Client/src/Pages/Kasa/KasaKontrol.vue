@@ -185,6 +185,17 @@
                 >Batıkent</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="tunali-tab"
+                data-toggle="tab"
+                href="#tunali"
+                role="tab"
+                aria-controls="tunali"
+                >Tunali</a
+              >
+            </li>
           </ul>
           <div class="tab-content" id="myTabContent">
             <div
@@ -412,6 +423,24 @@
                 </div>
               </div>
             </div>
+            <div
+              class="tab-pane fade show"
+              id="tunali"
+              role="tabpanel"
+              aria-labelledby="tunali-tab"
+            >
+              <div class="content">
+                <div class="card">
+                  <div class="card-body b-b">
+                    <h1>Tunali</h1>
+                    <tunali-kasa
+                      v-bind:TunaliData="Tunali"
+                      ref="TunaliKasa"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -435,6 +464,7 @@ import AdanaKasa from "../../components/Kasa/Adana";
 import MersinKasa from "../../components/Kasa/Mersin";
 import UmitkoyKasa from "../../components/Kasa/Umitkoy";
 import BatikentKasa from "../../components/Kasa/Batikent";
+import TunaliKasa from "../../components/Kasa/Tunali";
 export default {
   components: {
     ArcadiumKasa,
@@ -450,6 +480,7 @@ export default {
     MersinKasa,
     UmitkoyKasa,
     BatikentKasa,
+    TunaliKasa,
   },
   data() {
     return {
@@ -475,6 +506,25 @@ export default {
         iadeIptal: 0,
       },
       Ankamall: {
+        SubeId: "",
+        YKSodexo: 0,
+        YKTicket: 0,
+        toplamGelenYemekCeki: 0,
+        programYemekCeki: 0,
+        YKDiger: 0,
+        data: [],
+        YKFark: 0,
+        Nakit: 0,
+        programNakit: 0,
+        nakitFark: 0,
+        Visa: 0,
+        programVisa: 0,
+        visaFark: 0,
+        kontrol: 0,
+        iadeAciklama: "",
+        iadeIptal: 0,
+      },
+      Tunali: {
         SubeId: "",
         YKSodexo: 0,
         YKTicket: 0,
@@ -838,6 +888,8 @@ export default {
           this.Umitkoy.SubeId = item;
         } else if (item.name === "Batıkent") {
           this.Batikent.SubeId = item;
+        } else if (item.name === "TUNALI") { 
+          this.Tunali.SubeId = item;
         }
       });
       //Arcadium kasa raporu
@@ -1201,6 +1253,34 @@ export default {
 
         this.$refs.BatikentKasa.GetKasa();
         this.$emit("BatikentKasa", this.Batikent);
+      }
+      //tunali kasa raporu
+      let TunaliResult = await Service.save("shopReportView/CheckReport", {
+        subeId: this.Tunali.SubeId._id,
+        date: moment(this.tarihData).format("YYYY.MM.DD"),
+      });
+      this.Tunali.data = TunaliResult[0];
+      //TUNALI ŞEFİM CİRO
+      let TunaliSefimKasa = await Service.save("Sefim/GetCiro", {
+        data: this.Tunali.SubeId,
+        startDate: moment(this.tarihData).format("YYYY.MM.DD"),
+        endDate: moment(this.tarihData).format("YYYY.MM.DD"),
+      });
+
+      if (TunaliSefimKasa.length > 0) {
+        this.Tunali.programYemekCeki = TunaliSefimKasa[0]["TICKET"];
+        this.Tunali.programNakit = TunaliSefimKasa[0]["NAKIT"];
+        this.Tunali.programVisa = TunaliSefimKasa[0]["KREDI"];
+        this.Tunali.programYemekSepeti = TunaliSefimKasa[0]["YEMEKSEPETI"];
+        this.$refs.TunaliKasa.GetKasa();
+        this.$emit("TunaliKasa", this.Tunali);
+      } else {
+        this.Tunali.programYemekCeki = 0;
+        this.Tunali.programNakit = 0;
+        this.Tunali.programVisa = 0;
+
+        this.$refs.TunaliKasa.GetKasa();
+        this.$emit("TunaliKasa", this.Tunali);
       }
     },
   },

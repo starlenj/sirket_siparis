@@ -178,6 +178,16 @@
             <li class="nav-item">
               <a
                 class="nav-link"
+                id="tunali-tab"
+                data-toggle="tab"
+                href="#tunali"
+                role="tab"
+                aria-controls="tunali"
+              >Tunali</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
                 id="genel-tab"
                 data-toggle="tab"
                 href="#genel"
@@ -375,6 +385,21 @@
                 </div>
               </div>
             </div>
+            <div
+              class="tab-pane fade show"
+              id="tunali"
+              role="tabpanel"
+              aria-labelledby="tunali-tab"
+            >
+              <div class="content">
+                <div class="card">
+                  <div class="card-body b-b">
+                    <h1>Tunali</h1>
+                    <tunali-kasa v-bind:TunaliData="Tunali" ref="TunaliKasa" />
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="tab-pane fade show" id="genel" role="tabpanel" aria-labelledby="genel-tab">
               <div class="content">
@@ -408,6 +433,7 @@ import KayseriKasa from "../../components/KasaDetail/Kayseri";
 import MersinKasa from "../../components/KasaDetail/Mersin";
 import UmitkoyKasa from "../../components/KasaDetail/Umitkoy";
 import BatikentKasa from "../../components/KasaDetail/Batikent";
+import TunaliKasa from "../../components/KasaDetail/Tunali";
 import GenelKasa from "../../components/KasaDetail/GenelToplam";
 import { KasaModel } from "../../Helpers/KasaSubeModel";
 import {
@@ -430,6 +456,7 @@ export default {
     MersinKasa,
     UmitkoyKasa,
     BatikentKasa,
+    TunaliKasa,
     GenelKasa,
   },
   data() {
@@ -478,6 +505,9 @@ export default {
       Batikent: {
         ...KasaModel,
       },
+      Tunali: {
+        ...KasaModel,
+      },
       GenelKasa: {
         Batikent: [],
         Arcadium: [],
@@ -490,6 +520,7 @@ export default {
         Adana: [],
         Mersin: [],
         Umitkoy: [],
+        Tunali: []
       },
       startDate: "",
       endDate: "",
@@ -526,6 +557,8 @@ export default {
           this.Umitkoy.SubeId = item;
         } else if (item.name === "Batıkent") {
           this.Batikent.SubeId = item;
+        } else if (item.name === "TUNALI") { 
+          this.Tunali.SubeId = item;
         }
       });
 
@@ -803,7 +836,29 @@ export default {
       this.Batikent.programData = BatikentSefimKasa;
       this.Batikent.data = BatikentReportResult;
       this.$refs.BatikentKasa.GetKasa();
-      this.$emit("BatikentData", this.Umitkoy);
+      this.$emit("BatikentData", this.Batikent);
+      // TUNALI
+      let TunaliReportResult = await GetKasaReport(
+        this.Tunali.SubeId._id,
+        this.startDate,
+        this.endDate
+      );
+
+      let TunaliSefimKasa = await GetSefimReport(
+        this.Tunali.SubeId,
+        this.startDate,
+        this.endDate
+      );
+      let TunaliVegaKasa = await GetVegaKasaToplam(
+        this.startDate,
+        this.endDate,
+        "Tunali"
+      );
+      this.Tunali.VegaKasa = TunaliVegaKasa;
+      this.Tunali.programData = TunaliSefimKasa;
+      this.Tunali.data = TunaliReportResult;
+      this.$refs.TunaliKasa.GetKasa();
+      this.$emit("TunaliData", this.Tunali);
 
       this.GenelKasa.Batikent = this.Batikent;
       this.GenelKasa.Arcadium = this.Arcadium;
@@ -817,6 +872,7 @@ export default {
       this.GenelKasa.Mersin = this.Mersin;
       this.GenelKasa.Umitkoy = this.Umitkoy;
       this.GenelKasa.Gordion = this.Gordion;
+      this.GenelKasa.Tunali = this.Tunali;
       this.$refs.GenelKasa.GetKasa();
       this.$emit("GenelKasaData", this.GenelKasa);
     },

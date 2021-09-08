@@ -275,6 +275,27 @@
           </td>
         </tr>
         <tr>
+          <td>
+            <b>Tunali</b>
+          </td>
+          <td>{{parseFloat(Tunali.Nakit).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Credit).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Multinet).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Ticket).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Sodexo).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.SetCard).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Cio).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Metropol).toFixed(2)}}</td>
+          <td>{{parseFloat(Tunali.Diger).toFixed(2)}}</td>
+          <td>
+            <b>
+              {{
+              parseFloat(Batikent.YanToplam).toFixed(2)
+              }}
+            </b>
+          </td>
+        </tr>
+        <tr>
           <td></td>
           <td>
             <b>{{NakitToplam | currency}}</b>
@@ -365,6 +386,9 @@ export default {
       Batikent: {
         ...TotalKasa,
       },
+      Tunali: {
+        ...TotalKasa,
+      },
       NakitToplam: 0,
       VisaToplam: 0,
       TicketToplam: 0,
@@ -391,6 +415,7 @@ export default {
       this.Mersin = await ReportTotal(this.GenelKasaData.Mersin.data);
       this.Umitkoy = await ReportTotal(this.GenelKasaData.Umitkoy.data);
       this.Batikent = await ReportTotal(this.GenelKasaData.Batikent.data);
+      this.Tunali = await ReportTotal(this.GenelKasaData.Tunali.data);
 
       this.NakitToplam = parseFloat(
         this.Arcadium.Nakit +
@@ -404,7 +429,8 @@ export default {
           this.Adana.Nakit +
           this.Mersin.Nakit +
           this.Umitkoy.Nakit +
-          this.Batikent.Nakit
+          this.Batikent.Nakit+
+          this.Tunali.Nakit
       ).toFixed(2);
 
       this.VisaToplam = parseFloat(
@@ -419,7 +445,8 @@ export default {
           this.Adana.Credit +
           this.Mersin.Credit +
           this.Umitkoy.Credit +
-          this.Batikent.Credit
+          this.Batikent.Credit+
+          this.Tunali.Credit
       ).toFixed(2);
 
       this.MultinetToplam = parseFloat(
@@ -434,7 +461,8 @@ export default {
           this.Adana.Multinet +
           this.Mersin.Multinet +
           this.Umitkoy.Multinet +
-          this.Batikent.Multinet
+          this.Batikent.Multinet+
+          this.Tunali.Multinet
       ).toFixed(2);
       this.TicketToplam = parseFloat(
         this.Arcadium.Ticket +
@@ -448,7 +476,8 @@ export default {
           this.Adana.Ticket +
           this.Mersin.Ticket +
           this.Umitkoy.Ticket +
-          this.Batikent.Ticket
+          this.Batikent.Ticket+
+          this.Tunali.Ticket
       ).toFixed(2);
 
       this.SodexoToplam = parseFloat(
@@ -463,7 +492,8 @@ export default {
           this.Adana.Sodexo +
           this.Mersin.Sodexo +
           this.Umitkoy.Sodexo +
-          this.Batikent.Sodexo
+          this.Batikent.Sodexo+
+          this.Tunali.Sodexo
       ).toFixed(2);
 
       this.SetCardToplam = parseFloat(
@@ -478,7 +508,8 @@ export default {
           this.Adana.SetCard +
           this.Mersin.SetCard +
           this.Umitkoy.SetCard +
-          this.Batikent.SetCard
+          this.Batikent.SetCard+
+          this.Tunali.SetCard
       ).toFixed(2);
 
       this.CioToplam = parseFloat(
@@ -493,7 +524,8 @@ export default {
           this.Adana.Cio +
           this.Mersin.Cio +
           this.Umitkoy.Cio +
-          this.Batikent.Cio
+          this.Batikent.Cio+
+          this.Tunali.Cio
       ).toFixed(2);
 
       this.MetropolToplam = parseFloat(
@@ -508,7 +540,8 @@ export default {
           this.Adana.Metropol +
           this.Mersin.Metropol +
           this.Umitkoy.Metropol +
-          this.Batikent.Metropol
+          this.Batikent.Metropol+
+          this.Tunali.Metropol
       ).toFixed(2);
 
       this.AltToplam = parseFloat(
@@ -523,7 +556,8 @@ export default {
           this.Adana.YanToplam +
           this.Mersin.YanToplam +
           this.Umitkoy.YanToplam +
-          this.Batikent.YanToplam
+          this.Batikent.YanToplam+
+          this.Tunali.YanToplam
       ).toFixed(2);
     },
   },

@@ -18,8 +18,8 @@ export default class Header extends Component {
 
   componentDidMount() {
     const now = new Date().getHours();
-    if (now >= 20 || now < 11) {
-      this.setState({ SiparisZamani: false });
+    if (now >= 21 || now < 11) {
+      this.setState({ SiparisZamani: true });
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);
@@ -45,10 +45,6 @@ export default class Header extends Component {
   }
   HandleBolge = (e) => {
     if (e.value !== "") {
-      /*if( e.SubeId==="bahcelievler"){
-        alert("Tadilat nedeniyle bahçelievler subemiz kapalidir..");
-        return;
-      }*/
       this.setState({ Bolge: e.value });
       localStorage.setItem("Bolge", e.value);
       localStorage.setItem("BolgeTutar", e.MinimumTutar);
@@ -82,16 +78,6 @@ export default class Header extends Component {
     for (var i = 0; i < target.length; i++) {
       if (target[i].selected) {
         if (target[i].value !== "") {
-          if (now >= 19) {
-            if (
-              target[i].value !== "umitkoy" &&
-              target[i].value !== "bahcelievler" &&
-              target[i].value !== "batikent"
-            ) {
-              alert("Avm subelerimiz 19:00 dan sonra servise kapalidir..");
-              return;
-            }
-          }
           /*if(target[i].value==="bahcelievler"){
             alert("Tadilat nedeniyle bu subemiz kapalidir..");
             return;
@@ -181,7 +167,6 @@ export default class Header extends Component {
                   </option>
                   <option
                     selected={Sube === "mersin"}
-                    disabled={true}
                     value="mersin"
                   >
                     Mersin
@@ -189,7 +174,6 @@ export default class Header extends Component {
                   <option
                     selected={Sube === "adana"}
                     value="adana"
-                    disabled={true}
                   >
                     Adana
                   </option>
@@ -227,6 +211,9 @@ export default class Header extends Component {
                   <option selected={Sube === "eskisehir"} value="eskisehir">
                     Eskişehir
                   </option>
+                  <option selected={Sube === "incek"} value="incek">
+                    Incek 
+                  </option>
                 </select>
               </div>
             )}
@@ -250,7 +237,7 @@ export default class Header extends Component {
           </Modal.Header>
           <Modal.Body>
             <span>
-              Paket servis hizmet saatlerimiz 11:00 ile 20:00 arasındadır.
+              Servis hizmet saatlerimiz 11:00 ile 21:00 arasındadır.
             </span>
           </Modal.Body>
         </Modal>
