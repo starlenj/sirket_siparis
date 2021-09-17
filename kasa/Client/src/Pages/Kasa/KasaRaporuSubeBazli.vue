@@ -74,6 +74,12 @@
                       class="btn btn-primary"
                       @click="ShopReportSave"
                     >Güncelle</button>
+                    <button
+                      type="button"
+                      style="float:right"
+                      class="btn btn-primary"
+                      @click="KasaOnayla"
+                    >Kasa Onayla</button>
                   </div>
 
                   <!--KASA GİRİŞ BAŞLANGIÇ-->
@@ -1528,6 +1534,12 @@ export default {
     };
   },
   methods: {
+    async KasaOnayla() {
+   
+    /*  await Service.put("shopReportView", {
+        _id : this.
+       }); */
+    },
     async ShopReportSave() {
       // eslint-disable-next-line no-console
       /* console.log(this.model.masraf);
@@ -1587,7 +1599,7 @@ export default {
         return;
       }
 */
-      await Service.save("shopReportView", {
+     let response =  await Service.save("shopReportView", {
         sodexo: this.model.sodexo,
         ticket: this.model.ticket,
         cash: this.model.nakit,
@@ -1606,6 +1618,7 @@ export default {
         iade: this.model.iade,
         yemekSepeti: this.model.yemekSepeti
       });
+      console.log("KASA KAYIT",response);
     },
 
     async SetSube(id) {

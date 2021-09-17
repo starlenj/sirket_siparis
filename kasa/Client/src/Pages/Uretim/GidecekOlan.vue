@@ -61,6 +61,8 @@
                       <th>UMI</th>
                       <th>KAŞ</th>
                       <th>BAT</th>
+                      <th>INC</th>
+                      <th>TUN</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -175,6 +177,26 @@
                           />
                         </div>
                       </td>
+                       <td>
+                        <div class="form-group form-control-sm">
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Incek.DoksanGr"
+                          />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="form-group form-control-sm">
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Tunali.DoksanGr"
+                          />
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -197,6 +219,8 @@
                       <th>UMI</th>
                       <th>KAŞ</th>
                       <th>BAT</th>
+                      <th>INC</th>
+                      <th>TUN</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -297,6 +321,22 @@
                           v-model="GidecekOlan.Batikent.Tavuk"
                         />
                       </td>
+                           <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Incek.Tavuk"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Tunali.Tavuk"
+                        />
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -322,6 +362,8 @@
 
                       <th>KAŞ</th>
                       <th>BAT</th>
+                      <th>INC</th>
+                      <th>TUN</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -416,6 +458,22 @@
                           v-model="GidecekOlan.Batikent.YuzKirkGr"
                         />
                       </td>
+                         <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Incek.YuzKirkGr"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Tunali.YuzKirkGr"
+                        />
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -439,6 +497,8 @@
 
                       <th>KAŞ</th>
                       <th>BAT</th>
+                      <th>INC</th>
+                      <th>TUN</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -531,6 +591,22 @@
                           v-model="GidecekOlan.Batikent.TavukKofte"
                         />
                       </td>
+                       <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Incek.TavukKofte"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="number"
+                          class="form-control"
+                          readonly="true"
+                          v-model="GidecekOlan.Tunali.TavukKofte"
+                        />
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -554,6 +630,8 @@
 
                       <th>KAŞ</th>
                       <th>BAT</th>
+                      <th>INC</th>
+                      <th>TUN</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -650,6 +728,22 @@
                           v-model="GidecekOlan.Batikent.Cocuk"
                         />
                       </td>
+                       <td>
+                        <input
+                          type="number"
+                          class="form-control input-sm"
+                          readonly="true"
+                          v-model="GidecekOlan.Incek.Cocuk"
+                        />
+                      </td>
+                       <td>
+                        <input
+                          type="number"
+                          class="form-control input-sm"
+                          readonly="true"
+                          v-model="GidecekOlan.Tunali.Cocuk"
+                        />
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -669,6 +763,40 @@ export default {
   data() {
     return {
       Ankamall: {
+        SubeId: "",
+        AksamKalan: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
+        ihtiyac: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
+      },
+      Incek: {
+        SubeId: "",
+        AksamKalan: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
+        ihtiyac: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
+      },
+      Tunali: {
         SubeId: "",
         AksamKalan: {
           Cocuk: 0,
@@ -866,6 +994,20 @@ export default {
           Tavuk: 0,
           TavukKofte: 0,
         },
+        Incek: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
+        Tunali: {
+          Cocuk: 0,
+          DoksanGr: 0,
+          YuzKirkGr: 0,
+          Tavuk: 0,
+          TavukKofte: 0,
+        },
         Arcadium: {
           Cocuk: 0,
           DoksanGr: 0,
@@ -972,12 +1114,41 @@ export default {
         this.Umitkoy.SubeId = item;
       } else if (item.name === "Batıkent") {
         this.Batikent.SubeId = item;
-      }
+      } else if (item.name === "Incek") {
+        this.Incek.SubeId = item;
+      } else if (item.name === "TUNALI") {
+        this.Tunali.SubeId = item;
+      } 
     });
   },
   methods: {
     async GetReport() {
       //SIFIRLAMA
+
+      //Incek SIFIRLAMA
+      this.Incek.AksamKalan.Cocuk = 0;
+      this.Incek.AksamKalan.DoksanGr = 0;
+      this.Incek.AksamKalan.YuzKirkGr = 0;
+      this.Incek.AksamKalan.Tavuk = 0;
+      this.Incek.AksamKalan.TavukKofte = 0;
+
+      this.Incek.ihtiyac.Cocuk = 0;
+      this.Incek.ihtiyac.DoksanGr = 0;
+      this.Incek.ihtiyac.YuzKirkGr = 0;
+      this.Incek.ihtiyac.Tavuk = 0;
+      this.Incek.ihtiyac.TavukKofte = 0;
+      //Tunali SIFIRLAMA
+      this.Tunali.AksamKalan.Cocuk = 0;
+      this.Tunali.AksamKalan.DoksanGr = 0;
+      this.Tunali.AksamKalan.YuzKirkGr = 0;
+      this.Tunali.AksamKalan.Tavuk = 0;
+      this.Tunali.AksamKalan.TavukKofte = 0;
+
+      this.Tunali.ihtiyac.Cocuk = 0;
+      this.Tunali.ihtiyac.DoksanGr = 0;
+      this.Tunali.ihtiyac.YuzKirkGr = 0;
+      this.Tunali.ihtiyac.Tavuk = 0;
+      this.Tunali.ihtiyac.TavukKofte = 0;
 
       //ATAKULE SIFIRLAMA
       this.Atakule.AksamKalan.Cocuk = 0;
@@ -1134,6 +1305,52 @@ export default {
         .add(-1, "days")
         .format("YYYY.MM.DD");
       this.birGünOnceTarihFormat = moment(this.formDate).format("dddd");
+
+      //INCEK KALANLAR
+      let incekResult = await Service.save("SubeKalan/GetReport", {
+        subeId: this.Incek.SubeId._id,
+        startDate: this.birGünOnceTarih,
+      });
+      incekResult.forEach((item) => {
+        if (item.urunAdi === "DoksanGr") {
+          this.Incek.AksamKalan.DoksanGr = item.miktar;
+        }
+        if (item.urunAdi === "YuzKirkGr") {
+          this.Incek.AksamKalan.YuzKirkGr = item.miktar;
+        }
+        if (item.urunAdi === "CocukKofte") {
+          this.Incek.AksamKalan.Cocuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukFileto") {
+          this.Incek.AksamKalan.Tavuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukKofte") {
+          this.Incek.AksamKalan.TavukKofte = item.miktar;
+        }
+      });
+      //TUNALI KALANLAR
+      let tunaliResult = await Service.save("SubeKalan/GetReport", {
+        subeId: this.Tunali.SubeId._id,
+        startDate: this.birGünOnceTarih,
+      });
+      tunaliResult.forEach((item) => {
+        if (item.urunAdi === "DoksanGr") {
+          this.Tunali.AksamKalan.DoksanGr = item.miktar;
+        }
+        if (item.urunAdi === "YuzKirkGr") {
+          this.Tunali.AksamKalan.YuzKirkGr = item.miktar;
+        }
+        if (item.urunAdi === "CocukKofte") {
+          this.Tunali.AksamKalan.Cocuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukFileto") {
+          this.Tunali.AksamKalan.Tavuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukKofte") {
+          this.Tunali.AksamKalan.TavukKofte = item.miktar;
+        }
+      });
+
       //ARMADA KALANLAR
       let armadaResult = await Service.save("SubeKalan/GetReport", {
         subeId: this.Armada.SubeId._id,
@@ -1389,6 +1606,50 @@ export default {
 
       //ŞUBE İHTİYAÇ BAŞLANGIÇ
 
+      //INCEK İHTİYAÇ
+      let incekIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
+        subeId: this.Incek.SubeId._id,
+        gun: this.birGünOnceTarihFormat,
+      });
+      incekIhtiyacResult.forEach((item) => {
+        if (item.urunAdi === "DoksanGr") {
+          this.Incek.ihtiyac.DoksanGr = item.miktar;
+        }
+        if (item.urunAdi === "YuzKirkGr") {
+          this.Incek.ihtiyac.YuzKirkGr = item.miktar;
+        }
+        if (item.urunAdi === "CocukKofte") {
+          this.Incek.ihtiyac.Cocuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukFileto") {
+          this.Incek.ihtiyac.Tavuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukKofte") {
+          this.Incek.ihtiyac.TavukKofte = item.miktar;
+        }
+      });
+      //TUNALI İHTİYAÇ
+      let tunaliIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
+        subeId: this.Tunali.SubeId._id,
+        gun: this.birGünOnceTarihFormat,
+      });
+      tunaliIhtiyacResult.forEach((item) => {
+        if (item.urunAdi === "DoksanGr") {
+          this.Tunali.ihtiyac.DoksanGr = item.miktar;
+        }
+        if (item.urunAdi === "YuzKirkGr") {
+          this.Tunali.ihtiyac.YuzKirkGr = item.miktar;
+        }
+        if (item.urunAdi === "CocukKofte") {
+          this.Tunali.ihtiyac.Cocuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukFileto") {
+          this.Tunali.ihtiyac.Tavuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukKofte") {
+          this.Tunali.ihtiyac.TavukKofte = item.miktar;
+        }
+      });
       //ARMADA İHTİYAÇ
       let armadaIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
         subeId: this.Armada.SubeId._id,
@@ -1779,6 +2040,28 @@ export default {
         this.Umitkoy.ihtiyac.YuzKirkGr - this.Umitkoy.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Umitkoy.TavukKofte =
         this.Umitkoy.ihtiyac.TavukKofte - this.Umitkoy.AksamKalan.TavukKofte;
+      //tunali GİDECEK OLAN
+      this.GidecekOlan.Kasmir.Cocuk =
+        this.Tunali.ihtiyac.Cocuk - this.Kasmir.AksamKalan.Cocuk;
+      this.GidecekOlan.Kasmir.DoksanGr =
+        this.Tunali.ihtiyac.DoksanGr - this.Kasmir.AksamKalan.DoksanGr;
+      this.GidecekOlan.Kasmir.Tavuk =
+        this.Tunali.ihtiyac.Tavuk - this.Kasmir.AksamKalan.Tavuk;
+      this.GidecekOlan.Kasmir.YuzKirkGr =
+        this.Tunali.ihtiyac.YuzKirkGr - this.Kasmir.AksamKalan.YuzKirkGr;
+      this.GidecekOlan.Kasmir.TavukKofte =
+        this.Tunali.ihtiyac.TavukKofte - this.Kasmir.AksamKalan.TavukKofte;
+
+      this.GidecekOlan.Tunali.Cocuk =
+        this.Tunali.ihtiyac.Cocuk - this.Tunali.AksamKalan.Cocuk;
+      this.GidecekOlan.Tunali.DoksanGr =
+        this.Tunali.ihtiyac.DoksanGr - this.Tunali.AksamKalan.DoksanGr;
+      this.GidecekOlan.Tunali.Tavuk =
+        this.Tunali.ihtiyac.Tavuk - this.Tunali.AksamKalan.Tavuk;
+      this.GidecekOlan.Tunali.YuzKirkGr =
+        this.Tunali.ihtiyac.YuzKirkGr - this.Tunali.AksamKalan.YuzKirkGr;
+      this.GidecekOlan.Tunali.TavukKofte =
+        this.Tunali.ihtiyac.TavukKofte - this.Tunali.AksamKalan.TavukKofte;
     },
   },
 };

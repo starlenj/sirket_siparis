@@ -466,17 +466,17 @@ export default {
           },
           Sali: {
             Miktar: 0,
-            Gun: "Salı",
+            Gun: "Sali",
             UrunAdi: "CocukKofte"
           },
           Carsamba: {
             Miktar: 0,
-            Gun: "Çarşamba",
+            Gun: "Carsamba",
             UrunAdi: "CocukKofte"
           },
           Persembe: {
             Miktar: 0,
-            Gun: "Perşembe",
+            Gun: "Persembe",
             UrunAdi: "CocukKofte"
           },
           Cuma: {
@@ -504,17 +504,17 @@ export default {
           },
           Sali: {
             Miktar: 0,
-            Gun: "Salı",
+            Gun: "Sali",
             UrunAdi: "DoksanGr"
           },
           Carsamba: {
             Miktar: 0,
-            Gun: "Çarşamba",
+            Gun: "Carsamba",
             UrunAdi: "DoksanGr"
           },
           Persembe: {
             Miktar: 0,
-            Gun: "Perşembe",
+            Gun: "Persembe",
             UrunAdi: "DoksanGr"
           },
           Cuma: {
@@ -542,17 +542,17 @@ export default {
           },
           Sali: {
             Miktar: 0,
-            Gun: "Salı",
+            Gun: "Sali",
             UrunAdi: "YuzKirkGr"
           },
           Carsamba: {
             Miktar: 0,
-            Gun: "Çarşamba",
+            Gun: "Carsamba",
             UrunAdi: "YuzKirkGr"
           },
           Persembe: {
             Miktar: 0,
-            Gun: "Perşembe",
+            Gun: "Persembe",
             UrunAdi: "YuzKirkGr"
           },
           Cuma: {
@@ -580,17 +580,17 @@ export default {
           },
           Sali: {
             Miktar: 0,
-            Gun: "Salı",
+            Gun: "Sali",
             UrunAdi: "TavukKofte"
           },
           Carsamba: {
             Miktar: 0,
-            Gun: "Çarşamba",
+            Gun: "Carsamba",
             UrunAdi: "TavukKofte"
           },
           Persembe: {
             Miktar: 0,
-            Gun: "Perşembe",
+            Gun: "Persembe",
             UrunAdi: "TavukKofte"
           },
           Cuma: {
@@ -618,17 +618,17 @@ export default {
           },
           Sali: {
             Miktar: 0,
-            Gun: "Salı",
+            Gun: "Sali",
             UrunAdi: "TavukFileto"
           },
           Carsamba: {
             Miktar: 0,
-            Gun: "Çarşamba",
+            Gun: "Carsamba",
             UrunAdi: "TavukFileto"
           },
           Persembe: {
             Miktar: 0,
-            Gun: "Perşembe",
+            Gun: "Persembe",
             UrunAdi: "TavukFileto"
           },
           Cuma: {

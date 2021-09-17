@@ -35,5 +35,7 @@ route.post('/CheckReport', ShopReport.CheckReport);
 route.post('/GetToplamKasa', ShopReport.GetToplamKasa);
 route.post('/GetDateReport', ShopReport.GetDateReport);
 route.post('/GetGenelToplam', ShopReport.GetGenelToplam);
+route.post('/OnaysizKasaListesi', ShopReport.OnaysizKasaListesi);
+
 
 module.exports = route

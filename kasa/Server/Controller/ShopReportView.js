@@ -218,7 +218,6 @@ module.exports = {
       if (yemekSepeti === null || yemekSepeti === "") {
         yemekSepeti = 0;
       }
-      console.log(yemekSepeti);
       //önce bak varsa güncelle
       const getData = await model.find({ created_at, subeId });
 
@@ -344,6 +343,15 @@ module.exports = {
       response.handleData(req, res, deleteData);
     } catch (error) {
       response.handleError(req, res, error, "Get", "ShopReport");
+    }
+  },
+  async OnaysizKasaListesi(req, res, next) {
+    try {
+      const { id } = req.params;
+      const deleteData = await model.find({status: 0 });
+      response.handleData(req, res, deleteData);
+    } catch (error) {
+      response.handleError(req, res, error, "Get", "GetReport");
     }
   },
   async GetToplamKasa(req, res) {
