@@ -327,7 +327,7 @@ export default {
       Visa: 0,
       VisaFark: 0,
       ToplamMasraf: 0,
-      ToplamIade: 0
+      ToplamIade: 0,
     };
   },
   methods: {
@@ -425,8 +425,9 @@ export default {
         this.NakitFark +
         this.VisaFark +
         this.ToplamIade +
+        this.YemekSepetiFark +
         this.YKDiger;
-    }
-  }
+    },
+  },
 };
 </script>

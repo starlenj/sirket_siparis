@@ -418,13 +418,15 @@ export default {
       this.NakitFark = this.Nakit - this.BatikentData.programNakit;
 
       this.YemekSepetiFark =
-        this.BatikentData.data.yemekSepeti - this.BatikentData.programYemekSepeti;
+        this.BatikentData.data.yemekSepeti -
+        this.BatikentData.programYemekSepeti;
       this.VisaFark = this.Visa - this.BatikentData.programVisa;
       this.Kontrol =
         this.YKFark +
         this.NakitFark +
         this.VisaFark +
         this.ToplamIade +
+        this.YemekSepetiFark +
         this.YemekSepetiFark +
         this.YKDiger;
     },

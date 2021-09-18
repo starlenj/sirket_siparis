@@ -327,13 +327,13 @@ export default {
       Visa: 0,
       VisaFark: 0,
       ToplamMasraf: 0,
-      ToplamIade: 0
+      ToplamIade: 0,
     };
   },
   methods: {
     async GetKasa() {
       // eslint-disable-next-line no-console
-      console.log("BAHÇELİ TEST",this.BahceliData.data);
+      console.log("BAHÇELİ TEST", this.BahceliData.data);
       this.ToplamMasraf =
         parseFloat(this.BahceliData.data.masraf.tutarBir) +
         parseFloat(this.BahceliData.data.masraf.tutarIki) +
@@ -426,8 +426,9 @@ export default {
         this.VisaFark +
         this.ToplamIade +
         this.YemekSepetiFark +
+        this.YemekSepetiFark +
         this.YKDiger;
-    }
-  }
+    },
+  },
 };
 </script>
