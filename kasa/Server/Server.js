@@ -68,7 +68,8 @@ app.use("/api/v1.0.1/", require("./routes/api/Onaybody"));
 app.use("/api/v1.0.1/", require("./routes/api/Mail"));
 
 // DEFAULT ADMIN USER
-/* bcrypt.hash("emre0209",10, async(err,hash)=>{
+/*
+bcrypt.hash("emre0209",10, async(err,hash)=>{
 const newData = new User({
  name :"Nasuh Emre ATEŞSOY",lastName : "ATEŞSOY",email : "eatessoy@hmbrgr.com.tr",address : "address",password  : hash,subeId : "1",isAdmin : true
 });
