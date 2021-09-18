@@ -30,21 +30,6 @@
             Getir
           </button>
         </div>
-<<<<<<< HEAD
-
-        <div
-          class="tab-pane fade show active"
-          id="arcadium"
-          role="tabpanel"
-          aria-labelledby="arcadium-tab"
-        >
-          <div class="content">
-            <div class="card">
-              <div class="card-body b-b"></div>
-=======
-        <div class="form-group">
-          
-        </div>
         <div class="page has-sidebar-left bg-light height-full">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -55,7 +40,8 @@
                 href="#arcadium"
                 role="tab"
                 aria-controls="arcadium"
-              >Arcadium</a>
+                >Arcadium</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -65,7 +51,8 @@
                 href="#gordion"
                 role="tab"
                 aria-controls="gordion"
-              >Gordion</a>
+                >Gordion</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -75,7 +62,8 @@
                 href="#armada"
                 role="tab"
                 aria-controls="armada"
-              >Armada</a>
+                >Armada</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -85,7 +73,8 @@
                 href="#bahceli"
                 role="tab"
                 aria-controls="bahceli"
-              >Bahçelievler</a>
+                >Bahçelievler</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -95,7 +84,8 @@
                 href="#bilkent"
                 role="tab"
                 aria-controls="bilkent"
-              >Bilkent</a>
+                >Bilkent</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -105,7 +95,8 @@
                 href="#ankamall"
                 role="tab"
                 aria-controls="ankamall"
-              >Ankamall</a>
+                >Ankamall</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -115,7 +106,8 @@
                 href="#atakule"
                 role="tab"
                 aria-controls="atakule"
-              >Atakule</a>
+                >Atakule</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -125,7 +117,8 @@
                 href="#cepa"
                 role="tab"
                 aria-controls="cepa"
-              >Cepa</a>
+                >Cepa</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -135,7 +128,8 @@
                 href="#adana"
                 role="tab"
                 aria-controls="adana"
-              >Adana</a>
+                >Adana</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -145,7 +139,8 @@
                 href="#mersin"
                 role="tab"
                 aria-controls="mersin"
-              >Mersin</a>
+                >Mersin</a
+              >
             </li>
 
             <li class="nav-item">
@@ -156,7 +151,8 @@
                 href="#umitkoy"
                 role="tab"
                 aria-controls="umitkoy"
-              >Ümitköy</a>
+                >Ümitköy</a
+              >
             </li>
             <li class="nav-item">
               <a
@@ -166,7 +162,8 @@
                 href="#batikent"
                 role="tab"
                 aria-controls="batikent"
-              >Batıkent</a>
+                >Batıkent</a
+              >
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
@@ -180,7 +177,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Arcadium</h1>
-                    <arcadium-kasa v-bind:ArcadiumData="Arcadium" ref="ArcadiumKasa" />
+                    <arcadium-kasa
+                      v-bind:ArcadiumData="Arcadium"
+                      ref="ArcadiumKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -196,7 +196,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Gordion</h1>
-                    <gordion-kasa v-bind:GordionData="Gordion" ref="GordionKasa" />
+                    <gordion-kasa
+                      v-bind:GordionData="Gordion"
+                      ref="GordionKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -226,7 +229,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Bahçelievler</h1>
-                    <bahceli-kasa v-bind:BahceliData="Bahceli" ref="BahceliKasa" />
+                    <bahceli-kasa
+                      v-bind:BahceliData="Bahceli"
+                      ref="BahceliKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -241,7 +247,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Bilkent</h1>
-                    <bilkent-kasa v-bind:BilkentData="Bilkent" ref="BilkentKasa" />
+                    <bilkent-kasa
+                      v-bind:BilkentData="Bilkent"
+                      ref="BilkentKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -256,7 +265,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Ankamall</h1>
-                    <ankamall-kasa v-bind:AnkamallData="Ankamall" ref="AnkamallKasa" />
+                    <ankamall-kasa
+                      v-bind:AnkamallData="Ankamall"
+                      ref="AnkamallKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -271,12 +283,20 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Atakule</h1>
-                    <atakule-kasa v-bind:AtakuleData="Atakule" ref="AtakuleKasa" />
+                    <atakule-kasa
+                      v-bind:AtakuleData="Atakule"
+                      ref="AtakuleKasa"
+                    />
                   </div>
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade show" id="cepa" role="tabpanel" aria-labelledby="cepa-tab">
+            <div
+              class="tab-pane fade show"
+              id="cepa"
+              role="tabpanel"
+              aria-labelledby="cepa-tab"
+            >
               <div class="content">
                 <div class="card">
                   <div class="card-body b-b">
@@ -286,7 +306,12 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane fade show" id="adana" role="tabpanel" aria-labelledby="adana-tab">
+            <div
+              class="tab-pane fade show"
+              id="adana"
+              role="tabpanel"
+              aria-labelledby="adana-tab"
+            >
               <div class="content">
                 <div class="card">
                   <div class="card-body b-b">
@@ -322,7 +347,10 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Ümitköy</h1>
-                    <umitkoy-kasa v-bind:UmitkoyData="Umitkoy" ref="UmitkoyKasa" />
+                    <umitkoy-kasa
+                      v-bind:UmitkoyData="Umitkoy"
+                      ref="UmitkoyKasa"
+                    />
                   </div>
                 </div>
               </div>
@@ -338,11 +366,13 @@
                 <div class="card">
                   <div class="card-body b-b">
                     <h1>Batıkent</h1>
-                    <batikent-kasa v-bind:BatikentData="Batikent" ref="BatikentKasa" />
+                    <batikent-kasa
+                      v-bind:BatikentData="Batikent"
+                      ref="BatikentKasa"
+                    />
                   </div>
                 </div>
               </div>
->>>>>>> origin/microservice
             </div>
           </div>
         </div>
@@ -356,10 +386,6 @@ import Service from "../../Service";
 
 import { UrunBazliSatisModel } from "../../Helpers/KasaSubeModel";
 import { GetUrunBazliSatis } from "../../Helpers/ReportTools";
-<<<<<<< HEAD
-export default {
-  components: {},
-=======
 import BahceliKasa from "../../components/UrunBazliSatis/Bahceli.vue";
 import ArcadiumKasa from "../../components/UrunBazliSatis/Arcadium.vue";
 import GordionKasa from "../../components/UrunBazliSatis/Gordion.vue";
@@ -375,20 +401,19 @@ import BatikentKasa from "../../components/UrunBazliSatis/Batikent.vue";
 import xlsx from "xlsx";
 export default {
   components: {
-	BahceliKasa,
-	ArcadiumKasa,
-	GordionKasa,
-	BilkentKasa,
-	ArmadaKasa,
-	AnkamallKasa,
-	AtakuleKasa,
-	CepaKasa,
-	AdanaKasa,
-	MersinKasa,
-	UmitkoyKasa,
-	BatikentKasa,
-	},
->>>>>>> origin/microservice
+    BahceliKasa,
+    ArcadiumKasa,
+    GordionKasa,
+    BilkentKasa,
+    ArmadaKasa,
+    AnkamallKasa,
+    AtakuleKasa,
+    CepaKasa,
+    AdanaKasa,
+    MersinKasa,
+    UmitkoyKasa,
+    BatikentKasa,
+  },
   data() {
     return {
       ReportData: [],
@@ -478,14 +503,10 @@ export default {
         this.endDate
       );
       BahceliUrunBazliSatis = BahceliUrunBazliSatis.sort((a, b) => {
-<<<<<<< HEAD
         if (a.ProductName < b.ProductName) {
           return -1;
         }
-        if (a.ProductName > b.ProductName) {
-=======
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -494,7 +515,6 @@ export default {
         return 0;
       });
       this.Bahceli.data = BahceliUrunBazliSatis;
-      this.$refs.BahceliKasa.GetKasa();
       this.$emit("BahceliData", this.Bahceli);
       //Arcadium KASA REPORT
       let ArcadiumUrunBazliSatis = await GetUrunBazliSatis(
@@ -504,7 +524,6 @@ export default {
       );
       ArcadiumUrunBazliSatis = ArcadiumUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -513,7 +532,6 @@ export default {
         return 0;
       });
       this.Arcadium.data = ArcadiumUrunBazliSatis;
-      this.$refs.ArcadiumKasa.GetKasa();
       this.$emit("ArcadiumData", this.Arcadium);
       //Gordion KASA REPORT
       let GordionUrunBazliSatis = await GetUrunBazliSatis(
@@ -523,7 +541,6 @@ export default {
       );
       GordionUrunBazliSatis = GordionUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -532,7 +549,6 @@ export default {
         return 0;
       });
       this.Gordion.data = GordionUrunBazliSatis;
-      this.$refs.GordionKasa.GetKasa();
       this.$emit("GordionData", this.Gordion);
       //Bilkent KASA REPORT
       let BilkentUrunBazliSatis = await GetUrunBazliSatis(
@@ -540,9 +556,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     BilkentUrunBazliSatis = BilkentUrunBazliSatis.sort((a, b) => {
+      BilkentUrunBazliSatis = BilkentUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -550,8 +565,7 @@ export default {
         }
         return 0;
       });
-      this.Bilkent.data =BilkentUrunBazliSatis;
-      this.$refs.BilkentKasa.GetKasa();
+      this.Bilkent.data = BilkentUrunBazliSatis;
       this.$emit("BilkentData", this.Bilkent);
       //Aramada KASA REPORT
       let ArmadaUrunBazliSatis = await GetUrunBazliSatis(
@@ -559,9 +573,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     ArmadaUrunBazliSatis = ArmadaUrunBazliSatis.sort((a, b) => {
+      ArmadaUrunBazliSatis = ArmadaUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -569,8 +582,7 @@ export default {
         }
         return 0;
       });
-      this.Armada.data =ArmadaUrunBazliSatis;
-      this.$refs.ArmadaKasa.GetKasa();
+      this.Armada.data = ArmadaUrunBazliSatis;
       this.$emit("ArmadaData", this.Armada);
       //Ankamall KASA REPORT
       let AnkamallUrunBazliSatis = await GetUrunBazliSatis(
@@ -578,9 +590,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     AnkamallUrunBazliSatis = AnkamallUrunBazliSatis.sort((a, b) => {
+      AnkamallUrunBazliSatis = AnkamallUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -588,7 +599,7 @@ export default {
         }
         return 0;
       });
-      this.Ankamall.data =AnkamallUrunBazliSatis;
+      this.Ankamall.data = AnkamallUrunBazliSatis;
       this.$emit("AnkamallData", this.Ankamall);
       //Atakule KASA REPORT
       let AtakuleUrunBazliSatis = await GetUrunBazliSatis(
@@ -596,9 +607,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     AtakuleUrunBazliSatis = AtakuleUrunBazliSatis.sort((a, b) => {
+      AtakuleUrunBazliSatis = AtakuleUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -606,7 +616,7 @@ export default {
         }
         return 0;
       });
-      this.Atakule.data =AtakuleUrunBazliSatis;
+      this.Atakule.data = AtakuleUrunBazliSatis;
       this.$emit("AtakuleData", this.Atakule);
       //Cepa KASA REPORT
       let CepaUrunBazliSatis = await GetUrunBazliSatis(
@@ -614,9 +624,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     CepaUrunBazliSatis = CepaUrunBazliSatis.sort((a, b) => {
+      CepaUrunBazliSatis = CepaUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -624,7 +633,7 @@ export default {
         }
         return 0;
       });
-      this.Cepa.data =CepaUrunBazliSatis;
+      this.Cepa.data = CepaUrunBazliSatis;
       this.$emit("CepaData", this.Cepa);
       //Cepa KASA REPORT
       let AdanaUrunBazliSatis = await GetUrunBazliSatis(
@@ -632,9 +641,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     AdanaUrunBazliSatis = AdanaUrunBazliSatis.sort((a, b) => {
+      AdanaUrunBazliSatis = AdanaUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -642,7 +650,7 @@ export default {
         }
         return 0;
       });
-      this.Adana.data =AdanaUrunBazliSatis;
+      this.Adana.data = AdanaUrunBazliSatis;
       this.$emit("AdanaData", this.Adana);
       //mersin KASA REPORT
       let MersinUrunBazliSatis = await GetUrunBazliSatis(
@@ -650,9 +658,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     MersinUrunBazliSatis = MersinUrunBazliSatis.sort((a, b) => {
+      MersinUrunBazliSatis = MersinUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -660,7 +667,7 @@ export default {
         }
         return 0;
       });
-      this.Mersin.data =MersinUrunBazliSatis;
+      this.Mersin.data = MersinUrunBazliSatis;
       this.$emit("MersinData", this.Mersin);
       //umitkoy KASA REPORT
       let UmitkoyUrunBazliSatis = await GetUrunBazliSatis(
@@ -668,9 +675,8 @@ export default {
         this.startDate,
         this.endDate
       );
-     UmitkoyUrunBazliSatis = UmitkoyUrunBazliSatis.sort((a, b) => {
+      UmitkoyUrunBazliSatis = UmitkoyUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
@@ -678,7 +684,7 @@ export default {
         }
         return 0;
       });
-      this.Umitkoy.data =UmitkoyUrunBazliSatis;
+      this.Umitkoy.data = UmitkoyUrunBazliSatis;
       this.$emit("UmitkoyData", this.Umitkoy);
       //batikent KASA REPORT
       let BatikentUrunBazliSatis = await GetUrunBazliSatis(
@@ -686,25 +692,18 @@ export default {
         this.startDate,
         this.endDate
       );
-     BatikentUrunBazliSatis = BatikentUrunBazliSatis.sort((a, b) => {
+      BatikentUrunBazliSatis = BatikentUrunBazliSatis.sort((a, b) => {
         if (a.ProductGroup < b.ProductGroup) {
-
           return -1;
         }
         if (a.ProductGroup > b.ProductGroup) {
->>>>>>> origin/microservice
           return 1;
         }
         return 0;
       });
-<<<<<<< HEAD
-      console.log(BahceliUrunBazliSatis);
-    },
-=======
-      this.Batikent.data =BatikentUrunBazliSatis
+      this.Batikent.data = BatikentUrunBazliSatis;
       this.$emit("BatikentData", this.Batikent);
-	    },
->>>>>>> origin/microservice
+    },
   },
 };
 </script>

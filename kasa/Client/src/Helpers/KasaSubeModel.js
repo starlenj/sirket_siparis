@@ -73,18 +73,6 @@ export const TotalKasa = {
   AltToplam: 0,
 };
 
-<<<<<<< HEAD
-
-export const UrunBazliSatisModel={
-   Toplam:0,
-   Miktar:0,
-   ProductName:'',
-   ProductGroup:'',
-   SubeId: "",
-
-}
-=======
 export const UrunBazliSatisModel = {
   data: [],
 };
->>>>>>> origin/microservice

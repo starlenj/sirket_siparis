@@ -209,11 +209,7 @@
             </ul>
           </li>
 
-<<<<<<< HEAD
-                 <div v-show="isAdmin">
-=======
           <div v-show="isAdmin">
->>>>>>> origin/microservice
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">
                 Raporlar
@@ -222,26 +218,26 @@
             </li>
             <li class="nav-item nav-item-submenu">
               <a href="#" class="nav-link">
-                   <i class="icon-stack"></i>
+                <i class="icon-stack"></i>
                 <span>Raporlar</span>
               </a>
 
               <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
                 <li class="nav-item">
-<<<<<<< HEAD
-                  <a href="/User" class="nav-link">Urun bazli satis</a>
-=======
-                  <a href="/Rapor/UrunBazliSatis" class="nav-link">Urun Bazli Satis</a>
+                  <a href="/Rapor/UrunBazliSatis" class="nav-link"
+                    >Urun Bazli Satis</a
+                  >
                 </li>
                 <li class="nav-item">
                   <a href="/Rapor/AlisRaporu" class="nav-link">Stok Raporu</a>
                 </li>
                 <li class="nav-item">
-                  <a href="/Rapor/WebOdeme" class="nav-link">Web Odeme Raporu</a>
->>>>>>> origin/microservice
+                  <a href="/Rapor/WebOdeme" class="nav-link"
+                    >Web Odeme Raporu</a
+                  >
                 </li>
               </ul>
-            </li>  
+            </li>
           </div>
 
           <div v-show="isAdmin">
