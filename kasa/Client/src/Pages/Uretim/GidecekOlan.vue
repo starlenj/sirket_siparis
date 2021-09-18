@@ -13,13 +13,17 @@
         </div>
       </div>
 
-      <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+      <div
+        class="breadcrumb-line breadcrumb-line-light header-elements-md-inline"
+      >
         <div class="d-flex">
           <div class="breadcrumb">
             <a href="/" class="breadcrumb-item">
               <i class="icon-home2 mr-2"></i> Anasayfa
             </a>
-            <a href="/Uretim/GidecekOlan" class="breadcrumb-item">Gidecek Olan</a>
+            <a href="/Uretim/GidecekOlan" class="breadcrumb-item"
+              >Gidecek Olan</a
+            >
           </div>
 
           <a href="#" class="header-elements-toggle text-default d-md-none">
@@ -177,7 +181,7 @@
                           />
                         </div>
                       </td>
-                       <td>
+                      <td>
                         <div class="form-group form-control-sm">
                           <input
                             type="number"
@@ -321,7 +325,7 @@
                           v-model="GidecekOlan.Batikent.Tavuk"
                         />
                       </td>
-                           <td>
+                      <td>
                         <input
                           type="number"
                           class="form-control"
@@ -458,7 +462,7 @@
                           v-model="GidecekOlan.Batikent.YuzKirkGr"
                         />
                       </td>
-                         <td>
+                      <td>
                         <input
                           type="number"
                           class="form-control"
@@ -591,7 +595,7 @@
                           v-model="GidecekOlan.Batikent.TavukKofte"
                         />
                       </td>
-                       <td>
+                      <td>
                         <input
                           type="number"
                           class="form-control"
@@ -728,7 +732,7 @@
                           v-model="GidecekOlan.Batikent.Cocuk"
                         />
                       </td>
-                       <td>
+                      <td>
                         <input
                           type="number"
                           class="form-control input-sm"
@@ -736,7 +740,7 @@
                           v-model="GidecekOlan.Incek.Cocuk"
                         />
                       </td>
-                       <td>
+                      <td>
                         <input
                           type="number"
                           class="form-control input-sm"
@@ -1118,7 +1122,7 @@ export default {
         this.Incek.SubeId = item;
       } else if (item.name === "TUNALI") {
         this.Tunali.SubeId = item;
-      } 
+      }
     });
   },
   methods: {
@@ -1855,8 +1859,7 @@ export default {
           this.Bahceli.ihtiyac.TavukKofte = item.miktar;
         }
       });
-          // eslint-disable-next-line
-      console.log(bahceliIhtiyacResult,bahceliResult);
+      // eslint-disable-next-line
       //KAŞMİR İHTİYAÇ
       let kasmirIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
         subeId: this.Kasmir.SubeId._id,
@@ -2029,7 +2032,7 @@ export default {
         this.Kasmir.ihtiyac.YuzKirkGr - this.Kasmir.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Kasmir.TavukKofte =
         this.Kasmir.ihtiyac.TavukKofte - this.Kasmir.AksamKalan.TavukKofte;
-
+      // umitkoy gidecek olan
       this.GidecekOlan.Umitkoy.Cocuk =
         this.Umitkoy.ihtiyac.Cocuk - this.Umitkoy.AksamKalan.Cocuk;
       this.GidecekOlan.Umitkoy.DoksanGr =
@@ -2040,27 +2043,17 @@ export default {
         this.Umitkoy.ihtiyac.YuzKirkGr - this.Umitkoy.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Umitkoy.TavukKofte =
         this.Umitkoy.ihtiyac.TavukKofte - this.Umitkoy.AksamKalan.TavukKofte;
+
       //tunali GİDECEK OLAN
       this.GidecekOlan.Kasmir.Cocuk =
-        this.Tunali.ihtiyac.Cocuk - this.Kasmir.AksamKalan.Cocuk;
-      this.GidecekOlan.Kasmir.DoksanGr =
-        this.Tunali.ihtiyac.DoksanGr - this.Kasmir.AksamKalan.DoksanGr;
-      this.GidecekOlan.Kasmir.Tavuk =
-        this.Tunali.ihtiyac.Tavuk - this.Kasmir.AksamKalan.Tavuk;
-      this.GidecekOlan.Kasmir.YuzKirkGr =
-        this.Tunali.ihtiyac.YuzKirkGr - this.Kasmir.AksamKalan.YuzKirkGr;
-      this.GidecekOlan.Kasmir.TavukKofte =
-        this.Tunali.ihtiyac.TavukKofte - this.Kasmir.AksamKalan.TavukKofte;
-
-      this.GidecekOlan.Tunali.Cocuk =
         this.Tunali.ihtiyac.Cocuk - this.Tunali.AksamKalan.Cocuk;
-      this.GidecekOlan.Tunali.DoksanGr =
+      this.GidecekOlan.Kasmir.DoksanGr =
         this.Tunali.ihtiyac.DoksanGr - this.Tunali.AksamKalan.DoksanGr;
-      this.GidecekOlan.Tunali.Tavuk =
+      this.GidecekOlan.Kasmir.Tavuk =
         this.Tunali.ihtiyac.Tavuk - this.Tunali.AksamKalan.Tavuk;
-      this.GidecekOlan.Tunali.YuzKirkGr =
+      this.GidecekOlan.Kasmir.YuzKirkGr =
         this.Tunali.ihtiyac.YuzKirkGr - this.Tunali.AksamKalan.YuzKirkGr;
-      this.GidecekOlan.Tunali.TavukKofte =
+      this.GidecekOlan.Kasmir.TavukKofte =
         this.Tunali.ihtiyac.TavukKofte - this.Tunali.AksamKalan.TavukKofte;
     },
   },
