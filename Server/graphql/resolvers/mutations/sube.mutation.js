@@ -1,30 +1,24 @@
 module.exports = {
-  CreateSube: async (parent, { data: { Name } }, { Sube }) => {
+  CreateSube: async (parent, { data: { Name, Order } }, { Sube }) => {
     return await new Sube({
       Name,
+      Order,
     }).save();
   },
-  UpdateSube: async (parent, { data: { Name, id } }, { Sube }) => {
-    const UpdateData = await Sube.findById(id);
-    UpdateData.Name = Name;
-    return await UpdateData.save();
+  UpdateSube: async (parent, { data: { Name, id, Order } }, { Sube }) => {
+    const UpdateCategory = await Sube.findById(id);
+    UpdateCategory.Name = Name;
+    UpdateCategory.Order = Order;
+    return UpdateCategory.save();
   },
   DeleteSube: async (parent, { data: { id } }, { Sube }) => {
-    const UpdateData = await Sube.findById(id);
-    UpdateData.Status = false;
-    return await UpdateData.save();
+    const DeleteCategory = await Sube.findById(id);
+    DeleteCategory.Status = 0;
+    return DeleteCategory.save();
   },
-  SubeUpdateStatus: async (
-    parent,
-    { data: { id, Status } },
-    { Sube, PubSubServer }
-  ) => {
-    const UpdateData = await Sube.findById(id);
-    UpdateData.Status = Status;
-    let UpdateResult = await UpdateData.save();
-    PubSubServer.publish("SubeStatus", {
-      SubeStatus: UpdateResult,
-    });
-    return UpdateResult;
+  SubeStatus: async (parent, { data: { id, Status } }, { Sube }) => {
+    const DeleteCategory = await Sube.findById(id);
+    DeleteCategory.Status = Status;
+    return DeleteCategory.save();
   },
 };

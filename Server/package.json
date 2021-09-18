@@ -23,6 +23,7 @@
     "mongoose": "^5.9.6",
     "mongoose-currency": "^0.2.0",
     "mongoose-float": "^1.0.4",
+    "node-restful": "^0.2.6",
     "nodemon": "^2.0.6",
     "sequelize": "^6.5.0"
   }

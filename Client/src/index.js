@@ -5,6 +5,7 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
 const client = new ApolloClient({
+<<<<<<< HEAD
 
   uri: "https://webserivs.hmbrgr.com.tr/graphql",
 
@@ -12,6 +13,10 @@ const client = new ApolloClient({
 
 
   //uri: "http://localhost:4000/graphql",
+=======
+  // uri: "https://webserivs.hmbrgr.com.tr/graphql",
+  uri: "http://localhost:4000/graphql",
+>>>>>>> origin/microservice
 
   //uri: "http://localhost:4000/graphql",
   fetchOptions: {

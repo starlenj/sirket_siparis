@@ -1,40 +1,37 @@
-scalar Boolean
 type Query {
-  Sube(id: String): Sube!
-  Subes: [Sube!]!
+  Sube(id: String!): Sube 
+  Subes: [Sube]
 }
 
 type Sube {
   id: String!
   Name: String!
-  GelAl: Boolean
+  Order: Int
   Status: Int!
-  Servis: [Servis]
 }
+
 type Mutation {
-  CreateSube(data: createSubeInput): Sube
-  UpdateSube(data: UpdateSubeInput): Sube
-  SubeUpdateStatus(data: UpdateSubeStatusInput): Sube
-  DeleteSube(data: DeleteSubeInput): Sube
+  CreateSube(data: CreateCategoryInput): Sube 
+  UpdateSube(data: UpdateCategoryInput): Sube 
+  DeleteSube(data: DeleteCategoryInput): Sube
+  SubeStatus(data: SubeStatusInput): Sube 
+  
 }
 
-input UpdateSubeInput {
-  id: String!
+input CreateCategoryInput {
   Name: String!
-  GelAl: Boolean
-}
-
-input UpdateSubeStatusInput {
-  id: String!
+  Order: Int
   Status: Int!
 }
-input DeleteSubeInput {
+input UpdateCategoryInput {
+  id: String!
+  Name: String!
+}
+
+input DeleteCategoryInput {
   id: String!
 }
-input createSubeInput {
-  Name: String!
-  GelAl: Boolean
-}
-type Subscription {
-  SubeStatus(SubeId: String!): Sube!
+input SubeStatusInput {
+  id: String!
+  Status: Int!
 }

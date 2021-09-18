@@ -7,7 +7,7 @@ const Root = ({ refetch, session }) => (
     <Fragment>
       <Switch>
         <Route
-          path="/"
+          path="/:orderId"
           render={() => <Print />}
         />
         <Redirect to="/" />

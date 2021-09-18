@@ -211,15 +211,23 @@ export default class OrderDetail extends Component {
                       </tr>
                     </thead>
                     <Query
+<<<<<<< HEAD
                     query={GET_ORDER_DETAILS}
                       variables={{ 
                         id: window.location.pathname.split("/").pop(),
 												 }}
+=======
+                      query={GET_ORDER_DETAILS}
+                      variables={{ id: localStorage.getItem("OrderId") }}
+                      onCompleted={(data) =>
+                        this.GetOptions(data.Order.Order, data)
+                      }
+>>>>>>> origin/microservice
                     >
                       {({ loading, data, error }) => {
                         if (loading)
                           return <div className="loading">Loading...</div>;
-                        if (error) return <div>Error</div>;
+                        if (error) return <div>{error}</div>;
                         return (
                           <tbody>
                             {data.Order.Order !== undefined

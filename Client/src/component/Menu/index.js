@@ -14,13 +14,11 @@ class Menu extends Component {
     UrunModal: false,
     Bolge: "",
     BolgeModal: false,
-    OrderModal: false
   };
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.NewOrder = createRef();
-    this.handleCloseOrderModal = this.handleCloseOrderModal.bind(this);
   }
   componentDidMount() {
     this.setState({ SelectSube: localStorage.getItem("SUBE"), OrderType: localStorage.getItem("siparis_turu") });
@@ -51,7 +49,11 @@ class Menu extends Component {
     }
 
     this.props.SetProduct(Product);
+<<<<<<< HEAD
     this.setState({ OrderModal: true })
+=======
+    this.setState({ UrunModal: true })
+>>>>>>> origin/microservice
   };
   handleChange = (e) => {
     this.setState({
@@ -67,11 +69,6 @@ class Menu extends Component {
       [e.target.name]: e.target.value,
     });
   };
-  handleCloseOrderModal() {
-    this.setState({ OrderModal: false })
-    this.props.SetProduct([]);
-
-  }
   CreateSepet = (order) => {
     var NewOrder = {
       ProductId: order.id,
@@ -181,7 +178,6 @@ class Menu extends Component {
                                         }
                                         data-toggle="modal"
                                         data-target="#setOrderModal"
-
                                       >
                                         <i class="fa fa-plus"></i>
                                       </button>
@@ -276,20 +272,6 @@ class Menu extends Component {
         </div>
 
 
-        <Modal
-          show={this.state.OrderModal}
-          onHide={this.handleCloseOrderModal}
-          size={"lg"}
-
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Sipariş Türü ve Şube Seçimi </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <NewOrderModal />
-
-          </Modal.Body>
-        </Modal>
         <Query
           query={GET_PRODUCT}
           variables={{ id: localStorage.getItem("URUN_ID") }}

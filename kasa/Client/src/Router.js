@@ -42,8 +42,6 @@ import ChecklistReportDetail from "./Pages/CheckList/checklist.reportdetails.vue
 import CheckListShow from "./Pages/CheckList/checklist.show.vue";
 import CheckListOnay from "./Pages/CheckList/checklist.onay.vue";
 
-
-
 //onay list
 import OnayList from "./Pages/Onay/OnayList.vue";
 import OnayListNew from "./Pages/Onay/OnayList.add.vue";
@@ -73,7 +71,6 @@ export default new Router({
         requiresAuth: true,
       },
     },
-
 
     {
       path: "/CheckList/Show/:id/:onayId",

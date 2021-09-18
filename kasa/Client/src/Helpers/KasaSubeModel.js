@@ -73,6 +73,7 @@ export const TotalKasa = {
   AltToplam: 0,
 };
 
+<<<<<<< HEAD
 
 export const UrunBazliSatisModel={
    Toplam:0,
@@ -82,3 +83,8 @@ export const UrunBazliSatisModel={
    SubeId: "",
 
 }
+=======
+export const UrunBazliSatisModel = {
+  data: [],
+};
+>>>>>>> origin/microservice

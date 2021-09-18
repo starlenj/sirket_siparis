@@ -63,7 +63,7 @@ export const GET_CATEGORYS = gql`
         Name
         Info
         Price
-       YemekSepetiPrice 
+        YemekSepetiPrice
         id
         Order
         Picture
@@ -88,8 +88,8 @@ export const GET_CATEGORYS = gql`
 `;
 
 export const GET_MENU = gql`
-  query($CategoryType:String!) {
-    GetMenu(CategoryType:$CategoryType) {
+  query($CategoryType: String!) {
+    GetMenu(CategoryType: $CategoryType) {
       Name
       id
       Order
@@ -97,7 +97,7 @@ export const GET_MENU = gql`
         Name
         Info
         Price
-       YemekSepetiPrice 
+        YemekSepetiPrice
         id
         Order
         Picture
@@ -188,36 +188,57 @@ export const CREATE_SELECT_ORDER_OPTIONS = gql`
   }
 `;
 export const GET_PRODUCT = gql`
-query($id :String!) {
- Product(id: $id) {
-    Name
-    Info
-    id
-    Price
-    Order
-    Picture
-    Category {
+  query($id: String!) {
+    Product(id: $id) {
       Name
+      Info
       id
-    }
-    SelectOption {
-      Options {
+      Price
+      Order
+      Picture
+      Category {
         Name
-        MaxQuantity
-        MinQuantity
-        Order
-        SelectType
         id
-        OptionValues {
+      }
+      SelectOption {
+        Options {
           Name
-          id
-          Price
+          MaxQuantity
+          MinQuantity
           Order
+          SelectType
+          id
+          OptionValues {
+            Name
+            id
+            Price
+            Order
+          }
         }
       }
     }
   }
-}
+`;
+export const GET_SUBES = gql`
+  query {
+    Subes {
+      id
+      Name
+      Order
+      Status
+    }
+  }
+`;
 
-
+export const GET_BOLGE_SEHIR = gql`
+  query($Sehir: String!) {
+    SehirBolge(Sehir: $Sehir) {
+      id
+      BolgeAdi
+      Sehir
+      Tutar
+      Status
+      SubeId
+    }
+  }
 `;
