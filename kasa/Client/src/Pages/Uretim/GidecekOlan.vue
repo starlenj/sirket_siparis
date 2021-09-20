@@ -48,7 +48,7 @@
           <br />
 
           <div class="row">
-            <div class="col-6">
+            <div class="col-12">
               <h2 class="headerDoksanGr">90GR</h2>
               <div>
                 <table>
@@ -206,149 +206,151 @@
                 </table>
               </div>
             </div>
-            <div class="col-6">
-              <h2 class="headerTavuk">Tavuk</h2>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>GOR</th>
-                      <th>ARC</th>
-                      <th>ARM</th>
-                      <th>BAH</th>
-                      <th>BİL</th>
-                      <th>ANK</th>
-                      <th>ATA</th>
-                      <th>CEP</th>
-                      <th>UMI</th>
-                      <th>KAŞ</th>
-                      <th>BAT</th>
-                      <th>INC</th>
-                      <th>TUN</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-group form-control-sm">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="headerTavuk">Tavuk</h2>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>GOR</th>
+                        <th>ARC</th>
+                        <th>ARM</th>
+                        <th>BAH</th>
+                        <th>BİL</th>
+                        <th>ANK</th>
+                        <th>ATA</th>
+                        <th>CEP</th>
+                        <th>UMI</th>
+                        <th>KAŞ</th>
+                        <th>BAT</th>
+                        <th>INC</th>
+                        <th>TUN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Gordion.Tavuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Arcadium.Tavuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Armada.Tavuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Bahceli.Tavuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
                           <input
                             type="number"
-                            class="form-control input-sm"
+                            class="form-control"
                             readonly="true"
-                            v-model="GidecekOlan.Gordion.Tavuk"
+                            v-model="GidecekOlan.Bilkent.Tavuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-group form-control-sm">
+                        </td>
+                        <td>
                           <input
                             type="number"
-                            class="form-control input-sm"
+                            class="form-control"
                             readonly="true"
-                            v-model="GidecekOlan.Arcadium.Tavuk"
+                            v-model="GidecekOlan.Ankamall.Tavuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-group form-control-sm">
+                        </td>
+                        <td>
                           <input
                             type="number"
-                            class="form-control input-sm"
+                            class="form-control"
                             readonly="true"
-                            v-model="GidecekOlan.Armada.Tavuk"
+                            v-model="GidecekOlan.Atakule.Tavuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-group form-control-sm">
+                        </td>
+                        <td>
                           <input
                             type="number"
-                            class="form-control input-sm"
+                            class="form-control"
                             readonly="true"
-                            v-model="GidecekOlan.Bahceli.Tavuk"
+                            v-model="GidecekOlan.Cepa.Tavuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Bilkent.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Ankamall.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Atakule.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Cepa.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Umitkoy.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Kasmir.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Batikent.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Incek.Tavuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Tunali.Tavuk"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Umitkoy.Tavuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Kasmir.Tavuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Batikent.Tavuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Incek.Tavuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Tunali.Tavuk"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-12">
               <h2 class="headerYuzGr">140GR</h2>
               <div>
                 <table>
@@ -483,274 +485,278 @@
                 </table>
               </div>
             </div>
-            <div class="col-6">
-              <h2 class="headerTavukKofte">Tavuk Köfte</h2>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>GOR</th>
-                      <th>ARC</th>
-                      <th>ARM</th>
-                      <th>BAH</th>
-                      <th>BİL</th>
-                      <th>ANK</th>
-                      <th>ATA</th>
-                      <th>CEP</th>
-                      <th>UMI</th>
+            <div class="row">
+              <div class="col-12">
+                <h2 class="headerTavukKofte">Tavuk Köfte</h2>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>GOR</th>
+                        <th>ARC</th>
+                        <th>ARM</th>
+                        <th>BAH</th>
+                        <th>BİL</th>
+                        <th>ANK</th>
+                        <th>ATA</th>
+                        <th>CEP</th>
+                        <th>UMI</th>
 
-                      <th>KAŞ</th>
-                      <th>BAT</th>
-                      <th>INC</th>
-                      <th>TUN</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Gordion.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Arcadium.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Armada.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Bahceli.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Bilkent.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Ankamall.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Atakule.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Cepa.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Umitkoy.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Kasmir.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Batikent.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Incek.TavukKofte"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control"
-                          readonly="true"
-                          v-model="GidecekOlan.Tunali.TavukKofte"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <th>KAŞ</th>
+                        <th>BAT</th>
+                        <th>INC</th>
+                        <th>TUN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Gordion.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Arcadium.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Armada.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Bahceli.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Bilkent.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Ankamall.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Atakule.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Cepa.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Umitkoy.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Kasmir.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Batikent.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Incek.TavukKofte"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control"
+                            readonly="true"
+                            v-model="GidecekOlan.Tunali.TavukKofte"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="col-6">
-              <h2 class="headerCocukKofte">Çocuk Köfte</h2>
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>GOR</th>
-                      <th>ARC</th>
-                      <th>ARM</th>
-                      <th>BAH</th>
-                      <th>BİL</th>
-                      <th>ANK</th>
-                      <th>ATA</th>
-                      <th>CEP</th>
-                      <th>UMI</th>
+            <div class="row">
+              <div class="col-12">
+                <h2 class="headerCocukKofte">Çocuk Köfte</h2>
+                <div>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>GOR</th>
+                        <th>ARC</th>
+                        <th>ARM</th>
+                        <th>BAH</th>
+                        <th>BİL</th>
+                        <th>ANK</th>
+                        <th>ATA</th>
+                        <th>CEP</th>
+                        <th>UMI</th>
 
-                      <th>KAŞ</th>
-                      <th>BAT</th>
-                      <th>INC</th>
-                      <th>TUN</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-group form-control-sm">
+                        <th>KAŞ</th>
+                        <th>BAT</th>
+                        <th>INC</th>
+                        <th>TUN</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Gordion.Cocuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              readonly="true"
+                              v-model="GidecekOlan.Arcadium.Cocuk"
+                            />
+                          </div>
+                        </td>
+                        <td>
                           <input
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Gordion.Cocuk"
+                            v-model="GidecekOlan.Armada.Cocuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <div class="form-group form-control-sm">
+                        </td>
+                        <td>
                           <input
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Arcadium.Cocuk"
+                            v-model="GidecekOlan.Bahceli.Cocuk"
                           />
-                        </div>
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Armada.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Bahceli.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Bilkent.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Ankamall.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Atakule.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Cepa.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Umitkoy.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Kasmir.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Batikent.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Incek.Cocuk"
-                        />
-                      </td>
-                      <td>
-                        <input
-                          type="number"
-                          class="form-control input-sm"
-                          readonly="true"
-                          v-model="GidecekOlan.Tunali.Cocuk"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Bilkent.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Ankamall.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Atakule.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Cepa.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Umitkoy.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Kasmir.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Batikent.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Incek.Cocuk"
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            class="form-control input-sm"
+                            readonly="true"
+                            v-model="GidecekOlan.Tunali.Cocuk"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
