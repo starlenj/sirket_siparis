@@ -192,6 +192,47 @@
           </li>
           <li class="nav-item nav-item-submenu" v-show="isAdmin">
             <a href="#" class="nav-link">
+              <i class="material-icons">transform</i>
+              <span>Merkez Istekleri</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Üretim">
+              <li class="nav-item">
+                <a href="/Checklist/Index" class="nav-link" v-show="isAdmin"
+                  >Siparis</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/Checklist/Sube" class="nav-link" v-show="isAdmin"
+                  >Teknik Servis</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/Checklist/Report" class="nav-link" v-show="isAdmin"
+                  >Sube Transfer</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-submenu" v-show="isAdmin">
+            <a href="#" class="nav-link">
+              <i class="material-icons">transform</i>
+              <span>Stok Islemleri</span>
+            </a>
+            <ul class="nav nav-group-sub" data-submenu-title="Üretim">
+              <li class="nav-item">
+                <a href="/Checklist/Index" class="nav-link" v-show="isAdmin"
+                  >Yeni Stok Karti</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/Checklist/Sube" class="nav-link" v-show="isAdmin"
+                  >Stok Listesi</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item nav-item-submenu" v-show="isAdmin">
+            <a href="#" class="nav-link">
               <i class="material-icons">check</i>
               <span>Onay Süreç İşlemleri</span>
             </a>
