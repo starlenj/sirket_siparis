@@ -6,7 +6,7 @@
     "client-install": "npm install --prefix client",
     "start": "nodemon server.js",
     "server": "nodemon Server.js",
-    "client": "npm run serve --prefix Client",
+    "client": "npm run serve --prefix ../Client",
     "dev": "concurrently \"npm run server\" \" npm run client\""
   },
   "author": "nasuh emre atessoy",

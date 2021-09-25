@@ -85,7 +85,7 @@ module.exports = {
       //Sali Check
       const SaliData = await model.find({
         subeId: SubeId,
-        gun: "Salı",
+        gun: "Sali",
         urunAdi: Sali.UrunAdi
       });
       if (SaliData.length === 0) {
@@ -93,7 +93,7 @@ module.exports = {
         const gunData = new model({
           urunAdi: Sali.UrunAdi,
           miktar: Sali.Miktar,
-          gun: "Salı",
+          gun: "Sali",
           subeId: SubeId
         });
         let resp = await gunData.save();
@@ -115,7 +115,7 @@ module.exports = {
       //Çarşamba Check
       const CarsambaData = await model.find({
         subeId: SubeId,
-        gun: ":Çarşamba",
+        gun: ":Carsamba",
         urunAdi: Carsamba.UrunAdi
       });
       if (CarsambaData.length === 0) {
@@ -123,7 +123,7 @@ module.exports = {
         const gunData = new model({
           urunAdi: Carsamba.UrunAdi,
           miktar: Carsamba.Miktar,
-          gun: "Çarşamba",
+          gun: "Carsamba",
           subeId: SubeId
         });
         let resp = await gunData.save();
@@ -131,7 +131,7 @@ module.exports = {
       } else {
         // güncelleme
         const CarsambaUpdate = await model.findOneAndUpdate(
-          { subeId: SubeId, gun: "Çarşamba", urunAdi: Carsamba.UrunAdi },
+          { subeId: SubeId, gun: "Carsamba", urunAdi: Carsamba.UrunAdi },
           {
             miktar: Carsamba.Miktar
           },
@@ -144,7 +144,7 @@ module.exports = {
       //Perşembe Check
       const PersembeData = await model.find({
         subeId: SubeId,
-        gun: "Perşembe",
+        gun: "Persembe",
         urunAdi: Persembe.UrunAdi
       });
       if (PersembeData.length === 0) {
@@ -152,7 +152,7 @@ module.exports = {
         const gunData = new model({
           urunAdi: Persembe.UrunAdi,
           miktar: Persembe.Miktar,
-          gun: "Perşembe",
+          gun: "Persembe",
           subeId: SubeId
         });
         let resp = await gunData.save();
@@ -160,7 +160,7 @@ module.exports = {
       } else {
         // güncelleme
         const PersembeUpdate = await model.findOneAndUpdate(
-          { subeId: SubeId, gun: "Perşembe", urunAdi: Persembe.UrunAdi },
+          { subeId: SubeId, gun: "Persembe", urunAdi: Persembe.UrunAdi },
           {
             miktar: Persembe.Miktar
           },

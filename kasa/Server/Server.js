@@ -66,6 +66,7 @@ app.use("/api/v1.0.1/", require("./routes/api/OnayHeader"));
 app.use("/api/v1.0.1/", require("./routes/api/OnayList"));
 app.use("/api/v1.0.1/", require("./routes/api/Onaybody"));
 app.use("/api/v1.0.1/", require("./routes/api/Mail"));
+app.use("/api/v1.0.1/", require("./routes/api/Stok"));
 
 // DEFAULT ADMIN USER
 /*
