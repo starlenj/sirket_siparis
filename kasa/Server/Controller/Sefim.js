@@ -122,20 +122,20 @@ module.exports = {
       let Sorgular = await connection.connect()
       const sorgu = `WITH base as (
         SELECT
-          PaymentTime,
+          Date,
           Quantity,
           LTRIM(RTRIM(split.s)) AS Opt,
           ProductId
         FROM
-          ${data.dbname}.dbo.PaidBill
+          ${data.dbname}.dbo.Bill
         CROSS APPLY
-          armadarepdb.dbo.Split(',',PaidBill.Options)  as split
+        ${data.dbname}.dbo.Split(',',Bill.Options)  as split
         WHERE
-          ISNULL(Options,'')<>'' AND PaymentTime>='${startDate} 07:00 ' AND PaymentTime <= '${endDate} 00:00'
+          ISNULL(Options,'')<>''  AND  [Date]>='${startDate} 07:00' AND [Date]<= '${endDate} 00:00'
           ),
         base_with_optqty as (
         SELECT 
-          base.PaymentTime,
+          base.Date,
           base.Quantity,
           ProductId,
           CASE 
@@ -156,7 +156,7 @@ module.exports = {
           
         satislar as (	
         SELECT	
-          PaymentTime,
+          Date,
           ProductId,
           Quantity * (CASE WHEN ISNUMERIC(OptQty) = 1 THEN CAST(OptQty AS INT) ELSE 1 END ) AS Quantity,	
           Opt as ProductName
@@ -167,10 +167,12 @@ module.exports = {
         
         SELECT 
         
-        sum(Quantity) as Miktar,
+        sum(Quantity) as  Miktar,
         ProductName as UrunAdi,
         'Seçenekler' AS UrunGrubu,
         0 as Tutar,
+        0 as OPENTABLE,
+        0 AS OPENTABLEQuantity,
         0 as Discount
         from  satislar
         group by satislar.ProductName
@@ -180,33 +182,35 @@ module.exports = {
         
         select 
         sum(t.toplam) as Miktar,
-        t.ProductName as UrunAdi,
+        t.ProductName as UrunAdi ,
         t.ProductGroup as UrunGrubu,
         sum(t.tutar) as Tutar,
+        SUM(ISNULL(T.OPENTABLE,0)) AS OPENTABLE,
+        SUM(ISNULL(OPENTABLEQuantity,0)) OPENTABLEQuantity,
         SUM(T.Discount) as Discount from (
         SELECT 
         P.Id as ProductId,
         SUM(B.Quantity) AS Toplam,B.ProductName,P.ProductGroup,SUM(ISNULL(B.Quantity,0) * ISNULL(B.Price,0)) AS Tutar,
         
-        (SELECT SUM(Bill.Price*Bill.Quantity) FROM dbo.BillWithHeader AS Bill WHERE BillState=0
+        (SELECT SUM(Bill.Price*Bill.Quantity) FROM ${data.dbname}.dbo.BillWithHeader AS Bill WHERE BillState=0
         and HeaderId=b.HeaderId AND ProductId=P.Id
         ) AS OPENTABLE,
-        (SELECT SUM(Bill.Quantity) FROM dbo.BillWithHeader AS Bill WHERE BillState=0
+        (SELECT SUM(Bill.Quantity) FROM ${data.dbname}.dbo.BillWithHeader AS Bill WHERE BillState=0
         and HeaderId=b.HeaderId AND ProductId=P.Id
         ) AS OPENTABLEQuantity,
-        (SELECT SUM(PAY.Discount) FROM dbo.Payment AS PAY
+        (SELECT SUM(PAY.Discount) FROM ${data.dbname}.dbo.Payment AS PAY
         where PAY.HeaderId=B.HeaderId
         ) as Discount
           FROM ${data.dbname}.dbo.Bill AS B
         
         LEFT JOIN ${data.dbname}.dbo.Product as P ON P.Id=B.ProductId
         
-        WHERE
-        [Date]>='${startDate} 07:00' AND [Date]<='${endDate} 00:00'
+        
         
          
-        
-        
+         
+        WHERE
+        [Date]>='${startDate} 07:00' AND [Date]<= '${endDate} 00:00'
         
         GROUP BY B.ProductName,
         P.ProductGroup,
