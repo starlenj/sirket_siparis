@@ -264,8 +264,9 @@
 
             <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
               <li class="nav-item">
+                <a href="/Rapor/UrunBazliSatis" class="nav-link">Yeni Istek</a>
                 <a href="/Rapor/UrunBazliSatis" class="nav-link"
-                  >Istek Listesi</a
+                  >Iste Listesi</a
                 >
               </li>
             </ul>
