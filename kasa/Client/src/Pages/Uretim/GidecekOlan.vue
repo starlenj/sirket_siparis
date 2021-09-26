@@ -1124,7 +1124,7 @@ export default {
         this.Umitkoy.SubeId = item;
       } else if (item.name === "Batıkent") {
         this.Batikent.SubeId = item;
-      } else if (item.name === "Incek") {
+      } else if (item.name === "INCEK") {
         this.Incek.SubeId = item;
       } else if (item.name === "TUNALI") {
         this.Tunali.SubeId = item;
@@ -1866,28 +1866,6 @@ export default {
         }
       });
       // eslint-disable-next-line
-      //KAŞMİR İHTİYAÇ
-      let kasmirIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
-        subeId: this.Kasmir.SubeId._id,
-        gun: this.birGünOnceTarihFormat,
-      });
-      kasmirIhtiyacResult.forEach((item) => {
-        if (item.urunAdi === "DoksanGr") {
-          this.Kasmir.ihtiyac.DoksanGr = item.miktar;
-        }
-        if (item.urunAdi === "YuzKirkGr") {
-          this.Kasmir.ihtiyac.YuzKirkGr = item.miktar;
-        }
-        if (item.urunAdi === "CocukKofte") {
-          this.Kasmir.ihtiyac.Cocuk = item.miktar;
-        }
-        if (item.urunAdi === "TavukFileto") {
-          this.Kasmir.ihtiyac.Tavuk = item.miktar;
-        }
-        if (item.urunAdi === "TavukKofte") {
-          this.Kasmir.ihtiyac.TavukKofte = item.miktar;
-        }
-      });
 
       //ÜMİTKÖY İHTİYAÇ
       let umitkoyIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
@@ -1911,9 +1889,28 @@ export default {
           this.Umitkoy.ihtiyac.TavukKofte = item.miktar;
         }
       });
-
-      // eslint-disable-next-line no-console
-      console.log(this.Umitkoy.ihtiyac);
+      //KASMIR İHTİYAÇ
+      let kasmirIhtiyacResult = await Service.save("SubeIhtiyac/GetReport", {
+        subeId: this.Kasmir.SubeId._id,
+        gun: this.birGünOnceTarihFormat,
+      });
+      umitkoyIhtiyacResult.forEach((item) => {
+        if (item.urunAdi === "DoksanGr") {
+          this.Kasmir.ihtiyac.DoksanGr = item.miktar;
+        }
+        if (item.urunAdi === "YuzKirkGr") {
+          this.Kasmir.ihtiyac.YuzKirkGr = item.miktar;
+        }
+        if (item.urunAdi === "CocukKofte") {
+          this.Kasmir.ihtiyac.Cocuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukFileto") {
+          this.Kasmir.ihtiyac.Tavuk = item.miktar;
+        }
+        if (item.urunAdi === "TavukKofte") {
+          this.Kasmir.ihtiyac.TavukKofte = item.miktar;
+        }
+      });
 
       //ŞUBE İHTİYAÇ BİTİŞ
 
@@ -2051,16 +2048,28 @@ export default {
         this.Umitkoy.ihtiyac.TavukKofte - this.Umitkoy.AksamKalan.TavukKofte;
 
       //tunali GİDECEK OLAN
-      this.GidecekOlan.Kasmir.Cocuk =
+      this.GidecekOlan.Tunali.Cocuk =
         this.Tunali.ihtiyac.Cocuk - this.Tunali.AksamKalan.Cocuk;
-      this.GidecekOlan.Kasmir.DoksanGr =
+      this.GidecekOlan.Tunali.DoksanGr =
         this.Tunali.ihtiyac.DoksanGr - this.Tunali.AksamKalan.DoksanGr;
-      this.GidecekOlan.Kasmir.Tavuk =
+      this.GidecekOlan.Tunali.Tavuk =
         this.Tunali.ihtiyac.Tavuk - this.Tunali.AksamKalan.Tavuk;
-      this.GidecekOlan.Kasmir.YuzKirkGr =
+      this.GidecekOlan.Tunali.YuzKirkGr =
         this.Tunali.ihtiyac.YuzKirkGr - this.Tunali.AksamKalan.YuzKirkGr;
-      this.GidecekOlan.Kasmir.TavukKofte =
+      this.GidecekOlan.Tunali.TavukKofte =
         this.Tunali.ihtiyac.TavukKofte - this.Tunali.AksamKalan.TavukKofte;
+      //incek GİDECEK OLAN
+      this.GidecekOlan.Incek.Cocuk =
+        this.Incek.ihtiyac.Cocuk - this.Incek.AksamKalan.Cocuk;
+      this.GidecekOlan.Incek.DoksanGr =
+        this.Incek.ihtiyac.DoksanGr - this.Incek.AksamKalan.DoksanGr;
+      this.GidecekOlan.Incek.Tavuk =
+        this.Incek.ihtiyac.Tavuk - this.Incek.AksamKalan.Tavuk;
+      this.GidecekOlan.Incek.YuzKirkGr =
+        this.Incek.ihtiyac.YuzKirkGr - this.Incek.AksamKalan.YuzKirkGr;
+      this.GidecekOlan.Incek.TavukKofte =
+        this.Incek.ihtiyac.TavukKofte - this.Incek.AksamKalan.TavukKofte;
+      console.log("INCEK", this.Incek);
     },
   },
 };
