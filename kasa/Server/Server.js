@@ -67,6 +67,7 @@ app.use("/api/v1.0.1/", require("./routes/api/OnayList"));
 app.use("/api/v1.0.1/", require("./routes/api/Onaybody"));
 app.use("/api/v1.0.1/", require("./routes/api/Mail"));
 app.use("/api/v1.0.1/", require("./routes/api/Stok"));
+app.use("/api/v1.0.1/vega", require("./routes/api/Vega"));
 
 // DEFAULT ADMIN USER
 /*
