@@ -24,13 +24,8 @@ const Header = ({ props }) => {
   const [paketModal, setPaketModal] = useState(false);
   useEffect(() => {
     const now = new Date().getHours();
-<<<<<<< HEAD
     if (now >= 21 || now < 11) {
       this.setState({ SiparisZamani: true });
-=======
-    if (now >= 20 || now < 11) {
-      setSiparisZamani(false);
->>>>>>> origin/microservice
     }
     //this.setState({ Sube: localStorage.getItem("SUBE") });
     const urlParams = new URLSearchParams(window.location.search);
@@ -78,11 +73,8 @@ const Header = ({ props }) => {
       if (target[i].selected) {
         if (target[i].value !== "") {
           localStorage.setItem("siparis_turu", target[i].value);
-<<<<<<< HEAD
           this.setState({ SiparisTuru: target[i].value });
-=======
           setSiparisTuru(target[i].value);
->>>>>>> origin/microservice
           if (target[i].value !== "Paket") {
             if (this.state.Sube != "") {
               window.location.href =
@@ -131,8 +123,7 @@ const Header = ({ props }) => {
         //window.location.reload();
       }
     }
-<<<<<<< HEAD
-  }
+  };
   render() {
     var PaketValue = PaketData.sort((a, b) =>
       a.value.toLowerCase() > b.value.toLowerCase() ? 1 : -1
@@ -286,8 +277,7 @@ const Header = ({ props }) => {
     );
   }
 }
-=======
-  };
+
   return (
     <div>
       <Modal
@@ -381,4 +371,4 @@ const Header = ({ props }) => {
   );
 };
 export default Header;
->>>>>>> origin/microservice
+

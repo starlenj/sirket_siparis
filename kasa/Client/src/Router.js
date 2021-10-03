@@ -10,7 +10,6 @@ import SubeNew from "./Pages/Sube/New.vue";
 import SubeUretim from "./Pages/Uretim/List.vue";
 import UretimSube from "./Pages/Uretim/SubeUretim.vue";
 import UretimKalan from "./Pages/Uretim/SubeKalan.vue";
-import GunlukUretim from "./Pages/Uretim/GunlukUretim.vue";
 import SubeKalanDetayli from "./Pages/Uretim/SubeKalanDetayli.vue";
 import GidecekOlan from "./Pages/Uretim/GidecekOlan.vue";
 
@@ -245,14 +244,7 @@ export default new Router({
         });
       },
     },
-    {
-      path: "/Uretim/Gunluk",
-      name: "login",
-      component: GunlukUretim,
-      meta: {
-        requiresAuth: true,
-      },
-    },
+ 
     {
       path: "/home",
       name: "login",
@@ -299,14 +291,6 @@ export default new Router({
       path: "/User",
       name: "Sube",
       component: User,
-      meta: {
-        requiresAuth: true,
-      },
-    },
-    {
-      path: "/Uretim/Sube",
-      name: "Sube",
-      component: UretimSube,
       meta: {
         requiresAuth: true,
       },

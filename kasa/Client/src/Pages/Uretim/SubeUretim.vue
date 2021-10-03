@@ -646,7 +646,47 @@ export default {
             Gun: "Pazar",
             UrunAdi: "TavukFileto"
           }
+        },
+        BuyukTavukKofte: {
+          SubeId: this.SelectData,
+          Pazartesi: {
+            Miktar: 0,
+            Gun: "Pazartesi",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Sali: {
+            Miktar: 0,
+            Gun: "Sali",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Carsamba: {
+            Miktar: 0,
+            Gun: "Carsamba",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Persembe: {
+            Miktar: 0,
+            Gun: "Persembe",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Cuma: {
+            Miktar: 0,
+            Gun: "Cuma",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Cumartesi: {
+            Miktar: 0,
+            Gun: "Cumartesi",
+            UrunAdi: "BuyukTavukKofte"
+          },
+          Pazar: {
+            Miktar: 0,
+            Gun: "Pazar",
+            UrunAdi: "BuyukTavukKofte"
+          }
         }
+
+
       }
     };
   },
@@ -702,6 +742,14 @@ export default {
     this.FormModal.TavukFileto.Cuma.Miktar = 0;
     this.FormModal.TavukFileto.Cumartesi.Miktar = 0;
     this.FormModal.TavukFileto.Pazar.Miktar = 0;
+
+    this.FormModal.BuyukTavukKofte.Pazartesi.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Sali.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Carsamba.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Persembe.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Cuma.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Cumartesi.Miktar = 0;
+    this.FormModal.BuyukTavukKofte.Pazar.Miktar = 0;
     //END SIFIRLAMA
 
     let raporResponse = await Service.get("/SubeIhtiyac", this.UserInfo.subeId);

@@ -54,18 +54,6 @@
                 <span>Profilim</span>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="icon-comment-discussion"></i>
-                <span>Mesajlarım</span>
-                <span
-                  class="badge bg-teal-400 badge-pill align-self-center ml-auto"
-                  >58</span
-                >
-              </a>
-            </li>
-
             <li class="nav-item">
               <a href="/User/Logout" class="nav-link">
                 <i class="icon-switch2"></i>
@@ -118,9 +106,7 @@
                   >Şube Kalan Detaylı</a
                 >
               </li>
-              <li class="nav-item" v-show="isAdmin">
-                <a href="/Uretim/Gunluk" class="nav-link">Günlük Üretim</a>
-              </li>
+             
               <li class="nav-item">
                 <a href="/Uretim/GidecekOlan" class="nav-link" v-show="isAdmin"
                   >Gidecek Olan</a
@@ -208,28 +194,41 @@
               </li>
             </ul>
           </li>
+          <div v-show="isAdmin">
+            <li class="nav-item-header" v-show="isAdmin">
+              <div class="text-uppercase font-size-xs line-height-xs">
+                Merkez Istek
+              </div>
+              <i class="icon-menu" title="Tanımlar"></i>
+            </li>
+            <li class="nav-item nav-item-submenu">
+              <a href="#" class="nav-link">
+                <i class="icon-basket"></i>
+                <span>Merkez Istek</span>
+              </a>
 
-          <li class="nav-item-header" v-show="isAdmin">
-            <div class="text-uppercase font-size-xs line-height-xs">
-              Merkez Istek
-            </div>
-            <i class="icon-menu" title="Tanımlar"></i>
-          </li>
-          <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link">
-              <i class="icon-basket"></i>
-              <span>Merkez Istek</span>
-            </a>
+              <ul class="nav nav-group-sub" data-submenu-title="Stok">
+                <li class="nav-item">
+                  <a href="/" class="nav-link">Yeni Istek</a>
+                  <a href="/" class="nav-link">Iste Listesi</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-item-submenu">
+              <a href="#" class="nav-link">
+                <i class="icon-basket"></i>
+                <span>Stok Islemleri</span>
+              </a>
 
-            <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
-              <li class="nav-item">
-                <a href="/Rapor/UrunBazliSatis" class="nav-link">Yeni Istek</a>
-                <a href="/Rapor/UrunBazliSatis" class="nav-link"
-                  >Iste Listesi</a
-                >
-              </li>
-            </ul>
-          </li>
+              <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
+                <li class="nav-item">
+                  <a href="/" class="nav-link">Stok Listesi</a>
+                  <a href="/" class="nav-link">Yeni Stok Grubu</a>
+                  <a href="/" class="nav-link">Stok Sablonlari</a>
+                </li>
+              </ul>
+            </li>
+          </div>
           <div v-show="isAdmin">
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">
