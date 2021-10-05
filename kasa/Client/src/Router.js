@@ -28,6 +28,7 @@ import KasaRaporuSubeBazli from "./Pages/Kasa/KasaRaporuSubeBazli.vue";
 import kasaKontrol from "./Pages/Kasa/KasaKontrol.vue";
 import SubeKasaRaporu from "./Pages/Kasa/SubeKasaRaporu.vue";
 import KasaRaporu from "./Pages/Kasa/KasaRaporu.vue";
+import TestKasa from "./Pages/Kasa/TestKasa.vue";
 
 //CheckList
 import ChecklistIndex from "./Pages/CheckList/checklist.index.vue";
@@ -54,6 +55,14 @@ export default new Router({
   base: process.env.BASE_URL,
 
   routes: [
+    {
+      path: "/Rapor/TestKasa",
+      name: "UrunBazliSatis",
+      component: TestKasa,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: "/Rapor/UrunBazliSatis",
       name: "UrunBazliSatis",
