@@ -115,7 +115,7 @@ module.exports = {
       //Çarşamba Check
       const CarsambaData = await model.find({
         subeId: SubeId,
-        gun: ":Carsamba",
+        gun: "Carsamba",
         urunAdi: Carsamba.UrunAdi
       });
       if (CarsambaData.length === 0) {

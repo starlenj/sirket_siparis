@@ -250,27 +250,7 @@
             </ul>
           </li>
 
-          <li class="nav-item-header" v-show="isAdmin">
-            <div class="text-uppercase font-size-xs line-height-xs">
-              Merkez Istek
-            </div>
-            <i class="icon-menu" title="Tanımlar"></i>
-          </li>
-          <li class="nav-item nav-item-submenu">
-            <a href="#" class="nav-link">
-              <i class="icon-basket"></i>
-              <span>Merkez Istek</span>
-            </a>
-
-            <ul class="nav nav-group-sub" data-submenu-title="Kullanıcı">
-              <li class="nav-item">
-                <a href="/Rapor/UrunBazliSatis" class="nav-link">Yeni Istek</a>
-                <a href="/Rapor/UrunBazliSatis" class="nav-link"
-                  >Iste Listesi</a
-                >
-              </li>
-            </ul>
-          </li>
+          
           <div v-show="isAdmin">
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">

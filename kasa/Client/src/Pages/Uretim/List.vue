@@ -867,13 +867,13 @@ export default {
         if (item.gun === "Pazartesi" && item.urunAdi === "CocukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.CocukKofte.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Salı" && item.urunAdi === "CocukKofte")
+        if (item.gun === "Sali" && item.urunAdi === "CocukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.CocukKofte.Sali.Miktar = item.miktar;
-        if (item.gun === "Çarşamba" && item.urunAdi === "CocukKofte")
+        if (item.gun === "Carsamba" && item.urunAdi === "CocukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.CocukKofte.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Perşembe" && item.urunAdi === "CocukKofte")
+        if (item.gun === "Persembe" && item.urunAdi === "CocukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.CocukKofte.Persembe.Miktar = item.miktar;
         if (item.gun === "Cuma" && item.urunAdi === "CocukKofte")
@@ -891,13 +891,13 @@ export default {
         if (item.gun === "Pazartesi" && item.urunAdi === "DoksanGr")
           // eslint-disable-next-line no-console
           this.FormModal.DoksanGr.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Salı" && item.urunAdi === "DoksanGr")
+        if (item.gun === "Sali" && item.urunAdi === "DoksanGr")
           // eslint-disable-next-line no-console
           this.FormModal.DoksanGr.Sali.Miktar = item.miktar;
-        if (item.gun === "Çarşamba" && item.urunAdi === "DoksanGr")
+        if (item.gun === "Carsamba" && item.urunAdi === "DoksanGr")
           // eslint-disable-next-line no-console
           this.FormModal.DoksanGr.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Perşembe" && item.urunAdi === "DoksanGr")
+        if (item.gun === "Persembe" && item.urunAdi === "DoksanGr")
           // eslint-disable-next-line no-console
           this.FormModal.DoksanGr.Persembe.Miktar = item.miktar;
         if (item.gun === "Cuma" && item.urunAdi === "DoksanGr")
@@ -915,13 +915,13 @@ export default {
         if (item.gun === "Pazartesi" && item.urunAdi === "YuzKirkGr")
           // eslint-disable-next-line no-console
           this.FormModal.YuzKirkGr.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Salı" && item.urunAdi === "YuzKirkGr")
+        if (item.gun === "Sali" && item.urunAdi === "YuzKirkGr")
           // eslint-disable-next-line no-console
           this.FormModal.YuzKirkGr.Sali.Miktar = item.miktar;
-        if (item.gun === "Çarşamba" && item.urunAdi === "YuzKirkGr")
+        if (item.gun === "Carsamba" && item.urunAdi === "YuzKirkGr")
           // eslint-disable-next-line no-console
           this.FormModal.YuzKirkGr.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Perşembe" && item.urunAdi === "YuzKirkGr")
+        if (item.gun === "Persembe" && item.urunAdi === "YuzKirkGr")
           // eslint-disable-next-line no-console
           this.FormModal.YuzKirkGr.Persembe.Miktar = item.miktar;
         if (item.gun === "Cuma" && item.urunAdi === "YuzKirkGr")
@@ -939,13 +939,13 @@ export default {
         if (item.gun === "Pazartesi" && item.urunAdi === "TavukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.TavukKofte.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Salı" && item.urunAdi === "TavukKofte")
+        if (item.gun === "Sali" && item.urunAdi === "TavukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.TavukKofte.Sali.Miktar = item.miktar;
-        if (item.gun === "Çarşamba" && item.urunAdi === "TavukKofte")
+        if (item.gun === "Carsamba" && item.urunAdi === "TavukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.TavukKofte.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Perşembe" && item.urunAdi === "TavukKofte")
+        if (item.gun === "Persembe" && item.urunAdi === "TavukKofte")
           // eslint-disable-next-line no-console
           this.FormModal.TavukKofte.Persembe.Miktar = item.miktar;
         if (item.gun === "Cuma" && item.urunAdi === "TavukKofte")
@@ -963,13 +963,13 @@ export default {
         if (item.gun === "Pazartesi" && item.urunAdi === "TavukFileto")
           // eslint-disable-next-line no-console
           this.FormModal.TavukFileto.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Salı" && item.urunAdi === "TavukFileto")
+        if (item.gun === "Sali" && item.urunAdi === "TavukFileto")
           // eslint-disable-next-line no-console
           this.FormModal.TavukFileto.Sali.Miktar = item.miktar;
-        if (item.gun === "Çarşamba" && item.urunAdi === "TavukFileto")
+        if (item.gun === "Carsamba" && item.urunAdi === "TavukFileto")
           // eslint-disable-next-line no-console
           this.FormModal.TavukFileto.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Perşembe" && item.urunAdi === "TavukFileto")
+        if (item.gun === "Persembe" && item.urunAdi === "TavukFileto")
           // eslint-disable-next-line no-console
           this.FormModal.TavukFileto.Persembe.Miktar = item.miktar;
         if (item.gun === "Cuma" && item.urunAdi === "TavukFileto")

@@ -10,7 +10,7 @@ export const http = axios.create({
     "Accept-Type": "application/json",
     Authorization: "Bearer" + localStorage.getItem("TOKEN") + " ",
   },
-  baseURL: "http://78.187.125.240:3000/api/v1.0.1/",
+  baseURL: "http://178.157.14.55:4000/api/v1.0.1/",
 });
 
 http.interceptors.response.use(
