@@ -101,7 +101,7 @@ module.exports = {
       } else {
         // güncelleme
         const SaliUpdate = await model.findOneAndUpdate(
-          { subeId: SubeId, gun: "Salı", urunAdi: Sali.UrunAdi },
+          { subeId: SubeId, gun: "Sali", urunAdi: Sali.UrunAdi },
           {
             miktar: Sali.Miktar
           },
