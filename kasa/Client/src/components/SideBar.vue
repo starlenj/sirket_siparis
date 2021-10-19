@@ -54,18 +54,6 @@
                 <span>Profilim</span>
               </a>
             </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="icon-comment-discussion"></i>
-                <span>Mesajlarım</span>
-                <span
-                  class="badge bg-teal-400 badge-pill align-self-center ml-auto"
-                  >58</span
-                >
-              </a>
-            </li>
-
             <li class="nav-item">
               <a href="/User/Logout" class="nav-link">
                 <i class="icon-switch2"></i>
@@ -118,9 +106,7 @@
                   >Şube Kalan Detaylı</a
                 >
               </li>
-              <li class="nav-item" v-show="isAdmin">
-                <a href="/Uretim/Gunluk" class="nav-link">Günlük Üretim</a>
-              </li>
+             
               <li class="nav-item">
                 <a href="/Uretim/GidecekOlan" class="nav-link" v-show="isAdmin"
                   >Gidecek Olan</a
@@ -251,6 +237,7 @@
           </li>
 
           
+
           <div v-show="isAdmin">
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">

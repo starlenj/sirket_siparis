@@ -7,8 +7,8 @@ module.exports = {
       const config = {
         user: "sa",
         password: "vega1234",
-        server: "192.168.1.200",
-        port: 5353,
+        server: "78.187.125.240",
+        port: 4444,
         database: "SAVER_İÇ_VE_DIŞ_TİC_LTD_ŞTİ_GENEL",
         pool: {
           max: 10,
@@ -41,8 +41,8 @@ module.exports = {
       const config = {
         user: "sa",
         password: "vega1234",
-        server: "192.168.1.200",
-        port: 5353,
+        server: "78.187.125.240",
+        port: 4444,
         database: "SAVER_İÇ_VE_DIŞ_TİC_LTD_ŞTİ_GENEL",
         pool: {
           max: 10,
@@ -51,7 +51,7 @@ module.exports = {
         }
       };
 
-
+ console.log(config);
       let connection = await new sql.ConnectionPool(config).connect();
 
       let query = await connection

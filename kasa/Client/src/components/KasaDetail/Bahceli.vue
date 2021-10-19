@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in BahceliData.data" :key="item._id">
+        <tr v-for="(item, index) in BahceliData" :key="item._id">
           <th>{{ item._id | formatDate }}</th>
           <td>{{ item.credit.toFixed(2) }}</td>
           <td>
@@ -46,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
+          <tr v-for="(item, index) in BahceliData" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ parseFloat(item.cash).toFixed(2) }}</td>
             <td>
@@ -80,7 +80,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
+          <tr v-for="(item, index) in BahceliData" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ item.yemekSepeti }}</td>
             <td>
@@ -124,7 +124,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
+          <tr v-for="(item, index) in BahceliData" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ item.setCardGunSonu }}</td>
             <td>{{ item.multinetGunSonu }}</td>
@@ -168,7 +168,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
+          <tr v-for="(item, index) in BahceliData" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
               {{
