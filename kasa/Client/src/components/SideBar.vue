@@ -38,7 +38,13 @@
           <div class="sidebar-user-material-footer">
             <a
               href="#user-nav"
-              class="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle"
+              class="
+                d-flex
+                justify-content-between
+                align-items-center
+                text-shadow-dark
+                dropdown-toggle
+              "
               data-toggle="collapse"
             >
               <span>Kullanıcı İşlemleri</span>
@@ -106,7 +112,7 @@
                   >Şube Kalan Detaylı</a
                 >
               </li>
-             
+
               <li class="nav-item">
                 <a href="/Uretim/GidecekOlan" class="nav-link" v-show="isAdmin"
                   >Gidecek Olan</a
@@ -217,27 +223,6 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item nav-item-submenu" v-show="isAdmin">
-            <a href="#" class="nav-link">
-              <i class="material-icons">check</i>
-              <span>Onay Süreç İşlemleri</span>
-            </a>
-            <ul class="nav nav-group-sub" data-submenu-title="Üretim">
-              <li class="nav-item">
-                <a href="/Onay/Index" class="nav-link" v-show="isAdmin"
-                  >Onay Süreç Tanımları</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/Onay/Bekleyen" class="nav-link" v-show="isAdmin"
-                  >Bekleyen Onaylar</a
-                >
-              </li>
-            </ul>
-          </li>
-
-          
-
           <div v-show="isAdmin">
             <li class="nav-item-header">
               <div class="text-uppercase font-size-xs line-height-xs">

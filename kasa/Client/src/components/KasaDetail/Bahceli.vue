@@ -1,5 +1,6 @@
-<template>
+<template> 
   <div class="col-md-12">
+    {{BahceliData}}
     <h2>Visa</h2>
     <table class="table">
       <thead>
@@ -246,6 +247,11 @@ export default {
     return {
       ...DetailKasa,
     };
+  },
+  async mounted() {
+    this.$on('BahceliData', (data)=>{
+      console.log("Gelen Data", );
+    })
   },
   methods: {
     async GetKasa() {

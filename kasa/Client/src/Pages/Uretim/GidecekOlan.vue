@@ -651,7 +651,7 @@
                               type="number"
                               class="form-control input-sm"
                               readonly="true"
-                              v-model="GidecekOlan.Gordion.KucukTavuk"
+                              v-model="GidecekOlan.Gordion.KucukTavukKofte"
                             />
                           </div>
                         </td>
@@ -661,7 +661,7 @@
                               type="number"
                               class="form-control input-sm"
                               readonly="true"
-                              v-model="GidecekOlan.Arcadium.KucukTavuk"
+                              v-model="GidecekOlan.Arcadium.KucukTavukKofte"
                             />
                           </div>
                         </td>
@@ -670,7 +670,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Armada.KucukTavuk"
+                            v-model="GidecekOlan.Armada.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -678,7 +678,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Bahceli.KucukTavuk"
+                            v-model="GidecekOlan.Bahceli.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -686,7 +686,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Bilkent.KucukTavuk"
+                            v-model="GidecekOlan.Bilkent.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -694,7 +694,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Ankamall.KucukTavuk"
+                            v-model="GidecekOlan.Ankamall.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -702,7 +702,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Atakule.KucukTavuk"
+                            v-model="GidecekOlan.Atakule.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -710,7 +710,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Cepa.KucukTavuk"
+                            v-model="GidecekOlan.Cepa.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -718,7 +718,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Umitkoy.KucukTavuk"
+                            v-model="GidecekOlan.Umitkoy.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -726,7 +726,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Kasmir.KucukTavuk"
+                            v-model="GidecekOlan.Kasmir.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -734,7 +734,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Batikent.KucukTavuk"
+                            v-model="GidecekOlan.Batikent.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -742,7 +742,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Incek.KucukTavuk"
+                            v-model="GidecekOlan.Incek.KucukTavukKofte"
                           />
                         </td>
                         <td>
@@ -750,7 +750,7 @@
                             type="number"
                             class="form-control input-sm"
                             readonly="true"
-                            v-model="GidecekOlan.Tunali.KucukTavuk"
+                            v-model="GidecekOlan.Tunali.KucukTavukKofte"
                           />
                         </td>
                       </tr>
@@ -1049,77 +1049,103 @@ export default {
     });
   },
   methods: {
+    async tarihFix(gun) {
+      if (gun === "Çarşamba") {
+        return "Carsamba";
+      } else if (gun === "Perşembe") {
+        return "Persembe";
+      } else if (gun === "Salı") {
+        return "Sali";
+      } else {
+        return gun;
+      }
+    },
     async GetReport() {
       moment.locale("tr");
       this.GetDate = moment().format("YYYY.MM.DD");
       this.birGünOnceTarih = moment(this.formDate)
         .add(-1, "days")
         .format("YYYY.MM.DD");
-      this.birGünOnceTarihFormat = moment(this.formDate).format("dddd");
+      this.birGünOnceTarihFormat = moment(this.formDate)
+        .format("dddd")
+        .replace(/Ğ/gim, "g")
+        .replace(/Ü/gim, "u")
+        .replace(/Ş/gim, "s")
+        .replace(/I/gim, "i")
+        .replace(/İ/gim, "i")
+        .replace(/Ö/gim, "o")
+        .replace(/Ç/gim, "C")
+        .replace(/ğ/gim, "g")
+        .replace(/ü/gim, "u")
+        .replace(/ş/gim, "s")
+        .replace(/ı/gim, "i")
+        .replace(/ö/gim, "o")
+        .replace(/ç/gim, "c");
       //ŞUBELER KALAN BAŞLANGIÇ
       //TUNALI KALANLAR
+
       this.Tunali.AksamKalan = await GetAksamKalan(
         this.Tunali.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //ARMADA KALANLAR
       this.Armada.AksamKalan = await GetAksamKalan(
         this.Armada.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //Atakule KALANLAR
       this.Atakule.AksamKalan = await GetAksamKalan(
         this.Atakule.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //Batıkent KALANLAR
       this.Batikent.AksamKalan = await GetAksamKalan(
         this.Batikent.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //ANKAMALL KALANLAR
       this.Ankamall.AksamKalan = await GetAksamKalan(
         this.Ankamall.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //ÜmitKöy akalanlar
       this.Umitkoy.AksamKalan = await GetAksamKalan(
         this.Umitkoy.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //GORDİON
       this.Gordion.AksamKalan = await GetAksamKalan(
         this.Gordion.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
       //CEPA
       this.Cepa.AksamKalan = await GetAksamKalan(
         this.Cepa.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
 
       //BİLKENT
       this.Bilkent.AksamKalan = await GetAksamKalan(
         this.Bilkent.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
 
       //Arcadium
       this.Arcadium.AksamKalan = await GetAksamKalan(
         this.Arcadium.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
 
       //BAHÇELİ
       this.Bahceli.AksamKalan = await GetAksamKalan(
         this.Bahceli.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
 
       //KAŞMİR
       this.Kasmir.AksamKalan = await GetAksamKalan(
         this.Kasmir.SubeId._id,
-        this.birGünOnceTarih,
+        this.birGünOnceTarih
       );
 
       //ŞUBELER KALAN BİTİŞ
@@ -1127,78 +1153,79 @@ export default {
       //ŞUBE İHTİYAÇ BAŞLANGIÇ
 
       //INCEK İHTİYAÇ
+      console.log(this.birGünOnceTarihFormat);
       this.Incek.Ihtiyac = await GetSubeIhtiyac(
         this.Incek.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
       //TUNALI İHTİYAÇ
       this.Tunali.Ihtiyac = await GetSubeIhtiyac(
         this.Tunali.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
       //ARMADA İHTİYAÇ
       this.Armada.Ihtiyac = await GetSubeIhtiyac(
         this.Armada.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
       //ATAKULE İHTİYAÇ
       this.Atakule.Ihtiyac = await GetSubeIhtiyac(
         this.Atakule.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //Batıkent İHTİYAÇ
       this.Batikent.Ihtiyac = await GetSubeIhtiyac(
         this.Batikent.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //ANKAMALL İHTİYAÇ
       this.Ankamall.Ihtiyac = await GetSubeIhtiyac(
         this.Ankamall.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //GORDİON İHTİYAÇ
       this.Gordion.Ihtiyac = await GetSubeIhtiyac(
         this.Gordion.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //CEPA İHTİYAÇ
       this.Cepa.Ihtiyac = await GetSubeIhtiyac(
         this.Cepa.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //BİLKENT İHTİYAÇ
       this.Bilkent.Ihtiyac = await GetSubeIhtiyac(
         this.Bilkent.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //Arcadium İHTİYAÇ
       this.Arcadium.Ihtiyac = await GetSubeIhtiyac(
         this.Arcadium.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //BAHÇELİ İHTİYAÇ
       this.Bahceli.Ihtiyac = await GetSubeIhtiyac(
         this.Bahceli.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
       // eslint-disable-next-line
 
       //ÜMİTKÖY İHTİYAÇ
       this.Umitkoy.Ihtiyac = await GetSubeIhtiyac(
         this.Umitkoy.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
       //KASMIR İHTİYAÇ
       this.Kasmir.Ihtiyac = await GetSubeIhtiyac(
         this.Kasmir.SubeId._id,
-        this.birGünOnceTarihFormat,
+        this.birGünOnceTarihFormat
       );
 
       //ŞUBE İHTİYAÇ BİTİŞ
@@ -1215,6 +1242,9 @@ export default {
         this.Armada.Ihtiyac.Tavuk - this.Armada.AksamKalan.Tavuk;
       this.GidecekOlan.Armada.TavukKofte =
         this.Armada.Ihtiyac.TavukKofte - this.Armada.AksamKalan.TavukKofte;
+      this.GidecekOlan.Armada.KucukTavukKofte =
+        this.Armada.Ihtiyac.KucukTavukKofte -
+        this.Armada.AksamKalan.KucukTavukKofte;
 
       //GORDİON GİDECEK OLAN
 
@@ -1228,6 +1258,9 @@ export default {
         this.Gordion.Ihtiyac.Tavuk - this.Gordion.AksamKalan.Tavuk;
       this.GidecekOlan.Gordion.TavukKofte =
         this.Gordion.Ihtiyac.TavukKofte - this.Gordion.AksamKalan.TavukKofte;
+      this.GidecekOlan.Gordion.KucukTavukKofte =
+        this.Gordion.Ihtiyac.KucukTavukKofte -
+        this.Gordion.AksamKalan.KucukTavukKofte;
       //ARCADİUM GİDECEK OLAN
       this.GidecekOlan.Arcadium.Cocuk =
         this.Arcadium.Ihtiyac.Cocuk - this.Arcadium.AksamKalan.Cocuk;
@@ -1239,6 +1272,9 @@ export default {
         this.Arcadium.Ihtiyac.Tavuk - this.Arcadium.AksamKalan.Tavuk;
       this.GidecekOlan.Arcadium.TavukKofte =
         this.Arcadium.Ihtiyac.TavukKofte - this.Arcadium.AksamKalan.TavukKofte;
+      this.GidecekOlan.Arcadium.KucukTavukKofte =
+        this.Arcadium.Ihtiyac.KucukTavukKofte -
+        this.Arcadium.AksamKalan.KucukTavukKofte;
       //BAHÇELİ GİDECEK OLAN
 
       this.GidecekOlan.Bahceli.Cocuk =
@@ -1251,7 +1287,9 @@ export default {
         this.Bahceli.Ihtiyac.Tavuk - this.Bahceli.AksamKalan.Tavuk;
       this.GidecekOlan.Bahceli.TavukKofte =
         this.Bahceli.Ihtiyac.TavukKofte - this.Bahceli.AksamKalan.TavukKofte;
-
+      this.GidecekOlan.Bahceli.KucukTavukKofte =
+        this.Bahceli.Ihtiyac.KucukTavukKofte -
+        this.Bahceli.AksamKalan.KucukTavukKofte;
       //BATIKENT GİDECEK OLAN
 
       this.GidecekOlan.Batikent.Cocuk =
@@ -1264,6 +1302,9 @@ export default {
         this.Batikent.Ihtiyac.Tavuk - this.Batikent.AksamKalan.Tavuk;
       this.GidecekOlan.Batikent.TavukKofte =
         this.Batikent.Ihtiyac.TavukKofte - this.Batikent.AksamKalan.TavukKofte;
+      this.GidecekOlan.Batikent.KucukTavukKofte =
+        this.Batikent.Ihtiyac.KucukTavukKofte -
+        this.Batikent.AksamKalan.KucukTavukKofte;
       // BİLKENT GİDECEK OLAN
 
       this.GidecekOlan.Bilkent.Cocuk =
@@ -1276,6 +1317,9 @@ export default {
         this.Bilkent.Ihtiyac.Tavuk - this.Bilkent.AksamKalan.Tavuk;
       this.GidecekOlan.Bilkent.TavukKofte =
         this.Bilkent.Ihtiyac.TavukKofte - this.Bilkent.AksamKalan.TavukKofte;
+      this.GidecekOlan.Bilkent.KucukTavukKofte =
+        this.Bilkent.Ihtiyac.KucukTavukKofte -
+        this.Bilkent.AksamKalan.KucukTavukKofte;
       //ANKAMALL GİDECEK OLAN
 
       this.GidecekOlan.Ankamall.Cocuk =
@@ -1288,6 +1332,9 @@ export default {
         this.Ankamall.Ihtiyac.Tavuk - this.Ankamall.AksamKalan.Tavuk;
       this.GidecekOlan.Ankamall.TavukKofte =
         this.Ankamall.Ihtiyac.TavukKofte - this.Ankamall.AksamKalan.TavukKofte;
+      this.GidecekOlan.Ankamall.KucukTavukKofte =
+        this.Ankamall.Ihtiyac.KucukTavukKofte -
+        this.Ankamall.AksamKalan.KucukTavukKofte;
       //Atakule GİDECEK OLAN
 
       this.GidecekOlan.Atakule.Cocuk =
@@ -1300,6 +1347,9 @@ export default {
         this.Atakule.Ihtiyac.Tavuk - this.Atakule.AksamKalan.Tavuk;
       this.GidecekOlan.Atakule.TavukKofte =
         this.Atakule.Ihtiyac.TavukKofte - this.Atakule.AksamKalan.TavukKofte;
+      this.GidecekOlan.Atakule.KucukTavukKofte =
+        this.Atakule.Ihtiyac.KucukTavukKofte -
+        this.Atakule.AksamKalan.KucukTavukKofte;
 
       //CEPA GİDECEK OLAN
 
@@ -1313,6 +1363,9 @@ export default {
         this.Cepa.Ihtiyac.Tavuk - this.Cepa.AksamKalan.Tavuk;
       this.GidecekOlan.Cepa.TavukKofte =
         this.Cepa.Ihtiyac.TavukKofte - this.Cepa.AksamKalan.TavukKofte;
+      this.GidecekOlan.Cepa.KucukTavukKofte =
+        this.Cepa.Ihtiyac.KucukTavukKofte -
+        this.Cepa.AksamKalan.KucukTavukKofte;
       //KAŞMİR GİDECEK OLAN
       this.GidecekOlan.Kasmir.Cocuk =
         this.Kasmir.Ihtiyac.Cocuk - this.Kasmir.AksamKalan.Cocuk;
@@ -1324,6 +1377,9 @@ export default {
         this.Kasmir.Ihtiyac.YuzKirkGr - this.Kasmir.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Kasmir.TavukKofte =
         this.Kasmir.Ihtiyac.TavukKofte - this.Kasmir.AksamKalan.TavukKofte;
+      this.GidecekOlan.Kasmir.KucukTavukKofte =
+        this.Kasmir.Ihtiyac.KucukTavukKofte -
+        this.Kasmir.AksamKalan.KucukTavukKofte;
       // umitkoy gidecek olan
       this.GidecekOlan.Umitkoy.Cocuk =
         this.Umitkoy.Ihtiyac.Cocuk - this.Umitkoy.AksamKalan.Cocuk;
@@ -1335,7 +1391,9 @@ export default {
         this.Umitkoy.Ihtiyac.YuzKirkGr - this.Umitkoy.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Umitkoy.TavukKofte =
         this.Umitkoy.Ihtiyac.TavukKofte - this.Umitkoy.AksamKalan.TavukKofte;
-
+      this.GidecekOlan.Umitkoy.KucukTavukKofte =
+        this.Umitkoy.Ihtiyac.KucukTavukKofte -
+        this.Umitkoy.AksamKalan.KucukTavukKofte;
       //tunali GİDECEK OLAN
       this.GidecekOlan.Tunali.Cocuk =
         this.Tunali.Ihtiyac.Cocuk - this.Tunali.AksamKalan.Cocuk;
@@ -1347,6 +1405,9 @@ export default {
         this.Tunali.Ihtiyac.YuzKirkGr - this.Tunali.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Tunali.TavukKofte =
         this.Tunali.Ihtiyac.TavukKofte - this.Tunali.AksamKalan.TavukKofte;
+      this.GidecekOlan.Tunali.KucukTavukKofte =
+        this.Tunali.Ihtiyac.KucukTavukKofte -
+        this.Tunali.AksamKalan.KucukTavukKofte;
       //incek GİDECEK OLAN
       this.GidecekOlan.Incek.Cocuk =
         this.Incek.Ihtiyac.Cocuk - this.Incek.AksamKalan.Cocuk;
@@ -1358,7 +1419,9 @@ export default {
         this.Incek.Ihtiyac.YuzKirkGr - this.Incek.AksamKalan.YuzKirkGr;
       this.GidecekOlan.Incek.TavukKofte =
         this.Incek.Ihtiyac.TavukKofte - this.Incek.AksamKalan.TavukKofte;
-      console.log("GORDION", this.Gordion);
+      this.GidecekOlan.Incek.KucukTavukKofte =
+        this.Incek.Ihtiyac.KucukTavukKofte -
+        this.Incek.AksamKalan.KucukTavukKofte;
     },
     async sifirlama(SubeAdi) {
       this[SubeAdi].AksamKalan.Cocuk = 0;
@@ -1366,6 +1429,7 @@ export default {
       this[SubeAdi].AksamKalan.YuzKirkGr = 0;
       this[SubeAdi].AksamKalan.Tavuk = 0;
       this[SubeAdi].AksamKalan.TavukKofte = 0;
+      this[SubeAdi].AksamKalan.KucukTavukKofte = 0;
     },
   },
 };

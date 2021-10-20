@@ -14,7 +14,12 @@
           </div>
         </div>
 
-        <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+        <div
+          class="
+            breadcrumb-line breadcrumb-line-light
+            header-elements-md-inline
+          "
+        >
           <div class="d-flex">
             <div class="breadcrumb">
               <a href="/" class="breadcrumb-item">
@@ -40,19 +45,22 @@
           <input type="date" class="form-control" v-model="endDate" />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" type="button" @click="GetReport">Getir</button>
+          <button class="btn btn-primary" type="button" @click="GetReport">
+            Getir
+          </button>
         </div>
         <div class="page has-sidebar-left bg-light height-full">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" v-for="item in SubeList " :key="item._id">
+            <li class="nav-item" v-for="item in SubeList" :key="item._id">
               <a
                 class="nav-link"
-                :id="item.name+'-tab'"
+                :id="item.name + '-tab'"
                 data-toggle="tab"
-                :href="'#'+item.name"
+                :href="'#' + item.name"
                 role="tab"
                 :aria-controls="item.name"
-              >{{item.name}}</a>
+                >{{ item.name }}</a
+              >
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
@@ -62,13 +70,13 @@
               class="tab-pane fade show"
               :id="item.name"
               role="tabpanel"
-              :aria-labelledby="item.name+'-tab'"
+              :aria-labelledby="item.name + '-tab'"
             >
               <div class="content">
                 <div class="card">
                   <div class="card-body b-b">
-                    <h1>{{item.name}}</h1>
-                    <bahceli-kasa v-bind:BahceliData="Bahceli" ref="BahceliKasa" />
+                    <h1>{{ item.name }}</h1>
+                    <bahceli-kasa @BahceliData="Bahceli" ref="BahceliKasa" />
                   </div>
                 </div>
               </div>
@@ -84,7 +92,7 @@
 import Service from "../../Service";
 import BahceliKasa from "../../components/KasaDetail/Bahceli";
 import { KasaModel } from "../../Helpers/KasaSubeModel";
-import { GetKasaReport } from "../../Helpers/GetReportTools";
+import { GetKasaReport, GetSefimReport } from "../../Helpers/GetReportTools";
 export default {
   components: {
     BahceliKasa,
@@ -141,16 +149,19 @@ export default {
       var Subeler = await Service.list("sube");
 
       this.SubeList = Subeler.data;
+      let data = { programData: [], data: [] };
+
       this.SubeList.forEach(async (Sube) => {
-        this.Test[Subeler.name] = await GetKasaReport(
-          Sube._id,
+        data.data = await GetKasaReport(Sube._id, this.startDate, this.endDate);
+        data.programData = await GetSefimReport(
+          Sube,
           this.startDate,
           this.endDate
         );
+        this.Test[Sube.name] = data;
+        console.log(this.Test[Sube.name], Sube.name);
+        this.$emit("BahceliData", this.Test[Sube.name]);
       });
-      console.log(this.Test.BAHCELIEVLER);
-      this.$emit("BahceliData", this.Test.BAHCELIEVLER);
-    
     },
   },
 };

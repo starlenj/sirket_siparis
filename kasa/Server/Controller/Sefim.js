@@ -204,11 +204,6 @@ module.exports = {
           FROM ${data.dbname}.dbo.Bill AS B
         
         LEFT JOIN ${data.dbname}.dbo.Product as P ON P.Id=B.ProductId
-        
-        
-        
-         
-         
         WHERE
         [Date]>='${startDate} 07:00' AND [Date]<= '${endDate} 00:00'
         

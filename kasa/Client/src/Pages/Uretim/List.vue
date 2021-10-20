@@ -6,47 +6,26 @@
         <div class="page-title d-flex">
           <h4>
             <i class="icon-arrow-left52 mr-2"></i>
-            <span class="font-weight-semibold">Üretim</span> - Şube İhtiyaç Listesi
+            <span class="font-weight-semibold">Üretim</span> - Şube İhtiyaç
+            Listesi
           </h4>
           <a href="#" class="header-elements-toggle text-default d-md-none">
             <i class="icon-more"></i>
           </a>
         </div>
-
-        <!--<div class="header-elements d-none">
-         <div class="d-flex justify-content-center">
-            <a
-              href="#"
-              class="btn btn-link btn-float font-size-sm font-weight-semibold text-default"
-            >
-              <i class="icon-bars-alt text-pink-300"></i>
-              <span>Statistics</span>
-            </a>
-            <a
-              href="#"
-              class="btn btn-link btn-float font-size-sm font-weight-semibold text-default"
-            >
-              <i class="icon-calculator text-pink-300"></i>
-              <span>Invoices</span>
-            </a>
-            <a
-              href="#"
-              class="btn btn-link btn-float font-size-sm font-weight-semibold text-default"
-            >
-              <i class="icon-calendar5 text-pink-300"></i>
-              <span>Schedule</span>
-            </a>
-          </div>
-        </div>-->
       </div>
 
-      <div class="breadcrumb-line breadcrumb-line-light header-elements-md-inline">
+      <div
+        class="breadcrumb-line breadcrumb-line-light header-elements-md-inline"
+      >
         <div class="d-flex">
           <div class="breadcrumb">
             <a href="/" class="breadcrumb-item">
               <i class="icon-home2 mr-2"></i> Anasayfa
             </a>
-            <a href="/Uretim/SubeKalanDetayli" class="breadcrumb-item">Şube Kalan Detaylı</a>
+            <a href="/Uretim/SubeKalanDetayli" class="breadcrumb-item"
+              >Şube Kalan Detaylı</a
+            >
             <a href="/Uretim/Gunluk" class="breadcrumb-item">Günlük Üretim</a>
           </div>
 
@@ -54,38 +33,6 @@
             <i class="icon-more"></i>
           </a>
         </div>
-        <!--
-        <div class="header-elements d-none">
-          <div class="breadcrumb justify-content-center">
-            <a href="#" class="breadcrumb-elements-item">
-              <i class="icon-comment-discussion mr-2"></i>
-              Support
-            </a>
-
-            <div class="breadcrumb-elements-item dropdown p-0">
-              <a href="#" class="breadcrumb-elements-item dropdown-toggle" data-toggle="dropdown">
-                <i class="icon-gear mr-2"></i>
-                Settings
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="#" class="dropdown-item">
-                  <i class="icon-user-lock"></i> Account security
-                </a>
-                <a href="#" class="dropdown-item">
-                  <i class="icon-statistics"></i> Analytics
-                </a>
-                <a href="#" class="dropdown-item">
-                  <i class="icon-accessibility"></i> Accessibility
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
-                  <i class="icon-gear"></i> All settings
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>-->
       </div>
     </div>
     <!-- /page header -->
@@ -110,7 +57,7 @@
             </thead>
             <tbody>
               <tr v-for="items in SubeList" :key="items._id">
-                <td>{{items.name}}</td>
+                <td>{{ items.name }}</td>
 
                 <td>
                   <button
@@ -118,7 +65,7 @@
                     class="btn bg-primary"
                     data-toggle="modal"
                     data-target="#newListForm"
-                    @click="Get(items._id,items.name)"
+                    @click="Get(items._id, items.name)"
                   >
                     <i class="mi-mode-edit"></i>Liste
                   </button>
@@ -134,8 +81,10 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header bg-primary">
-                  <h6 class="modal-title">{{SelectSube}} Şube İhtiyaç</h6>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h6 class="modal-title">{{ SelectSube }} Şube İhtiyaci</h6>
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
                 </div>
 
                 <div class="modal-body">
@@ -143,10 +92,10 @@
                     <thead>
                       <tr>
                         <th></th>
-
                         <th>90 GR(Adet)</th>
                         <th>140 GR(Adet)</th>
-                        <th>Tavuk Köfte(Adet)</th>
+                        <th>K.Tavuk Köfte(Adet)</th>
+                        <th>B.Tavuk Köfte(Adet)</th>
                         <th>Tavuk Fleto(KG)</th>
                         <th>Çocuk Köfte(Menü)</th>
                       </tr>
@@ -180,7 +129,21 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Pazartesi.Miktar"
+                              v-model="
+                                FormModal.KucukTavukKofte.Pazartesi.Miktar
+                              "
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="
+                                FormModal.BuyukTavukKofte.Pazartesi.Miktar
+                              "
                               min="0"
                             />
                           </div>
@@ -234,7 +197,17 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Sali.Miktar"
+                              v-model="FormModal.KucukTavukKofte.Sali.Miktar"
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="FormModal.BuyukTavukKofte.Sali.Miktar"
                               min="0"
                             />
                           </div>
@@ -288,7 +261,21 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Carsamba.Miktar"
+                              v-model="
+                                FormModal.KucukTavukKofte.Carsamba.Miktar
+                              "
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="
+                                FormModal.BuyukTavukKofte.Carsamba.Miktar
+                              "
                               min="0"
                             />
                           </div>
@@ -342,7 +329,21 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Persembe.Miktar"
+                              v-model="
+                                FormModal.KucukTavukKofte.Persembe.Miktar
+                              "
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="
+                                FormModal.BuyukTavukKofte.Persembe.Miktar
+                              "
                               min="0"
                             />
                           </div>
@@ -396,7 +397,17 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Cuma.Miktar"
+                              v-model="FormModal.KucukTavukKofte.Cuma.Miktar"
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="FormModal.BuyukTavukKofte.Cuma.Miktar"
                               min="0"
                             />
                           </div>
@@ -450,7 +461,21 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Cumartesi.Miktar"
+                              v-model="
+                                FormModal.KucukTavukKofte.Cumartesi.Miktar
+                              "
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="
+                                FormModal.BuyukTavukKofte.Cumartesi.Miktar
+                              "
                               min="0"
                             />
                           </div>
@@ -504,7 +529,17 @@
                             <input
                               type="number"
                               class="form-control input-sm"
-                              v-model="FormModal.TavukKofte.Pazar.Miktar"
+                              v-model="FormModal.KucukTavukKofte.Pazar.Miktar"
+                              min="0"
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <div class="form-group form-control-sm">
+                            <input
+                              type="number"
+                              class="form-control input-sm"
+                              v-model="FormModal.BuyukTavukKofte.Pazar.Miktar"
                               min="0"
                             />
                           </div>
@@ -535,13 +570,21 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-link" data-dismiss="modal">İptal</button>
+                  <button
+                    type="button"
+                    class="btn btn-link"
+                    data-dismiss="modal"
+                  >
+                    İptal
+                  </button>
                   <button
                     type="button"
                     class="btn bg-primary"
                     data-dismiss="modal"
                     @click="New"
-                  >Kaydet</button>
+                  >
+                    Kaydet
+                  </button>
                 </div>
               </div>
             </div>
@@ -557,13 +600,21 @@
                 </div>
 
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-link" data-dismiss="modal">İptal</button>
+                  <button
+                    type="button"
+                    class="btn btn-link"
+                    data-dismiss="modal"
+                  >
+                    İptal
+                  </button>
                   <button
                     type="button"
                     class="btn bg-primary"
                     data-dismiss="modal"
                     @click="Delete"
-                  >Sil</button>
+                  >
+                    Sil
+                  </button>
                 </div>
               </div>
             </div>
@@ -585,7 +636,7 @@ export default {
         password: "",
         username: "",
         port: "",
-        dbname: ""
+        dbname: "",
       },
       SubeList: [],
       UpdateData: [],
@@ -596,192 +647,230 @@ export default {
           Pazartesi: {
             Miktar: 0,
             Gun: "Pazartesi",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Sali: {
             Miktar: 0,
             Gun: "Sali",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Carsamba: {
             Miktar: 0,
             Gun: "Carsamba",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Persembe: {
             Miktar: 0,
             Gun: "Persembe",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Cuma: {
             Miktar: 0,
             Gun: "Cuma",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Cumartesi: {
             Miktar: 0,
             Gun: "Cumartesi",
-            UrunAdi: "CocukKofte"
+            UrunAdi: "CocukKofte",
           },
           Pazar: {
             Miktar: 0,
             Gun: "Pazar",
-            UrunAdi: "CocukKofte"
-          }
+            UrunAdi: "CocukKofte",
+          },
         },
         DoksanGr: {
           SubeId: this.SelectData,
           Pazartesi: {
             Miktar: 0,
             Gun: "Pazartesi",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Sali: {
             Miktar: 0,
             Gun: "Sali",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Carsamba: {
             Miktar: 0,
             Gun: "Carsamba",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Persembe: {
             Miktar: 0,
             Gun: "Persembe",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Cuma: {
             Miktar: 0,
             Gun: "Cuma",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Cumartesi: {
             Miktar: 0,
             Gun: "Cumartesi",
-            UrunAdi: "DoksanGr"
+            UrunAdi: "DoksanGr",
           },
           Pazar: {
             Miktar: 0,
             Gun: "Pazar",
-            UrunAdi: "DoksanGr"
-          }
+            UrunAdi: "DoksanGr",
+          },
         },
         YuzKirkGr: {
           SubeId: this.SelectData,
           Pazartesi: {
             Miktar: 0,
             Gun: "Pazartesi",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Sali: {
             Miktar: 0,
             Gun: "Sali",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Carsamba: {
             Miktar: 0,
             Gun: "Carsamba",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Persembe: {
             Miktar: 0,
             Gun: "Persembe",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Cuma: {
             Miktar: 0,
             Gun: "Cuma",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Cumartesi: {
             Miktar: 0,
             Gun: "Cumartesi",
-            UrunAdi: "YuzKirkGr"
+            UrunAdi: "YuzKirkGr",
           },
           Pazar: {
             Miktar: 0,
             Gun: "Pazar",
-            UrunAdi: "YuzKirkGr"
-          }
+            UrunAdi: "YuzKirkGr",
+          },
         },
-        TavukKofte: {
+        BuyukTavukKofte: {
           SubeId: this.SelectData,
           Pazartesi: {
             Miktar: 0,
             Gun: "Pazartesi",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Sali: {
             Miktar: 0,
             Gun: "Sali",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Carsamba: {
             Miktar: 0,
             Gun: "Carsamba",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Persembe: {
             Miktar: 0,
             Gun: "Persembe",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Cuma: {
             Miktar: 0,
             Gun: "Cuma",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Cumartesi: {
             Miktar: 0,
             Gun: "Cumartesi",
-            UrunAdi: "TavukKofte"
+            UrunAdi: "BuyukTavukKofte",
           },
           Pazar: {
             Miktar: 0,
             Gun: "Pazar",
-            UrunAdi: "TavukKofte"
-          }
+            UrunAdi: "BuyukTavukKofte",
+          },
+        },
+        KucukTavukKofte: {
+          SubeId: this.SelectData,
+          Pazartesi: {
+            Miktar: 0,
+            Gun: "Pazartesi",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Sali: {
+            Miktar: 0,
+            Gun: "Sali",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Carsamba: {
+            Miktar: 0,
+            Gun: "Carsamba",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Persembe: {
+            Miktar: 0,
+            Gun: "Persembe",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Cuma: {
+            Miktar: 0,
+            Gun: "Cuma",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Cumartesi: {
+            Miktar: 0,
+            Gun: "Cumartesi",
+            UrunAdi: "KucukTavukKofte",
+          },
+          Pazar: {
+            Miktar: 0,
+            Gun: "Pazar",
+            UrunAdi: "KucukTavukKofte",
+          },
         },
         TavukFileto: {
           SubeId: this.SelectData,
           Pazartesi: {
             Miktar: 0,
             Gun: "Pazartesi",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Sali: {
             Miktar: 0,
             Gun: "Sali",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Carsamba: {
             Miktar: 0,
             Gun: "Carsamba",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Persembe: {
             Miktar: 0,
             Gun: "Persembe",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Cuma: {
             Miktar: 0,
             Gun: "Cuma",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Cumartesi: {
             Miktar: 0,
             Gun: "Cumartesi",
-            UrunAdi: "TavukFileto"
+            UrunAdi: "TavukFileto",
           },
           Pazar: {
             Miktar: 0,
             Gun: "Pazar",
-            UrunAdi: "TavukFileto"
-          }
-        }
-      }
+            UrunAdi: "TavukFileto",
+          },
+        },
+      },
     };
   },
   async mounted() {
@@ -796,24 +885,28 @@ export default {
       // eslint-disable-next-line no-console
       await Service.save("/SubeIhtiyac", {
         data: this.FormModal.CocukKofte,
-        SubeId: this.SelectData
+        SubeId: this.SelectData,
       });
 
       await Service.save("/SubeIhtiyac", {
         data: this.FormModal.DoksanGr,
-        SubeId: this.SelectData
+        SubeId: this.SelectData,
       });
       await Service.save("/SubeIhtiyac", {
         data: this.FormModal.YuzKirkGr,
-        SubeId: this.SelectData
+        SubeId: this.SelectData,
       });
       await Service.save("/SubeIhtiyac", {
-        data: this.FormModal.TavukKofte,
-        SubeId: this.SelectData
+        data: this.FormModal.BuyukTavukKofte,
+        SubeId: this.SelectData,
+      });
+      await Service.save("/SubeIhtiyac", {
+        data: this.FormModal.KucukTavukKofte,
+        SubeId: this.SelectData,
       });
       await Service.save("/SubeIhtiyac", {
         data: this.FormModal.TavukFileto,
-        SubeId: this.SelectData
+        SubeId: this.SelectData,
       });
     },
     async Get(id, name) {
@@ -843,26 +936,26 @@ export default {
       this.FormModal.YuzKirkGr.Cumartesi.Miktar = 0;
       this.FormModal.YuzKirkGr.Pazar.Miktar = 0;
 
-      this.FormModal.TavukKofte.Pazartesi.Miktar = 0;
-      this.FormModal.TavukKofte.Sali.Miktar = 0;
-      this.FormModal.TavukKofte.Carsamba.Miktar = 0;
-      this.FormModal.TavukKofte.Persembe.Miktar = 0;
-      this.FormModal.TavukKofte.Cuma.Miktar = 0;
-      this.FormModal.TavukKofte.Cumartesi.Miktar = 0;
-      this.FormModal.TavukKofte.Pazar.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Pazartesi.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Sali.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Carsamba.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Persembe.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Cuma.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Cumartesi.Miktar = 0;
+      this.FormModal.KucukTavukKofte.Pazar.Miktar = 0;
 
-      this.FormModal.TavukFileto.Pazartesi.Miktar = 0;
-      this.FormModal.TavukFileto.Sali.Miktar = 0;
-      this.FormModal.TavukFileto.Carsamba.Miktar = 0;
-      this.FormModal.TavukFileto.Persembe.Miktar = 0;
-      this.FormModal.TavukFileto.Cuma.Miktar = 0;
-      this.FormModal.TavukFileto.Cumartesi.Miktar = 0;
-      this.FormModal.TavukFileto.Pazar.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Pazartesi.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Sali.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Carsamba.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Persembe.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Cuma.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Cumartesi.Miktar = 0;
+      this.FormModal.BuyukTavukKofte.Pazar.Miktar = 0;
       //END SIFIRLAMA
 
       this.SelectData = id;
       let result = await Service.get("/SubeIhtiyac", id);
-      result.data.forEach(item => {
+      result.data.forEach((item) => {
         //ÇOCUK KÖFTE GETİR
         if (item.gun === "Pazartesi" && item.urunAdi === "CocukKofte")
           // eslint-disable-next-line no-console
@@ -936,27 +1029,50 @@ export default {
 
         //TAVUK KÖFTE GETİR
 
-        if (item.gun === "Pazartesi" && item.urunAdi === "TavukKofte")
+        if (item.gun === "Pazartesi" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Pazartesi.Miktar = item.miktar;
-        if (item.gun === "Sali" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Pazartesi.Miktar = item.miktar;
+        if (item.gun === "Sali" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Sali.Miktar = item.miktar;
-        if (item.gun === "Carsamba" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Sali.Miktar = item.miktar;
+        if (item.gun === "Carsamba" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Carsamba.Miktar = item.miktar;
-        if (item.gun === "Persembe" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Carsamba.Miktar = item.miktar;
+        if (item.gun === "Persembe" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Persembe.Miktar = item.miktar;
-        if (item.gun === "Cuma" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Persembe.Miktar = item.miktar;
+        if (item.gun === "Cuma" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Cuma.Miktar = item.miktar;
-        if (item.gun === "Cumartesi" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Cuma.Miktar = item.miktar;
+        if (item.gun === "Cumartesi" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Cumartesi.Miktar = item.miktar;
-        if (item.gun === "Pazar" && item.urunAdi === "TavukKofte")
+          this.FormModal.BuyukTavukKofte.Cumartesi.Miktar = item.miktar;
+        if (item.gun === "Pazar" && item.urunAdi === "BuyukTavukKofte")
           // eslint-disable-next-line no-console
-          this.FormModal.TavukKofte.Pazar.Miktar = item.miktar;
+          this.FormModal.BuyukTavukKofte.Pazar.Miktar = item.miktar;
+
+        // kucuk tavuk kofte getir
+        if (item.gun === "Pazartesi" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Pazartesi.Miktar = item.miktar;
+        if (item.gun === "Sali" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Sali.Miktar = item.miktar;
+        if (item.gun === "Carsamba" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Carsamba.Miktar = item.miktar;
+        if (item.gun === "Persembe" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Persembe.Miktar = item.miktar;
+        if (item.gun === "Cuma" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Cuma.Miktar = item.miktar;
+        if (item.gun === "Cumartesi" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Cumartesi.Miktar = item.miktar;
+        if (item.gun === "Pazar" && item.urunAdi === "KucukTavukKofte")
+          // eslint-disable-next-line no-console
+          this.FormModal.KucukTavukKofte.Pazar.Miktar = item.miktar;
 
         //TAVUK FİLETO GETİR
 
@@ -995,7 +1111,7 @@ export default {
       if (result) {
         this.SubeList = result.data;
       }
-    }
-  }
+    },
+  },
 };
 </script>

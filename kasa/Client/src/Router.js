@@ -20,7 +20,7 @@ import RoleService from "./utils/CheckPermission";
 
 //User Home
 import UserHome from "./Pages/Users/Home.vue";
-import SubeKalanUpdate from "./Pages/Uretim/SubeKalanUpdate.vue";
+// import SubeKalanUpdate from "./Pages/Uretim/SubeKalanUpdate.vue";
 
 //kasa
 import KasaDurum from "./Pages/Kasa/Durum.vue";
@@ -304,16 +304,6 @@ export default new Router({
         requiresAuth: true,
       },
     },
-
-    {
-      path: "/Uretim/SubeKalanUpdate",
-      name: "Sube",
-      component: SubeKalanUpdate,
-      meta: {
-        requiresAuth: true,
-      },
-    },
-
     {
       path: "/User/Logout",
       name: "UserLogout",
