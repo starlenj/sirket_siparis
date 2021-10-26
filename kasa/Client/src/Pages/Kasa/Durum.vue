@@ -33,6 +33,7 @@
       </div>
       <div class="content">
         <div class="page has-sidebar-left bg-light height-full">
+          
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a
@@ -1397,7 +1398,7 @@
                   </tbody>
                 </table>
                 <div class="form-group">
-                  <button class="btn btn-primary" @click="ShopReportSave">
+                  <button class="btn btn-primary" @click="ShopReportSave" :disabled="this.isDate">
                     Kaydet
                   </button>
                   <button
@@ -1508,7 +1509,9 @@ export default {
   data() {
     return {
       file1: "",
+      isDate:false,
       model: {
+        tarih : "",
         visa: 0,
         reportRole: true,
         user: [],
@@ -1672,6 +1675,8 @@ export default {
         ticketGunSonu: this.model.ticketGunSonu,
         sodexoGunSonu: this.model.sodexoGunSonu,
         iade: this.model.iade,
+        status:0,
+        
       });
 
       setInterval(() => {
@@ -1724,6 +1729,9 @@ export default {
         // eslint-disable-next-line no-console
         console.log(this.model.masraf.resimBir);
       }
+    },
+    async ChangeDate() {
+      this.isDate= true;
     },
     async iadeResim(event) {
       // eslint-disable-next-line no-console

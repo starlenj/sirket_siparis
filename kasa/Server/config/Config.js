@@ -1,9 +1,9 @@
 module.exports = {
     vegConfig: {
         dbname: 'VEGADB',
-        password: 'vega1234',
+        password: 'Saver1428!.',
         host: '127.0.0.1',
-        port: 1433,
+        port: 1428,
         username: 'sa',
         firmaId: 101,
         donemId: 4,

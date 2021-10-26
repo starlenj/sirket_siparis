@@ -38,31 +38,37 @@ app.use(function (req, res, next) {
 
   next();
 });
-app.use("/api/v1/users", require("./routes/api/User.js"));
-app.use("/api/v1/Users/login", require("./routes/api/Login.js"));
-app.use("/api/v1/users/permission", require("./routes/api/Permission.js"));
+app.use("/api/v1.0.1/users", require("./routes/api/User.js"));
+app.use("/api/v1.0.1/Users/login", require("./routes/api/Login.js"));
+app.use("/api/v1.0.1/users/permission", require("./routes/api/Permission.js"));
 app.use(
-  "/api/v1/users/UserPermission",
+  "/api/v1.0.1/users/UserPermission",
   require("./routes/api/Permission.js")
 );
-app.use("/api/v1/sube", require("./routes/api/Sube.js"));
-app.use("/api/v1/shopReport", require("./routes/api/ShopReport.js"));
+app.use("/api/v1.0.1/sube", require("./routes/api/Sube.js"));
+app.use("/api/v1.0.1/shopReport", require("./routes/api/ShopReport.js"));
 //app start
 app.use(
-  "/api/v1/shopReportView",
+  "/api/v1.0.1/shopReportView",
   require("./routes/api/ShopReportView.js")
 );
-app.use("/api/v1/", require("./routes/api/ListHeader"));
-app.use("/api/v1/", require("./routes/api/ListBody"));
-app.use("/api/v1/", require("./routes/api/SubeResult"));
-app.use("/api/v1/", require("./routes/api/SubeHeader"));
-app.use("/api/v1/", require("./routes/api/OnayHeader"));
-app.use("/api/v1/", require("./routes/api/OnayList"));
-app.use("/api/v1/", require("./routes/api/Onaybody"));
-app.use("/api/v1/", require("./routes/api/Mail"));
-app.use("/api/v1/", require("./routes/api/Stok"));
-app.use("/api/v1/vega", require("./routes/api/Vega"));
-app.use("/api/v1/Zirve", require("./routes/api/Zirve"));
+app.use("/api/v1.0.1/", require("./routes/api/ListHeader"));
+app.use("/api/v1.0.1/", require("./routes/api/ListBody"));
+app.use("/api/v1.0.1/Image", require("./routes/api/Image"));
+
+app.use("/api/v1.0.1/", require("./routes/api/SubeResult"));
+app.use("/api/v1.0.1/", require("./routes/api/SubeHeader"));
+app.use("/api/v1.0.1/", require("./routes/api/OnayHeader"));
+app.use("/api/v1.0.1/", require("./routes/api/OnayList"));
+app.use("/api/v1.0.1/", require("./routes/api/Onaybody"));
+app.use("/api/v1.0.1/", require("./routes/api/Mail"));
+app.use("/api/v1.0.1/", require("./routes/api/Stok"));
+app.use("/api/v1.0.1/Vega", require("./routes/api/Vega"));
+app.use("/api/v1.0.1/Zirve", require("./routes/api/Zirve"));
+app.use("/api/v1.0.1/Sefim", require("./routes/api/Sefim"));
+app.use("/api/v1.0.1/SubeKalan", require("./routes/api/SubeKalan"));
+app.use("/api/v1.0.1/SubeIhtiyac", require("./routes/api/SubeIhtiyac"));
+
 
 // DEFAULT ADMIN USER
 /*

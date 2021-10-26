@@ -30,6 +30,7 @@ module.exports = {
         sinemaBileti,
         yemekSepeti,
         iade,
+        status
       } = req.body;
 
       //ticket valid
@@ -245,6 +246,7 @@ module.exports = {
             avmKuponu,
             sinemaBileti,
             yemekSepeti,
+            status
           },
           {
             new: true,
@@ -277,6 +279,7 @@ module.exports = {
           sinemaBileti,
           sodexoGunSonu,
           ticketGunSonu,
+          status
         });
         const resp = await newData.save();
 

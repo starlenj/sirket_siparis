@@ -442,10 +442,6 @@ export default {
         SubeId: this.UserInfo.subeId,
       });
       await Service.save("/SubeKalan", {
-        data: this.FormModal.TavukKofteKucuk,
-        SubeId: this.UserInfo.subeId,
-      });
-      await Service.save("/SubeKalan", {
         data: this.FormModal.TavukFileto,
         SubeId: this.UserInfo.subeId,
       });

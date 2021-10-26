@@ -1083,7 +1083,10 @@ export default {
         .replace(/ç/gim, "c");
       //ŞUBELER KALAN BAŞLANGIÇ
       //TUNALI KALANLAR
-
+      this.Incek.AksamKalan = await GetAksamKalan(
+        this.Incek.SubeId._id,
+        this.birGünOnceTarih
+      );
       this.Tunali.AksamKalan = await GetAksamKalan(
         this.Tunali.SubeId._id,
         this.birGünOnceTarih
