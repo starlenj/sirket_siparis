@@ -165,6 +165,17 @@
                 >Batıkent</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                id="tunali-tab"
+                data-toggle="tab"
+                href="#tunali"
+                role="tab"
+                aria-controls="tunali"
+                >Tunali</a
+              >
+            </li>
           </ul>
           <div class="tab-content" id="myTabContent">
             <div
@@ -374,6 +385,21 @@
                 </div>
               </div>
             </div>
+            <div
+              class="tab-pane fade show"
+              id="tunali"
+              role="tabpanel"
+              aria-labelledby="tunali-tab"
+            >
+              <div class="content">
+                <div class="card">
+                  <div class="card-body b-b">
+                    <h1>Tunali</h1>
+                    <tunali-kasa v-bind:TunaliData="Tunali" ref="TunaliKasa" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -383,7 +409,6 @@
 
 <script>
 import Service from "../../Service";
-
 import { UrunBazliSatisModel } from "../../Helpers/KasaSubeModel";
 import { GetUrunBazliSatis } from "../../Helpers/ReportTools";
 import BahceliKasa from "../../components/UrunBazliSatis/Bahceli.vue";
@@ -398,6 +423,7 @@ import AdanaKasa from "../../components/UrunBazliSatis/Adana.vue";
 import MersinKasa from "../../components/UrunBazliSatis/Mersin.vue";
 import UmitkoyKasa from "../../components/UrunBazliSatis/Umitkoy.vue";
 import BatikentKasa from "../../components/UrunBazliSatis/Batikent.vue";
+import TunaliKasa from "../../components/UrunBazliSatis/Tunali.vue";
 import xlsx from "xlsx";
 export default {
   components: {
@@ -413,6 +439,7 @@ export default {
     MersinKasa,
     UmitkoyKasa,
     BatikentKasa,
+    TunaliKasa,
   },
   data() {
     return {
@@ -461,6 +488,9 @@ export default {
       Batikent: {
         ...UrunBazliSatisModel,
       },
+      Tunali: {
+        ...UrunBazliSatisModel,
+      },
     };
   },
   methods: {
@@ -494,8 +524,30 @@ export default {
           this.Umitkoy.SubeId = item;
         } else if (item.name === "Batıkent") {
           this.Batikent.SubeId = item;
+        } else if (item.name === "TUNALI") {
+          this.Tunali.SubeId = item;
         }
       });
+        //Tunali KASA REPORT
+      let TunaliUrunBazliSatis = await GetUrunBazliSatis(
+        this.Tunali.SubeId,
+        this.startDate,
+        this.endDate
+      );
+      TunaliUrunBazliSatis = TunaliUrunBazliSatis.sort((a, b) => {
+        if (a.ProductName < b.ProductName) {
+          return -1;
+        }
+        if (a.ProductGroup < b.ProductGroup) {
+          return -1;
+        }
+        if (a.ProductGroup > b.ProductGroup) {
+          return 1;
+        }
+        return 0;
+      });
+      this.Tunali.data = TunaliUrunBazliSatis;
+      this.$emit("TunaliData", this.Tunali);
       //BAHÇELİ KASA REPORT
       let BahceliUrunBazliSatis = await GetUrunBazliSatis(
         this.Bahceli.SubeId,
