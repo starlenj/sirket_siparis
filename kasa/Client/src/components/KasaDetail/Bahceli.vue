@@ -1,6 +1,5 @@
-<template> 
+<template>
   <div class="col-md-12">
-    {{BahceliData}}
     <h2>Visa</h2>
     <table class="table">
       <thead>
@@ -12,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in BahceliData" :key="item._id">
+        <tr v-for="(item, index) in BahceliData.data" :key="item._id">
           <th>{{ item._id | formatDate }}</th>
           <td>{{ item.credit.toFixed(2) }}</td>
           <td>
@@ -47,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData" :key="item._id">
+          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ parseFloat(item.cash).toFixed(2) }}</td>
             <td>
@@ -81,7 +80,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData" :key="item._id">
+          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ item.yemekSepeti }}</td>
             <td>
@@ -125,7 +124,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData" :key="item._id">
+          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <td>{{ item.setCardGunSonu }}</td>
             <td>{{ item.multinetGunSonu }}</td>
@@ -169,7 +168,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(item, index) in BahceliData" :key="item._id">
+          <tr v-for="(item, index) in BahceliData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
               {{
@@ -247,11 +246,6 @@ export default {
     return {
       ...DetailKasa,
     };
-  },
-  async mounted() {
-    this.$on('BahceliData', (data)=>{
-      console.log("Gelen Data", );
-    })
   },
   methods: {
     async GetKasa() {
