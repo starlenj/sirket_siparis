@@ -7,7 +7,8 @@
     "start": "nodemon server.js",
     "server": "nodemon Server.js",
     "client": "npm run serve --prefix ../Client",
-    "dev": "concurrently \"npm run server\" \" npm run client\""
+    "dev": "concurrently \"npm run server\" \" npm run client\"",
+    "migrate" : "npx sequelize-cli db:migrate"
   },
   "author": "nasuh emre atessoy",
   "license": "ISC",
@@ -24,18 +25,24 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "joi": "^17.4.2",
     "jsonwebtoken": "^8.3.0",
     "moment": "^2.24.0",
     "mongoose": "^5.1.7",
     "morgan": "^1.10.0",
     "mssql": "^6.2.3",
     "multer": "^1.4.2",
+    "mysql2": "^2.3.2",
     "node-restful": "^0.2.6",
     "nodemailer": "^6.4.17",
     "path": "^0.12.7",
+    "sequelize": "^6.8.0",
     "util": "^0.11.0",
     "uuid": "^8.3.2",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^4.5.5"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }

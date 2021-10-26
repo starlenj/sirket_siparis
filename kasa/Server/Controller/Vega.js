@@ -1,6 +1,6 @@
 const mssql = require('mssql');
 const response = require('../Helpers/Response')
-const Config = require('../config/Config')
+const Config = require('../config/VegaConfig')
 module.exports = {
     async GetFirmaList(req, res) {
         try {
