@@ -142,16 +142,6 @@
                 >
               </li>
               <li class="nav-item">
-                <a href="/SubeKasaRaporu" v-show="!isAdmin" class="nav-link"
-                  >Kasa Raporu</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/kasaKontrol" class="nav-link" v-show="isAdmin"
-                  >Kasa Kontrol</a
-                >
-              </li>
-              <li class="nav-item">
                 <a href="/kasaRaporu" class="nav-link" v-show="isAdmin"
                   >Kasa Raporu</a
                 >
@@ -159,29 +149,6 @@
             </ul>
           </li>
 
-          <li class="nav-item nav-item-submenu" v-show="isAdmin">
-            <a href="#" class="nav-link">
-              <i class="material-icons">transform</i>
-              <span>Checklist İşlemleri</span>
-            </a>
-            <ul class="nav nav-group-sub" data-submenu-title="Üretim">
-              <li class="nav-item">
-                <a href="/Checklist/Index" class="nav-link" v-show="isAdmin"
-                  >Checklist Tanımları</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/Checklist/Sube" class="nav-link" v-show="isAdmin"
-                  >Yeni Checklist İşlemi</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/Checklist/Report" class="nav-link" v-show="isAdmin"
-                  >Checklist Raporu</a
-                >
-              </li>
-            </ul>
-          </li>
           <li class="nav-item nav-item-submenu" v-show="isAdmin">
             <a href="#" class="nav-link">
               <i class="material-icons">transform</i>
@@ -240,14 +207,6 @@
                 <li class="nav-item">
                   <a href="/Rapor/UrunBazliSatis" class="nav-link"
                     >Urun Bazli Satis</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a href="/Rapor/AlisRaporu" class="nav-link">Stok Raporu</a>
-                </li>
-                <li class="nav-item">
-                  <a href="/Rapor/WebOdeme" class="nav-link"
-                    >Web Odeme Raporu</a
                   >
                 </li>
               </ul>
