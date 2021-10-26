@@ -1,7 +1,6 @@
 const expres = require('express')
 const route = expres.Router()
 const Vega = require('../../Controller/Vega')
-const VegaBelge = require('../../Controller/VegaBelge')
 
 // @router GET  api/Sube
 // @desc Get All Sube

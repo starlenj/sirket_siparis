@@ -46,19 +46,11 @@ app.use(
   require("./routes/api/Permission.js")
 );
 app.use("/api/v1/sube", require("./routes/api/Sube.js"));
-app.use("/api/v1/shopReport", require("./routes/api/ShopReport.js"));
 //app start
 app.use(
   "/api/v1/shopReportView",
   require("./routes/api/ShopReportView.js")
 );
-app.use("/api/v1/", require("./routes/api/ListHeader"));
-app.use("/api/v1/", require("./routes/api/ListBody"));
-app.use("/api/v1/", require("./routes/api/SubeResult"));
-app.use("/api/v1/", require("./routes/api/SubeHeader"));
-app.use("/api/v1/", require("./routes/api/OnayHeader"));
-app.use("/api/v1/", require("./routes/api/OnayList"));
-app.use("/api/v1/", require("./routes/api/Onaybody"));
 app.use("/api/v1/", require("./routes/api/Mail"));
 app.use("/api/v1/", require("./routes/api/Stok"));
 app.use("/api/v1/vega", require("./routes/api/Vega"));
