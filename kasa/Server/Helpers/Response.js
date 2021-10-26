@@ -1,9 +1,10 @@
 const helper = require('./Log')
 const message = require('./Message')
+const log  = require("../config/Winston")
 module.exports = {
 
     async handleError(req, res, response, action, logClass) {
-        helper.newError(logClass, action, response, "USER")
+        log.info(`Error ${action} : ${logClass} , Message : ${response}`);
         res.status(500).send({ success: false, code: 500, msg: response })
     },
     async handleReponse(req, res, response, action) {

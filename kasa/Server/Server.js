@@ -11,6 +11,8 @@ require("dotenv").config();
 const bcrypt = require("bcrypt");
 var cors = require("cors");
 var User = require("./models/User");
+var morgan = require('morgan');
+var winston = require('./config/winston');
 mongo
   .connect(process.env.MONGO_URI)
   .then(() => console.log("Mongo db connected"))
@@ -25,7 +27,7 @@ app.use(cors());
 //bodyparser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(morgan('combined', { stream: winston.stream }));
 //cors
 
 app.use(function (req, res, next) {
@@ -35,9 +37,9 @@ app.use(function (req, res, next) {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-
   next();
 });
+// routes
 app.use("/api/v1/users", require("./routes/api/User.js"));
 app.use("/api/v1/Users/login", require("./routes/api/Login.js"));
 app.use("/api/v1/users/permission", require("./routes/api/Permission.js"));
@@ -71,6 +73,9 @@ bcrypt.hash("emre0209", 10, async (err, hash) => {
   console.log(newData.save());
 });
 */
+
+
+const host = "localhost";
 app.listen(process.env.PORT, () => {
-  console.log("SERVER STARTED", process.env.PORT);
+  console.log(`Server started and running on http://${host}:${process.env.PORT}`)
 });
