@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Yonetim_Users', {
+    await queryInterface.createTable('orderHeaders', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,21 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       sube_id: {
-        type: Sequelize.INTEGER,
-        allowNull : false
-      },
-      password: {
-        allowNull : false,
-        type: Sequelize.STRING
-      },
-      email: {
-        allowNull : false,
-        type: Sequelize.STRING,
-        unique:true 
+        type: Sequelize.INTEGER
       },
       status: {
-        default : true,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER,
+        default: 0,
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +26,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('orderHeaders');
   }
 };

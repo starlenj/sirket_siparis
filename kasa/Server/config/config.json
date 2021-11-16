@@ -3,21 +3,21 @@
     "username": "root",
     "password": "Emre1428!.",
     "database": "yonetim_dev",
-    "host": "127.0.0.1",
+    "host": "172.17.0.2",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "Emre1428!.",
     "database": "yonetim_test",
-    "host": "127.0.0.1",
+    "host": "172.17.0.2",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "Emre1428!.",
     "database": "yonetim_prod",
-    "host": "127.0.0.1",
+    "host": "172.17.0.2",
     "dialect": "mysql"
   }
 }

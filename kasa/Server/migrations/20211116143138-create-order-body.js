@@ -1,29 +1,30 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Yonetim_Users', {
+    await queryInterface.createTable('orderBodies', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      sube_id: {
-        type: Sequelize.INTEGER,
-        allowNull : false
+      header_id: {
+        type: Sequelize.INTEGER
       },
-      password: {
-        allowNull : false,
+      stok_id: {
+        type: Sequelize.INTEGER
+      },
+      quantity: {
+        type: Sequelize.INTEGER
+      },
+      amount: {
+        type: Sequelize.INTEGER
+      },
+      info: {
         type: Sequelize.STRING
       },
-      email: {
-        allowNull : false,
-        type: Sequelize.STRING,
-        unique:true 
-      },
       status: {
-        default : true,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +37,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('orderBodies');
   }
 };

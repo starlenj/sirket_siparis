@@ -10,13 +10,8 @@ require("dotenv").config();
 //connect mongo
 const bcrypt = require("bcrypt");
 var cors = require("cors");
-var User = require("./models/User");
 var morgan = require('morgan');
-var winston = require('./config/winston');
-mongo
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("Mongo db connected"))
-  .catch((err) => console.log(err));
+var winston = require('./config/Winston');
 
 //cookie parser middleware
 app.use(cookieParser());
@@ -40,24 +35,7 @@ app.use(function (req, res, next) {
   next();
 });
 // routes
-app.use("/api/v1/users", require("./routes/api/User.js"));
-app.use("/api/v1/Users/login", require("./routes/api/Login.js"));
-app.use("/api/v1/users/permission", require("./routes/api/Permission.js"));
-app.use(
-  "/api/v1/users/UserPermission",
-  require("./routes/api/Permission.js")
-);
-app.use("/api/v1/sube", require("./routes/api/Sube.js"));
-//app start
-app.use(
-  "/api/v1/shopReportView",
-  require("./routes/api/ShopReportView.js")
-);
-app.use("/api/v1/", require("./routes/api/Mail"));
-app.use("/api/v1/", require("./routes/api/Stok"));
-app.use("/api/v1/vega", require("./routes/api/Vega"));
-app.use("/api/v1/Zirve", require("./routes/api/Zirve"));
-
+app.use("/api/v2/", require("./routes/user-route"))
 // DEFAULT ADMIN USER
 /*
 bcrypt.hash("emre0209", 10, async (err, hash) => {
