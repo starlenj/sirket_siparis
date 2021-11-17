@@ -171,7 +171,7 @@
           <tr v-for="(item, index) in GordionData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+                {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
@@ -190,7 +190,13 @@
                   (parseFloat(item.yemekCeki) -
                     (GordionData.programData[index] === undefined
                       ? 0
-                      : GordionData.programData[index]["YEMEKCEKI"]))
+                      : GordionData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      GordionData.programData[index] === undefined
+                        ? 0
+                        : GordionData.programData[index]["YEMEKSEPETI"]
+                    ))
                 ).toFixed(2)
               }}
             </th>

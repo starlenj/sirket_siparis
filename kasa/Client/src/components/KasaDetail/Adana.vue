@@ -171,7 +171,7 @@
           <tr v-for="(item, index) in AdanaData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+       {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
@@ -190,7 +190,13 @@
                   (parseFloat(item.yemekCeki) -
                     (AdanaData.programData[index] === undefined
                       ? 0
-                      : AdanaData.programData[index]["YEMEKCEKI"]))
+                      : AdanaData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      AdanaData.programData[index] === undefined
+                        ? 0
+                        : AdanaData.programData[index]["YEMEKSEPETI"]
+                    ))
                 ).toFixed(2)
               }}
             </th>

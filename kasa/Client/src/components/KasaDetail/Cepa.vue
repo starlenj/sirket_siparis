@@ -171,7 +171,7 @@
           <tr v-for="(item, index) in CepaData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+                {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
@@ -190,7 +190,13 @@
                   (parseFloat(item.yemekCeki) -
                     (CepaData.programData[index] === undefined
                       ? 0
-                      : CepaData.programData[index]["YEMEKCEKI"]))
+                      : CepaData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      CepaData.programData[index] === undefined
+                        ? 0
+                        : CepaData.programData[index]["YEMEKSEPETI"]
+                    ))
                 ).toFixed(2)
               }}
             </th>

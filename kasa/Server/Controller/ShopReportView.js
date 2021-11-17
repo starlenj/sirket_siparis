@@ -246,7 +246,7 @@ module.exports = {
             avmKuponu,
             sinemaBileti,
             yemekSepeti,
-            status
+            status : status !==null ? status : 1,
           },
           {
             new: true,
@@ -279,8 +279,7 @@ module.exports = {
           sinemaBileti,
           sodexoGunSonu,
           ticketGunSonu,
-          status
-        });
+          status : status !==null ? status : 1,        });
         const resp = await newData.save();
 
         response.handleReponse(req, res, resp, "ShopReport:Create");

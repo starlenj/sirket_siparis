@@ -173,7 +173,7 @@
           <tr v-for="(item, index) in ArmadaData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+                {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
@@ -192,7 +192,13 @@
                   (parseFloat(item.yemekCeki) -
                     (ArmadaData.programData[index] === undefined
                       ? 0
-                      : ArmadaData.programData[index]["YEMEKCEKI"]))
+                      : ArmadaData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      ArmadaData.programData[index] === undefined
+                        ? 0
+                        : ArmadaData.programData[index]["YEMEKSEPETI"]
+                    ))
                 ).toFixed(2)
               }}
             </th>

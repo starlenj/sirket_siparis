@@ -171,7 +171,7 @@
           <tr v-for="(item, index) in AnkamallData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+                 {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
@@ -190,7 +190,13 @@
                   (parseFloat(item.yemekCeki) -
                     (AnkamallData.programData[index] === undefined
                       ? 0
-                      : AnkamallData.programData[index]["YEMEKCEKI"]))
+                      : AnkamallData.programData[index]["YEMEKCEKI"])) +
+                  (parseFloat(item.yemekSepeti) -
+                    parseFloat(
+                      AnkamallData.programData[index] === undefined
+                        ? 0
+                        : AnkamallData.programData[index]["YEMEKSEPETI"]
+                    ))
                 ).toFixed(2)
               }}
             </th>

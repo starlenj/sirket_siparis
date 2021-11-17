@@ -1616,7 +1616,8 @@ export default {
         ticketGunSonu: this.model.ticketGunSonu,
         sodexoGunSonu: this.model.sodexoGunSonu,
         iade: this.model.iade,
-        yemekSepeti: this.model.yemekSepeti
+        yemekSepeti: this.model.yemekSepeti,
+        status : 1
       });
       console.log("KASA KAYIT",response);
     },

@@ -29,7 +29,7 @@ import kasaKontrol from "./Pages/Kasa/KasaKontrol.vue";
 import SubeKasaRaporu from "./Pages/Kasa/SubeKasaRaporu.vue";
 import KasaRaporu from "./Pages/Kasa/KasaRaporu.vue";
 import TestKasa from "./Pages/Kasa/TestKasa.vue";
-
+import TarihliKasa from "./Pages/Kasa/TarihliKasa.vue";
 //CheckList
 import ChecklistIndex from "./Pages/CheckList/checklist.index.vue";
 import ChecklistNew from "./Pages/CheckList/checklist.new.vue";
@@ -56,9 +56,9 @@ export default new Router({
 
   routes: [
     {
-      path: "/Rapor/TestKasa",
-      name: "UrunBazliSatis",
-      component: TestKasa,
+      path: "/Kasa/TarihliKasa",
+      name: "TarihliKasa",
+      component: TarihliKasa,
       meta: {
         requiresAuth: true,
       },

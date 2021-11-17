@@ -136,6 +136,11 @@
                   >Kasa Durumu</a
                 >
               </li>
+                   <li class="nav-item">
+                <a href="/Kasa/TarihliKasa" class="nav-link" 
+                  >Kasa Durumu Tarihli</a
+                >
+              </li>
               <li class="nav-item">
                 <a href="/KasaDurumSubeBazli" v-show="isAdmin" class="nav-link"
                   >Kasa Durum Şube Bazlı</a

@@ -1009,7 +1009,6 @@ export default {
       moment.locale("tr");
       this.GetDate = moment().format("YYYY.MM.DD");
       this.birGünOnceTarih = moment(this.formDate)
-        .add(-1, "days")
         .format("YYYY.MM.DD");
       this.birGünOnceTarihFormat = moment(this.formDate)
         .format("dddd")
@@ -1028,7 +1027,10 @@ export default {
         .replace(/ç/gim, "c");
       //ŞUBELER KALAN BAŞLANGIÇ
       //TUNALI KALANLAR
-
+    this.Incek.AksamKalan = await GetAksamKalan(
+        this.Incek.SubeId._id,
+        this.birGünOnceTarih
+      );
       this.Tunali.AksamKalan = await GetAksamKalan(
         this.Tunali.SubeId._id,
         this.birGünOnceTarih

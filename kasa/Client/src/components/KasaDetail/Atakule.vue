@@ -171,7 +171,7 @@
           <tr v-for="(item, index) in AtakuleData.data" :key="item._id">
             <th>{{ item._id | formatDate }}</th>
             <th>
-              {{
+                 {{
                 (
                   parseFloat(item.iade.tutarBir) +
                   parseFloat(item.iade.tutarIki) +
