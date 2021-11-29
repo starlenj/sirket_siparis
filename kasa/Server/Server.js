@@ -36,6 +36,7 @@ app.use(function (req, res, next) {
 });
 // routes
 app.use("/api/v2/", require("./routes/user-route"))
+app.use("/api/v2/", require("./routes/auth-route"))
 // DEFAULT ADMIN USER
 /*
 bcrypt.hash("emre0209", 10, async (err, hash) => {
