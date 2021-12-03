@@ -121,10 +121,17 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
+<<<<<<< HEAD
 "@angular/animations@~13.0.0":
   version "13.0.2"
   resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-13.0.2.tgz#afa38f32bfa40be94730905e187279e6af69999d"
   integrity sha512-ROR70rM6E13pIJzaYf0Su/ALSoBm5fIMjozey636pAq21TxTy5IfhgaBjv/vflC9psbpaySGw2H5XnwejP0gSw==
+=======
+"@angular/animations@^13.0.3":
+  version "13.0.3"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-13.0.3.tgz#3d93f8ff2afe628aa9f6e27f992a97403ed8b6d2"
+  integrity sha512-wGhUzbf8tOHwNx/8JK3RIUisunayENj1j7aSlm8yrBoawvNdgCQVESyZdtfHxHuScRSpzxSIWdMggZ4G4+DuFg==
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
   dependencies:
     tslib "^2.3.0"
 
@@ -153,7 +160,11 @@
     symbol-observable "4.0.0"
     uuid "8.3.2"
 
+<<<<<<< HEAD
 "@angular/common@~13.0.0":
+=======
+"@angular/common@^13.0.2":
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
   version "13.0.2"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-13.0.2.tgz#794cea4e1e626012e69ca5fc6ddb78d613b8004f"
   integrity sha512-UxWzNAU/o9pP02AYB5MrnIlShirfO631NolmvP0jTSEmym1nAeDOwZIYlkgfcJMHFXFc7DBnE2XOGaTZ8if3kw==
@@ -1363,9 +1374,15 @@
   integrity sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==
 
 "@types/node@*", "@types/node@>=10.0.0":
+<<<<<<< HEAD
   version "16.11.11"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.11.tgz#6ea7342dfb379ea1210835bada87b3c512120234"
   integrity sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==
+=======
+  version "16.11.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.10.tgz#2e3ad0a680d96367103d3e670d41c2fed3da61ae"
+  integrity sha512-3aRnHa1KlOEEhJ6+CvyHKK5vE9BcLGjtUpwvqYLRvYNQKMfabu3BwfJaA/SLW8dxe28LsNDjtHwePTuzn3gmOA==
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
 
 "@types/node@^12.11.1":
   version "12.20.37"
@@ -2554,9 +2571,15 @@ domelementtype@^2.0.1, domelementtype@^2.2.0:
   integrity sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==
 
 domhandler@^4.2.0:
+<<<<<<< HEAD
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.3.0.tgz#16c658c626cf966967e306f966b431f77d4a5626"
   integrity sha512-fC0aXNQXqKSFTr2wDNZDhsEYjCiYsDWl3D01kwt25hm1YIPyDGHvvi3rw+PLqHAl/m71MaiF7d5zvBr0p5UB2g==
+=======
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-4.2.2.tgz#e825d721d19a86b8c201a35264e226c678ee755f"
+  integrity sha512-PzE9aBMsdZO8TK4BnuJwH0QT41wgMbRzuZrHUcpYncEjmQazq8QEaBWgLG7ZyC/DAZKEgglpIA6j4Qn/HmxS3w==
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
   dependencies:
     domelementtype "^2.2.0"
 
@@ -3682,9 +3705,15 @@ jasmine-core@^3.6.0, jasmine-core@~3.10.0:
   integrity sha512-ooZWSDVAdh79Rrj4/nnfklL3NQVra0BcuhcuWoAwwi+znLDoUeH87AFfeX8s+YeYi6xlv5nveRyaA1v7CintfA==
 
 jest-worker@^27.0.6:
+<<<<<<< HEAD
   version "27.4.2"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-27.4.2.tgz#0fb123d50955af1a450267787f340a1bf7e12bc4"
   integrity sha512-0QMy/zPovLfUPyHuOuuU4E+kGACXXE84nRnq6lBVI9GJg5DCBiA97SATi+ZP8CpiJwEQy1oCPjRBf8AnLjN+Ag==
+=======
+  version "27.4.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-27.4.0.tgz#fa10dddc611cbb47a4153543dd16a0c7e7fd745c"
+  integrity sha512-4WuKcUxtzxBoKOUFbt1MtTY9fJwPVD4aN/4Cgxee7OLetPZn5as2bjfZz98XSf2Zq1JFfhqPZpS+43BmWXKgCA==
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -4221,6 +4250,16 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
+<<<<<<< HEAD
+=======
+ngx-toastr@^14.2.1:
+  version "14.2.1"
+  resolved "https://registry.yarnpkg.com/ngx-toastr/-/ngx-toastr-14.2.1.tgz#2899cc6e69af607aa89a2de807c32b46fdc035f8"
+  integrity sha512-1Kq//y8tTgglUYKHIziZwpo4R7fe4/neidcxfbAXzXtcViSjT4Z21Vgqn/inoBlwoc7E9qXQDuZoJr2lanCgGA==
+  dependencies:
+    tslib "^2.3.0"
+
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
 nice-napi@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nice-napi/-/nice-napi-1.0.2.tgz#dc0ab5a1eac20ce548802fc5686eaa6bc654927b"
@@ -6269,11 +6308,14 @@ yargs-parser@^20.2.2:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
+<<<<<<< HEAD
 yargs-parser@^21.0.0:
   version "21.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.0.tgz#a485d3966be4317426dd56bdb6a30131b281dc55"
   integrity sha512-z9kApYUOCwoeZ78rfRYYWdiU/iNL6mwwYlkkZfJoyMR1xps+NEBX5X7XmRpxkZHhXJ6+Ey00IwKxBBSW9FIjyA==
 
+=======
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
 yargs@^16.1.1:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
@@ -6288,17 +6330,29 @@ yargs@^16.1.1:
     yargs-parser "^20.2.2"
 
 yargs@^17.2.1:
+<<<<<<< HEAD
   version "17.3.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.3.0.tgz#295c4ffd0eef148ef3e48f7a2e0f58d0e4f26b1c"
   integrity sha512-GQl1pWyDoGptFPJx9b9L6kmR33TGusZvXIZUT+BOz9f7X2L94oeAskFYLEg/FkhV06zZPBYLvLZRWeYId29lew==
+=======
+  version "17.2.1"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.2.1.tgz#e2c95b9796a0e1f7f3bf4427863b42e0418191ea"
+  integrity sha512-XfR8du6ua4K6uLGm5S6fA+FIJom/MdJcFNVY8geLlp2v8GYbOXD4EB1tPNZsRn4vBzKGMgb5DRZMeWuFc2GO8Q==
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
     get-caller-file "^2.0.5"
     require-directory "^2.1.1"
+<<<<<<< HEAD
     string-width "^4.2.3"
     y18n "^5.0.5"
     yargs-parser "^21.0.0"
+=======
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
+>>>>>>> bce727243d4c63c48d373ab121a2ee80bff49946
 
 yocto-queue@^0.1.0:
   version "0.1.0"
