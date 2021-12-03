@@ -24,4 +24,17 @@ export class AuthService {
     return jwt; 
   }
 
+  async validToken(token: string): Promise<any> {
+    try {
+      if (!token) {
+        throw new UnauthorizedException("Token invalid");
+      }
+      const valid: Promise<any> = await this.jwService.verifyAsync(token);
+      return valid;
+    } catch (error) {
+      throw new UnauthorizedException("Token invalid");
+    }
+    
+  }
+
 }

@@ -16,11 +16,11 @@ import { TransformInterceptor } from './utils/transform.interceptors';
   imports: [
     TypeOrmModule.forRoot({
       type: "mysql",
-      host: "172.17.0.2",
+      host: "127.0.0.1",
       port: 3306,
       username: "root",
-      password: "Emre1428!.",
-      database: "yonetim_dev",
+      password: "emre0209",
+      database: "yonetim_db",
       synchronize: true,
       autoLoadEntities: true
     }),

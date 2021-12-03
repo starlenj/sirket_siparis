@@ -4,12 +4,14 @@ import { map } from 'rxjs/operators';
 
 export interface Response<T> {
   data: T;
+  success: boolean;
+  timestamp: number
 }
 
 @Injectable()
 export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> {
   intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
-    return next.handle().pipe(map(data => ({ data })));
+    return next.handle().pipe(map(data => ({ data, success: true , timestamp: Date.now() })));
   }
 }
 

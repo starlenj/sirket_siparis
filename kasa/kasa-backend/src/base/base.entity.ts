@@ -10,9 +10,9 @@ export class OrderBaseEntity {
   @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
   updated_at: string;
 
-  @Column()
+  @Column({ default : null})
   created_by: string;
 
-  @Column()
+  @Column({default : null })
   updated_by: string;
 }
