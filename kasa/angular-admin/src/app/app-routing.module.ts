@@ -21,6 +21,16 @@ const routes: Routes = [
         loadChildren: () => import("../app/stok/stok.module").then(m => m.StokModule)
       }
     ]
+  },
+  {
+    path : "",
+    canActivate :[AuthGuard],
+    children: [
+      {
+        path :"home",
+        loadChildren: () => import("../app/home-page/home-page.module").then(m => m.HomePageModule)
+      }
+    ]
   }
 ];
 
