@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import {BreakpointObserver } from "@angular/cdk/layout";
 @Component({
   selector: 'app-app-header',
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.css']
 })
-export class AppHeaderComponent implements OnInit {
+export class AppHeaderComponent{
 
-  constructor() { }
+   @ViewChild(MatSidenav) sideNav! : MatSidenav;
 
-  ngOnInit(): void {
-  }
+   constructor(private observer: BreakpointObserver ){}
+
+   ngAfterViewInit() {
+   }
 
 }

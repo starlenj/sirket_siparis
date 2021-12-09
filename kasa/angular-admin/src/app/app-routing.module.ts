@@ -27,6 +27,16 @@ const routes: Routes = [
     canActivate :[AuthGuard],
     children: [
       {
+        path :"siparis",
+        loadChildren: () => import("../app/siparis/siparis.module").then(m => m.SiparisModule)
+      }
+    ]
+  },
+  {
+    path : "",
+    canActivate :[AuthGuard],
+    children: [
+      {
         path :"home",
         loadChildren: () => import("../app/home-page/home-page.module").then(m => m.HomePageModule)
       }
@@ -35,7 +45,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: "enabled"})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

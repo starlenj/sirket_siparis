@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StokComponent } from './stok.component';
-
+import { RouterModule } from '@angular/router';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -9,7 +10,9 @@ import { StokComponent } from './stok.component';
     StokComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([{ path: "", component: StokComponent }]),
+    AgGridModule.withComponents([])
   ]
 })
 export class StokModule { }

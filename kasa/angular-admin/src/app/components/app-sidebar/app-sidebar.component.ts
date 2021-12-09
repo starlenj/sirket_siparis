@@ -10,6 +10,7 @@ export class AppSidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

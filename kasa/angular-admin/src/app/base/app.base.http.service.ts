@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { observable, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -42,7 +43,7 @@ export class AppBaseHttpService {
   /** body of http request */
   body?: string;
 
-  constructor(private http: HttpClient, private toastService: ToastrService) { }
+  constructor(private http: HttpClient, private toastService: ToastrService, private router: Router) { }
   /**  base http get class */
   public getRequest(url: AppUrl): Observable<AppHttpResponse> {
     return new Observable(observable => {
@@ -63,6 +64,10 @@ export class AppBaseHttpService {
         }, (error) => {
           this.toastService.error(error.error?.message);
           observable.error(error)
+          if (error.status === 401) {
+            this.router.navigate(["auth"]);
+          }
+          observable.complete();
         });
 
     });
@@ -88,6 +93,10 @@ export class AppBaseHttpService {
       }, (error) => {
         this.toastService.error(error.error?.message);
         observable.error(error)
+          if (error.status === 401) {
+            this.router.navigate(["auth"]);
+          }
+        observable.complete();
       });
     });
   }

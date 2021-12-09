@@ -1,1 +1,39 @@
-<router-outlet></router-outlet>
+<div *ngIf="userLoggedIn">
+<mat-toolbar >
+  <button mat-icon-button *ngIf="sideNav.mode === 'over'" (click)="sideNav.toggle()">
+    <mat-icon *ngIf="!sideNav.opened">menu</mat-icon>
+    <mat-icon *ngIf="sideNav.opened">close</mat-icon>
+  </button>
+  Sirket Yonetim Paneli
+</mat-toolbar>
+<mat-sidenav-container >
+  <mat-sidenav #sideNav>
+    <img  alt="" class="avatar mat-elevati-z4" src="../assets/images/user-icon.png"/>
+    <h4 class="name"> kullanici adi</h4>
+    <p class="designation">sube adi</p>
+    <mat-divider></mat-divider>
+    <button mat-button  class="menu-button" (click) = "routeNav('siparis')">
+        <mat-icon>article</mat-icon>
+        <span>Merkez Talep</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button  class="menu-button" (click) = "routeNav('stok')">
+        <mat-icon>article</mat-icon>
+        <span>Stok Yonetimi</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button  class="menu-button">
+        <mat-icon>logout</mat-icon>
+        <span>Cikis Yap</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+     <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+<div class="content mat-elevation-z4">
+     <router-outlet></router-outlet>
+</div>
