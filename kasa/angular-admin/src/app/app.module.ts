@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    ComponentsModule,
   ],
   providers: [
     AuthGuard,
