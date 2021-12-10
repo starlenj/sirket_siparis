@@ -15,6 +15,7 @@ import { AppLoginService } from '../service/app.login.service';
 })
 export class AuthComponent implements OnInit {
 
+  hide: boolean = true;
   loginForm!: FormGroup;
   constructor(private loginService: AppLoginService, private toastService: ToastrService, private fb: FormBuilder, private router: Router  ) { }
 

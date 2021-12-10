@@ -9,11 +9,6 @@ import { ComponentsModule } from './components/components.module';
 import { AppLoginService } from './service/app.login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,13 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatIconModule,
-    MatButtonModule,
     ToastrModule.forRoot(),
-
   ],
   providers: [
     AuthGuard,
