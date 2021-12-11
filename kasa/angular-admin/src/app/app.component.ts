@@ -7,10 +7,7 @@ import { AppLoginService } from './service/app.login.service';
 })
 export class AppComponent {
   userLoggedIn: boolean = false;
-
-
   constructor(private loginService: AppLoginService) { }
-
   ngAfterViewInit() {
     this.loginService.checkToken().subscribe((response) => {
       response.data.id !== undefined ? this.userLoggedIn = true : false;
