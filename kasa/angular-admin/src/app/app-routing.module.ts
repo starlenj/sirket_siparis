@@ -27,6 +27,26 @@ const routes: Routes = [
     canActivate :[AuthGuard],
     children: [
       {
+        path :"form",
+        loadChildren: () => import("../app/form-config/form-config.module").then(m => m.FormConfigModule)
+      }
+    ]
+  },
+  {
+    path : "",
+    canActivate :[AuthGuard],
+    children: [
+      {
+        path :"grid",
+        loadChildren: () => import("../app/grid-config/grid-config.module").then(m => m.GridConfigModule)
+      }
+    ]
+  },
+  {
+    path : "",
+    canActivate :[AuthGuard],
+    children: [
+      {
         path :"sube",
         loadChildren: () => import("../app/sube/sube.module").then(m => m.SubeModule)
       }

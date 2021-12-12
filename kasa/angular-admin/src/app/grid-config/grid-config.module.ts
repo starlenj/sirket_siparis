@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridConfigComponent } from './grid-config.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -9,7 +10,8 @@ import { GridConfigComponent } from './grid-config.component';
     GridConfigComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild([{ path: "", component: GridConfigComponent }]),
   ]
 })
 export class GridConfigModule { }
