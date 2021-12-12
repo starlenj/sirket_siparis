@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormConfigComponent } from './form-config.component';
+import { GridConfigComponent } from './grid-config.component';
 
 
 
 @NgModule({
   declarations: [
-    FormConfigComponent
+    GridConfigComponent
   ],
   imports: [
     CommonModule
   ]
 })
-export class FormConfigModule { }
+export class GridConfigModule { }
