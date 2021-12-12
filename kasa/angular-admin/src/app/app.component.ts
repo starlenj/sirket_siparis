@@ -5,10 +5,10 @@ import { AppLoginService } from './service/app.login.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   userLoggedIn: boolean = false;
   constructor(private loginService: AppLoginService) { }
-  ngAfterViewInit() {
+  ngOnInit(): void {
     this.loginService.checkToken().subscribe((response) => {
       response.data.id !== undefined ? this.userLoggedIn = true : false;
     })

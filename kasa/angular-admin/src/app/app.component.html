@@ -1,4 +1,4 @@
-<div >
+ <div *ngIf="userLoggedIn">
   <!-- Site wrapper -->
 <div class="wrapper">
     <app-app-header></app-app-header>
@@ -7,9 +7,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
-    <section class="content">
      <router-outlet></router-outlet>
-    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->

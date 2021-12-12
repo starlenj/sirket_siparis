@@ -27,6 +27,16 @@ const routes: Routes = [
     canActivate :[AuthGuard],
     children: [
       {
+        path :"sube",
+        loadChildren: () => import("../app/sube/sube.module").then(m => m.SubeModule)
+      }
+    ]
+  },
+  {
+    path : "",
+    canActivate :[AuthGuard],
+    children: [
+      {
         path :"siparis",
         loadChildren: () => import("../app/siparis/siparis.module").then(m => m.SiparisModule)
       }

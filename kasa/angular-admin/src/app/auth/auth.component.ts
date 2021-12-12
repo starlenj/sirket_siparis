@@ -17,7 +17,7 @@ export class AuthComponent implements OnInit {
 
   hide: boolean = true;
   loginForm!: FormGroup;
-  constructor(private loginService: AppLoginService, private toastService: ToastrService, private fb: FormBuilder, private router: Router  ) { }
+  constructor(private loginService: AppLoginService, private toastService: ToastrService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -38,7 +38,11 @@ export class AuthComponent implements OnInit {
         if (response.success) {
           this.loginService.setLocalStorage(AppConfig.AUTH_TOKEN, response.data);
           this.toastService.success("Kullanici Girisi Basarili", "Yonlendiriliyorsunuz...");
-          setTimeout(() => { this.router.navigate(["/home"])},3000)
+          setTimeout(() => {
+            this.router.navigateByUrl("/home").then(() => {
+              window.location.reload();
+            });
+          }, 3000)
         }
       });
     } catch (error) {
