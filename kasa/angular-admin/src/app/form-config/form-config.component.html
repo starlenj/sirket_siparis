@@ -1,1 +1,51 @@
-<p>form-config works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-12">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Form Listesi</h3>
+        </div>
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Form Adi</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Form Adi"
+                formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Method</label>
+              <select class="form-control" formControlName="method">
+                <option value="new">New</option>
+                <option value="edit">Edit</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Form Turu</label>
+              <select class="form-control" formControlName="fields">
+                <option value="new">Text</option>
+                <option value="edit">Number</option>
+                <option value="email">Email</option>
+                <option value="password">Password</option>
+                <option value="select">Select</option>
+              </select>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Form Listesi</h3>
+        </div>
+        <ag-grid-angular style="width: 500px; height: 150px;" class="ag-theme-alpine" [rowData]="rowData"
+          [columnDefs]="columnDefs">
+        </ag-grid-angular>
+      </div>
+    </div>
+  </div>
+</div>

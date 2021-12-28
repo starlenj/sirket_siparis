@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppLoginService } from './service/app.login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormService } from './service/app.form.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     AuthGuard,
     AppLoginService,
+    FormService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: AppInterceptor,
