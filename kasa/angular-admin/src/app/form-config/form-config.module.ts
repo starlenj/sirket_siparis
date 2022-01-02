@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormConfigComponent } from './form-config.component';
 import { RouterModule } from '@angular/router';
-import { FormService } from '../service/app.form.service';
+import { AppFormService } from '../service/app.form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 
@@ -18,6 +18,6 @@ import { AgGridModule } from 'ag-grid-angular';
     AgGridModule.withComponents([]),
     RouterModule.forChild([{ path: "", component: FormConfigComponent }]),
   ],
-  providers: [FormService]
+  providers: [AppFormService]
 })
 export class FormConfigModule { }

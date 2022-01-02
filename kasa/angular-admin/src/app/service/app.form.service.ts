@@ -6,11 +6,12 @@ import { AppBaseService } from "../base/service/app.base.service";
 import { AppFormModel } from "../model/form.model";
 
 @Injectable()
-export class FormService extends AppBaseService {
+export class AppFormService extends AppBaseService {
   public create(FormData: AppFormModel): Observable<AppHttpResponse> {
     return this.postRequest(AppUrl.CREATE_FORM_WS, FormData);
   }
-  public getData(): Observable<AppHttpResponse> {
-    return this.getRequest(AppUrl.CREATE_FORM_WS);
+  public getData(name: string): Observable<AppHttpResponse> {
+    return this.getRequest(AppUrl.CREATE_FORM_WS, name);
    }
+
 }

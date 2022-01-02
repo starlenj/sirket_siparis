@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   constructor(private loginService: AppLoginService) { }
   ngOnInit(): void {
     this.loginService.checkToken().subscribe((response) => {
+      this.loginService.log(`Loggedin User True`, response);
       response.data.id !== undefined ? this.userLoggedIn = true : false;
     })
   }

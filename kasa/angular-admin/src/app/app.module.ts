@@ -9,7 +9,8 @@ import { ComponentsModule } from './components/components.module';
 import { AppLoginService } from './service/app.login.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormService } from './service/app.form.service';
+import { AppFormService } from './service/app.form.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FormService } from './service/app.form.service';
   providers: [
     AuthGuard,
     AppLoginService,
-    FormService,
+    AppFormService,
     {
     provide: HTTP_INTERCEPTORS,
     useClass: AppInterceptor,

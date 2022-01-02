@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppConfig } from '../base/enum/app.config.enum';
 import { AppBaseService } from '../base/service/app.base.service';
+import { JsonFormData } from '../components/json-form/json-form.component';
 import { AuthModel } from '../model/auth.model';
+import { AppFormService } from '../service/app.form.service';
 import { AppLoginService } from '../service/app.login.service';
 
 
@@ -17,10 +19,15 @@ export class AuthComponent implements OnInit {
 
   hide: boolean = true;
   loginForm!: FormGroup;
-  constructor(private loginService: AppLoginService, private toastService: ToastrService, private fb: FormBuilder, private router: Router) { }
+  formData!: JsonFormData;
+  constructor(private formService: AppFormService, private loginService: AppLoginService, private toastService: ToastrService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
-    this.initializeForm();
+    // this.initializeForm();
+    this.formService.getData("user-login-form").subscribe((response)=> {
+      this.formData = response.data;
+    });
+
   }
 
   initializeForm(): void {

@@ -11,8 +11,8 @@ export class AppBaseService  {
 
     constructor(private appService: AppBaseHttpService) {}
 
-    public getRequest(url: AppUrl): Observable<AppHttpResponse>{
-       return this.appService.getRequest(url);
+    public getRequest(url: AppUrl, params?: string): Observable<AppHttpResponse>{
+       return this.appService.getRequest(url, `?id=${params}`);
     }
     public postRequest(url: AppUrl, data: any): Observable<AppHttpResponse> {
       return this.appService.postRequest(url, data);

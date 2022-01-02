@@ -4,6 +4,8 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BaseComponent } from '../base/component/base.component';
+import { ButtonEditComponent } from './ag-grid/button-edit/button-edit.component';
+import { JsonFormComponent } from './json-form/json-form.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -11,11 +13,15 @@ import { BaseComponent } from '../base/component/base.component';
   ],
   declarations: [
     AppHeaderComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    ButtonEditComponent,
+    JsonFormComponent
   ],
   exports: [
     AppHeaderComponent,
     AppSidebarComponent,
+    JsonFormComponent,
+    ButtonEditComponent,
   ],
   providers: [BaseComponent]
 })

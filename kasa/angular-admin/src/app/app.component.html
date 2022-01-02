@@ -1,9 +1,9 @@
- <div *ngIf="userLoggedIn">
+ <div >
   <!-- Site wrapper -->
 <div class="wrapper">
-    <app-app-header></app-app-header>
+    <app-app-header *ngIf="userLoggedIn"></app-app-header>
   <!-- Main Sidebar Container -->
-  <app-app-sidebar ></app-app-sidebar>
+  <app-app-sidebar *ngIf="userLoggedIn"></app-app-sidebar>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
@@ -26,7 +26,4 @@
   <!-- /.control-sidebar -->
 </div>
 
-</div>
-<div class="content-wrapper" *ngIf="!userLoggedIn">
-     <router-outlet></router-outlet>
 </div>

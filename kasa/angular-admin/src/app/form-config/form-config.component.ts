@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ColDef } from 'ag-grid-community';
 import { ToastrService } from 'ngx-toastr';
 import { BaseComponent } from '../base/component/base.component';
+import { ButtonEditComponent } from '../components/ag-grid/button-edit/button-edit.component';
 import { AppFormModel } from '../model/form.model';
-import { FormService } from '../service/app.form.service';
+import { AppFormService } from '../service/app.form.service';
 
 @Component({
   selector: 'app-form-config',
@@ -12,16 +13,27 @@ import { FormService } from '../service/app.form.service';
   styleUrls: ['./form-config.component.css']
 })
 export class FormConfigComponent implements OnInit {
-
+  frameworkComponents!: { btnCellRenderer: typeof ButtonEditComponent; };
   createForm!: FormGroup;
   rowData = [];
 
-  constructor(private formService: FormService, private fb: FormBuilder, private toastService: ToastrService) { }
+  constructor(private formService: AppFormService, private fb: FormBuilder, private toastService: ToastrService) { }
   columnDefs: ColDef[] = [
     { field: 'name' },
     { field: 'method' },
-    { field: 'fields' }
+    { field: 'fields' },
+    {
+      field: "atheros",
+      cellRenderer: "btnCellRenderer",
+      cellRendererParams: {
+        clicked: function(field: any) {
+          alert(`${field} was clicked`);
+        }
+      },
+      minWidth: 150
+    },
   ];
+
 
 
   ngOnInit(): void {
@@ -30,9 +42,10 @@ export class FormConfigComponent implements OnInit {
       method: ["", Validators.required],
       fields: ["", Validators.required]
     });
-    this.formService.getData().subscribe((response) =>{
-        this.formService.log("Form Data", response);
-    });
+    this.frameworkComponents = {
+      btnCellRenderer: ButtonEditComponent
+    };
+
   }
   onSubmit() {
     let model: AppFormModel = new AppFormModel();

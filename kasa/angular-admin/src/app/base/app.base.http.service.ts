@@ -45,9 +45,9 @@ export class AppBaseHttpService {
 
   constructor(private http: HttpClient, private toastService: ToastrService, private router: Router) { }
   /**  base http get class */
-  public getRequest(url: AppUrl): Observable<AppHttpResponse> {
+  public getRequest(url: AppUrl, params? : string): Observable<AppHttpResponse> {
     return new Observable(observable => {
-      this.http.get<AppHttpResponse>(`${environment.BASE_URL}${url.toString()}`)
+      this.http.get<AppHttpResponse>(`${environment.BASE_URL}${url.toString()}/${params}`, )
         .subscribe((response) => {
           if (!response.success) {
             if (response.message) {
